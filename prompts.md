@@ -18,9 +18,50 @@ Puedes añadir adicionalmente la conversación completa como link o archivo adju
 
 **Prompt 1:**
 
+Genera un fichero .md descargable con los requisitos detallados del producto: Organizador de conocimiento (tipo Notion simplificado)”: 
+💡 Concepto
+Un sistema minimalista para guardar:
+
+notas
+links
+ideas
+
+🧩 MVP
+
+CRUD notas
+tags
+búsqueda simple
+
+🚀 Escalado
+
+backlinks
+grafo de conocimiento
+plugins
+
+🧠 Buenas prácticas
+
+arquitectura limpia
+extensibilidad
+
 **Prompt 2:**
 
+Utiliza el agente `.cursor/agents/agent_prd.m` (PRD Generator — Senior Product Manager) para generar el documento de producto a partir de los requisitos y la plantilla indicados en su sección EXECUTION:
+
+- **Requisitos:** `docs/01-context/requisitos_organizador_conocimiento.md`
+- **Plantilla:** `docs/01-context/prd_template.md`
+- **Salida:** `02-docs_generados/prd_v1.md`
+
+Instrucciones al agente: seguir la plantilla exactamente, rellenar todas las secciones sin placeholders, priorizar el MVP, separar alcance futuro (backlinks, grafo, plugins), definir requisitos testables y métricas medibles.
+
 **Prompt 3:**
+
+Utiliza el agente `.cursor/agents/agent_user_story_mapping.m` para generar el User Story Map a partir del PRD:
+
+- **Input:** `docs/02-docs_generados/prd_v1.md`
+- **Plantilla:** `docs/01-context/user_stoy_mapping_template.md`
+- **Salida:** `docs/02-docs_generados/user_story_mapping_v1.md`
+
+Instrucciones: backbone del viaje de usuario, historias INVEST (Como/quiero/para), slices MVP/V1/V2+, sin mezclar alcance futuro en MVP.
 
 ---
 
@@ -29,6 +70,14 @@ Puedes añadir adicionalmente la conversación completa como link o archivo adju
 ### **2.1. Diagrama de arquitectura:**
 
 **Prompt 1:**
+
+Ejecuta el agente `.cursor/agents/agent_architect.m` (Software Architect) para generar la arquitectura técnica:
+
+- **Input:** `docs/02-docs_generados/prd_v1.md`
+- **Plantilla:** `docs/01-context/architecture_template.md`
+- **Salida:** `docs/02-docs_generados/architecture_v1.md`
+
+Instrucciones: monolito modular en capas, stack explícito (React + Express + PostgreSQL + Prisma), API REST `/api/v1`, diagramas C4 Mermaid, trade-offs documentados, sin microservicios en MVP.
 
 **Prompt 2:**
 
@@ -80,6 +129,15 @@ Puedes añadir adicionalmente la conversación completa como link o archivo adju
 
 **Prompt 1:**
 
+Ejecuta el agente `.cursor/agents/agent_data_model.m` (Data Model Generator) a partir de la arquitectura:
+
+- **Input:** `docs/02-docs_generados/architecture_v1.md`
+- **Input opcional:** `docs/02-docs_generados/prd_v1.md`
+- **Plantilla:** `docs/01-context/data_model_template.md`
+- **Salida:** `docs/02-docs_generados/data_model_v1.md`
+
+Instrucciones: diagrama ER Mermaid con PK/FK/UK, catálogo de entidades con tipos SQL y restricciones, esquema Prisma, DDL SQL, índices para RNF-002, mapeo snake_case → camelCase en DTOs, entidades futuras solo en sección de evolución.
+
 **Prompt 2:**
 
 **Prompt 3:**
@@ -100,6 +158,8 @@ Puedes añadir adicionalmente la conversación completa como link o archivo adju
 
 **Prompt 1:**
 
+Ver **Prompt 3** de la sección 1 (agente `agent_user_story_mapping.m`). El mapa generado en `docs/02-docs_generados/user_story_mapping_v1.md` contiene 17 historias INVEST priorizadas en MVP/V1/V2+, alineadas con el backbone acceder → capturar → organizar → recuperar → mantener.
+
 **Prompt 2:**
 
 **Prompt 3:**
@@ -109,6 +169,14 @@ Puedes añadir adicionalmente la conversación completa como link o archivo adju
 ### 6. Tickets de Trabajo
 
 **Prompt 1:**
+
+Utiliza el agente `.cursor/agents/agent_roadmap.m` para convertir el User Story Map en roadmap con épicas, historias y tasks:
+
+- **Input:** `docs/02-docs_generados/user_story_mapping_v1.md`
+- **Plantilla:** `docs/context/roadmap_template.md`
+- **Salida:** `docs/02-docs_generados/roadmap_v1.md` + `docs/02-docs_generados/roadmap_jira_import_v1.csv`
+
+Instrucciones: jerarquía Epic → Story → Task, release en cada ítem (MVP/V1/V2+), checklist INVEST, criterios Gherkin por historia, CSV importable en Jira.
 
 **Prompt 2:**
 
