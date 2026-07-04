@@ -4,8 +4,22 @@ One-time bootstrap for spec-driven development in this repository.
 
 ## Prerequisites
 
-- Node.js **20.19.0+**
+- Node.js **20.19.0+** (includes `npm`)
 - npm
+
+### Si `npm: command not found`
+
+Node.js no está instalado o no está en el `PATH`. En macOS con Homebrew:
+
+```bash
+brew install node
+node -v   # debe mostrar v20+
+npm -v
+```
+
+Cierra y abre la terminal (o reinicia Cursor) tras instalar. Los binarios quedan en `/opt/homebrew/bin/`.
+
+Alternativa: instalador LTS desde [nodejs.org](https://nodejs.org/).
 
 ## 1. Install OpenSpec CLI
 
@@ -28,6 +42,15 @@ This repo already contains:
 - `AGENTS.md` — agent entry point
 
 `openspec init` adds Cursor slash commands (`/opsx:*`) without overwriting a customized `config.yaml`.
+
+**Este repositorio ya ejecutó** (tras instalar Node):
+
+```bash
+openspec init --tools cursor --force
+openspec update
+```
+
+Archivos generados en `.cursor/commands/` y `.cursor/skills/openspec-*/` — versionar en git.
 
 ## 3. Optional: expanded workflow profile
 
