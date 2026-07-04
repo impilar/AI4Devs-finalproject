@@ -7,3 +7,4 @@ Artefactos vivos versionados.
 | PRD | [prd/](prd/) |
 | User Story Map | [user-story-map/](user-story-map/) |
 | Roadmap + exports Jira | [roadmap/](roadmap/) |
+| User stories + estado | [user-stories/](user-stories/) |

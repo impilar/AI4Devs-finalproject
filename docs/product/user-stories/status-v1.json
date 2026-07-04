@@ -1,0 +1,264 @@
+{
+  "version": "1.0",
+  "source": "docs/product/roadmap/exports/roadmap-jira-import-v1.csv",
+  "last_updated": "2026-07-04",
+  "status_values": [
+    "backlog",
+    "in_progress",
+    "done",
+    "cancelled"
+  ],
+  "epics": {
+    "EPIC-001": {
+      "title": "Acceder y navegar",
+      "release": "MVP",
+      "status": "backlog"
+    },
+    "EPIC-002": {
+      "title": "Capturar contenido",
+      "release": "MVP",
+      "status": "backlog"
+    },
+    "EPIC-003": {
+      "title": "Organizar con etiquetas",
+      "release": "MVP",
+      "status": "backlog"
+    },
+    "EPIC-004": {
+      "title": "Recuperar información",
+      "release": "MVP",
+      "status": "backlog"
+    },
+    "EPIC-005": {
+      "title": "Mantener el conocimiento",
+      "release": "MVP",
+      "status": "backlog"
+    }
+  },
+  "stories": {
+    "US-001": {
+      "title": "Ver listado de todas mis notas",
+      "epic": "EPIC-001",
+      "release": "MVP",
+      "status": "backlog",
+      "enriched": true,
+      "enriched_at": "2026-07-04",
+      "tasks": {
+        "TASK-001": "backlog",
+        "TASK-002": "backlog",
+        "TASK-003": "backlog",
+        "TASK-004": "backlog"
+      }
+    },
+    "US-002": {
+      "title": "Abrir detalle de una nota desde el listado",
+      "epic": "EPIC-001",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-005": "backlog",
+        "TASK-006": "backlog",
+        "TASK-007": "backlog",
+        "TASK-008": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-003": {
+      "title": "Estado vacío cuando no hay notas",
+      "epic": "EPIC-001",
+      "release": "V1",
+      "status": "backlog",
+      "tasks": {
+        "TASK-009": "backlog",
+        "TASK-010": "backlog",
+        "TASK-011": "backlog",
+        "TASK-012": "backlog"
+      }
+    },
+    "US-004": {
+      "title": "Ordenar listado por fecha o título",
+      "epic": "EPIC-001",
+      "release": "V2+",
+      "status": "backlog",
+      "tasks": {
+        "TASK-013": "backlog",
+        "TASK-014": "backlog",
+        "TASK-015": "backlog",
+        "TASK-016": "backlog"
+      }
+    },
+    "US-005": {
+      "title": "Crear nota con título y contenido",
+      "epic": "EPIC-002",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-017": "backlog",
+        "TASK-018": "backlog",
+        "TASK-019": "backlog",
+        "TASK-020": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-006": {
+      "title": "Añadir enlaces URL a una nota",
+      "epic": "EPIC-002",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-021": "backlog",
+        "TASK-022": "backlog",
+        "TASK-023": "backlog",
+        "TASK-024": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-007": {
+      "title": "Feedback de validación sin perder datos del formulario",
+      "epic": "EPIC-002",
+      "release": "V1",
+      "status": "backlog",
+      "tasks": {
+        "TASK-025": "backlog",
+        "TASK-026": "backlog",
+        "TASK-027": "backlog",
+        "TASK-028": "backlog"
+      }
+    },
+    "US-008": {
+      "title": "Asignar etiquetas a una nota",
+      "epic": "EPIC-003",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-029": "backlog",
+        "TASK-030": "backlog",
+        "TASK-031": "backlog",
+        "TASK-032": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-009": {
+      "title": "Filtrar notas por etiqueta",
+      "epic": "EPIC-003",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-033": "backlog",
+        "TASK-034": "backlog",
+        "TASK-035": "backlog",
+        "TASK-036": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-010": {
+      "title": "Quitar etiqueta de una nota sin borrar la nota",
+      "epic": "EPIC-003",
+      "release": "V1",
+      "status": "backlog",
+      "tasks": {
+        "TASK-037": "backlog",
+        "TASK-038": "backlog",
+        "TASK-039": "backlog",
+        "TASK-040": "backlog"
+      }
+    },
+    "US-011": {
+      "title": "Listado de etiquetas con conteo de notas",
+      "epic": "EPIC-003",
+      "release": "V2+",
+      "status": "backlog",
+      "tasks": {
+        "TASK-041": "backlog",
+        "TASK-042": "backlog",
+        "TASK-043": "backlog",
+        "TASK-044": "backlog"
+      }
+    },
+    "US-012": {
+      "title": "Buscar notas por término de texto",
+      "epic": "EPIC-004",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-045": "backlog",
+        "TASK-046": "backlog",
+        "TASK-047": "backlog",
+        "TASK-048": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-013": {
+      "title": "Ordenar resultados de búsqueda",
+      "epic": "EPIC-004",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-049": "backlog",
+        "TASK-050": "backlog",
+        "TASK-051": "backlog",
+        "TASK-052": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-014": {
+      "title": "Mensaje cuando búsqueda sin resultados",
+      "epic": "EPIC-004",
+      "release": "V1",
+      "status": "backlog",
+      "tasks": {
+        "TASK-053": "backlog",
+        "TASK-054": "backlog",
+        "TASK-055": "backlog",
+        "TASK-056": "backlog"
+      }
+    },
+    "US-015": {
+      "title": "Editar nota existente",
+      "epic": "EPIC-005",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-057": "backlog",
+        "TASK-058": "backlog",
+        "TASK-059": "backlog",
+        "TASK-060": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-016": {
+      "title": "Eliminar nota permanentemente",
+      "epic": "EPIC-005",
+      "release": "MVP",
+      "status": "backlog",
+      "tasks": {
+        "TASK-061": "backlog",
+        "TASK-062": "backlog",
+        "TASK-063": "backlog",
+        "TASK-064": "backlog"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-04"
+    },
+    "US-017": {
+      "title": "Enlazar nota con otra (backlink)",
+      "epic": "EPIC-005",
+      "release": "V2+",
+      "status": "backlog",
+      "tasks": {
+        "TASK-065": "backlog",
+        "TASK-066": "backlog",
+        "TASK-067": "backlog",
+        "TASK-068": "backlog"
+      }
+    }
+  }
+}

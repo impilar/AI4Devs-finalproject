@@ -9,6 +9,7 @@ Instrucciones para generar artefactos. Cada skill define inputs, outputs y agent
 | [create-prd.md](create-prd.md) | `docs/product/prd/PRD-vN.md` |
 | [create-user-story-map.md](create-user-story-map.md) | `docs/product/user-story-map/` |
 | [create-user-story.md](create-user-story.md) | `docs/product/user-stories/US-NNN.md` |
+| [enrich-user-story.md](enrich-user-story.md) | `docs/product/user-stories/US-NNN.md` (in place) |
 | [create-roadmap.md](create-roadmap.md) | `docs/product/roadmap/` |
 
 ## Arquitectura

@@ -2,6 +2,10 @@
 
 Implementación del MVP en `src/`.
 
+**Prerrequisito:** `docs/architecture/lld/LLD-v1.md` generado.
+
+Opcional antes de codificar: enriquecer historias con `enrich-user-story.md` + `user-story-enricher.md` (ver `prompts/discovery/03-enriquecer-user-story.md`).
+
 | Paso | Agente | Área |
 |------|--------|------|
 | 1 | `backend-engineer.md` | `src/backend/` |
@@ -11,6 +15,7 @@ Implementación del MVP en `src/`.
 ## Skills
 
 - `create-lld.md` — detalle de implementación
+- `enrich-user-story.md` — detalle técnico en historias y tasks
 - `code-review.md`
 - `design-api.md`
 
