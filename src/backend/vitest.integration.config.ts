@@ -12,10 +12,12 @@ export default defineConfig({
       supertest: path.join(backendRoot, "node_modules/supertest"),
       express: path.join(backendRoot, "node_modules/express"),
       cors: path.join(backendRoot, "node_modules/cors"),
+      "@prisma/client": path.join(backendRoot, "node_modules/@prisma/client"),
     },
   },
   test: {
     include: ["tests/integration/**/*.test.ts"],
     environment: "node",
+    fileParallelism: false,
   },
 });

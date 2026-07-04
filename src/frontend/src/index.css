@@ -14,11 +14,77 @@ body {
 
 .app {
   max-width: 40rem;
-  margin: 4rem auto;
+  margin: 2rem auto;
   padding: 2rem;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+}
+
+.home-page__header {
+  margin-bottom: 1.5rem;
+}
+
+.home-page__header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+}
+
+.home-page__subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.note-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.note-list-item {
+  border-bottom: 1px solid #eee;
+}
+
+.note-list-item:last-child {
+  border-bottom: none;
+}
+
+.note-list-item__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.note-list-item__link:hover .note-list-item__title {
+  color: #2563eb;
+}
+
+.note-list-item__title {
+  font-weight: 500;
+}
+
+.note-list-item__date {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.note-list__status {
+  margin: 0;
+  color: #666;
+}
+
+.error-message {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
 }
 
 .api-hint {

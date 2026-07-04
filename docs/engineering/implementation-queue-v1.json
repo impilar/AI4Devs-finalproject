@@ -43,7 +43,10 @@
         "TASK-001",
         "TASK-002",
         "TASK-004"
-      ]
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-001-listado-notas"
     },
     {
       "id": "PHASE-002",
@@ -154,7 +157,8 @@
       "layer": "database",
       "agent": "backend-engineer",
       "depends_on": [],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 2,
@@ -167,7 +171,8 @@
       "depends_on": [
         "TASK-019"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 3,
@@ -181,7 +186,8 @@
         "TASK-019",
         "TASK-003"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 4,
@@ -194,7 +200,8 @@
       "depends_on": [
         "TASK-001"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 5,
@@ -207,7 +214,8 @@
       "depends_on": [
         "TASK-002"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 6,

@@ -172,13 +172,35 @@ npx prisma migrate deploy                     # Docker / CI
 
 ## Tests
 
+### Integración (backend)
+
 ```bash
 cd src/backend
 npm install   # si aún no
-npm run test:integration
+DATABASE_URL=postgresql://okc:okc@localhost:5432/okc npm run test:integration
 ```
 
-Tests en `tests/integration/` (p. ej. health check).
+Tests en `tests/integration/` (API, repositorio, health).
+
+### E2E (Playwright — US-001+)
+
+Requisitos: **PostgreSQL en marcha** (`docker compose up -d postgres` en `src/infra/`). Si usas Docker para el backend (`okc-backend`), deténlo para no bloquear el puerto 3000: `docker stop okc-backend`.
+
+```bash
+# Desde la raíz del repositorio
+npm install
+npx playwright install chromium
+npm run test:e2e
+```
+
+Playwright arranca backend y frontend en dev si no están ya corriendo (`reuseExistingServer` en local). Variables opcionales:
+
+| Variable | Default |
+|----------|---------|
+| `DATABASE_URL` | `postgresql://okc:okc@localhost:5432/okc` |
+| `PLAYWRIGHT_BASE_URL` | `http://localhost:5173` |
+
+Spec US-001: `tests/e2e/us-001-listado.spec.ts`.
 
 ---
 

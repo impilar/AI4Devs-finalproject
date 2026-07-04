@@ -40,14 +40,14 @@
       "title": "Ver listado de todas mis notas",
       "epic": "EPIC-001",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "enriched": true,
       "enriched_at": "2026-07-04",
       "tasks": {
-        "TASK-001": "backlog",
-        "TASK-002": "backlog",
-        "TASK-003": "backlog",
-        "TASK-004": "backlog"
+        "TASK-001": "done",
+        "TASK-002": "done",
+        "TASK-003": "done",
+        "TASK-004": "done"
       }
     },
     "US-002": {
@@ -96,7 +96,7 @@
       "tasks": {
         "TASK-017": "backlog",
         "TASK-018": "backlog",
-        "TASK-019": "backlog",
+        "TASK-019": "done",
         "TASK-020": "backlog"
       },
       "enriched": true,
