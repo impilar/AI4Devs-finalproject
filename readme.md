@@ -91,35 +91,28 @@ flowchart LR
 
 ### **1.4. Instrucciones de instalación:**
 
-Stack definido en [`docs/architecture/hld/HLD-v1.md`](docs/architecture/hld/HLD-v1.md): React + Vite, Node.js + Express, PostgreSQL 16, Prisma, Docker Compose.
+Stack: React + Vite, Node.js 20+ + Express, PostgreSQL 16, Prisma, Docker Compose. Guía actualizada en [`docs/engineering/getting-started.md`](docs/engineering/getting-started.md).
 
-**Requisitos previos:** Docker y Docker Compose, Node.js 20+ (desarrollo local opcional).
+**Requisitos:** Git, Node.js 20+, Docker Desktop (recomendado).
 
 ```bash
-# Clonar repositorio
-git clone <url-repositorio>
+git clone https://github.com/impilar/AI4Devs-finalproject.git
 cd AI4Devs-finalproject
-
-# Levantar entorno (tras implementación de src/infra/)
+cp src/infra/.env.example src/infra/.env
 cd src/infra
-docker-compose build
-docker-compose run backend npx prisma migrate deploy
-docker-compose run backend npx prisma db seed   # datos de prueba
-docker-compose up -d
+docker compose up -d --build
+curl http://localhost:3000/api/v1/health   # {"status":"ok"}
 ```
 
 | Servicio | Puerto | URL |
 |----------|--------|-----|
-| Frontend (Vite dev) | 5173 | http://localhost:5173 |
+| Frontend | 5173 | http://localhost:5173 |
 | Backend API | 3000 | http://localhost:3000/api/v1 |
-| PostgreSQL | 5432 | — |
+| PostgreSQL | 5432 | `okc` / `okc` / `okc` |
 
-**Variables de entorno (backend):**
+**Reinicio habitual:** abrir Docker Desktop → `cd src/infra && docker compose up -d`.
 
-```
-DATABASE_URL=postgresql://user:pass@localhost:5432/organizador
-PORT=3000
-```
+Variables de entorno: ver `src/infra/.env.example`. Desarrollo sin Docker y troubleshooting: [getting-started](docs/engineering/getting-started.md).
 
 ---
 
