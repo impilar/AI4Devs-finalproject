@@ -28,7 +28,7 @@ Instrucciones: seguir la plantilla, priorizar MVP, separar alcance futuro, requi
 
 ## Prompt 3: User Story Map
 
-Utiliza el agente `.cursor/agents/agent_user_story_mapping.m`:
+Utiliza el agente `.cursor/agents/user-story-mapper.md`:
 
 - **Input:** `docs/product/prd/PRD-v1.md`
 - **Plantilla:** `knowledge/templates/product/user_story_mapping_template.md`

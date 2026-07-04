@@ -2,7 +2,7 @@
 
 ## Prompt 1: Generar modelo de datos
 
-Ejecuta el agente `.cursor/agents/agent_data_model.m` (Data Model Generator):
+Ejecuta el agente `.cursor/agents/data-model-architect.md` (Data Model Architect):
 
 - **Input:** `docs/architecture/hld/HLD-v1.md`
 - **Input opcional:** `docs/product/prd/PRD-v1.md`

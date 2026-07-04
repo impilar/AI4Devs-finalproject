@@ -18,9 +18,9 @@
 |--------|-----|
 | `product-manager.md` | PRD |
 | `solution-architect.md` | HLD |
-| `agent_user_story_mapping.m` | User Story Map |
-| `agent_data_model.m` | Modelo de datos |
-| `agent_roadmap.m` | Roadmap |
+| `user-story-mapper.md` | User Story Map |
+| `data-model-architect.md` | Modelo de datos |
+| `roadmap-planner.md` | Roadmap |
 | `backend-engineer.md` | Backend *(stub)* |
 | `frontend-engineer.md` | Frontend *(stub)* |
 | `qa-engineer.md` | QA *(stub)* |

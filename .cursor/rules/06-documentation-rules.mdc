@@ -40,7 +40,7 @@ Al regenerar con skills/agentes, incrementar versión y conservar la anterior.
 ## Skills y agentes
 
 - Generación: `.cursor/skills/` (inputs, outputs, instrucciones)
-- Roles: `.cursor/agents/` (personas especializadas)
+- Roles: `.cursor/agents/` — extensión `.md`, nombre kebab-case (ver `agents/README.md`)
 - Cadenas: `.cursor/workflows/`
 
 ## No duplicar

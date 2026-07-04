@@ -8,7 +8,7 @@ Ver **Prompt 3** de [01-requisitos-y-prd.md](01-requisitos-y-prd.md). El mapa en
 
 ## Prompt 2: Generar roadmap
 
-Utiliza el agente `.cursor/agents/agent_roadmap.m`:
+Utiliza el agente `.cursor/agents/roadmap-planner.md`:
 
 - **Input:** `docs/product/user-story-map/user-story-map-v1.md`
 - **Plantilla:** `knowledge/templates/product/roadmap_template.md`

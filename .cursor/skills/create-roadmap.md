@@ -24,4 +24,4 @@ Genera roadmap con épicas, historias, tasks y CSV Jira.
 
 ## Agente legacy
 
-`.cursor/agents/agent_roadmap.m`
+`.cursor/agents/roadmap-planner.md`

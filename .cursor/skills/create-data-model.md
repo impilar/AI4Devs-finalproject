@@ -24,4 +24,4 @@ Genera modelo de datos lógico y físico.
 
 ## Agente legacy
 
-`.cursor/agents/agent_data_model.m`
+`.cursor/agents/data-model-architect.md`

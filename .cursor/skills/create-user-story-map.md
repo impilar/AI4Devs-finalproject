@@ -21,4 +21,4 @@ Genera un User Story Map (método Jeff Patton).
 
 ## Agente legacy
 
-`.cursor/agents/agent_user_story_mapping.m` (migrar a product-manager)
+`.cursor/agents/user-story-mapper.md`
