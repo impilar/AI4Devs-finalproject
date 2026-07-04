@@ -2,4 +2,4 @@
 
 Express + Prisma + PostgreSQL. Pendiente de implementación.
 
-Ver [`architecture/architecture_v1.md`](../../architecture/architecture_v1.md) para estructura planificada.
+Ver [`docs/architecture/hld/HLD-v1.md`](../../docs/architecture/hld/HLD-v1.md) para estructura planificada.

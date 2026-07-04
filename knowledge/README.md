@@ -1,22 +1,21 @@
-# Conocimiento del proyecto
+# Conocimiento estático
 
-Capa de **conocimiento y producto**: requisitos, plantillas y artefactos generados.
+Contexto de referencia del proyecto. **No contiene artefactos versionados** — esos viven en [`docs/`](../docs/).
 
-## Contexto (inputs humanos)
+## Contexto
 
-- [Requisitos iniciales](context/requisitos_organizador_conocimiento.md)
-
-## Producto (artefactos generados)
-
-- [PRD v1](product/prd_v1.md)
-- [User Story Map v1](product/user_story_mapping_v1.md)
-- [Roadmap v1](product/roadmap_v1.md)
+- [Contexto de negocio](business-context.md)
+- [Modelo de dominio](domain-model.md)
+- [Contexto técnico](technical-context.md)
+- [Glosario](glossary.md)
+- [Integraciones](integrations.md)
 
 ## Plantillas
 
-- [Producto](templates/product/) — PRD, User Story Map, Roadmap
-- [Técnico](templates/technical/) — Arquitectura, Modelo de datos
+- [Producto](templates/product/)
+- [Arquitectura](templates/architecture/)
 
-## Diseño técnico
+## Documentación viva
 
-Ver [architecture/](../architecture/) y [decisions/](../decisions/).
+- [Producto](../docs/product/)
+- [Arquitectura](../docs/architecture/)

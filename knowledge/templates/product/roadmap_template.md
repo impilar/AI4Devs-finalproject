@@ -235,7 +235,7 @@ Al rellenar esta plantilla:
 4. **Gherkin:** Mínimo 2 escenarios por historia (happy path + excepción o borde).
 5. **Tasks:** Desglosar cada historia en 2–5 tasks (BE, FE, DB, QA según aplique); tasks no sustituyen la historia.
 6. **Release:** Copiar prioridad del mapa (MVP / V1 / V2+) en Epic, Story y Task.
-7. **Jira:** Generar además `roadmap_jira_import_v1.csv` en `delivery/exports/` con todas las filas.
+7. **Jira:** Generar además `roadmap-jira-import-v1.csv` en `docs/product/roadmap/exports/` con todas las filas.
 8. **Sin placeholders:** Sustituir todos los `{{...}}` antes de finalizar.
 
 ### Anti-patrones

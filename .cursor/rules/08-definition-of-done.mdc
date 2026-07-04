@@ -1,0 +1,38 @@
+---
+description: Definition of Done para historias, tasks y entregables
+alwaysApply: false
+---
+
+# Definition of Done
+
+## Historias de usuario (INVEST)
+
+- [ ] Formato Como / quiero / para
+- [ ] Checklist INVEST completado
+- [ ] ≥ 2 escenarios Gherkin (happy path + edge case)
+- [ ] Release asignado (MVP / V1 / V2+)
+- [ ] Trazabilidad a RF/RNF del PRD
+
+## Tasks técnicas
+
+- [ ] Prefijo `[BE]`, `[FE]`, `[DB]` o `[QA]`
+- [ ] Criterios de done verificables
+- [ ] Misma release que la historia padre
+
+## Documentación
+
+- [ ] Artefacto en ruta correcta (`knowledge/` estática vs `docs/` viva)
+- [ ] Sin placeholders `{{...}}`
+- [ ] Versión incrementada si es regeneración
+- [ ] Prompt registrado en `prompts/{fase}/`
+
+## Código (cuando aplique)
+
+- [ ] Tests pasan (unit + integración según scope)
+- [ ] Validación Zod en endpoints nuevos
+- [ ] Migraciones Prisma aplicables
+- [ ] Sin secretos en el diff
+
+## MVP release
+
+Entregable cuando US-001 a US-016 del roadmap MVP están implementadas, testeadas y documentadas en `delivery/releases/`.

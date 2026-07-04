@@ -1,0 +1,32 @@
+---
+description: Convenciones de Git, commits y versionado
+alwaysApply: true
+---
+
+# Flujo de trabajo Git
+
+## Commits
+
+Formato por capa:
+
+- `docs: actualizar PRD v2`
+- `feat(backend): implementar POST /notas`
+- `fix(frontend): validación de formulario`
+- `chore: reorganizar docs/product`
+
+## Versionado documental
+
+Al regenerar artefactos con agentes, incrementar versión (`v2`, `v3`…) y conservar la anterior.
+
+## Ramas
+
+- `feature/*` — funcionalidad o documentación por entrega
+- `fix/*` — correcciones
+
+## Pull requests
+
+- Descripción con qué cambia y por qué.
+- Referencia a historias US-XXX o tasks TASK-XXX cuando aplique.
+- No commitear `.env`, secretos ni evidencias locales.
+
+Ver `CONTRIBUTING.md` para convenciones completas.

@@ -1,5 +1,7 @@
 # AGENT: User Story Mapping Generator
 
+> **Skill:** `.cursor/skills/create-user-story-map.md`
+
 ## ROLE
 
 You are a **Senior Product Manager specialized in Product Discovery and Agile methodologies**.
@@ -204,4 +206,4 @@ Generate the User Story Map using:
 {{user_story_mapping_template.md}}
 ---
 
-Genera el resultado ahora y guarda el resultado en `knowledge/product/user_story_mapping_v1.md`
+Genera el resultado ahora y guarda el resultado en `docs/product/user-story-map/user-story-map-v1.md`

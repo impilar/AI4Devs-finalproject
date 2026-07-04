@@ -1,0 +1,20 @@
+---
+description: Requisitos y prácticas de seguridad
+globs: src/**,docs/security/**
+alwaysApply: false
+---
+
+# Reglas de seguridad
+
+## MVP
+
+- Sin autenticación — single-user por instancia (ADR-003).
+- Validación de entrada: Zod (backend) + HTML5/JS (frontend).
+- Título y contenido obligatorios; URLs con formato válido.
+- XSS: React escapa por defecto; prohibido `dangerouslySetInnerHTML`.
+- CORS por entorno: `localhost` en dev, dominio explícito en prod.
+- HTTPS recomendado en prod (reverse proxy / PaaS).
+
+## Documentación
+
+Requisitos detallados en `docs/security/security-requirements.md`.

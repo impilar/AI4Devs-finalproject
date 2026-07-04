@@ -1,30 +1,26 @@
 # Guía de inicio
 
-## Estructura por capas
+## Capas del repositorio
 
-| Capa | Carpeta | Qué contiene |
-|------|---------|--------------|
-| Producto | [`knowledge/product/`](../knowledge/product/) | PRD, User Story Map, Roadmap |
-| Conocimiento | [`knowledge/`](../knowledge/) | Requisitos, plantillas, contexto |
-| Arquitectura | [`architecture/`](../architecture/) | Diseño técnico y modelo de datos |
-| Decisiones | [`decisions/`](../decisions/) | ADRs |
+| Capa | Carpeta | Naturaleza |
+|------|---------|------------|
+| Conocimiento | [`knowledge/`](../knowledge/) | **Estática** — contexto, plantillas |
+| Documentación | [`docs/`](../docs/) | **Viva** — PRD, HLD, ADR, roadmap |
 | Gobernanza IA | [`.cursor/`](../.cursor/) | Agentes, rules, workflows |
-| Software | [`src/`](../src/) | Frontend, backend, infra |
-| Tests | [`tests/`](../tests/) | E2E, integración, rendimiento |
-| Entrega | [`delivery/`](../delivery/) | Exports, releases, evidencias |
+| Software | [`src/`](../src/) | Código |
+| Entrega | [`delivery/`](../delivery/) | Releases, evidencias |
 
-## Flujo de trabajo con IA
+## Flujo con IA
 
-1. Consultar el workflow en `.cursor/workflows/`.
-2. Ejecutar el agente correspondiente en `.cursor/agents/`.
-3. Verificar que el artefacto se guarda en la ruta indicada en el workflow.
-4. Registrar el prompt usado en `prompts/`.
+1. Consultar workflow en `.cursor/workflows/`
+2. Consultar skill en `.cursor/skills/`
+3. Ejecutar agente en `.cursor/agents/`
+4. Verificar salida en `docs/`
+5. Registrar prompt en `prompts/{fase}/`
 
-## Clonar y explorar
+## Índices en raíz
 
-```bash
-git clone https://github.com/impilar/AI4Devs-finalproject
-cd AI4Devs-finalproject
-```
-
-Documentación académica principal: [`readme.md`](../readme.md).
+- [README.md](../readme.md) — ficha académica
+- [ARCHITECTURE.md](../ARCHITECTURE.md) — índice de arquitectura
+- [CONTRIBUTING.md](../CONTRIBUTING.md) — convenciones
+- [prompts.md](../prompts.md) — índice de prompts

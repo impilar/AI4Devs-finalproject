@@ -9,7 +9,7 @@
 6. [Tickets de trabajo](#6-tickets-de-trabajo)
 7. [Pull requests](#7-pull-requests)
 
-> Documentación de producto e ingeniería generada con agentes de IA. Artefactos en [`knowledge/`](knowledge/), [`architecture/`](architecture/) y [`delivery/`](delivery/).
+> Documentación viva en [`docs/`](docs/). Contexto estático en [`knowledge/`](knowledge/). Índice de arquitectura: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ---
 
@@ -39,7 +39,7 @@ Aplicación web minimalista para capturar, organizar y recuperar información pe
 
 ## 1. Descripción general del producto
 
-> Fuente: [`knowledge/product/prd_v1.md`](knowledge/product/prd_v1.md)
+> Fuente: [`docs/product/prd/PRD-v1.md`](docs/product/prd/PRD-v1.md)
 
 ### **1.1. Objetivo:**
 
@@ -91,7 +91,7 @@ flowchart LR
 
 ### **1.4. Instrucciones de instalación:**
 
-Stack definido en [`architecture/architecture_v1.md`](architecture/architecture_v1.md): React + Vite, Node.js + Express, PostgreSQL 16, Prisma, Docker Compose.
+Stack definido en [`docs/architecture/hld/HLD-v1.md`](docs/architecture/hld/HLD-v1.md): React + Vite, Node.js + Express, PostgreSQL 16, Prisma, Docker Compose.
 
 **Requisitos previos:** Docker y Docker Compose, Node.js 20+ (desarrollo local opcional).
 
@@ -125,7 +125,7 @@ PORT=3000
 
 ## 2. Arquitectura del Sistema
 
-> Fuente: [`architecture/architecture_v1.md`](architecture/architecture_v1.md)
+> Fuente: [`docs/architecture/hld/HLD-v1.md`](docs/architecture/hld/HLD-v1.md)
 
 ### **2.1. Diagrama de arquitectura:**
 
@@ -173,20 +173,23 @@ flowchart LR
 
 ```
 AI4Devs-finalproject/
-├── .cursor/                  # Gobernanza IA (rules, agents, skills, workflows)
-├── knowledge/                # Producto y contexto documental
-│   ├── context/              # Requisitos y inputs humanos
-│   ├── templates/            # Plantillas producto y técnico
-│   └── product/              # PRD, User Story Map, Roadmap
-├── architecture/             # Arquitectura y modelo de datos
-├── decisions/                # ADRs (decisiones arquitectónicas)
-├── prompts/                  # Registro de prompts por fase
-├── docs/                     # Guías operativas del repositorio
+├── .cursor/                  # Gobernanza IA
+│   ├── rules/                # 01–08 reglas del proyecto
+│   ├── agents/               # Roles (product-manager, solution-architect…)
+│   ├── skills/               # Instrucciones de generación
+│   └── workflows/            # discovery, architecture, release…
+├── knowledge/                # ESTÁTICA — contexto, plantillas
+├── docs/                     # VIVA — producto, arquitectura, QA
+│   ├── product/              # PRD, USM, roadmap
+│   └── architecture/         # HLD, data-model, adr
+├── prompts/                  # Trazabilidad IA por fase
 ├── src/                      # Software (frontend, backend, infra)
-├── tests/                    # Tests transversales (E2E, integración)
-├── delivery/                 # Exports, releases, evidencias
-├── prompts.md                # Índice de prompts (entrega académica)
-└── readme.md
+├── tests/                    # Tests transversales
+├── delivery/                 # Releases, evidencias
+├── ARCHITECTURE.md           # Índice de arquitectura
+├── CONTRIBUTING.md           # Convenciones del repo
+├── prompts.md                # Índice académico de prompts
+└── readme.md                 # Ficha académica
 ```
 
 **Estructura de código planificada** (según arquitectura):
@@ -242,7 +245,7 @@ Estrategia definida en arquitectura (pendiente de implementación):
 
 ## 3. Modelo de Datos
 
-> Fuente: [`architecture/data_model_v1.md`](architecture/data_model_v1.md)
+> Fuente: [`docs/architecture/data-model/logical-model-v1.md`](docs/architecture/data-model/logical-model-v1.md)
 
 ### **3.1. Diagrama del modelo de datos:**
 
@@ -324,7 +327,7 @@ erDiagram
 
 ## 4. Especificación de la API
 
-> Fuente: [`architecture/architecture_v1.md` §4](architecture/architecture_v1.md). Base URL: `/api/v1`
+> Fuente: [`docs/architecture/hld/HLD-v1.md` §4](docs/architecture/hld/HLD-v1.md). Base URL: `/api/v1`
 
 ### Endpoint 1 — Listar notas
 
@@ -380,7 +383,7 @@ Response 200:
 
 ## 5. Historias de Usuario
 
-> Fuente: [`knowledge/product/user_story_mapping_v1.md`](knowledge/product/user_story_mapping_v1.md)
+> Fuente: [`docs/product/user-story-map/user-story-map-v1.md`](docs/product/user-story-map/user-story-map-v1.md)
 
 **Historia de Usuario 1 — US-005 (Capturar contenido, MVP)**
 
@@ -421,7 +424,7 @@ Response 200:
 
 ## 6. Tickets de Trabajo
 
-> Fuente: [`knowledge/product/roadmap_v1.md`](knowledge/product/roadmap_v1.md)
+> Fuente: [`docs/product/roadmap/roadmap-v1.md`](docs/product/roadmap/roadmap-v1.md)
 
 **Ticket 1 — Backend (TASK-017)**
 
@@ -464,7 +467,7 @@ Response 200:
 
 **Descripción:** Migración Prisma inicial de tabla `notas` con `id` UUID, `title` VARCHAR(500) NOT NULL, `content` TEXT NOT NULL, `created_at` y `updated_at` TIMESTAMPTZ. CHECK de campos no vacíos. Índice en `created_at DESC`.
 
-**Criterios de done:** migración aplicable con `prisma migrate deploy`; schema alineado con `data_model_v1.md`; seed de desarrollo opcional.
+**Criterios de done:** migración aplicable con `prisma migrate deploy`; schema alineado con `logical-model-v1.md`; seed de desarrollo opcional.
 
 ---
 
@@ -476,7 +479,7 @@ Response 200:
 
 - Migraciones Prisma: `notas`, `enlaces`, `etiquetas`, `nota_etiqueta`.
 - Seeds de desarrollo.
-- Documentación en `data_model_v1.md`.
+- Documentación en `docs/architecture/data-model/logical-model-v1.md`.
 
 **Pull Request 2 — `feat/api-notas-crud`**
 
@@ -496,9 +499,9 @@ Response 200:
 
 | Documento | Descripción |
 |-----------|-------------|
-| [`prd_v1.md`](knowledge/product/prd_v1.md) | Product Requirements Document |
-| [`user_story_mapping_v1.md`](knowledge/product/user_story_mapping_v1.md) | User Story Map (Jeff Patton) |
-| [`roadmap_v1.md`](knowledge/product/roadmap_v1.md) | Roadmap épicas / historias / tasks |
-| [`roadmap_jira_import_v1.csv`](delivery/exports/roadmap_jira_import_v1.csv) | Importación Jira |
-| [`architecture_v1.md`](architecture/architecture_v1.md) | Arquitectura técnica |
-| [`data_model_v1.md`](architecture/data_model_v1.md) | Modelo de datos detallado |
+| [`PRD-v1.md`](docs/product/prd/PRD-v1.md) | Product Requirements Document |
+| [`user-story-map-v1.md`](docs/product/user-story-map/user-story-map-v1.md) | User Story Map (Jeff Patton) |
+| [`roadmap-v1.md`](docs/product/roadmap/roadmap-v1.md) | Roadmap épicas / historias / tasks |
+| [`roadmap-jira-import-v1.csv`](docs/product/roadmap/exports/roadmap-jira-import-v1.csv) | Importación Jira |
+| [`HLD-v1.md`](docs/architecture/hld/HLD-v1.md) | Arquitectura técnica |
+| [`logical-model-v1.md`](docs/architecture/data-model/logical-model-v1.md) | Modelo de datos detallado |

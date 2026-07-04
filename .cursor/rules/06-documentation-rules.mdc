@@ -1,0 +1,54 @@
+---
+description: Convenciones de documentación estática vs viva y ubicación de artefactos
+alwaysApply: true
+---
+
+# Reglas de documentación
+
+## Documentación estática (`knowledge/`)
+
+Contexto de referencia que cambia rara vez. Inputs para humanos y agentes.
+
+- `business-context.md` — propósito, alcance, requisitos de partida
+- `domain-model.md` — entidades y relaciones conceptuales
+- `technical-context.md` — stack, restricciones, NFRs de partida
+- `glossary.md` — términos del dominio
+- `templates/` — plantillas vacías (formularios)
+
+## Documentación viva (`docs/`)
+
+Artefactos publicados que evolucionan y se versionan.
+
+- `docs/product/` — PRD, User Story Map, roadmap, historias
+- `docs/architecture/hld/` — HLD-vN.md
+- `docs/architecture/data-model/` — logical-model-vN.md
+- `docs/architecture/adr/` — ADR-NNN-titulo.md
+- `docs/architecture/apis/` — api-spec-vN.yaml
+- `docs/engineering/`, `docs/qa/`, `docs/security/` — guías y estrategias
+
+## Convenciones de nombres
+
+| Artefacto | Patrón | Ejemplo |
+|-----------|--------|---------|
+| PRD | `PRD-vN.md` | `docs/product/prd/PRD-v1.md` |
+| HLD | `HLD-vN.md` | `docs/architecture/hld/HLD-v1.md` |
+| ADR | `ADR-NNN-titulo.md` | `docs/architecture/adr/ADR-001-monolito-modular.md` |
+| Roadmap | `roadmap-vN.md` | `docs/product/roadmap/roadmap-v1.md` |
+
+Al regenerar con skills/agentes, incrementar versión y conservar la anterior.
+
+## Skills y agentes
+
+- Generación: `.cursor/skills/` (inputs, outputs, instrucciones)
+- Roles: `.cursor/agents/` (personas especializadas)
+- Cadenas: `.cursor/workflows/`
+
+## No duplicar
+
+- No ADRs en raíz ni en `decisions/` — solo en `docs/architecture/adr/`
+- No artefactos de producto en `knowledge/`
+- No HLD en raíz — usar `ARCHITECTURE.md` como índice breve
+
+## Trazabilidad IA
+
+Prompts usados → `prompts/{fase}/`. Índice académico → `prompts.md` en raíz.

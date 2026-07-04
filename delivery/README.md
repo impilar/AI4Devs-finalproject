@@ -1,15 +1,12 @@
 # Entrega
 
-Artefactos de entrega, exports y evidencias del proyecto.
+Artefactos de entrega, releases y evidencias.
 
-## Exports
+## Documentación viva relacionada
 
-- [Roadmap Jira v1](exports/roadmap_jira_import_v1.csv)
+- Roadmap Jira: [docs/product/roadmap/exports/](../docs/product/roadmap/exports/)
 
-## Releases
+## Carpetas
 
-Ver [releases/](releases/) para notas de versión por milestone.
-
-## Evidencias
-
-Ver [evidence/](evidence/) para capturas y demos (pendiente de implementación).
+- [releases/](releases/) — notas por versión
+- [evidence/](evidence/) — capturas y vídeos demo (no versionados)

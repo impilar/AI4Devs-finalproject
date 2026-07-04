@@ -1,32 +1,41 @@
 # Flujo de trabajo con IA
 
-## Workflows disponibles
+## Workflows
 
-| Workflow | Objetivo | Archivo |
-|----------|----------|---------|
-| 01 | Product Discovery | `.cursor/workflows/01-product-discovery.md` |
-| 02 | Technical Design | `.cursor/workflows/02-technical-design.md` |
-| 03 | Delivery Planning | `.cursor/workflows/03-delivery-planning.md` |
+| Fase | Workflow |
+|------|----------|
+| Discovery | `.cursor/workflows/discovery.md` |
+| Product Planning | `.cursor/workflows/product-planning.md` |
+| Architecture | `.cursor/workflows/architecture.md` |
+| Implementation | `.cursor/workflows/implementation.md` |
+| Testing | `.cursor/workflows/testing.md` |
+| Release | `.cursor/workflows/release.md` |
+| Maintenance | `.cursor/workflows/maintenance.md` |
 
 ## Agentes
 
 | Agente | Rol |
 |--------|-----|
-| `agent_prd.m` | Generar PRD |
-| `agent_user_story_mapping.m` | Generar User Story Map |
-| `agent_architect.m` | Generar arquitectura técnica |
-| `agent_data_model.m` | Generar modelo de datos |
-| `agent_roadmap.m` | Generar roadmap y CSV Jira |
+| `product-manager.md` | PRD |
+| `solution-architect.md` | HLD |
+| `agent_user_story_mapping.m` | User Story Map |
+| `agent_data_model.m` | Modelo de datos |
+| `agent_roadmap.m` | Roadmap |
+| `backend-engineer.md` | Backend *(stub)* |
+| `frontend-engineer.md` | Frontend *(stub)* |
+| `qa-engineer.md` | QA *(stub)* |
+| `devops-engineer.md` | DevOps *(stub)* |
+| `security-architect.md` | Seguridad *(stub)* |
+| `technical-writer.md` | Documentación |
 
-## Reglas del proyecto
+## Skills
 
-Las reglas persistentes están en `.cursor/rules/`:
+Instrucciones de generación en `.cursor/skills/` — ver índice en `.cursor/skills/README.md`.
 
-- `product.mdc` — convenciones de producto y MVP
-- `architecture.mdc` — stack y patrones
-- `coding.mdc` — estándares de código
-- `repo-structure.mdc` — dónde va cada tipo de archivo
+## Reglas
 
-## Registro de prompts
+`.cursor/rules/01-project-standards.mdc` … `08-definition-of-done.mdc`
 
-Documentar cada prompt significativo en `prompts/` por fase. El índice académico está en [`prompts.md`](../prompts.md).
+## Prompts
+
+`prompts/{discovery,architecture,...}/` — índice: [`prompts.md`](../prompts.md)
