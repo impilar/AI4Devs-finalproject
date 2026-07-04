@@ -82,7 +82,10 @@
         "TASK-022",
         "TASK-020",
         "TASK-024"
-      ]
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-005-crear-nota"
     },
     {
       "id": "PHASE-004",
@@ -313,7 +316,8 @@
       "depends_on": [
         "TASK-019"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 13,
@@ -326,7 +330,8 @@
       "depends_on": [
         "TASK-017"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 14,
@@ -340,7 +345,8 @@
         "TASK-023",
         "TASK-017"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 15,
@@ -354,7 +360,8 @@
         "TASK-021",
         "TASK-018"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 16,
@@ -367,7 +374,8 @@
       "depends_on": [
         "TASK-018"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 17,
@@ -381,7 +389,8 @@
         "TASK-022",
         "TASK-020"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 18,

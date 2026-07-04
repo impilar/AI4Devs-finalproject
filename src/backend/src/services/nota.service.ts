@@ -1,7 +1,12 @@
 import { notaRepository } from "../repositories/nota.repository.js";
 import { NotFoundError } from "../errors/NotFoundError.js";
 import { toDetail, toResumen } from "../mappers/nota.mapper.js";
-import type { ListNotasQuery, NotaDetail, NotaResumen } from "../schemas/nota.schema.js";
+import type {
+  CreateNotaDto,
+  ListNotasQuery,
+  NotaDetail,
+  NotaResumen,
+} from "../schemas/nota.schema.js";
 
 export const notaService = {
   async list(
@@ -22,6 +27,16 @@ export const notaService = {
     if (!nota) {
       throw new NotFoundError();
     }
+
+    return toDetail(nota);
+  },
+
+  async create(dto: CreateNotaDto): Promise<NotaDetail> {
+    const nota = await notaRepository.createWithRelations({
+      title: dto.title,
+      content: dto.content,
+      links: dto.links,
+    });
 
     return toDetail(nota);
   },

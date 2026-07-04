@@ -1,3 +1,9 @@
+export type CreateNotaDto = {
+  title: string;
+  content: string;
+  links?: string[];
+};
+
 export type NotaResumen = {
   id: string;
   title: string;
@@ -19,3 +25,5 @@ export type ListNotasResponse = {
 export type NotaDetailResponse = {
   data: NotaDetail;
 };
+
+export type CreateNotaResponse = NotaDetailResponse;

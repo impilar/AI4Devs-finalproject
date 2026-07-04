@@ -25,6 +25,28 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.home-page__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.home-page__new-note {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.home-page__new-note:hover {
+  background: #1d4ed8;
+}
+
 .home-page__header h1 {
   margin: 0 0 0.25rem;
   font-size: 1.5rem;
@@ -166,4 +188,188 @@ body {
   background: #eff6ff;
   color: #1d4ed8;
   font-size: 0.875rem;
+}
+
+.note-create-page__nav {
+  margin-bottom: 1.5rem;
+}
+
+.note-create-page__back {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.note-create-page__back:hover {
+  text-decoration: underline;
+}
+
+.note-create-page__header h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.note-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.note-form__field label {
+  font-weight: 500;
+}
+
+.note-form__field input,
+.note-form__field textarea {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.note-form__field input:focus,
+.note-form__field textarea:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+
+.note-form__field input[aria-invalid="true"],
+.note-form__field textarea[aria-invalid="true"] {
+  border-color: #b91c1c;
+}
+
+.note-form__field-error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #b91c1c;
+}
+
+.note-form__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.note-form__submit {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.note-form__submit:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.note-form__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.note-form__cancel {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.note-form__cancel:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.note-form__links {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.note-form__links-legend {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.note-form__link-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.note-form__link-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.note-form__link-label {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.note-form__link-row input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.note-form__link-row input:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+}
+
+.note-form__link-row input[aria-invalid="true"] {
+  border-color: #b91c1c;
+}
+
+.note-form__link-remove {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 1.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #666;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.note-form__link-remove:hover {
+  border-color: #b91c1c;
+  color: #b91c1c;
+}
+
+.note-form__link-add {
+  align-self: flex-start;
+  padding: 0.375rem 0.75rem;
+  border: 1px dashed #2563eb;
+  border-radius: 6px;
+  background: #eff6ff;
+  color: #2563eb;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.note-form__link-add:hover {
+  background: #dbeafe;
 }

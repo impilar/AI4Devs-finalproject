@@ -92,12 +92,12 @@
       "title": "Crear nota con título y contenido",
       "epic": "EPIC-002",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-017": "backlog",
-        "TASK-018": "backlog",
+        "TASK-017": "done",
+        "TASK-018": "done",
         "TASK-019": "done",
-        "TASK-020": "backlog"
+        "TASK-020": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -106,12 +106,12 @@
       "title": "Añadir enlaces URL a una nota",
       "epic": "EPIC-002",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-021": "backlog",
-        "TASK-022": "backlog",
+        "TASK-021": "done",
+        "TASK-022": "done",
         "TASK-023": "done",
-        "TASK-024": "backlog"
+        "TASK-024": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"

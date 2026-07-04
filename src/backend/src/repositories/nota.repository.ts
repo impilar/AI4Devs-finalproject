@@ -63,4 +63,42 @@ export const notaRepository = {
       },
     });
   },
+
+  async createWithRelations(data: {
+    title: string;
+    content: string;
+    links?: string[];
+  }): Promise<NotaDetailRow> {
+    const links = data.links ?? [];
+
+    return prisma.$transaction(async (tx) => {
+      const nota = await tx.nota.create({
+        data: {
+          title: data.title,
+          content: data.content,
+        },
+      });
+
+      if (links.length > 0) {
+        await tx.enlace.createMany({
+          data: links.map((url) => ({
+            notaId: nota.id,
+            url,
+          })),
+        });
+      }
+
+      return tx.nota.findUniqueOrThrow({
+        where: { id: nota.id },
+        include: {
+          enlaces: {
+            orderBy: { createdAt: "asc" },
+          },
+          etiquetas: {
+            include: { etiqueta: true },
+          },
+        },
+      });
+    });
+  },
 };
