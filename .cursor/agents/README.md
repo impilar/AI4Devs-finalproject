@@ -10,6 +10,7 @@ Roles especializados del proyecto. **Convención:** todos los agentes usan exten
 | [user-story-mapper.md](user-story-mapper.md) | `create-user-story-map.md` | `docs/product/user-story-map/` |
 | [roadmap-planner.md](roadmap-planner.md) | `create-roadmap.md` | `docs/product/roadmap/` |
 | [user-story-enricher.md](user-story-enricher.md) | `enrich-user-story.md` | `docs/product/user-stories/` |
+| [implementation-planner.md](implementation-planner.md) | `create-implementation-plan.md` | `docs/engineering/` |
 
 ## Arquitectura
 
@@ -21,8 +22,9 @@ Roles especializados del proyecto. **Convención:** todos los agentes usan exten
 
 ## Implementación *(stubs)*
 
-| Agente | Área |
-|--------|------|
+| Agente | Skill / área |
+|--------|----------------|
+| [implementation-planner.md](implementation-planner.md) | `create-implementation-plan.md` → cola priorizada |
 | [backend-engineer.md](backend-engineer.md) | `src/backend/` |
 | [frontend-engineer.md](frontend-engineer.md) | `src/frontend/` |
 | [qa-engineer.md](qa-engineer.md) | `tests/` |

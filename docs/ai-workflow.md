@@ -23,6 +23,7 @@
 | `data-model-architect.md` | Modelo de datos |
 | `lld-architect.md` | LLD (diseño de bajo nivel) |
 | `roadmap-planner.md` | Roadmap |
+| `implementation-planner.md` | Plan de implementación priorizado |
 | `backend-engineer.md` | Backend *(stub)* |
 | `frontend-engineer.md` | Frontend *(stub)* |
 | `qa-engineer.md` | QA *(stub)* |

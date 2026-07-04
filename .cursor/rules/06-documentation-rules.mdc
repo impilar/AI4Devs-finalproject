@@ -25,7 +25,8 @@ Artefactos publicados que evolucionan y se versionan.
 - `docs/architecture/lld/` — LLD-vN.md
 - `docs/architecture/adr/` — ADR-NNN-titulo.md
 - `docs/architecture/apis/` — api-spec-vN.yaml
-- `docs/engineering/`, `docs/qa/`, `docs/security/` — guías y estrategias
+- `docs/engineering/` — plan de implementación (`implementation-plan-vN.md`, `implementation-queue-vN.json`), handbook
+- `docs/qa/`, `docs/security/` — guías y estrategias
 
 ## Convenciones de nombres
 
@@ -36,6 +37,7 @@ Artefactos publicados que evolucionan y se versionan.
 | ADR | `ADR-NNN-titulo.md` | `docs/architecture/adr/ADR-001-monolito-modular.md` |
 | Roadmap | `roadmap-vN.md` | `docs/product/roadmap/roadmap-v1.md` |
 | LLD | `LLD-vN.md` | `docs/architecture/lld/LLD-v1.md` |
+| Plan implementación | `implementation-plan-vN.md` | `docs/engineering/implementation-plan-v1.md` |
 
 Al regenerar con skills/agentes, incrementar versión y conservar la anterior.
 

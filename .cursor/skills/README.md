@@ -12,6 +12,12 @@ Instrucciones para generar artefactos. Cada skill define inputs, outputs y agent
 | [enrich-user-story.md](enrich-user-story.md) | `docs/product/user-stories/US-NNN.md` (in place) |
 | [create-roadmap.md](create-roadmap.md) | `docs/product/roadmap/` |
 
+## Ingeniería / implementación
+
+| Skill | Output |
+|-------|--------|
+| [create-implementation-plan.md](create-implementation-plan.md) | `docs/engineering/implementation-plan-vN.md`, `implementation-queue-vN.json` |
+
 ## Arquitectura
 
 | Skill | Output |

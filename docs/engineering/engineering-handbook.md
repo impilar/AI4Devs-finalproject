@@ -19,6 +19,13 @@ Guía operativa del repositorio.
 4. Verificar output en `docs/`
 5. Registrar prompt en `prompts/{fase}/`
 
+## Plan de implementación
+
+Antes de codificar en `src/`, generar cola priorizada:
+
+- Agente: `.cursor/agents/implementation-planner.md`
+- Salida: `docs/engineering/implementation-plan-v1.md`, `implementation-queue-v1.json`
+
 ## Enlaces
 
 - [Getting started](getting-started.md)
