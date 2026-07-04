@@ -68,8 +68,10 @@ export const notaRepository = {
     title: string;
     content: string;
     links?: string[];
+    etiquetaIds?: string[];
   }): Promise<NotaDetailRow> {
     const links = data.links ?? [];
+    const etiquetaIds = data.etiquetaIds ?? [];
 
     return prisma.$transaction(async (tx) => {
       const nota = await tx.nota.create({
@@ -88,8 +90,81 @@ export const notaRepository = {
         });
       }
 
+      if (etiquetaIds.length > 0) {
+        await tx.notaEtiqueta.createMany({
+          data: etiquetaIds.map((etiquetaId) => ({
+            notaId: nota.id,
+            etiquetaId,
+          })),
+        });
+      }
+
       return tx.nota.findUniqueOrThrow({
         where: { id: nota.id },
+        include: {
+          enlaces: {
+            orderBy: { createdAt: "asc" },
+          },
+          etiquetas: {
+            include: { etiqueta: true },
+          },
+        },
+      });
+    });
+  },
+
+  async updateWithRelations(
+    id: string,
+    data: {
+      title?: string;
+      content?: string;
+      links?: string[];
+      etiquetaIds?: string[];
+    },
+  ): Promise<NotaDetailRow | null> {
+    const existing = await prisma.nota.findUnique({ where: { id } });
+
+    if (!existing) {
+      return null;
+    }
+
+    return prisma.$transaction(async (tx) => {
+      await tx.nota.update({
+        where: { id },
+        data: {
+          ...(data.title !== undefined ? { title: data.title } : {}),
+          ...(data.content !== undefined ? { content: data.content } : {}),
+        },
+      });
+
+      if (data.links !== undefined) {
+        await tx.enlace.deleteMany({ where: { notaId: id } });
+
+        if (data.links.length > 0) {
+          await tx.enlace.createMany({
+            data: data.links.map((url) => ({
+              notaId: id,
+              url,
+            })),
+          });
+        }
+      }
+
+      if (data.etiquetaIds !== undefined) {
+        await tx.notaEtiqueta.deleteMany({ where: { notaId: id } });
+
+        if (data.etiquetaIds.length > 0) {
+          await tx.notaEtiqueta.createMany({
+            data: data.etiquetaIds.map((etiquetaId) => ({
+              notaId: id,
+              etiquetaId,
+            })),
+          });
+        }
+      }
+
+      return tx.nota.findUniqueOrThrow({
+        where: { id },
         include: {
           enlaces: {
             orderBy: { createdAt: "asc" },

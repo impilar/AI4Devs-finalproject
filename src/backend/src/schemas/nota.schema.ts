@@ -11,6 +11,11 @@ export const CreateNotaDtoSchema = z.object({
   tags: z.array(z.string().trim().min(1)).default([]),
 });
 
+export const UpdateNotaDtoSchema = CreateNotaDtoSchema.partial().refine(
+  (data) => Object.keys(data).length > 0,
+  { message: "Debe enviar al menos un campo para actualizar" },
+);
+
 export const ListNotasQuerySchema = z.object({
   etiqueta: z.string().trim().optional(),
   sort: z.enum(["created_at", "title"]).default("created_at"),
@@ -31,6 +36,7 @@ export const NotaDetailSchema = NotaResumenSchema.extend({
 });
 
 export type CreateNotaDto = z.infer<typeof CreateNotaDtoSchema>;
+export type UpdateNotaDto = z.infer<typeof UpdateNotaDtoSchema>;
 export type ListNotasQuery = z.infer<typeof ListNotasQuerySchema>;
 export type NotaResumen = z.infer<typeof NotaResumenSchema>;
 export type NotaDetail = z.infer<typeof NotaDetailSchema>;

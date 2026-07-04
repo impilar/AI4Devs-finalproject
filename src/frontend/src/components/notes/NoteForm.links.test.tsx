@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import { NoteForm } from "./NoteForm";
@@ -9,6 +9,10 @@ vi.mock("../../services/notesApi", () => ({
 }));
 
 describe("NoteForm links", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("adds and removes link rows without losing other fields", () => {
     render(
       <MemoryRouter>
@@ -92,6 +96,7 @@ describe("NoteForm links", () => {
       title: "Título válido",
       content: "Contenido válido",
       links: ["https://example.com", "https://docs.example.com"],
+      tags: [],
     });
   });
 
@@ -124,6 +129,7 @@ describe("NoteForm links", () => {
       title: "Sin enlaces",
       content: "Contenido",
       links: [],
+      tags: [],
     });
   });
 });

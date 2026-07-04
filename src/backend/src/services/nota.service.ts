@@ -1,11 +1,13 @@
 import { notaRepository } from "../repositories/nota.repository.js";
 import { NotFoundError } from "../errors/NotFoundError.js";
+import { etiquetaService } from "./etiqueta.service.js";
 import { toDetail, toResumen } from "../mappers/nota.mapper.js";
 import type {
   CreateNotaDto,
   ListNotasQuery,
   NotaDetail,
   NotaResumen,
+  UpdateNotaDto,
 } from "../schemas/nota.schema.js";
 
 export const notaService = {
@@ -32,11 +34,35 @@ export const notaService = {
   },
 
   async create(dto: CreateNotaDto): Promise<NotaDetail> {
+    const tagMap = await etiquetaService.upsertByNames(dto.tags);
     const nota = await notaRepository.createWithRelations({
       title: dto.title,
       content: dto.content,
       links: dto.links,
+      etiquetaIds: [...tagMap.values()],
     });
+
+    return toDetail(nota);
+  },
+
+  async update(id: string, dto: UpdateNotaDto): Promise<NotaDetail> {
+    let etiquetaIds: string[] | undefined;
+
+    if (dto.tags !== undefined) {
+      const tagMap = await etiquetaService.upsertByNames(dto.tags);
+      etiquetaIds = [...tagMap.values()];
+    }
+
+    const nota = await notaRepository.updateWithRelations(id, {
+      title: dto.title,
+      content: dto.content,
+      links: dto.links,
+      etiquetaIds,
+    });
+
+    if (!nota) {
+      throw new NotFoundError();
+    }
 
     return toDetail(nota);
   },

@@ -404,7 +404,8 @@
         "TASK-031",
         "TASK-017"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 19,
@@ -417,7 +418,8 @@
       "depends_on": [
         "TASK-029"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 20,
@@ -430,7 +432,8 @@
       "depends_on": [
         "TASK-030"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-04"
     },
     {
       "sequence": 21,

@@ -132,12 +132,12 @@
       "title": "Asignar etiquetas a una nota",
       "epic": "EPIC-003",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-029": "backlog",
-        "TASK-030": "backlog",
+        "TASK-029": "done",
+        "TASK-030": "done",
         "TASK-031": "done",
-        "TASK-032": "backlog"
+        "TASK-032": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"

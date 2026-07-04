@@ -2,6 +2,7 @@ export type CreateNotaDto = {
   title: string;
   content: string;
   links?: string[];
+  tags?: string[];
 };
 
 export type NotaResumen = {

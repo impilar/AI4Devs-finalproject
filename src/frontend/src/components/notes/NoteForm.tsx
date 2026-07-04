@@ -1,11 +1,13 @@
 import { type FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../common/ErrorMessage";
+import { TagInput } from "../tags/TagInput";
 import { ApiError, ValidationApiError } from "../../services/apiClient";
 import { createNota } from "../../services/notesApi";
 
 type NoteFormProps = {
   mode: "create";
+  tagSuggestions?: string[];
 };
 
 function isValidUrl(value: string): boolean {
@@ -21,10 +23,26 @@ function sanitizeLinks(values: string[]): string[] {
   return values.map((value) => value.trim()).filter((value) => value.length > 0);
 }
 
-export function NoteForm({ mode }: NoteFormProps) {
+function sanitizeTags(values: string[]): string[] {
+  const seen = new Set<string>();
+
+  return values
+    .map((value) => value.trim())
+    .filter((value) => {
+      if (!value || seen.has(value)) {
+        return false;
+      }
+
+      seen.add(value);
+      return true;
+    });
+}
+
+export function NoteForm({ mode, tagSuggestions = [] }: NoteFormProps) {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [tags, setTags] = useState<string[]>([]);
   const [links, setLinks] = useState<string[]>([]);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -107,6 +125,7 @@ export function NoteForm({ mode }: NoteFormProps) {
         title: title.trim(),
         content: content.trim(),
         links: sanitizeLinks(links),
+        tags: sanitizeTags(tags),
       });
 
       if (mode === "create") {
@@ -164,6 +183,8 @@ export function NoteForm({ mode }: NoteFormProps) {
           </p>
         ) : null}
       </div>
+
+      <TagInput value={tags} onChange={setTags} suggestions={tagSuggestions} />
 
       <fieldset className="note-form__links">
         <legend className="note-form__links-legend">Enlaces (opcional)</legend>

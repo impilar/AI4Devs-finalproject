@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { NoteForm } from "../components/notes/NoteForm";
+import { getTagSuggestions } from "../utils/tagSuggestions";
 
 export function NoteCreatePage() {
   return (
@@ -14,7 +15,7 @@ export function NoteCreatePage() {
         <h1>Nueva nota</h1>
       </header>
 
-      <NoteForm mode="create" />
+      <NoteForm mode="create" tagSuggestions={getTagSuggestions()} />
     </section>
   );
 }
