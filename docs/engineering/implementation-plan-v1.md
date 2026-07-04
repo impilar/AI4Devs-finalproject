@@ -4,7 +4,7 @@
 **Alcance:** MVP  
 **Fuente:** LLD-v1, user stories enriquecidas, PRD-v1, HLD-v1  
 **Autor:** Implementation Planner Agent  
-**Última actualización:** 4 de julio de 2026
+**Última actualización:** 4 de julio de 2026 (PHASE-000 completada)
 
 ---
 
@@ -14,15 +14,17 @@ Plan de implementación del **MVP** en **8 fases técnicas** (+ bootstrap infra)
 
 | Métrica | Valor |
 |---------|-------|
+| Fases completadas | 1 / 9 (PHASE-000 bootstrap) |
 | Historias en alcance | 10 (US-001, US-002, US-005, US-006, US-008, US-009, US-012, US-013, US-015, US-016) |
-| Tasks en cola | 40 |
+| Tasks en cola | 40 (0 done) |
 | Fases de entrega | 8 (+ bootstrap) |
 | Duración estimada | 4–6 sprints (equipo académico) |
 
 **Cola ejecutable:** [`implementation-queue-v1.json`](implementation-queue-v1.json)
 
-**Primer ítem a implementar:** `sequence: 1` → **TASK-019** (tabla `notas`).  
-**Pre-requisito manual (PHASE-000):** `docker-compose`, `.env`, endpoint `GET /api/v1/health`.
+**PHASE-000:** ✅ completada (2026-07-04) — OpenSpec `phase-000-bootstrap` archivado.  
+**Siguiente ítem en cola:** `sequence: 1` → **TASK-019** (tabla `notas`, US-005).  
+**Siguiente change OpenSpec sugerido:** `us-001-listado-notas` (PHASE-001 / US-001).
 
 ---
 
@@ -86,19 +88,22 @@ flowchart LR
 
 ## 3. Fases de implementación
 
-### PHASE-000 — Bootstrap infraestructura
+### PHASE-000 — Bootstrap infraestructura ✅
 
+**Estado:** `done` (2026-07-04)  
 **Objetivo:** Entorno local ejecutable (Postgres + API + SPA).  
-**Historias:** —  
-**Criterio de cierre:** `docker-compose up`, `GET /api/v1/health` → 200.
+**Historias:** — *(no aplica US-NNN)*  
+**Criterio de cierre:** `docker-compose up`, `GET /api/v1/health` → 200 — **verificado**.
 
-| Acción | Agente | Notas |
-|--------|--------|-------|
-| `src/infra/docker-compose.yml`, Dockerfiles | devops-engineer | LLD §11 |
-| `GET /api/v1/health` | backend-engineer | Antes de TASK-019 |
-| `.env.example`, `VITE_API_URL` | devops-engineer | |
+| Acción | Agente | Estado |
+|--------|--------|--------|
+| `src/infra/docker-compose.yml`, Dockerfiles | devops-engineer | ✅ |
+| `GET /api/v1/health` | backend-engineer | ✅ |
+| `.env.example`, `VITE_API_URL` | devops-engineer | ✅ |
+| Scaffold `src/backend/`, `src/frontend/` | backend + frontend | ✅ |
+| OpenSpec archive | — | `openspec/changes/archive/2026-07-04-phase-000-bootstrap/` |
 
-> Sin TASK en backlog; ejecutar antes de `sequence: 1`.
+> Sin TASK en backlog. Specs en `openspec/specs/platform-health/`, `local-dev-stack/`.
 
 ---
 
@@ -243,7 +248,7 @@ Actualiza status a done en implementation-queue-v1.json y status-v1.json.
 
 | Riesgo | Impacto | Mitigación |
 |--------|---------|------------|
-| Bootstrap infra retrasado | Bloquea TASK-019 | PHASE-000 explícita antes de cola |
+| Bootstrap infra retrasado | Bloquea TASK-019 | ~~PHASE-000~~ **Resuelto** 2026-07-04 |
 | US-002 requiere tablas M:N antes de tiempo | Complejidad temprana | TASK-031/023 en fase 2 con datos vacíos |
 | Benchmark RNF-002 falla | No cumple PRD | TASK-048 con dataset 500 notas; índice TASK-047 |
 | Scope creep V1 | Retraso MVP | Cola excluye US-003, US-007, US-010, US-014 |

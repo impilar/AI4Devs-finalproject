@@ -8,6 +8,7 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 | [implementation-queue-v1.json](implementation-queue-v1.json) | Cola priorizada de tasks para agentes desarrollador |
 | [standards/](standards/) | Estándares de codificación (base, backend, frontend, docs) |
 | [openspec-setup.md](openspec-setup.md) | Bootstrap OpenSpec CLI (`openspec init`, `openspec update`) |
+| [getting-started.md](getting-started.md) | Bootstrap local: Docker, backend, frontend, tests |
 | [`../../openspec/`](../../openspec/) | Changes activos, specs de comportamiento, `config.yaml` |
 | [`../../AGENTS.md`](../../AGENTS.md) | Entrada para agentes de codificación |
 

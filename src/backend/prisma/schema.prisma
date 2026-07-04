@@ -1,0 +1,9 @@
+// Domain models added in TASK-019 (US-005)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}

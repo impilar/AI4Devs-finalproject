@@ -2,6 +2,7 @@
   "version": "1.0",
   "scope": "MVP",
   "generated_at": "2026-07-04",
+  "last_updated": "2026-07-04",
   "plan_doc": "docs/engineering/implementation-plan-v1.md",
   "sources": [
     "docs/architecture/lld/LLD-v1.md",
@@ -24,7 +25,10 @@
       "name": "Bootstrap infraestructura",
       "stories": [],
       "task_ids": [],
-      "notes": "docker-compose, .env, GET /api/v1/health — devops-engineer (sin TASK en backlog)"
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-phase-000-bootstrap",
+      "notes": "docker-compose, .env, GET /api/v1/health — verificado con Docker Compose"
     },
     {
       "id": "PHASE-001",
