@@ -1,7 +1,7 @@
 # 🏗 Architecture Overview — Organizador de Conocimiento (Notion Simplificado)
 
 **Versión:** 1.0  
-**Fuente:** `docs/02-docs_generados/prd_v1.md`, `docs/02-docs_generados/roadmap_v1.md`  
+**Fuente:** `knowledge/product/prd_v1.md`, `knowledge/product/roadmap_v1.md`  
 **Autor:** Software Architect Agent  
 **Última actualización:** 12 de junio de 2026
 
@@ -309,37 +309,42 @@ erDiagram
 ### 7.1 Árbol de directorios
 
 ```
-organizador-conocimiento/
-├── frontend/
-│   ├── src/
-│   │   ├── components/       # NoteList, NoteDetail, NoteForm, TagFilter, SearchBar
-│   │   ├── pages/            # HomePage, NotePage
-│   │   ├── services/         # apiClient, notesApi, searchApi
-│   │   ├── hooks/            # useNotes, useSearch
-│   │   ├── types/            # Nota, Etiqueta DTOs
-│   │   └── App.tsx
-│   ├── package.json
-│   └── vite.config.ts
-├── backend/
-│   ├── src/
-│   │   ├── routes/           # notas.routes, buscar.routes, etiquetas.routes
-│   │   ├── controllers/
-│   │   ├── services/         # nota.service, etiqueta.service, search.service
-│   │   ├── repositories/     # nota.repository, etiqueta.repository
-│   │   ├── schemas/          # Zod DTOs
-│   │   ├── middleware/       # errorHandler, validate
-│   │   └── app.ts
-│   ├── prisma/
-│   │   ├── schema.prisma
-│   │   └── migrations/
-│   └── package.json
-├── infra/
-│   ├── docker-compose.yml
-│   ├── Dockerfile.frontend
-│   └── Dockerfile.backend
+AI4Devs-finalproject/
+├── src/
+│   ├── frontend/
+│   │   ├── src/
+│   │   │   ├── components/       # NoteList, NoteDetail, NoteForm, TagFilter, SearchBar
+│   │   │   ├── pages/            # HomePage, NotePage
+│   │   │   ├── services/         # apiClient, notesApi, searchApi
+│   │   │   ├── hooks/            # useNotes, useSearch
+│   │   │   ├── types/            # Nota, Etiqueta DTOs
+│   │   │   └── App.tsx
+│   │   ├── package.json
+│   │   └── vite.config.ts
+│   ├── backend/
+│   │   ├── src/
+│   │   │   ├── routes/           # notas.routes, buscar.routes, etiquetas.routes
+│   │   │   ├── controllers/
+│   │   │   ├── services/         # nota.service, etiqueta.service, search.service
+│   │   │   ├── repositories/     # nota.repository, etiqueta.repository
+│   │   │   ├── schemas/          # Zod DTOs
+│   │   │   ├── middleware/       # errorHandler, validate
+│   │   │   └── app.ts
+│   │   ├── prisma/
+│   │   │   ├── schema.prisma
+│   │   │   └── migrations/
+│   │   └── package.json
+│   └── infra/
+│       ├── docker-compose.yml
+│       ├── Dockerfile.frontend
+│       └── Dockerfile.backend
+├── knowledge/
+├── architecture/
+├── decisions/
+├── prompts/
 ├── docs/
-│   ├── 01-context/
-│   └── 02-docs_generados/
+├── tests/
+├── delivery/
 └── README.md
 ```
 
@@ -347,12 +352,12 @@ organizador-conocimiento/
 
 | Capa | Carpeta | Contenido |
 |------|---------|-----------|
-| Frontend | `frontend/src/components` | UI reutilizable sin lógica de persistencia |
-| Frontend | `frontend/src/services` | Cliente HTTP y mapeo de DTOs |
-| Backend | `backend/src/routes` | Definición de endpoints y middleware |
-| Backend | `backend/src/services` | Reglas de negocio y orquestación |
-| Backend | `backend/src/repositories` | Queries Prisma |
-| Infra | `infra/` | Docker Compose, variables de entorno |
+| Frontend | `src/frontend/src/components` | UI reutilizable sin lógica de persistencia |
+| Frontend | `src/frontend/src/services` | Cliente HTTP y mapeo de DTOs |
+| Backend | `src/backend/src/routes` | Definición de endpoints y middleware |
+| Backend | `src/backend/src/services` | Reglas de negocio y orquestación |
+| Backend | `src/backend/src/repositories` | Queries Prisma |
+| Infra | `src/infra/` | Docker Compose, variables de entorno |
 
 ---
 
@@ -486,4 +491,4 @@ flowchart TB
 
 ---
 
-*Generado con el agente Software Architect a partir de `docs/02-docs_generados/prd_v1.md` y `docs/01-context/architecture_template.md`.*
+*Generado con el agente Software Architect a partir de `knowledge/product/prd_v1.md` y `knowledge/templates/technical/architecture_template.md`.*

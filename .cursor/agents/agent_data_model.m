@@ -186,7 +186,7 @@ Generate the Data Model using:
 
 {{architecture_v1.md}}
 
-Path: `docs/02-docs_generados/architecture_v1.md`
+Path: `architecture/architecture_v1.md`
 
 ---
 
@@ -194,7 +194,7 @@ Path: `docs/02-docs_generados/architecture_v1.md`
 
 {{prd_v1.md}}
 
-Path: `docs/02-docs_generados/prd_v1.md`
+Path: `knowledge/product/prd_v1.md`
 
 ---
 
@@ -202,10 +202,10 @@ Path: `docs/02-docs_generados/prd_v1.md`
 
 {{data_model_template.md}}
 
-Path: `docs/01-context/data_model_template.md`
+Path: `knowledge/templates/technical/data_model_template.md`
 
 ---
 
 ## OUTPUT:
 
-Genera el resultado ahora y guarda el resultado en `docs/02-docs_generados/data_model_v1.md`
+Genera el resultado ahora y guarda el resultado en `architecture/data_model_v1.md`

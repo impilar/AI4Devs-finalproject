@@ -204,4 +204,4 @@ Generate the User Story Map using:
 {{user_story_mapping_template.md}}
 ---
 
-Genera el resultado ahora  y guarda el resultado en docs/02-docs_generados/user_story_mapping_v1.md
+Genera el resultado ahora y guarda el resultado en `knowledge/product/user_story_mapping_v1.md`

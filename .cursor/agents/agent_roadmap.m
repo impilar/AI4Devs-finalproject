@@ -125,7 +125,7 @@ Include release summary tables and deliverables per release.
 
 ### 7. Generate Jira import CSV
 
-Additionally create `docs/02-docs_generados/roadmap_jira_import_v1.csv` with columns:
+Additionally create `delivery/exports/roadmap_jira_import_v1.csv` with columns:
 
 ```
 Issue Type,Summary,Description,Epic Link,Parent,Fix Version,Priority,Story Points,Labels,Acceptance Criteria,Components
@@ -190,7 +190,7 @@ Generate the Roadmap using:
 
 {{user_story_mapping_v1.md}}
 
-Path: `docs/02-docs_generados/user_story_mapping_v1.md`
+Path: `knowledge/product/user_story_mapping_v1.md`
 
 ---
 
@@ -198,14 +198,14 @@ Path: `docs/02-docs_generados/user_story_mapping_v1.md`
 
 {{roadmap_template.md}}
 
-Path: `docs/context/roadmap_template.md`
+Path: `knowledge/templates/product/roadmap_template.md`
 
 ---
 
 ### OUTPUT:
 
-1. `docs/02-docs_generados/roadmap_v1.md` — Roadmap completo en Markdown
-2. `docs/02-docs_generados/roadmap_jira_import_v1.csv` — CSV para importación en Jira
+1. `knowledge/product/roadmap_v1.md` — Roadmap completo en Markdown
+2. `delivery/exports/roadmap_jira_import_v1.csv` — CSV para importación en Jira
 
 ---
 

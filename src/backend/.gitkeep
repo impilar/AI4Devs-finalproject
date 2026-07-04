@@ -1,0 +1,5 @@
+# Backend
+
+Express + Prisma + PostgreSQL. Pendiente de implementación.
+
+Ver [`architecture/architecture_v1.md`](../../architecture/architecture_v1.md) para estructura planificada.

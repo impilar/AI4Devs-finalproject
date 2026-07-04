@@ -1,0 +1,18 @@
+---
+description: Mapa de capas y ubicación de archivos del repositorio
+alwaysApply: true
+---
+
+# Estructura del repositorio
+
+| Capa | Carpeta | Contenido |
+|------|---------|-----------|
+| Producto | `knowledge/product/` | PRD, User Story Map, Roadmap |
+| Conocimiento | `knowledge/context/`, `knowledge/templates/` | Requisitos y plantillas |
+| Arquitectura | `architecture/`, `decisions/` | Diseño técnico y ADRs |
+| Gobernanza IA | `.cursor/`, `prompts/` | Agentes, rules, workflows, prompts |
+| Software | `src/`, `tests/` | Código y pruebas |
+| Entrega | `delivery/` | Exports Jira, releases, evidencias |
+| Guías | `docs/` | Cómo trabajar en el repo |
+
+Al generar artefactos con agentes, usar las rutas definidas en `.cursor/workflows/`.

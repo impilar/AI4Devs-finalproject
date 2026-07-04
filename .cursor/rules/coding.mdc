@@ -1,0 +1,14 @@
+---
+description: Convenciones de código TypeScript y estructura del repositorio
+globs: src/**/*
+alwaysApply: false
+---
+
+# Reglas de código
+
+- TypeScript estricto en frontend y backend.
+- Validación de entrada con Zod en la API.
+- Acceso a datos solo vía Prisma en repositories.
+- snake_case en BD, camelCase en DTOs JSON.
+- Tests unitarios junto al código; E2E e integración en `tests/`.
+- No añadir archivos fuera de la capa correspondiente (ver `docs/getting-started.md`).

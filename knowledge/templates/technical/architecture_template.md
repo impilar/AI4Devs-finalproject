@@ -280,9 +280,14 @@ erDiagram
 ├── {{infra_dir}}/           # docker, scripts de despliegue
 │   ├── docker-compose.yml
 │   └── ...
+├── knowledge/
+├── architecture/
+├── decisions/
+├── prompts/
 ├── docs/
-│   ├── 01-context/
-│   └── 02-docs_generados/
+├── src/
+├── tests/
+├── delivery/
 └── README.md
 ```
 

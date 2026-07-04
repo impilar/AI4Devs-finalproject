@@ -1,7 +1,7 @@
 # 🗓 Roadmap — Organizador de Conocimiento (Notion Simplificado)
 
 **Versión:** 1.0  
-**Fuente:** `docs/02-docs_generados/user_story_mapping_v1.md`  
+**Fuente:** `knowledge/product/user_story_mapping_v1.md`  
 **Proyecto Jira:** OKC  
 **Última actualización:** 12 de junio de 2026
 
@@ -1136,7 +1136,7 @@ Story,[US-001] Como usuario final quiero ver listado de notas,Como usuario final
 Task,[TASK] BE Endpoint GET /notas,,,US-001,MVP,Medium,2,backend;mvp,,Backend
 ```
 
-> **Nota:** El CSV completo con las 90 filas (5 épicas + 17 historias + 68 tasks) está en `docs/02-docs_generados/roadmap_jira_import_v1.csv`.
+> **Nota:** El CSV completo con las 90 filas (5 épicas + 17 historias + 68 tasks) está en `delivery/exports/roadmap_jira_import_v1.csv`.
 
 ### 6.3 Convenciones de nomenclatura
 
@@ -1168,4 +1168,4 @@ Task,[TASK] BE Endpoint GET /notas,,,US-001,MVP,Medium,2,backend;mvp,,Backend
 
 ---
 
-*Generado con el agente Roadmap Generator a partir de `docs/02-docs_generados/user_story_mapping_v1.md` y `docs/context/roadmap_template.md`.*
+*Generado con el agente Roadmap Generator a partir de `knowledge/product/user_story_mapping_v1.md` y `knowledge/templates/product/roadmap_template.md`.*

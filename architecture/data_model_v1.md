@@ -1,7 +1,7 @@
 # 🗄 Data Model — Organizador de Conocimiento (Notion Simplificado)
 
 **Versión:** 1.0  
-**Fuente:** `docs/02-docs_generados/architecture_v1.md`, `docs/02-docs_generados/prd_v1.md`  
+**Fuente:** `architecture/architecture_v1.md`, `knowledge/product/prd_v1.md`  
 **Motor de BD:** PostgreSQL 16  
 **ORM:** Prisma 5  
 **Última actualización:** 12 de junio de 2026
@@ -516,4 +516,4 @@ INSERT INTO nota_etiqueta (nota_id, etiqueta_id) VALUES
 
 ---
 
-*Generado con el agente Data Model Generator a partir de `docs/02-docs_generados/architecture_v1.md` y `docs/01-context/data_model_template.md`.*
+*Generado con el agente Data Model Generator a partir de `architecture/architecture_v1.md` y `knowledge/templates/technical/data_model_template.md`.*

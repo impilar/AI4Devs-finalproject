@@ -1,7 +1,7 @@
 # 🗺 User Story Map — Organizador de Conocimiento (Notion Simplificado)
 
 **Versión:** 1.0  
-**Fuente:** `docs/02-docs_generados/prd_v1.md`  
+**Fuente:** `knowledge/product/prd_v1.md`  
 **Persona principal:** Usuario final — persona que captura, organiza y recupera notas, enlaces e ideas personales de forma individual.
 
 ---
@@ -234,4 +234,4 @@ flowchart LR
 
 ---
 
-*Generado con el agente User Story Mapping Generator a partir de `docs/02-docs_generados/prd_v1.md` y `docs/01-context/user_stoy_mapping_template.md`.*
+*Generado con el agente User Story Mapping Generator a partir de `knowledge/product/prd_v1.md` y `knowledge/templates/product/user_story_mapping_template.md`.*

@@ -143,7 +143,7 @@ Generate the architecture in **Markdown** using this structure:
 
 {{architecture_template.md}}
 
-Path: `docs/01-context/architecture_template.md`
+Path: `knowledge/templates/technical/architecture_template.md`
 
 ---
 
@@ -151,10 +151,10 @@ Path: `docs/01-context/architecture_template.md`
 
 {{prd_v1.md}}
 
-Path: `docs/02-docs_generados/prd_v1.md`
+Path: `knowledge/product/prd_v1.md`
 
 ---
 
 ## OUTPUT:
 
-Genera el resultado ahora y guarda el resultado en `docs/02-docs_generados/architecture_v1.md`
+Genera el resultado ahora y guarda el resultado en `architecture/architecture_v1.md`

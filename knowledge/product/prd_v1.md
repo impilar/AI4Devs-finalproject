@@ -155,4 +155,4 @@ Los usuarios dispersan información personal en múltiples herramientas (notas d
 
 ---
 
-*Generado con el agente PRD Generator a partir de `docs/01-context/requisitos_organizador_conocimiento.md` y `docs/01-context/prd_template.md`.*
+*Generado con el agente PRD Generator a partir de `knowledge/context/requisitos_organizador_conocimiento.md` y `knowledge/templates/product/prd_template.md`.*
