@@ -15,9 +15,18 @@ Archive a completed change in the experimental workflow.
 
 **Input**: Optionally specify a change name. If omitted, check if it can be inferred from conversation context. If vague or ambiguous you MUST prompt for available changes.
 
+**Prerequisite:** **Verify MUST pass first.** Read and execute `.cursor/skills/openspec-verify-change/SKILL.md` (or `/opsx:verify <name>`) before any archive step. If verify has not run in this session or last result was FAIL, run verify now. **Do not archive** until verify reports PASS, unless the user explicitly confirms override after a FAIL report.
+
 **Steps**
 
-1. **If no change name provided, prompt for selection**
+1. **Run verify (mandatory)**
+
+   Follow `.cursor/skills/openspec-verify-change/SKILL.md` for the selected change.
+
+   - If verify **FAILs**: stop; report blockers; do not archive.
+   - If verify **PASSes**: continue to step 2.
+
+2. **If no change name provided, prompt for selection**
 
    Run `openspec list --json` to get available changes. Use the **AskUserQuestion tool** to let the user select.
 
@@ -26,7 +35,7 @@ Archive a completed change in the experimental workflow.
 
    **IMPORTANT**: Do NOT guess or auto-select a change. Always let the user choose.
 
-2. **Check artifact completion status**
+3. **Check artifact completion status**
 
    Run `openspec status --change "<name>" --json` to check artifact completion.
 
@@ -40,7 +49,7 @@ Archive a completed change in the experimental workflow.
    - Use **AskUserQuestion tool** to confirm user wants to proceed
    - Proceed if user confirms
 
-3. **Check task completion status**
+4. **Check task completion status**
 
    Read the tasks file (typically `tasks.md`) to check for incomplete tasks.
 
@@ -53,7 +62,7 @@ Archive a completed change in the experimental workflow.
 
    **If no tasks file exists:** Proceed without task-related warning.
 
-4. **Assess delta spec sync state**
+5. **Assess delta spec sync state**
 
    Use `artifactPaths.specs.existingOutputPaths` from status JSON to check for delta specs. If none exist, proceed without sync prompt.
 
@@ -68,7 +77,7 @@ Archive a completed change in the experimental workflow.
 
    If user chooses sync, use Task tool (subagent_type: "general-purpose", prompt: "Use Skill tool to invoke openspec-sync-specs for change '<name>'. Delta spec analysis: <include the analyzed delta spec summary>"). Proceed to archive regardless of choice.
 
-5. **Perform the archive**
+6. **Perform the archive**
 
    Create an `archive` directory under `planningHome.changesDir` if it doesn't exist:
    ```bash
@@ -85,7 +94,7 @@ Archive a completed change in the experimental workflow.
    mv "<changeRoot>" "<planningHome.changesDir>/archive/YYYY-MM-DD-<name>"
    ```
 
-6. **Display summary**
+7. **Display summary**
 
    Show archive completion summary including:
    - Change name
@@ -108,6 +117,7 @@ All artifacts complete. All tasks complete.
 ```
 
 **Guardrails**
+- **Always run verify (step 1) before archive** — blocking unless user explicitly overrides after FAIL
 - Always prompt for change selection if not provided
 - Use artifact graph (openspec status --json) for completion checking
 - Don't block archive on warnings - just inform and confirm

@@ -28,7 +28,7 @@ The backend API SHALL expose `GET /api/v1/notas` returning HTTP 200 with JSON en
 
 ### Requirement: Home page note list (US-001)
 
-The frontend application SHALL display a note list on the home route `/` without requiring additional navigation.
+The frontend application SHALL display a note list on the home route `/` without requiring additional navigation. Each list item SHALL link to `/notas/:id` for note detail (US-002).
 
 #### Scenario: User with existing notes sees the list on app open
 
@@ -41,6 +41,12 @@ The frontend application SHALL display a note list on the home route `/` without
 - **GIVEN** the application is loaded
 - **WHEN** the user accesses the main URL `/`
 - **THEN** the note list is visible without additional navigation
+
+#### Scenario: List item navigates to detail
+
+- **GIVEN** a note exists in the list
+- **WHEN** the user clicks the note item
+- **THEN** the browser navigates to `/notas/{id}`
 
 ### Requirement: List loading and error states
 

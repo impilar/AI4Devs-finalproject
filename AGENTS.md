@@ -42,7 +42,9 @@ Entry point for coding agents (Cursor and compatible tools). Adapted from [LIDR 
 
 | Skill | Use |
 |-------|-----|
-| `apply-openspec-change.md` | Implement next task; sync queue + status JSON |
+| `openspec-apply-change/SKILL.md` | Implement next task; sync queue + status JSON |
+| `openspec-verify-change/SKILL.md` | **Required before archive** — validate vs specs + tests |
+| `openspec-archive-change/SKILL.md` | Merge specs and archive change (after verify PASS) |
 | `enrich-user-story.md` | Enrich user story before planning (already done for MVP) |
 | `create-implementation-plan.md` | Regenerate implementation queue |
 
@@ -56,8 +58,8 @@ Requires `openspec init` + `openspec update` once (see `docs/engineering/openspe
 |---------|---------|
 | `/opsx:propose <name>` | Create change with proposal, specs, design, tasks |
 | `/opsx:apply` | Implement tasks in active change |
-| `/opsx:verify` | Validate implementation vs specs |
-| `/opsx:archive` | Merge specs and archive change |
+| `/opsx:verify <name>` | **Required before archive** — validate implementation vs specs + tests |
+| `/opsx:archive <name>` | Merge specs and archive change (only after verify PASS) |
 
 Expanded profile (optional): `/opsx:ff`, `/opsx:continue` — run `openspec config profile` then `openspec update`.
 

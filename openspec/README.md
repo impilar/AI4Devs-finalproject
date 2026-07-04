@@ -29,8 +29,10 @@ Full setup guide: [docs/engineering/openspec-setup.md](../docs/engineering/opens
 
 1. `/opsx:propose us-001-listado` — or `/opsx:ff` with expanded profile
 2. `/opsx:apply` — implement `tasks.md` checkboxes
-3. `/opsx:verify` — validate against specs and Gherkin
-4. `/opsx:archive` — merge specs, move change to archive
+3. `/opsx:verify <change>` — **required** — validate against specs, Gherkin, and test suites
+4. `/opsx:archive <change>` — merge specs, move change to archive (only after verify PASS)
+
+Verify skill: `.cursor/skills/openspec-verify-change/SKILL.md`
 
 Sync with global queue: skill `.cursor/skills/apply-openspec-change.md`
 

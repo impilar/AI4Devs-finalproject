@@ -13,6 +13,16 @@ export type NotaListRow = {
   updatedAt: Date;
 };
 
+export type NotaDetailRow = {
+  id: string;
+  title: string;
+  content: string;
+  createdAt: Date;
+  updatedAt: Date;
+  enlaces: { url: string; createdAt: Date }[];
+  etiquetas: { etiqueta: { name: string } }[];
+};
+
 function resolveOrderBy(filters: ListNotasParams): {
   createdAt?: "asc" | "desc";
   title?: "asc" | "desc";
@@ -36,6 +46,20 @@ export const notaRepository = {
         title: true,
         createdAt: true,
         updatedAt: true,
+      },
+    });
+  },
+
+  async findById(id: string): Promise<NotaDetailRow | null> {
+    return prisma.nota.findUnique({
+      where: { id },
+      include: {
+        enlaces: {
+          orderBy: { createdAt: "asc" },
+        },
+        etiquetas: {
+          include: { etiqueta: true },
+        },
       },
     });
   },

@@ -21,9 +21,12 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 ## Ejecución (OpenSpec)
 
 1. Setup: [openspec-setup.md](openspec-setup.md)
-2. Skill: `.cursor/skills/apply-openspec-change.md`
-3. Prompt: [`prompts/development/02-openspec-slice.md`](../../prompts/development/02-openspec-slice.md)
-4. Workflow: `.cursor/workflows/implementation.md`
+2. Skill apply: `.cursor/skills/openspec-apply-change/SKILL.md`
+3. Skill verify (antes de archive): `.cursor/skills/openspec-verify-change/SKILL.md`
+4. Prompt: [`prompts/development/02-openspec-slice.md`](../../prompts/development/02-openspec-slice.md)
+5. Workflow: `.cursor/workflows/implementation.md`
+
+**Cerrar slice:** `/opsx:verify <change>` → `/opsx:archive <change>` (verify obligatorio).
 
 ## Uso de la cola
 

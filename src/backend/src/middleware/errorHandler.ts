@@ -1,4 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
+import { AppError } from "../errors/AppError.js";
+import { NotFoundError } from "../errors/NotFoundError.js";
 import { isZodError } from "./validate.js";
 
 export function errorHandler(
@@ -16,6 +18,26 @@ export function errorHandler(
           field: issue.path.join("."),
           message: issue.message,
         })),
+      },
+    });
+    return;
+  }
+
+  if (err instanceof NotFoundError) {
+    res.status(404).json({
+      error: {
+        code: "NOT_FOUND",
+        message: err.message,
+      },
+    });
+    return;
+  }
+
+  if (err instanceof AppError) {
+    res.status(err.statusCode).json({
+      error: {
+        code: err.code,
+        message: err.message,
       },
     });
     return;

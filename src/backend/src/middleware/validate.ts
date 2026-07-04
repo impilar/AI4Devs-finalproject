@@ -15,6 +15,20 @@ export function validateQuery<T extends ZodType>(schema: T) {
   };
 }
 
+export function validateParams<T extends ZodType>(schema: T) {
+  return (req: Request, _res: Response, next: NextFunction): void => {
+    const result = schema.safeParse(req.params);
+
+    if (!result.success) {
+      next(result.error);
+      return;
+    }
+
+    req.params = result.data as Request["params"];
+    next();
+  };
+}
+
 export function isZodError(error: unknown): error is ZodError {
   return error instanceof ZodError;
 }

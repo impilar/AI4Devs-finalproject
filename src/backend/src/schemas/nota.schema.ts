@@ -13,5 +13,12 @@ export const NotaResumenSchema = z.object({
   updatedAt: z.string().datetime(),
 });
 
+export const NotaDetailSchema = NotaResumenSchema.extend({
+  content: z.string(),
+  links: z.array(z.string().url()),
+  tags: z.array(z.string()),
+});
+
 export type ListNotasQuery = z.infer<typeof ListNotasQuerySchema>;
 export type NotaResumen = z.infer<typeof NotaResumenSchema>;
+export type NotaDetail = z.infer<typeof NotaDetailSchema>;

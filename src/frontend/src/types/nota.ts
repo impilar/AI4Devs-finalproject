@@ -5,7 +5,17 @@ export type NotaResumen = {
   updatedAt: string;
 };
 
+export type NotaDetail = NotaResumen & {
+  content: string;
+  links: string[];
+  tags: string[];
+};
+
 export type ListNotasResponse = {
   data: NotaResumen[];
   meta: { total: number };
+};
+
+export type NotaDetailResponse = {
+  data: NotaDetail;
 };

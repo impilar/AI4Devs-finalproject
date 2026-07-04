@@ -36,10 +36,14 @@ Sync implementation-queue-v1.json and status-v1.json on completion.
 
 ## Cerrar slice
 
+**Orden obligatorio:** verify → archive. No archivar sin verify PASS en la misma sesión.
+
 ```
 /opsx:verify us-001-listado-notas
 /opsx:archive us-001-listado-notas
 ```
+
+Verify ejecuta: `openspec validate`, revisión specs vs código, tests (unit, integración, e2e). Ver `.cursor/skills/openspec-verify-change/SKILL.md`.
 
 ## Trazabilidad
 

@@ -14,6 +14,8 @@ test.describe("US-001 — Listado de notas", () => {
   test("Usuario con notas existentes ve el listado al abrir la app", async ({ page }) => {
     await page.goto("/");
 
+    await expect(page.getByText("Cargando notas…")).not.toBeVisible();
+
     const list = page.getByRole("list", { name: "Listado de notas" });
     await expect(list).toBeVisible();
 

@@ -4,7 +4,7 @@ const E2E_NOTAS = [
   {
     id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01",
     title: "Ideas de proyecto",
-    content: "Nota E2E — ideas",
+    content: "Texto de la nota",
     createdAt: new Date("2026-06-12T10:00:00.000Z"),
     updatedAt: new Date("2026-06-12T10:00:00.000Z"),
   },
@@ -24,19 +24,67 @@ const E2E_NOTAS = [
   },
 ] as const;
 
+const E2E_ETIQUETAS = [
+  { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb01", name: "ideas" },
+  { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb02", name: "trabajo" },
+] as const;
+
+const E2E_ENLACES = [
+  {
+    id: "cccccccc-cccc-cccc-cccc-cccccccccc01",
+    notaId: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01",
+    url: "https://docs.example.com/mvp",
+  },
+] as const;
+
+const E2E_NOTA_ETIQUETA = [
+  {
+    notaId: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01",
+    etiquetaId: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb01",
+  },
+  {
+    notaId: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01",
+    etiquetaId: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb02",
+  },
+] as const;
+
+async function clearDatabase(): Promise<void> {
+  await prisma.enlace.deleteMany();
+  await prisma.notaEtiqueta.deleteMany();
+  await prisma.etiqueta.deleteMany();
+  await prisma.nota.deleteMany();
+}
+
+async function seedDatabase(): Promise<void> {
+  await clearDatabase();
+
+  for (const nota of E2E_NOTAS) {
+    await prisma.nota.create({ data: nota });
+  }
+
+  for (const etiqueta of E2E_ETIQUETAS) {
+    await prisma.etiqueta.create({ data: etiqueta });
+  }
+
+  for (const enlace of E2E_ENLACES) {
+    await prisma.enlace.create({ data: enlace });
+  }
+
+  for (const association of E2E_NOTA_ETIQUETA) {
+    await prisma.notaEtiqueta.create({ data: association });
+  }
+}
+
 async function main(): Promise<void> {
   const mode = process.argv[2];
 
   if (mode === "clear") {
-    await prisma.nota.deleteMany();
+    await clearDatabase();
     return;
   }
 
   if (mode === "seed") {
-    await prisma.nota.deleteMany();
-    for (const nota of E2E_NOTAS) {
-      await prisma.nota.create({ data: nota });
-    }
+    await seedDatabase();
     return;
   }
 

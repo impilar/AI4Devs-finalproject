@@ -24,8 +24,8 @@ Implementación del MVP en `src/` con **OpenSpec** + cola priorizada.
 ```text
 /opsx:propose us-NNN-name     →  openspec/changes/us-NNN-name/
 /opsx:apply                   →  src/ + tests (skill apply-openspec-change)
-/opsx:verify                  →  validación vs specs + Gherkin
-/opsx:archive                 →  merge openspec/specs/, archive change
+/opsx:verify us-NNN-name      →  validación vs specs + Gherkin + tests (OBLIGATORIO)
+/opsx:archive us-NNN-name     →  merge openspec/specs/, archive change (solo si verify PASS)
 ```
 
 Prompt detallado: `prompts/development/02-openspec-slice.md`

@@ -43,7 +43,7 @@ Adapted from [LIDR Specboot](https://github.com/LIDR-academy/lidr-specboot) for 
 3. Read task detail in `docs/product/user-stories/US-NNN.md` §Detalle por task.
 4. Implement per [backend-standards.md](backend-standards.md) or [frontend-standards.md](frontend-standards.md).
 5. Run tests; mark task `done` in queue and `status-v1.json`.
-6. On slice complete: `/opsx:verify` → `/opsx:archive`.
+6. On slice complete: **`/opsx:verify <change>`** (mandatory) → **`/opsx:archive <change>`** (only after verify PASS).
 
 ## Coverage targets (MVP)
 

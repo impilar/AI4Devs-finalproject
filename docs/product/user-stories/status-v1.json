@@ -54,12 +54,12 @@
       "title": "Abrir detalle de una nota desde el listado",
       "epic": "EPIC-001",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-005": "backlog",
-        "TASK-006": "backlog",
-        "TASK-007": "backlog",
-        "TASK-008": "backlog"
+        "TASK-005": "done",
+        "TASK-006": "done",
+        "TASK-007": "done",
+        "TASK-008": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -110,7 +110,7 @@
       "tasks": {
         "TASK-021": "backlog",
         "TASK-022": "backlog",
-        "TASK-023": "backlog",
+        "TASK-023": "done",
         "TASK-024": "backlog"
       },
       "enriched": true,
@@ -136,7 +136,7 @@
       "tasks": {
         "TASK-029": "backlog",
         "TASK-030": "backlog",
-        "TASK-031": "backlog",
+        "TASK-031": "done",
         "TASK-032": "backlog"
       },
       "enriched": true,

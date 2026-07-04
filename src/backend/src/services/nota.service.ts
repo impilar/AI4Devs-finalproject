@@ -1,6 +1,7 @@
 import { notaRepository } from "../repositories/nota.repository.js";
-import { toResumen } from "../mappers/nota.mapper.js";
-import type { ListNotasQuery, NotaResumen } from "../schemas/nota.schema.js";
+import { NotFoundError } from "../errors/NotFoundError.js";
+import { toDetail, toResumen } from "../mappers/nota.mapper.js";
+import type { ListNotasQuery, NotaDetail, NotaResumen } from "../schemas/nota.schema.js";
 
 export const notaService = {
   async list(
@@ -13,5 +14,15 @@ export const notaService = {
       data,
       meta: { total: data.length },
     };
+  },
+
+  async getById(id: string): Promise<NotaDetail> {
+    const nota = await notaRepository.findById(id);
+
+    if (!nota) {
+      throw new NotFoundError();
+    }
+
+    return toDetail(nota);
   },
 };

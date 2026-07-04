@@ -79,7 +79,8 @@ In Cursor chat, `/opsx:` commands should autocomplete after `openspec update`.
 | 2 | `/opsx:propose phase-000-bootstrap` or manual infra |
 | 3 | `/opsx:propose us-001-listado-notas` |
 | 4 | `/opsx:apply` — TASK-019 through TASK-004 |
-| 5 | `/opsx:verify` → `/opsx:archive` |
+| 5 | `/opsx:verify us-001-listado-notas` — **obligatorio antes de archive** |
+| 6 | `/opsx:archive us-001-listado-notas` |
 
 Use skill `.cursor/skills/apply-openspec-change.md` to keep `implementation-queue-v1.json` in sync.
 
