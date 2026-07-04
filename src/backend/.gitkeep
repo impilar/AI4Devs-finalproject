@@ -1,0 +1,5 @@
+# Backend
+
+Express + Prisma + PostgreSQL. Pendiente de implementación.
+
+Ver [`docs/architecture/hld/HLD-v1.md`](../../docs/architecture/hld/HLD-v1.md) para estructura planificada.

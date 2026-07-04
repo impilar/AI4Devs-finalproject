@@ -1,0 +1,29 @@
+---
+description: Estándares generales del proyecto y estructura por capas
+alwaysApply: true
+---
+
+# Estándares del proyecto
+
+## Capas del repositorio
+
+| Capa | Carpeta | Naturaleza |
+|------|---------|------------|
+| Conocimiento estático | `knowledge/` | Contexto, plantillas |
+| Documentación viva | `docs/` | PRD, HLD, ADR, roadmap |
+| Gobernanza IA | `.cursor/` | Rules, agents, skills, workflows |
+| Software | `src/`, `tests/` | Código y pruebas |
+| Entrega | `delivery/` | Releases, evidencias |
+
+## Producto MVP
+
+- CRUD notas, etiquetas, búsqueda simple.
+- Fuera del MVP: backlinks, grafo, plugins, auth multi-usuario.
+- Historias INVEST; no mezclar V2+ en MVP.
+
+## Índices en raíz
+
+- `readme.md` — ficha académica
+- `ARCHITECTURE.md` — índice de arquitectura
+- `CONTRIBUTING.md` — convenciones
+- `prompts.md` — trazabilidad IA

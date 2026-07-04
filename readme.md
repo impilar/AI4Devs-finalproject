@@ -9,7 +9,7 @@
 6. [Tickets de trabajo](#6-tickets-de-trabajo)
 7. [Pull requests](#7-pull-requests)
 
-> Documentación de producto e ingeniería generada con agentes de IA. Artefactos completos en [`docs/02-docs_generados/`](docs/02-docs_generados/).
+> Documentación viva en [`docs/`](docs/). Contexto estático en [`knowledge/`](knowledge/). Índice de arquitectura: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ---
 
@@ -39,7 +39,7 @@ Aplicación web minimalista para capturar, organizar y recuperar información pe
 
 ## 1. Descripción general del producto
 
-> Fuente: [`docs/02-docs_generados/prd_v1.md`](docs/02-docs_generados/prd_v1.md)
+> Fuente: [`docs/product/prd/PRD-v1.md`](docs/product/prd/PRD-v1.md)
 
 ### **1.1. Objetivo:**
 
@@ -91,7 +91,7 @@ flowchart LR
 
 ### **1.4. Instrucciones de instalación:**
 
-Stack definido en [`architecture_v1.md`](docs/02-docs_generados/architecture_v1.md): React + Vite, Node.js + Express, PostgreSQL 16, Prisma, Docker Compose.
+Stack definido en [`docs/architecture/hld/HLD-v1.md`](docs/architecture/hld/HLD-v1.md): React + Vite, Node.js + Express, PostgreSQL 16, Prisma, Docker Compose.
 
 **Requisitos previos:** Docker y Docker Compose, Node.js 20+ (desarrollo local opcional).
 
@@ -100,8 +100,8 @@ Stack definido en [`architecture_v1.md`](docs/02-docs_generados/architecture_v1.
 git clone <url-repositorio>
 cd AI4Devs-finalproject
 
-# Levantar entorno (tras implementación de infra/)
-cd infra
+# Levantar entorno (tras implementación de src/infra/)
+cd src/infra
 docker-compose build
 docker-compose run backend npx prisma migrate deploy
 docker-compose run backend npx prisma db seed   # datos de prueba
@@ -125,7 +125,7 @@ PORT=3000
 
 ## 2. Arquitectura del Sistema
 
-> Fuente: [`docs/02-docs_generados/architecture_v1.md`](docs/02-docs_generados/architecture_v1.md)
+> Fuente: [`docs/architecture/hld/HLD-v1.md`](docs/architecture/hld/HLD-v1.md)
 
 ### **2.1. Diagrama de arquitectura:**
 
@@ -173,27 +173,29 @@ flowchart LR
 
 ```
 AI4Devs-finalproject/
-├── .cursor/agents/           # Agentes IA (PRD, arquitectura, modelo datos, roadmap…)
-├── docs/
-│   ├── 01-context/           # Plantillas y requisitos de entrada
-│   │   ├── requisitos_organizador_conocimiento.md
-│   │   ├── prd_template.md
-│   │   ├── architecture_template.md
-│   │   ├── data_model_template.md
-│   │   ├── user_stoy_mapping_template.md
-│   │   └── roadmap_template.md
-│   └── 02-docs_generados/    # Artefactos generados (PRD, arquitectura, roadmap…)
-├── frontend/                 # (planificado) React SPA
-├── backend/                  # (planificado) Express API + Prisma
-├── infra/                    # (planificado) Docker Compose
-├── prompts.md                # Registro de prompts utilizados
-└── readme.md
+├── .cursor/                  # Gobernanza IA
+│   ├── rules/                # 01–08 reglas del proyecto
+│   ├── agents/               # Roles (product-manager, solution-architect…)
+│   ├── skills/               # Instrucciones de generación
+│   └── workflows/            # discovery, architecture, release…
+├── knowledge/                # ESTÁTICA — contexto, plantillas
+├── docs/                     # VIVA — producto, arquitectura, QA
+│   ├── product/              # PRD, USM, roadmap
+│   └── architecture/         # HLD, data-model, adr
+├── prompts/                  # Trazabilidad IA por fase
+├── src/                      # Software (frontend, backend, infra)
+├── tests/                    # Tests transversales
+├── delivery/                 # Releases, evidencias
+├── ARCHITECTURE.md           # Índice de arquitectura
+├── CONTRIBUTING.md           # Convenciones del repo
+├── prompts.md                # Índice académico de prompts
+└── readme.md                 # Ficha académica
 ```
 
 **Estructura de código planificada** (según arquitectura):
 
 ```
-organizador-conocimiento/
+src/
 ├── frontend/src/{components,pages,services,hooks,types}
 ├── backend/src/{routes,controllers,services,repositories,schemas}
 ├── backend/prisma/{schema.prisma,migrations}
@@ -243,7 +245,7 @@ Estrategia definida en arquitectura (pendiente de implementación):
 
 ## 3. Modelo de Datos
 
-> Fuente: [`docs/02-docs_generados/data_model_v1.md`](docs/02-docs_generados/data_model_v1.md)
+> Fuente: [`docs/architecture/data-model/logical-model-v1.md`](docs/architecture/data-model/logical-model-v1.md)
 
 ### **3.1. Diagrama del modelo de datos:**
 
@@ -325,7 +327,7 @@ erDiagram
 
 ## 4. Especificación de la API
 
-> Fuente: [`architecture_v1.md` §4](docs/02-docs_generados/architecture_v1.md). Base URL: `/api/v1`
+> Fuente: [`docs/architecture/hld/HLD-v1.md` §4](docs/architecture/hld/HLD-v1.md). Base URL: `/api/v1`
 
 ### Endpoint 1 — Listar notas
 
@@ -381,7 +383,7 @@ Response 200:
 
 ## 5. Historias de Usuario
 
-> Fuente: [`docs/02-docs_generados/user_story_mapping_v1.md`](docs/02-docs_generados/user_story_mapping_v1.md)
+> Fuente: [`docs/product/user-story-map/user-story-map-v1.md`](docs/product/user-story-map/user-story-map-v1.md)
 
 **Historia de Usuario 1 — US-005 (Capturar contenido, MVP)**
 
@@ -422,7 +424,7 @@ Response 200:
 
 ## 6. Tickets de Trabajo
 
-> Fuente: [`docs/02-docs_generados/roadmap_v1.md`](docs/02-docs_generados/roadmap_v1.md)
+> Fuente: [`docs/product/roadmap/roadmap-v1.md`](docs/product/roadmap/roadmap-v1.md)
 
 **Ticket 1 — Backend (TASK-017)**
 
@@ -465,7 +467,7 @@ Response 200:
 
 **Descripción:** Migración Prisma inicial de tabla `notas` con `id` UUID, `title` VARCHAR(500) NOT NULL, `content` TEXT NOT NULL, `created_at` y `updated_at` TIMESTAMPTZ. CHECK de campos no vacíos. Índice en `created_at DESC`.
 
-**Criterios de done:** migración aplicable con `prisma migrate deploy`; schema alineado con `data_model_v1.md`; seed de desarrollo opcional.
+**Criterios de done:** migración aplicable con `prisma migrate deploy`; schema alineado con `logical-model-v1.md`; seed de desarrollo opcional.
 
 ---
 
@@ -477,7 +479,7 @@ Response 200:
 
 - Migraciones Prisma: `notas`, `enlaces`, `etiquetas`, `nota_etiqueta`.
 - Seeds de desarrollo.
-- Documentación en `data_model_v1.md`.
+- Documentación en `docs/architecture/data-model/logical-model-v1.md`.
 
 **Pull Request 2 — `feat/api-notas-crud`**
 
@@ -497,9 +499,9 @@ Response 200:
 
 | Documento | Descripción |
 |-----------|-------------|
-| [`prd_v1.md`](docs/02-docs_generados/prd_v1.md) | Product Requirements Document |
-| [`user_story_mapping_v1.md`](docs/02-docs_generados/user_story_mapping_v1.md) | User Story Map (Jeff Patton) |
-| [`roadmap_v1.md`](docs/02-docs_generados/roadmap_v1.md) | Roadmap épicas / historias / tasks |
-| [`roadmap_jira_import_v1.csv`](docs/02-docs_generados/roadmap_jira_import_v1.csv) | Importación Jira |
-| [`architecture_v1.md`](docs/02-docs_generados/architecture_v1.md) | Arquitectura técnica |
-| [`data_model_v1.md`](docs/02-docs_generados/data_model_v1.md) | Modelo de datos detallado |
+| [`PRD-v1.md`](docs/product/prd/PRD-v1.md) | Product Requirements Document |
+| [`user-story-map-v1.md`](docs/product/user-story-map/user-story-map-v1.md) | User Story Map (Jeff Patton) |
+| [`roadmap-v1.md`](docs/product/roadmap/roadmap-v1.md) | Roadmap épicas / historias / tasks |
+| [`roadmap-jira-import-v1.csv`](docs/product/roadmap/exports/roadmap-jira-import-v1.csv) | Importación Jira |
+| [`HLD-v1.md`](docs/architecture/hld/HLD-v1.md) | Arquitectura técnica |
+| [`logical-model-v1.md`](docs/architecture/data-model/logical-model-v1.md) | Modelo de datos detallado |

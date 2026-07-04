@@ -1,0 +1,21 @@
+---
+description: Estrategia y convenciones de testing
+globs: tests/**,src/**/*.test.ts,src/**/*.spec.ts
+alwaysApply: false
+---
+
+# Reglas de testing
+
+| Tipo | Herramienta | Ubicación |
+|------|-------------|-----------|
+| Unitarios | Vitest | Junto al código en `src/` |
+| Integración | Vitest + Supertest | `tests/integration/` |
+| E2E | Playwright | `tests/e2e/` |
+| Rendimiento | k6 | `tests/performance/` |
+| Contrato | *(futuro)* | `tests/contract/` |
+
+## Criterios
+
+- Flujos E2E alineados con Gherkin del roadmap (US-001 a US-016).
+- Búsqueda < 300 ms con 500 notas (RNF-002).
+- Estrategia completa en `docs/qa/test-strategy.md`.

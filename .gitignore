@@ -1,0 +1,60 @@
+# --- Sistema operativo ---
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# --- Secretos y entorno local ---
+.env
+.env.*
+!.env.example
+
+# --- Node.js / TypeScript (src/frontend, src/backend) ---
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+*.tsbuildinfo
+.npm
+.eslintcache
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Tests ---
+test-results/
+playwright-report/
+playwright/.cache/
+.nyc_output/
+
+# --- IDE / editor local ---
+.idea/
+*.swp
+*.swo
+*~
+.vscode/settings.json
+
+# --- Cursor: estado local (mantener rules, agents, workflows versionados) ---
+.cursor/cache/
+
+# --- Docker / despliegue local ---
+docker-compose.override.yml
+*.local
+
+# --- Base de datos local ---
+*.sqlite
+*.sqlite3
+*.db
+
+# --- Evidencias de entrega (capturas, vídeos — añadir localmente) ---
+delivery/evidence/*
+!delivery/evidence/README.md
+
+# --- Exports de conversaciones IA (pueden contener datos sensibles) ---
+prompts/conversations/*
+!prompts/conversations/README.md

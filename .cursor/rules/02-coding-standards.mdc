@@ -1,0 +1,15 @@
+---
+description: Estándares de código TypeScript
+globs: src/**/*
+alwaysApply: false
+---
+
+# Estándares de código
+
+- TypeScript estricto en frontend y backend.
+- Validación de entrada con Zod en la API.
+- Acceso a datos solo vía Prisma en repositories.
+- snake_case en BD, camelCase en DTOs JSON.
+- Patrón backend: `routes → controllers → services → repositories → Prisma`.
+- Tests unitarios junto al código; E2E e integración en `tests/`.
+- No mezclar documentación viva con código en `src/`.
