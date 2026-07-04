@@ -11,5 +11,6 @@ alwaysApply: false
 - API REST JSON bajo `/api/v1`.
 - HLD en `docs/architecture/hld/HLD-vN.md`.
 - Modelo de datos en `docs/architecture/data-model/`.
+- LLD en `docs/architecture/lld/LLD-vN.md`.
 - ADRs en `docs/architecture/adr/` — nunca en raíz.
 - Código en `src/frontend`, `src/backend`, `src/infra`.

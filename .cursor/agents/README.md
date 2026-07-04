@@ -9,6 +9,7 @@ Roles especializados del proyecto. **Convención:** todos los agentes usan exten
 | [product-manager.md](product-manager.md) | `create-prd.md` | `docs/product/prd/` |
 | [user-story-mapper.md](user-story-mapper.md) | `create-user-story-map.md` | `docs/product/user-story-map/` |
 | [roadmap-planner.md](roadmap-planner.md) | `create-roadmap.md` | `docs/product/roadmap/` |
+| [user-story-enricher.md](user-story-enricher.md) | `enrich-user-story.md` | `docs/product/user-stories/` |
 
 ## Arquitectura
 
@@ -16,6 +17,7 @@ Roles especializados del proyecto. **Convención:** todos los agentes usan exten
 |--------|-------|--------|
 | [solution-architect.md](solution-architect.md) | `create-hld.md` | `docs/architecture/hld/` |
 | [data-model-architect.md](data-model-architect.md) | `create-data-model.md` | `docs/architecture/data-model/` |
+| [lld-architect.md](lld-architect.md) | `create-lld.md` | `docs/architecture/lld/` |
 
 ## Implementación *(stubs)*
 

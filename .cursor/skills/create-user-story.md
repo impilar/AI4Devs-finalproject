@@ -7,7 +7,7 @@ Genera una historia de usuario individual.
 | Rol | Ruta |
 |-----|------|
 | User Story Map | `docs/product/user-story-map/user-story-map-v1.md` |
-| Plantilla | `docs/product/user-stories/template-user-story.md` *(crear al descomponer)* |
+| Plantilla | `knowledge/templates/product/user-story_template.md` |
 
 ## Output
 

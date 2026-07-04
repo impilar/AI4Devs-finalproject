@@ -7,6 +7,7 @@ Diseña o actualiza la especificación OpenAPI.
 | Rol | Ruta |
 |-----|------|
 | HLD | `docs/architecture/hld/HLD-v1.md` |
+| LLD (recomendado) | `docs/architecture/lld/LLD-v1.md` |
 | Modelo de datos | `docs/architecture/data-model/logical-model-v1.md` |
 
 ## Output
@@ -23,4 +24,4 @@ Base URL: `/api/v1`. DTOs en camelCase.
 
 ## Estado
 
-Pendiente — extraer de HLD §4 y readme §4 al iniciar implementación.
+Pendiente — extraer de LLD §4 o HLD §4 al iniciar implementación.

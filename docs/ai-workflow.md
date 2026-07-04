@@ -19,7 +19,9 @@
 | `product-manager.md` | PRD |
 | `solution-architect.md` | HLD |
 | `user-story-mapper.md` | User Story Map |
+| `user-story-enricher.md` | Enriquecer historias y tasks |
 | `data-model-architect.md` | Modelo de datos |
+| `lld-architect.md` | LLD (diseño de bajo nivel) |
 | `roadmap-planner.md` | Roadmap |
 | `backend-engineer.md` | Backend *(stub)* |
 | `frontend-engineer.md` | Frontend *(stub)* |

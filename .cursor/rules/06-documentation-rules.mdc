@@ -22,6 +22,7 @@ Artefactos publicados que evolucionan y se versionan.
 - `docs/product/` — PRD, User Story Map, roadmap, historias
 - `docs/architecture/hld/` — HLD-vN.md
 - `docs/architecture/data-model/` — logical-model-vN.md
+- `docs/architecture/lld/` — LLD-vN.md
 - `docs/architecture/adr/` — ADR-NNN-titulo.md
 - `docs/architecture/apis/` — api-spec-vN.yaml
 - `docs/engineering/`, `docs/qa/`, `docs/security/` — guías y estrategias
@@ -34,6 +35,7 @@ Artefactos publicados que evolucionan y se versionan.
 | HLD | `HLD-vN.md` | `docs/architecture/hld/HLD-v1.md` |
 | ADR | `ADR-NNN-titulo.md` | `docs/architecture/adr/ADR-001-monolito-modular.md` |
 | Roadmap | `roadmap-vN.md` | `docs/product/roadmap/roadmap-v1.md` |
+| LLD | `LLD-vN.md` | `docs/architecture/lld/LLD-v1.md` |
 
 Al regenerar con skills/agentes, incrementar versión y conservar la anterior.
 
