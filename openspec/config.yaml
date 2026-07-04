@@ -1,0 +1,49 @@
+# OpenSpec project configuration — Organizador de Conocimiento
+# Regenerate slash commands after edits: openspec update (requires Node 20+)
+
+schema: spec-driven
+
+context: |
+  Product: Organizador de Conocimiento (MVP — notes, tags, simple search).
+  Stack: React 18 + Vite + TypeScript | Node 20 + Express + Zod | PostgreSQL 16 + Prisma 5 | Docker Compose.
+  Architecture: modular monolith — routes → controllers → services → repositories → Prisma.
+  API: REST JSON under /api/v1. No authentication in MVP (single-user per instance).
+  Language: English for code, comments, commits, and OpenSpec artifacts. Spanish for product docs in docs/product/.
+
+  Do NOT regenerate from scratch — use existing sources of truth:
+  - docs/product/prd/PRD-v1.md
+  - docs/architecture/hld/HLD-v1.md
+  - docs/architecture/lld/LLD-v1.md
+  - docs/architecture/data-model/logical-model-v1.md
+  - docs/product/user-stories/US-NNN.md (enriched MVP stories)
+  - docs/engineering/implementation-queue-v1.json
+  - docs/engineering/implementation-plan-v1.md
+
+  Implementation standards (read before coding):
+  - docs/engineering/standards/base-standards.md
+  - docs/engineering/standards/backend-standards.md
+  - docs/engineering/standards/frontend-standards.md
+  - docs/engineering/standards/documentation-standards.md
+  - .cursor/rules/02-coding-standards.mdc through 08-definition-of-done.mdc
+
+  Agents: .cursor/agents/backend-engineer.md | frontend-engineer.md | qa-engineer.md | devops-engineer.md
+  Skills: .cursor/skills/ — apply-openspec-change.md for queue sync
+
+rules:
+  proposal:
+    - Reference US-NNN and PRD RF/RNF; do not expand MVP scope.
+    - Link to docs/product/user-stories/US-NNN.md and implementation phase in implementation-plan-v1.md.
+  specs:
+    - Reuse Gherkin scenarios from the user story; Given/When/Then format.
+    - Delta specs only describe what this change adds or modifies.
+  design:
+    - Extract from LLD-v1 and logical-model-v1; cite section numbers.
+    - Do not contradict ADRs in docs/architecture/adr/.
+  tasks:
+    - One checkbox per TASK-XXX from the user story; respect depends_on in implementation-queue-v1.json.
+    - Order within change: DB → BE → FE → QA.
+    - After each task: mark done in implementation-queue-v1.json and docs/product/user-stories/status-v1.json.
+  _global:
+    - Read US-NNN.md §Detalle por task before implementing.
+    - Small tasks, one at a time; TDD where applicable (see base-standards.md).
+    - Bootstrap infra (PHASE-000) has no TASK id — complete before sequence 1.

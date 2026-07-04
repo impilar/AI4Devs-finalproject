@@ -21,10 +21,12 @@ Guía operativa del repositorio.
 
 ## Plan de implementación
 
-Antes de codificar en `src/`, generar cola priorizada:
+Antes de codificar en `src/`:
 
-- Agente: `.cursor/agents/implementation-planner.md`
-- Salida: `docs/engineering/implementation-plan-v1.md`, `implementation-queue-v1.json`
+- Cola priorizada: `implementation-plan-v1.md`, `implementation-queue-v1.json`
+- OpenSpec: [openspec-setup.md](openspec-setup.md), `openspec/config.yaml`
+- Estándares: [standards/base-standards.md](standards/base-standards.md)
+- Entrada agentes: [AGENTS.md](../../AGENTS.md)
 
 ## Enlaces
 

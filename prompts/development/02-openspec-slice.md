@@ -1,0 +1,46 @@
+# Prompt: OpenSpec slice de implementación
+
+## Objetivo
+
+Crear o ejecutar un change de OpenSpec alineado con la cola MVP y las user stories enriquecidas.
+
+## Prerrequisitos
+
+- `openspec init` + `openspec update` ejecutados (ver `docs/engineering/openspec-setup.md`)
+- `implementation-queue-v1.json` y US MVP enriquecidas
+
+## Crear change (ejemplo US-001)
+
+```
+/opsx:propose us-001-listado-notas
+
+Use openspec/config.yaml context. Do NOT regenerate PRD/LLD.
+
+Sources:
+- docs/product/user-stories/US-001.md (Gherkin + Detalle por task)
+- docs/architecture/lld/LLD-v1.md (listado §)
+- docs/engineering/implementation-queue-v1.json (TASK-019, 003, 001, 002, 004)
+
+tasks.md: one checkbox per TASK-XXX, order DB → BE → FE → QA.
+design.md: cite LLD sections, list files to create.
+specs/: delta ADDED from US-001 Gherkin scenarios.
+```
+
+## Aplicar tasks
+
+```
+Implement next backlog task using .cursor/skills/apply-openspec-change.md
+Active change: us-001-listado-notas
+Sync implementation-queue-v1.json and status-v1.json on completion.
+```
+
+## Cerrar slice
+
+```
+/opsx:verify us-001-listado-notas
+/opsx:archive us-001-listado-notas
+```
+
+## Trazabilidad
+
+Registrar variaciones de este prompt en `prompts/conversations/` si aplica.

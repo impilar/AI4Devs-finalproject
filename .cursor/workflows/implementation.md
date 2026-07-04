@@ -1,38 +1,66 @@
 # Workflow — Implementation
 
-Implementación del MVP en `src/`.
+Implementación del MVP en `src/` con **OpenSpec** + cola priorizada.
 
 ## Prerrequisitos
 
 1. `docs/architecture/lld/LLD-v1.md`
-2. User stories MVP enriquecidas (recomendado)
-3. **`docs/engineering/implementation-plan-v1.md`** y **`implementation-queue-v1.json`** generados
+2. User stories MVP enriquecidas
+3. `docs/engineering/implementation-plan-v1.md` y `implementation-queue-v1.json`
+4. **OpenSpec bootstrap:** `docs/engineering/openspec-setup.md` (`openspec init`, `openspec update`)
+5. **Estándares:** `docs/engineering/standards/base-standards.md`, `AGENTS.md`
 
-| Paso | Skill / Agente | Output |
-|------|----------------|--------|
-| 0 | `create-implementation-plan.md` → `implementation-planner.md` | `docs/engineering/implementation-plan-v1.md`, `implementation-queue-v1.json` |
-| 1+ | Seguir `queue[].sequence` | `src/`, `tests/` |
+## Fases
 
-Prompt plan: `prompts/development/01-implementation-plan.md`
+| Fase | Acción | Output |
+|------|--------|--------|
+| 0 | Plan ya generado | `implementation-plan-v1.md`, `implementation-queue-v1.json` |
+| 0b | OpenSpec + standards | `openspec/`, `docs/engineering/standards/` |
+| 1 | PHASE-000 bootstrap | `src/infra/`, health endpoint |
+| 2+ | Por historia MVP | `openspec/changes/us-NNN-*/` → `src/`, `tests/` |
 
-## Agentes desarrollador (por capa)
+## Flujo por slice (user story)
+
+```text
+/opsx:propose us-NNN-name     →  openspec/changes/us-NNN-name/
+/opsx:apply                   →  src/ + tests (skill apply-openspec-change)
+/opsx:verify                  →  validación vs specs + Gherkin
+/opsx:archive                 →  merge openspec/specs/, archive change
+```
+
+Prompt detallado: `prompts/development/02-openspec-slice.md`
+
+## Orden de ejecución
+
+Seguir `implementation-queue-v1.json` (`sequence` 1 → 40). Un OpenSpec change agrupa las tasks de una fase/historia (ver `implementation-plan-v1.md`).
+
+**Primera task en cola:** TASK-019 (tabla `notas`).  
+**Pre-requisito:** PHASE-000 (`docker-compose`, `GET /api/v1/health`).
+
+## Agentes desarrollador
 
 | Agente | Área |
 |--------|------|
-| `backend-engineer.md` | `src/backend/` |
+| `backend-engineer.md` | `src/backend/` + `[DB]` |
 | `frontend-engineer.md` | `src/frontend/` |
 | `devops-engineer.md` | `src/infra/` |
 | `qa-engineer.md` | `tests/` |
 
 ## Skills
 
-- `create-implementation-plan.md` — cola priorizada con dependencias
-- `enrich-user-story.md` — detalle técnico en historias
-- `code-review.md`
-- `design-api.md`
+| Skill | Uso |
+|-------|-----|
+| `apply-openspec-change.md` | Implementar task + sync cola/status |
+| `create-implementation-plan.md` | Regenerar cola |
+| `enrich-user-story.md` | Enriquecer historias |
+| `code-review.md` | Revisión |
 
 ## Referencias
 
-- Cola: `docs/engineering/implementation-queue-v1.json`
-- User stories: `docs/product/user-stories/`
-- DoD: `.cursor/rules/08-definition-of-done.mdc`
+| Artefacto | Ruta |
+|-----------|------|
+| Cola | `docs/engineering/implementation-queue-v1.json` |
+| OpenSpec | `openspec/config.yaml`, `openspec/changes/` |
+| Standards | `docs/engineering/standards/` |
+| User stories | `docs/product/user-stories/` |
+| DoD | `.cursor/rules/08-definition-of-done.mdc` |

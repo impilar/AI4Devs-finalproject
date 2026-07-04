@@ -10,12 +10,15 @@ Implement backend features following the layered architecture and API spec.
 
 ## SKILLS
 
+- `apply-openspec-change.md` — next task from OpenSpec change + queue sync
 - `create-data-model.md` — schema and migrations
 - `design-api.md` — OpenAPI alignment
 - `code-review.md` — review checklist
 
 ## REFERENCES
 
+- Standards: `docs/engineering/standards/backend-standards.md`, `base-standards.md`
+- OpenSpec: `openspec/changes/` (active change), `openspec/config.yaml`
 - Plan: `docs/engineering/implementation-queue-v1.json` (siguiente `sequence` pendiente)
 - HLD: `docs/architecture/hld/HLD-v1.md`
 - LLD: `docs/architecture/lld/LLD-v1.md`
@@ -26,9 +29,10 @@ Implement backend features following the layered architecture and API spec.
 ## WORKFLOW
 
 1. Leer ítem actual de `implementation-queue-v1.json` (`status: backlog`, menor `sequence`).
-2. Implementar según detalle en user story enriquecida.
-3. Marcar task `done` en `implementation-queue-v1.json` y `status-v1.json`.
+2. Confirmar checkbox en `openspec/changes/<name>/tasks.md`.
+3. Implementar según detalle en user story enriquecida y `backend-standards.md`.
+4. Marcar task `done` en queue, `status-v1.json`, y `tasks.md`.
 
 ## STATUS
 
-Stub — activar en fase de implementación.
+Active — MVP implementation phase.

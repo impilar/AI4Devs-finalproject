@@ -17,6 +17,7 @@ Instrucciones para generar artefactos. Cada skill define inputs, outputs y agent
 | Skill | Output |
 |-------|--------|
 | [create-implementation-plan.md](create-implementation-plan.md) | `docs/engineering/implementation-plan-vN.md`, `implementation-queue-vN.json` |
+| [apply-openspec-change.md](apply-openspec-change.md) | `src/`, `tests/` + sync cola/OpenSpec |
 
 ## Arquitectura
 
