@@ -25,8 +25,8 @@ Genera el **plan de implementación** priorizado (historias y tasks) con depende
 
 | Artefacto | Ruta |
 |-----------|------|
-| Plan (Markdown) | `docs/engineering/implementation-plan-v1.md` |
-| Cola priorizada (JSON) | `docs/engineering/implementation-queue-v1.json` |
+| Plan (Markdown) | `docs/engineering/implementation-plan-mvp.md` |
+| Cola priorizada (JSON) | `docs/engineering/implementation-queue-mvp.json` |
 
 Al regenerar, incrementar versión (`v2`) y conservar la anterior.
 
@@ -83,7 +83,7 @@ Alinear con LLD §9.2:
 7. US-012 + US-013 — búsqueda  
 8. US-015 + US-016 — editar y eliminar  
 
-### 5. Cola JSON (`implementation-queue-v1.json`)
+### 5. Cola JSON (`implementation-queue-mvp.json`)
 
 - `queue[]`: un elemento por task, `sequence` único 1…N global.
 - Campos obligatorios por ítem: `sequence`, `id`, `type`, `story_id`, `title`, `layer`, `agent`, `depends_on[]`, `status` (`backlog`).
@@ -107,4 +107,4 @@ Seguir plantilla: resumen, dependencias (mermaid), fases con tablas, cola top-N,
 
 ## Uso posterior
 
-El agente desarrollador toma el ítem con menor `sequence` y `status != done` de `implementation-queue-v1.json`.
+El agente desarrollador toma el ítem con menor `sequence` y `status != done` de `implementation-queue-mvp.json`.

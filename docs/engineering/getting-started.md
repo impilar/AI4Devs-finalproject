@@ -225,8 +225,8 @@ Specs: `tests/e2e/us-001-listado.spec.ts`, `us-012-busqueda.spec.ts`, etc.
 |---------|------|
 | Config proyecto | `openspec/config.yaml` |
 | Setup CLI | [openspec-setup.md](openspec-setup.md) |
-| Plan MVP | [implementation-plan-v1.md](implementation-plan-v1.md) |
-| Cola tasks | [implementation-queue-v1.json](implementation-queue-v1.json) |
+| Plan MVP | [implementation-plan-mvp.md](implementation-plan-mvp.md) |
+| Cola tasks | [implementation-queue-mvp.json](implementation-queue-mvp.json) |
 
 Siguiente slice de desarrollo: `/opsx:propose us-001-listado-notas`.
 

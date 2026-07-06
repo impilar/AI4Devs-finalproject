@@ -32,8 +32,8 @@ Produce an **implementation plan** and a **machine-readable priority queue** so 
 
 Generate:
 
-1. **`docs/engineering/implementation-plan-v1.md`** — human-readable plan with phases, dependency diagram, rules.
-2. **`docs/engineering/implementation-queue-v1.json`** — ordered `queue[]` for agent invocation.
+1. **`docs/engineering/implementation-plan-mvp.md`** — human-readable plan with phases, dependency diagram, rules.
+2. **`docs/engineering/implementation-queue-mvp.json`** — ordered `queue[]` for agent invocation.
 
 Every MVP task (TASK-001…TASK-064 for in-scope stories) must appear **exactly once** in `queue[]` with valid `depends_on`.
 
@@ -112,7 +112,7 @@ Include **Phase 0 — Bootstrap** if `src/` is still empty:
 | infra / Docker | `devops-engineer` |
 | `[QA]`, qa | `qa-engineer` |
 
-### 5. Build `implementation-queue-v1.json`
+### 5. Build `implementation-queue-mvp.json`
 
 - Populate `version`, `scope`, `generated_at`, `sources`, `plan_doc`.
 - `phases[]`: id `PHASE-001`…, name, `stories[]`, ordered `task_ids[]`.
@@ -122,7 +122,7 @@ Include **Phase 0 — Bootstrap** if `src/` is still empty:
 
 Validate: N tasks in queue = N tasks in MVP stories in scope.
 
-### 6. Write `implementation-plan-v1.md`
+### 6. Write `implementation-plan-mvp.md`
 
 Follow template sections 0–8 (exclude agent guide).
 
@@ -175,7 +175,7 @@ Generate the implementation plan using argument: **$ARGUMENTS** (default: `MVP`)
 
 ## OUTPUT
 
-1. Save `docs/engineering/implementation-plan-v1.md`  
-2. Save `docs/engineering/implementation-queue-v1.json`  
+1. Save `docs/engineering/implementation-plan-mvp.md`  
+2. Save `docs/engineering/implementation-queue-mvp.json`  
 
 Report: phase count, queue length, first 5 items to implement, any blocked/enrichment gaps found.

@@ -1,7 +1,7 @@
 # Tasks: PHASE-001 — Notes schema and list (US-001)
 
-> Queue: `implementation-queue-v1.json` sequences 1–5.  
-> After each TASK-XXX section: mark `done` in `implementation-queue-v1.json` and `docs/product/user-stories/status-v1.json`.  
+> Queue: `implementation-queue-mvp.json` sequences 1–5.  
+> After each TASK-XXX section: mark `done` in `implementation-queue-mvp.json` and `docs/product/user-stories/status-v1.json`.  
 > Detail: [US-001](docs/product/user-stories/US-001.md), [US-005 §TASK-019](docs/product/user-stories/US-005.md).
 
 ## 1. TASK-019 — [DB] Tabla notas (backend-engineer)

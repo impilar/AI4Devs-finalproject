@@ -8,8 +8,8 @@ Ejecuta el agente `.cursor/agents/implementation-planner.md` (Implementation Pla
 - **Inputs:** `docs/architecture/lld/LLD-v1.md`, `docs/product/user-stories/`, `status-v1.json`, `docs/product/prd/PRD-v1.md`
 - **Plantilla:** `knowledge/templates/engineering/implementation-plan-template.md`
 - **Salidas:**
-  - `docs/engineering/implementation-plan-v1.md`
-  - `docs/engineering/implementation-queue-v1.json`
+  - `docs/engineering/implementation-plan-mvp.md`
+  - `docs/engineering/implementation-queue-mvp.json`
 
 **Prerrequisitos:** LLD-v1; user stories MVP enriquecidas recomendadas.
 

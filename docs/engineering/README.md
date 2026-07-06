@@ -4,8 +4,8 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 
 | Artefacto | Descripción |
 |-----------|-------------|
-| [implementation-plan-v1.md](implementation-plan-v1.md) | Plan humano: fases, dependencias, reglas (MVP, 8 fases, 40 tasks) |
-| [implementation-queue-v1.json](implementation-queue-v1.json) | Cola priorizada de tasks para agentes desarrollador |
+| [implementation-plan-mvp.md](implementation-plan-mvp.md) | Plan humano: fases, dependencias, reglas (MVP, 8 fases, 40 tasks) |
+| [implementation-queue-mvp.json](implementation-queue-mvp.json) | Cola priorizada de tasks para agentes desarrollador |
 | [standards/](standards/) | Estándares de codificación (base, backend, frontend, docs) |
 | [openspec-setup.md](openspec-setup.md) | Bootstrap OpenSpec CLI (`openspec init`, `openspec update`) |
 | [getting-started.md](getting-started.md) | Bootstrap local: Docker, backend, frontend, tests |
@@ -34,7 +34,7 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 
 ```bash
 # Siguiente task pendiente
-jq '.queue[] | select(.status == "backlog") | .id' implementation-queue-v1.json | head -1
+jq '.queue[] | select(.status == "backlog") | .id' implementation-queue-mvp.json | head -1
 ```
 
-Tras implementar: marcar `status: done` en `implementation-queue-v1.json`, `status-v1.json`, y checkbox en `openspec/changes/*/tasks.md`.
+Tras implementar: marcar `status: done` en `implementation-queue-mvp.json`, `status-v1.json`, y checkbox en `openspec/changes/*/tasks.md`.

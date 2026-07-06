@@ -2,7 +2,7 @@
 
 Implement the next task from the active OpenSpec change and sync project tracking files.
 
-Bridge between **OpenSpec** (`openspec/changes/*/tasks.md`) and **implementation queue** (`docs/engineering/implementation-queue-v1.json`).
+Bridge between **OpenSpec** (`openspec/changes/*/tasks.md`) and **implementation queue** (`docs/engineering/implementation-queue-mvp.json`).
 
 ## When to use
 
@@ -19,7 +19,7 @@ Bridge between **OpenSpec** (`openspec/changes/*/tasks.md`) and **implementation
 | Source | Path |
 |--------|------|
 | OpenSpec change | `openspec/changes/<name>/` |
-| Queue | `docs/engineering/implementation-queue-v1.json` |
+| Queue | `docs/engineering/implementation-queue-mvp.json` |
 | User story | `docs/product/user-stories/US-NNN.md` |
 | Standards | `docs/engineering/standards/base-standards.md` |
 | Agent | Per `layer` in queue: backend-engineer, frontend-engineer, qa-engineer |
@@ -29,7 +29,7 @@ Bridge between **OpenSpec** (`openspec/changes/*/tasks.md`) and **implementation
 ### 1. Resolve next task
 
 ```bash
-jq '.queue[] | select(.status == "backlog") | {sequence, id, story_id, layer, agent}' docs/engineering/implementation-queue-v1.json | head -1
+jq '.queue[] | select(.status == "backlog") | {sequence, id, story_id, layer, agent}' docs/engineering/implementation-queue-mvp.json | head -1
 ```
 
 Confirm the task exists as `- [ ] TASK-XXX` in `openspec/changes/<active>/tasks.md`.
@@ -51,7 +51,7 @@ Confirm the task exists as `- [ ] TASK-XXX` in `openspec/changes/<active>/tasks.
 On task completion:
 
 1. `tasks.md`: `- [x] TASK-XXX`
-2. `implementation-queue-v1.json`: `"status": "done"` for matching queue entry
+2. `implementation-queue-mvp.json`: `"status": "done"` for matching queue entry
 3. `docs/product/user-stories/status-v1.json`: update task status if tracked
 
 ### 5. Report

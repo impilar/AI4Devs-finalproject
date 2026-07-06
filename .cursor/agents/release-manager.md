@@ -45,7 +45,7 @@ At the end of each release (MVP, V1, V2+), confirm that:
 |----------|------|
 | Roadmap (stories per release) | `docs/product/roadmap/roadmap-v1.md` |
 | Story/task status | `docs/product/user-stories/status-v1.json` |
-| Implementation queue | `docs/engineering/implementation-queue-v1.json` |
+| Implementation queue | `docs/engineering/implementation-queue-mvp.json` |
 | OpenSpec changes | `openspec/changes/`, `openspec/specs/` |
 | DoD | `.cursor/rules/08-definition-of-done.mdc` |
 | Git conventions | `CONTRIBUTING.md`, `.cursor/rules/07-git-workflow-rules.mdc` |

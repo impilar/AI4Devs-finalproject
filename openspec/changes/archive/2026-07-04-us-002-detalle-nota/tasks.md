@@ -1,7 +1,7 @@
 # Tasks: PHASE-002 — Note detail (US-002)
 
-> Queue: `implementation-queue-v1.json` sequences 6–11.  
-> After each TASK-XXX section: mark `done` in `implementation-queue-v1.json` and `docs/product/user-stories/status-v1.json`.  
+> Queue: `implementation-queue-mvp.json` sequences 6–11.  
+> After each TASK-XXX section: mark `done` in `implementation-queue-mvp.json` and `docs/product/user-stories/status-v1.json`.  
 > Detail: [US-002](docs/product/user-stories/US-002.md), [US-006 §TASK-023](docs/product/user-stories/US-006.md), [US-008 §TASK-031](docs/product/user-stories/US-008.md).
 
 ## 1. TASK-031 — [DB] Tablas etiquetas y nota_etiqueta (backend-engineer)

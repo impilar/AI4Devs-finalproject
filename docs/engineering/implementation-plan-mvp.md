@@ -20,7 +20,7 @@ Plan de implementación del **MVP** en **8 fases técnicas** (+ bootstrap infra)
 | Fases de entrega | 8 (+ bootstrap) |
 | Duración estimada | 4–6 sprints (equipo académico) |
 
-**Cola ejecutable:** [`implementation-queue-v1.json`](implementation-queue-v1.json)
+**Cola ejecutable:** [`implementation-queue-mvp.json`](implementation-queue-mvp.json)
 
 **PHASE-000:** ✅ completada (2026-07-04) — OpenSpec `phase-000-bootstrap` archivado.  
 **Siguiente ítem en cola:** `sequence: 1` → **TASK-019** (tabla `notas`, US-005).  
@@ -202,7 +202,7 @@ flowchart LR
 | … | … | … | … | … |
 | 40 | TASK-064 | US-016 | qa | qa-engineer |
 
-> Cola completa (40 ítems): [`implementation-queue-v1.json`](implementation-queue-v1.json) → `queue[]`.
+> Cola completa (40 ítems): [`implementation-queue-mvp.json`](implementation-queue-mvp.json) → `queue[]`.
 
 ---
 
@@ -225,20 +225,20 @@ flowchart LR
 ### Obtener siguiente task
 
 ```bash
-jq '.queue[] | select(.status == "backlog") | .sequence as $s | .id as $id | "\($s) \($id)"' docs/engineering/implementation-queue-v1.json | head -1
+jq '.queue[] | select(.status == "backlog") | .sequence as $s | .id as $id | "\($s) \($id)"' docs/engineering/implementation-queue-mvp.json | head -1
 ```
 
 ### Prompt recomendado
 
 ```
-Implementa TASK-019 según docs/engineering/implementation-queue-v1.json
+Implementa TASK-019 según docs/engineering/implementation-queue-mvp.json
 y docs/product/user-stories/US-005.md (sección ### TASK-019).
-Actualiza status a done en implementation-queue-v1.json y status-v1.json.
+Actualiza status a done en implementation-queue-mvp.json y status-v1.json.
 ```
 
 ### Tras completar cada task
 
-1. Marcar `"status": "done"` en `implementation-queue-v1.json` → `queue[sequence-1]`
+1. Marcar `"status": "done"` en `implementation-queue-mvp.json` → `queue[sequence-1]`
 2. Marcar misma task en `docs/product/user-stories/status-v1.json`
 3. Cuando todas las tasks de una US estén `done`, valorar marcar la historia `done`
 

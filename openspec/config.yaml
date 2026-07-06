@@ -16,8 +16,8 @@ context: |
   - docs/architecture/lld/LLD-v1.md
   - docs/architecture/data-model/logical-model-v1.md
   - docs/product/user-stories/US-NNN.md (enriched MVP stories)
-  - docs/engineering/implementation-queue-v1.json
-  - docs/engineering/implementation-plan-v1.md
+  - docs/engineering/implementation-queue-mvp.json
+  - docs/engineering/implementation-plan-mvp.md
 
   Implementation standards (read before coding):
   - docs/engineering/standards/base-standards.md
@@ -32,7 +32,7 @@ context: |
 rules:
   proposal:
     - Reference US-NNN and PRD RF/RNF; do not expand MVP scope.
-    - Link to docs/product/user-stories/US-NNN.md and implementation phase in implementation-plan-v1.md.
+    - Link to docs/product/user-stories/US-NNN.md and implementation phase in implementation-plan-mvp.md.
   specs:
     - Reuse Gherkin scenarios from the user story; Given/When/Then format.
     - Delta specs only describe what this change adds or modifies.
@@ -40,9 +40,9 @@ rules:
     - Extract from LLD-v1 and logical-model-v1; cite section numbers.
     - Do not contradict ADRs in docs/architecture/adr/.
   tasks:
-    - One checkbox per TASK-XXX from the user story; respect depends_on in implementation-queue-v1.json.
+    - One checkbox per TASK-XXX from the user story; respect depends_on in implementation-queue-mvp.json.
     - Order within change: DB → BE → FE → QA.
-    - After each task: mark done in implementation-queue-v1.json and docs/product/user-stories/status-v1.json.
+    - After each task: mark done in implementation-queue-mvp.json and docs/product/user-stories/status-v1.json.
   _global:
     - Read US-NNN.md §Detalle por task before implementing.
     - Small tasks, one at a time; TDD where applicable (see base-standards.md).

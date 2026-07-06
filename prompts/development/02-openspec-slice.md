@@ -7,7 +7,7 @@ Crear o ejecutar un change de OpenSpec alineado con la cola MVP y las user stori
 ## Prerrequisitos
 
 - `openspec init` + `openspec update` ejecutados (ver `docs/engineering/openspec-setup.md`)
-- `implementation-queue-v1.json` y US MVP enriquecidas
+- `implementation-queue-mvp.json` y US MVP enriquecidas
 
 ## Crear change (ejemplo US-001)
 
@@ -19,7 +19,7 @@ Use openspec/config.yaml context. Do NOT regenerate PRD/LLD.
 Sources:
 - docs/product/user-stories/US-001.md (Gherkin + Detalle por task)
 - docs/architecture/lld/LLD-v1.md (listado §)
-- docs/engineering/implementation-queue-v1.json (TASK-019, 003, 001, 002, 004)
+- docs/engineering/implementation-queue-mvp.json (TASK-019, 003, 001, 002, 004)
 
 tasks.md: one checkbox per TASK-XXX, order DB → BE → FE → QA.
 design.md: cite LLD sections, list files to create.
@@ -31,7 +31,7 @@ specs/: delta ADDED from US-001 Gherkin scenarios.
 ```
 Implement next backlog task using .cursor/skills/apply-openspec-change.md
 Active change: us-001-listado-notas
-Sync implementation-queue-v1.json and status-v1.json on completion.
+Sync implementation-queue-mvp.json and status-v1.json on completion.
 ```
 
 ## Cerrar slice

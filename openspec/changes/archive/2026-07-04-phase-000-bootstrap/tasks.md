@@ -1,6 +1,6 @@
 # Tasks: PHASE-000 — Bootstrap infrastructure
 
-> No TASK-XXX in `implementation-queue-v1.json` — infra phase before `sequence: 1` (TASK-019).  
+> No TASK-XXX in `implementation-queue-mvp.json` — infra phase before `sequence: 1` (TASK-019).  
 > Agents: `devops-engineer` (§1–2), `backend-engineer` (§3–4), `frontend-engineer` (§5), all (§6).
 
 ## 1. Infrastructure (Docker)

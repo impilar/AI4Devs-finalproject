@@ -21,7 +21,7 @@
 
 **Principio de ordenación:** slices verticales por valor de usuario; dentro de cada slice: **infra/DB → backend → frontend → QA**.
 
-**Artefacto ejecutable:** [`implementation-queue-v1.json`](implementation-queue-v1.json) — cola priorizada para agentes desarrollador.
+**Artefacto ejecutable:** [`implementation-queue-mvp.json`](implementation-queue-mvp.json) — cola priorizada para agentes desarrollador.
 
 ---
 
@@ -75,7 +75,7 @@ flowchart LR
 | 2 | TASK-003 | US-001 | database | backend-engineer | backlog |
 | … | | | | | |
 
-> Cola completa en `implementation-queue-v1.json` → array `queue[]`.
+> Cola completa en `implementation-queue-mvp.json` → array `queue[]`.
 
 ---
 
@@ -95,15 +95,15 @@ flowchart LR
 
 Para implementar el ítem **N** de la cola:
 
-1. Leer `implementation-queue-v1.json` → `queue[N-1]`
+1. Leer `implementation-queue-mvp.json` → `queue[N-1]`
 2. Cargar user story enriquecida: `docs/product/user-stories/{story_id}.md`
 3. Invocar agente indicado en `agent` (ej. `backend-engineer.md`)
-4. Al completar: actualizar `status` en `implementation-queue-v1.json` y `status-v1.json`
+4. Al completar: actualizar `status` en `implementation-queue-mvp.json` y `status-v1.json`
 
 **Prompt sugerido:**
 
 ```
-Implementa {id} según docs/engineering/implementation-queue-v1.json
+Implementa {id} según docs/engineering/implementation-queue-mvp.json
 y docs/product/user-stories/{story_id}.md (sección TASK).
 ```
 
@@ -131,5 +131,5 @@ y docs/product/user-stories/{story_id}.md (sección TASK).
 2. Cruzar dependencias con LLD §9.2 y detalle por task (campo **Depende de**).
 3. Ordenar tasks respetando: DB → BE → FE → QA dentro de cada slice.
 4. Generar **fases** alineadas con slices verticales del LLD.
-5. Poblar `implementation-queue-v1.json` con cada task en orden único (`sequence` 1…N).
+5. Poblar `implementation-queue-mvp.json` con cada task en orden único (`sequence` 1…N).
 6. No incluir esta sección en el documento de salida.

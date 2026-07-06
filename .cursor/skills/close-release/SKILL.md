@@ -33,7 +33,7 @@ Before running close-release:
 
 1. Read `docs/product/roadmap/roadmap-v1.md` §4 (Vista por release) for expected stories.
 2. Load `docs/product/user-stories/status-v1.json`.
-3. Find implementation queue: `docs/engineering/implementation-queue-vN.json` where `scope` matches the release (e.g. `MVP` → `implementation-queue-v1.json`).
+3. Load `docs/engineering/implementation-queue-mvp.json` when closing release `MVP` (future releases may add their own queue file).
 
 Build inventory:
 
@@ -46,16 +46,16 @@ Build inventory:
 
 ## Step 2 — Implementation queue
 
-Read `docs/engineering/implementation-queue-vN.json`.
+Read `docs/engineering/implementation-queue-mvp.json`.
 
 **Checks:**
 
 ```bash
 # Pending tasks in queue (any status != done)
-jq '[.queue[] | select(.status != "done")] | length' docs/engineering/implementation-queue-vN.json
+jq '[.queue[] | select(.status != "done")] | length' docs/engineering/implementation-queue-mvp.json
 
 # Pending phases
-jq '[.phases[] | select(.status != "done")] | length' docs/engineering/implementation-queue-vN.json
+jq '[.phases[] | select(.status != "done")] | length' docs/engineering/implementation-queue-mvp.json
 ```
 
 **Fail if:**
@@ -233,7 +233,7 @@ Return the PR URL to the user.
 
 | Check | Result | Notes |
 |-------|--------|-------|
-| Queue (`implementation-queue-vN.json`) | pass / fail | X/Y tasks done |
+| Queue (`implementation-queue-mvp.json`) | pass / fail | X/Y tasks done |
 | Status (`status-v1.json`) | pass / fail | X/Y stories done |
 | OpenSpec (no active changes) | pass / fail | N archives found |
 | Tests (unit + integration + e2e) | pass / fail | … |

@@ -37,4 +37,4 @@ PHASE-001 and PHASE-002 let users browse and read notes, but they cannot capture
 | Queue | TASK-017, 018, 021, 022, 020, 024 (sequences 12–17) |
 | Agents | `backend-engineer`, `frontend-engineer`, `qa-engineer` |
 
-**References:** [US-005](docs/product/user-stories/US-005.md), [US-006](docs/product/user-stories/US-006.md), [implementation-plan-v1.md §PHASE-003](docs/engineering/implementation-plan-v1.md), PRD RF-001/RF-002/RF-003, LLD-v1 §4.2–4.3, §5.1, §7.1, §9.2.
+**References:** [US-005](docs/product/user-stories/US-005.md), [US-006](docs/product/user-stories/US-006.md), [implementation-plan-mvp.md §PHASE-003](docs/engineering/implementation-plan-mvp.md), PRD RF-001/RF-002/RF-003, LLD-v1 §4.2–4.3, §5.1, §7.1, §9.2.

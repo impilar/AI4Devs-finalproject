@@ -13,7 +13,7 @@ Al terminar todas las historias de un release y archivar todos los OpenSpec chan
 
 ```text
 Actúa como release-manager. Ejecuta close-release para el release MVP:
-- Verifica implementation-queue-v1.json y status-v1.json
+- Verifica implementation-queue-mvp.json y status-v1.json
 - Confirma que no hay changes activos en openspec/changes/
 - Ejecuta la batería de tests completa
 - Revisa git (commit, push)
@@ -23,7 +23,7 @@ Actúa como release-manager. Ejecuta close-release para el release MVP:
 ## Inputs
 
 - `docs/product/roadmap/roadmap-v1.md`
-- `docs/engineering/implementation-queue-v1.json`
+- `docs/engineering/implementation-queue-mvp.json`
 - `docs/product/user-stories/status-v1.json`
 - `openspec/changes/archive/`
 

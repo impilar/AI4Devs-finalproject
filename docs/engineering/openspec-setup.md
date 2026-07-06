@@ -82,7 +82,7 @@ In Cursor chat, `/opsx:` commands should autocomplete after `openspec update`.
 | 5 | `/opsx:verify us-001-listado-notas` — **obligatorio antes de archive** |
 | 6 | `/opsx:archive us-001-listado-notas` |
 
-Use skill `.cursor/skills/apply-openspec-change.md` to keep `implementation-queue-v1.json` in sync.
+Use skill `.cursor/skills/apply-openspec-change.md` to keep `implementation-queue-mvp.json` in sync.
 
 ## What we did NOT copy from Specboot
 

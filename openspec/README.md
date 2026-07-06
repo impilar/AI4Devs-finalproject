@@ -42,5 +42,5 @@ Sync with global queue: skill `.cursor/skills/apply-openspec-change.md`
 |----------|---------|
 | `proposal.md` | US-NNN + PRD intent |
 | `design.md` | LLD-v1 sections |
-| `tasks.md` | TASK-XXX from US + `implementation-queue-v1.json` |
+| `tasks.md` | TASK-XXX from US + `implementation-queue-mvp.json` |
 | `specs/` delta | Gherkin from user story |

@@ -3,7 +3,7 @@
   "scope": "MVP",
   "generated_at": "2026-07-04",
   "last_updated": "2026-07-06",
-  "plan_doc": "docs/engineering/implementation-plan-v1.md",
+  "plan_doc": "docs/engineering/implementation-plan-mvp.md",
   "sources": [
     "docs/architecture/lld/LLD-v1.md",
     "docs/architecture/hld/HLD-v1.md",

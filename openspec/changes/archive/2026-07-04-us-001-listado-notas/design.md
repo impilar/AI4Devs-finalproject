@@ -2,7 +2,7 @@
 
 ## Context
 
-PHASE-000 left a runnable Docker stack with `GET /api/v1/health`, Prisma datasource (no models), and a React placeholder. The implementation queue (`implementation-queue-v1.json`, `sequence` 1–5) defines PHASE-001 as the first domain vertical slice: database table `notas`, list API, and home-page UI.
+PHASE-000 left a runnable Docker stack with `GET /api/v1/health`, Prisma datasource (no models), and a React placeholder. The implementation queue (`implementation-queue-mvp.json`, `sequence` 1–5) defines PHASE-001 as the first domain vertical slice: database table `notas`, list API, and home-page UI.
 
 **Current state:** No `notas` table, no domain routes, placeholder `App.tsx`.  
 **Target state:** User opens `/` and sees all notes (title + date), backed by `GET /api/v1/notas`, with E2E green.

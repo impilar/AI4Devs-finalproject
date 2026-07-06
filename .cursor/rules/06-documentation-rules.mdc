@@ -38,7 +38,7 @@ Artefactos publicados que evolucionan y se versionan.
 | ADR | `ADR-NNN-titulo.md` | `docs/architecture/adr/ADR-001-monolito-modular.md` |
 | Roadmap | `roadmap-vN.md` | `docs/product/roadmap/roadmap-v1.md` |
 | LLD | `LLD-vN.md` | `docs/architecture/lld/LLD-v1.md` |
-| Plan implementación | `implementation-plan-vN.md` | `docs/engineering/implementation-plan-v1.md` |
+| Plan implementación | `implementation-plan-{scope}.md` | `docs/engineering/implementation-plan-mvp.md` |
 | Estándares código | `base-standards.md` | `docs/engineering/standards/base-standards.md` |
 | OpenSpec change | `openspec/changes/<name>/` | `openspec/changes/us-001-listado-notas/` |
 

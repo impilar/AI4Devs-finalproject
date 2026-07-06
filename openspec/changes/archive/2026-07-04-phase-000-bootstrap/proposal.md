@@ -2,7 +2,7 @@
 
 ## Why
 
-The MVP implementation queue (TASK-019 onward) requires a runnable local environment: PostgreSQL, backend API scaffold, and frontend build tooling. Without PHASE-000, database migrations and endpoints cannot be developed or verified. This change unblocks all 40 queued tasks in `implementation-queue-v1.json`.
+The MVP implementation queue (TASK-019 onward) requires a runnable local environment: PostgreSQL, backend API scaffold, and frontend build tooling. Without PHASE-000, database migrations and endpoints cannot be developed or verified. This change unblocks all 40 queued tasks in `implementation-queue-mvp.json`.
 
 ## What Changes
 
@@ -40,4 +40,4 @@ No user-facing features (notes CRUD) in this change — infrastructure only.
 | Queue | Prerequisite before `sequence: 1` (TASK-019); no TASK id in JSON |
 | Agents | `devops-engineer` (infra), `backend-engineer` (health + backend shell) |
 
-**References:** `docs/engineering/implementation-plan-v1.md` §PHASE-000, LLD-v1 §2.3, §11, HLD-v1 §10.
+**References:** `docs/engineering/implementation-plan-mvp.md` §PHASE-000, LLD-v1 §2.3, §11, HLD-v1 §10.

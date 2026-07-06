@@ -3,7 +3,7 @@
   "version": "1.0",
   "scope": "MVP",
   "generated_at": "YYYY-MM-DD",
-  "plan_doc": "docs/engineering/implementation-plan-v1.md",
+  "plan_doc": "docs/engineering/implementation-plan-mvp.md",
   "sources": [
     "docs/architecture/lld/LLD-v1.md",
     "docs/product/user-stories/",

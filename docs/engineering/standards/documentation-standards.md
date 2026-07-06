@@ -45,7 +45,7 @@ Format per `CONTRIBUTING.md`:
 
 After each TASK:
 
-1. `docs/engineering/implementation-queue-v1.json` → `"status": "done"`
+1. `docs/engineering/implementation-queue-mvp.json` → `"status": "done"`
 2. `docs/product/user-stories/status-v1.json` → task/story status
 
 ## References

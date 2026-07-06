@@ -19,7 +19,7 @@ Close a product release and prepare the pull request.
 
 **Quick checklist (skill has full detail):**
 
-1. `implementation-queue-vN.json` — all release tasks/phases `done`
+1. `implementation-queue-mvp.json` — all release tasks/phases `done`
 2. `status-v1.json` — all release stories/tasks `done`; epics not stale `backlog`
 3. `openspec/changes/` — only `archive/` + `README.md`; archives exist per story
 4. `openspec/specs/` — merged capabilities present

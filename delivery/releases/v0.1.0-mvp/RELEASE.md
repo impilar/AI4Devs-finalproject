@@ -49,7 +49,7 @@ E2E: `tests/e2e/us-001-listado.spec.ts` … `us-016-eliminacion.spec.ts`
 
 ## Artefactos de seguimiento
 
-- Cola: `docs/engineering/implementation-queue-v1.json` — 34/34 tasks `done`
+- Cola: `docs/engineering/implementation-queue-mvp.json` — 34/34 tasks `done`
 - Estado: `docs/product/user-stories/status-v1.json` — 10/10 historias MVP `done`
 - Specs: `openspec/specs/` (13 capacidades)
 

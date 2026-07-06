@@ -6,7 +6,7 @@ Adapted from [LIDR Specboot](https://github.com/LIDR-academy/lidr-specboot) for 
 
 ## Principles
 
-1. **Small tasks, one at a time** — Follow `implementation-queue-v1.json` sequence; complete one TASK before starting the next.
+1. **Small tasks, one at a time** — Follow `implementation-queue-mvp.json` sequence; complete one TASK before starting the next.
 2. **Test-driven development (TDD)** — Write failing tests first for services and API endpoints; E2E after FE slice.
 3. **Type safety** — Strict TypeScript; no `any` without justification.
 4. **Clear naming** — Descriptive functions, components, and files per LLD-v1.
@@ -38,7 +38,7 @@ Adapted from [LIDR Specboot](https://github.com/LIDR-academy/lidr-specboot) for 
 
 ## Implementation workflow
 
-1. Check `implementation-queue-v1.json` for next `backlog` item (lowest `sequence`).
+1. Check `implementation-queue-mvp.json` for next `backlog` item (lowest `sequence`).
 2. Open matching OpenSpec change in `openspec/changes/` (or create with `/opsx:propose`).
 3. Read task detail in `docs/product/user-stories/US-NNN.md` §Detalle por task.
 4. Implement per [backend-standards.md](backend-standards.md) or [frontend-standards.md](frontend-standards.md).
@@ -58,6 +58,6 @@ Stricter 90%+ coverage applies post-MVP if team agrees.
 ## References
 
 - LLD: `docs/architecture/lld/LLD-v1.md`
-- Queue: `docs/engineering/implementation-queue-v1.json`
-- Plan: `docs/engineering/implementation-plan-v1.md`
+- Queue: `docs/engineering/implementation-queue-mvp.json`
+- Plan: `docs/engineering/implementation-plan-mvp.md`
 - OpenSpec config: `openspec/config.yaml`

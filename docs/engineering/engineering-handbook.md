@@ -23,7 +23,7 @@ Guía operativa del repositorio.
 
 Antes de codificar en `src/`:
 
-- Cola priorizada: `implementation-plan-v1.md`, `implementation-queue-v1.json`
+- Cola priorizada: `implementation-plan-mvp.md`, `implementation-queue-mvp.json`
 - OpenSpec: [openspec-setup.md](openspec-setup.md), `openspec/config.yaml`
 - Estándares: [standards/base-standards.md](standards/base-standards.md)
 - Entrada agentes: [AGENTS.md](../../AGENTS.md)

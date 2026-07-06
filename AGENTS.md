@@ -12,7 +12,7 @@ Entry point for coding agents (Cursor and compatible tools). Adapted from [LIDR 
 2. Read layer-specific standards:
    - Backend / DB: `docs/engineering/standards/backend-standards.md`
    - Frontend: `docs/engineering/standards/frontend-standards.md`
-3. Check **`docs/engineering/implementation-queue-v1.json`** for the next `backlog` task (`sequence`).
+3. Check **`docs/engineering/implementation-queue-mvp.json`** for the next `backlog` task (`sequence`).
 4. Open the active OpenSpec change in **`openspec/changes/`** (or create via `/opsx:propose`).
 5. Read task detail in **`docs/product/user-stories/US-NNN.md`** (§Detalle por task).
 
@@ -25,7 +25,7 @@ Entry point for coding agents (Cursor and compatible tools). Adapted from [LIDR 
 | HLD | `docs/architecture/hld/HLD-v1.md` |
 | LLD | `docs/architecture/lld/LLD-v1.md` |
 | Data model | `docs/architecture/data-model/logical-model-v1.md` |
-| Implementation queue | `docs/engineering/implementation-queue-v1.json` |
+| Implementation queue | `docs/engineering/implementation-queue-mvp.json` |
 | OpenSpec config | `openspec/config.yaml` |
 
 ## Agents (roles)
