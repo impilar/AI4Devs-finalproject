@@ -3,6 +3,10 @@ import { notaService } from "../services/nota.service.js";
 import type { CreateNotaDto, UpdateNotaDto } from "../schemas/nota.schema.js";
 import { ListNotasQuerySchema } from "../schemas/nota.schema.js";
 
+function routeParam(value: string | string[]): string {
+  return Array.isArray(value) ? value[0] : value;
+}
+
 export async function listNotas(req: Request, res: Response): Promise<void> {
   const query = ListNotasQuerySchema.parse(req.query);
   const result = await notaService.list(query);
@@ -16,7 +20,7 @@ export async function getNota(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const data = await notaService.getById(req.params.id);
+    const data = await notaService.getById(routeParam(req.params.id));
     res.status(200).json({ data });
   } catch (error) {
     next(error);
@@ -42,7 +46,7 @@ export async function updateNota(
   next: NextFunction,
 ): Promise<void> {
   try {
-    const data = await notaService.update(req.params.id, req.body as UpdateNotaDto);
+    const data = await notaService.update(routeParam(req.params.id), req.body as UpdateNotaDto);
     res.status(200).json({ data });
   } catch (error) {
     next(error);
