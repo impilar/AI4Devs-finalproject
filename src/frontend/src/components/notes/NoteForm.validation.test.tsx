@@ -71,6 +71,8 @@ describe("NoteForm validation (US-007)", () => {
             links: [],
             tags: [],
           }}
+          currentNoteId="11111111-1111-1111-1111-111111111101"
+          noteOptions={[]}
           onSubmit={onSubmit}
           onCancel={vi.fn()}
         />

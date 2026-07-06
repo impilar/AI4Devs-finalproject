@@ -82,13 +82,15 @@
       "title": "Ordenar listado por fecha o título",
       "epic": "EPIC-001",
       "release": "V2+",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-013": "backlog",
-        "TASK-014": "backlog",
-        "TASK-015": "backlog",
-        "TASK-016": "backlog"
-      }
+        "TASK-013": "done",
+        "TASK-014": "done",
+        "TASK-015": "done",
+        "TASK-016": "done"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-06"
     },
     "US-005": {
       "title": "Crear nota con título y contenido",
@@ -179,13 +181,16 @@
       "title": "Listado de etiquetas con conteo de notas",
       "epic": "EPIC-003",
       "release": "V2+",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "tasks": {
-        "TASK-041": "backlog",
-        "TASK-042": "backlog",
-        "TASK-043": "backlog",
-        "TASK-044": "backlog"
-      }
+        "TASK-041": "done",
+        "TASK-042": "done",
+        "TASK-043": "done",
+        "TASK-044": "done"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-06"
     },
     "US-012": {
       "title": "Buscar notas por término de texto",
@@ -262,13 +267,16 @@
       "title": "Enlazar nota con otra (backlink)",
       "epic": "EPIC-005",
       "release": "V2+",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "tasks": {
-        "TASK-065": "backlog",
-        "TASK-066": "backlog",
-        "TASK-067": "backlog",
-        "TASK-068": "backlog"
-      }
+        "TASK-065": "done",
+        "TASK-066": "done",
+        "TASK-067": "done",
+        "TASK-068": "done"
+      },
+      "enriched": true,
+      "enriched_at": "2026-07-06"
     }
   }
 }

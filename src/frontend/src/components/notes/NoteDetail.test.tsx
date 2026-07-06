@@ -25,6 +25,8 @@ function renderNoteDetail(overrides?: Partial<Parameters<typeof NoteDetail>[0]>)
   render(
     <NoteDetail
       note={mockNote}
+      salientes={[]}
+      entrantes={[]}
       onEdit={onEdit}
       onDelete={onDelete}
       onRemoveTag={onRemoveTag}
@@ -84,13 +86,15 @@ describe("NoteDetail", () => {
           links: [],
           tags: [],
         }}
+        salientes={[]}
+        entrantes={[]}
         onEdit={() => undefined}
         onDelete={() => undefined}
         onRemoveTag={() => undefined}
       />,
     );
 
-    expect(screen.queryByLabelText("Enlaces")).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("Enlaces externos")).not.toBeInTheDocument();
     expect(screen.queryByLabelText("Etiquetas")).not.toBeInTheDocument();
   });
 });

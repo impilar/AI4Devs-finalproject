@@ -3,13 +3,25 @@ import { useNotes } from "../hooks/useNotes";
 import { useSearch } from "../hooks/useSearch";
 import { useHomeShell } from "../context/HomeShellContext";
 import { NoteList } from "../components/notes/NoteList";
+import { NoteSortSelect } from "../components/notes/NoteSortSelect";
 import { SearchBar } from "../components/search/SearchBar";
-import { TagFilter } from "../components/tags/TagFilter";
+import { TagCatalog } from "../components/tags/TagCatalog";
 import { formatGreeting, formatLongDate } from "../utils/formatGreeting";
 import { formatRelativeDate } from "../utils/formatDate";
+import {
+  getNoteListSort,
+  presetToState,
+  setNoteListSort,
+  stateToPreset,
+  type NoteListSortPreset,
+} from "../utils/noteListSortSession";
 
 export function HomePage() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [sortPreset, setSortPreset] = useState<NoteListSortPreset>(() =>
+    stateToPreset(getNoteListSort()),
+  );
+  const listSort = useMemo(() => presetToState(sortPreset), [sortPreset]);
   const { setSlots, clearSlots } = useHomeShell();
   const {
     query,
@@ -26,7 +38,14 @@ export function HomePage() {
   const showOrderSelect = isSearchActive && (isSearching || debouncedQuery.length > 0);
   const { notes, tags, isLoading, error: notesError } = useNotes({
     etiqueta: isSearchActive ? null : activeTag,
+    sort: listSort.sort,
+    order: listSort.order,
   });
+
+  function handleSortPresetChange(preset: NoteListSortPreset): void {
+    setSortPreset(preset);
+    setNoteListSort(presetToState(preset));
+  }
 
   function handleSearchChange(value: string): void {
     setQuery(value);
@@ -67,17 +86,16 @@ export function HomePage() {
     setSlots({
       search: null,
       sidebar: (
-        <TagFilter
-          tags={tags}
+        <TagCatalog
+          items={tags}
           activeTag={activeTag}
           onSelect={handleTagSelect}
           onClear={handleTagClear}
-          layout="sidebar"
         />
       ),
       noteCount: totalNotes,
       notes: isSearchActive ? results : notes,
-      tags,
+      tags: tags.map((item) => item.name),
     });
   }, [
     activeTag,
@@ -143,11 +161,16 @@ export function HomePage() {
 
       <div id="home-notes" className="home-page__notes-section">
         <header className="home-page__header">
-          <h2 className="home-page__title">{sectionTitle}</h2>
-          <p className="home-page__subtitle">
-            {displayNotes.length} nota{displayNotes.length === 1 ? "" : "s"}
-            {isSearchActive ? ` · búsqueda «${trimmedQuery}»` : ""}
-          </p>
+          <div>
+            <h2 className="home-page__title">{sectionTitle}</h2>
+            <p className="home-page__subtitle">
+              {displayNotes.length} nota{displayNotes.length === 1 ? "" : "s"}
+              {isSearchActive ? ` · búsqueda «${trimmedQuery}»` : ""}
+            </p>
+          </div>
+          {!isSearchActive ? (
+            <NoteSortSelect value={sortPreset} onChange={handleSortPresetChange} />
+          ) : null}
         </header>
 
         <NoteList

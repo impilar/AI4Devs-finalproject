@@ -6,6 +6,7 @@
     "check:stories-enriched": "node 05-scripts/check-stories-enriched.mjs",
     "check:stories-enriched:mvp": "node 05-scripts/check-stories-enriched.mjs --release MVP",
     "check:stories-enriched:v1": "node 05-scripts/check-stories-enriched.mjs --release V1",
+    "check:stories-enriched:v2plus": "node 05-scripts/check-stories-enriched.mjs --release V2+",
     "test:e2e": "node 05-scripts/free-e2e-ports.mjs && playwright test",
     "test:e2e:ui": "node 05-scripts/free-e2e-ports.mjs && playwright test --ui",
     "test:e2e:headed": "node 05-scripts/free-e2e-ports.mjs && playwright test --headed"

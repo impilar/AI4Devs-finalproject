@@ -8,6 +8,8 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 | [implementation-queue-mvp.json](implementation-queue-mvp.json) | Cola priorizada MVP |
 | [implementation-plan-v1.md](implementation-plan-v1.md) | Plan release V1 (pulido UX) |
 | [implementation-queue-v1.json](implementation-queue-v1.json) | Cola priorizada V1 |
+| [implementation-plan-v2.md](implementation-plan-v2.md) | Plan release V2+ (evolución producto) |
+| [implementation-queue-v2.json](implementation-queue-v2.json) | Cola priorizada V2+ |
 | [standards/](standards/) | Estándares de codificación (base, backend, frontend, docs) |
 | [openspec-setup.md](openspec-setup.md) | Bootstrap OpenSpec CLI (`openspec init`, `openspec update`) |
 | [getting-started.md](getting-started.md) | Bootstrap local: Docker, backend, frontend, tests |
@@ -19,7 +21,7 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 **Orden:** enriquecer historias → verificar gate → generar plan/cola.
 
 ```bash
-npm run check:stories-enriched:v1   # o :mvp
+npm run check:stories-enriched:v1   # o :mvp, :v2plus
 ```
 
 1. Enriquecer: `.cursor/skills/enrich-user-story.md` — prompt [`04-prompts/discovery/03-enriquecer-user-story.md`](../../04-prompts/discovery/03-enriquecer-user-story.md)

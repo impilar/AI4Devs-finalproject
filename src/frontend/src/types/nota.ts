@@ -17,6 +17,12 @@ export type TagRef = {
   name: string;
 };
 
+export type NoteRef = {
+  id: string;
+  title: string;
+  updatedAt: string;
+};
+
 export type NotaResumen = {
   id: string;
   title: string;
@@ -38,7 +44,13 @@ export type ListNotasResponse = {
 };
 
 export type ListEtiquetasResponse = {
-  data: string[];
+  data: EtiquetaCatalogItem[];
+};
+
+export type EtiquetaCatalogItem = {
+  id: string;
+  name: string;
+  count: number;
 };
 
 export type NotaDetailResponse = {
@@ -49,7 +61,26 @@ export type CreateNotaResponse = NotaDetailResponse;
 
 export type UpdateNotaResponse = NotaDetailResponse;
 
+export type CreateBacklinkDto = {
+  destinoId: string;
+};
+
+export type CreateBacklinkResponse = {
+  data: {
+    origenId: string;
+    destinoId: string;
+    destino: NoteRef;
+  };
+};
+
+export type ListBacklinksResponse = {
+  data: NoteRef[];
+};
+
 export type SearchOrder = "relevance" | "date";
+
+export type NoteListSort = "created_at" | "title";
+export type NoteListOrder = "asc" | "desc";
 
 export type SearchResponse = {
   data: NotaResumen[];

@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ConfirmDialog } from "../components/common/ConfirmDialog";
 import { ErrorMessage } from "../components/common/ErrorMessage";
 import { NoteDetail } from "../components/notes/NoteDetail";
 import { NoteForm } from "../components/notes/NoteForm";
 import { useNote } from "../hooks/useNote";
+import { listNotas } from "../services/notesApi";
 import { getTagSuggestions } from "../utils/tagSuggestions";
-import type { UpdateNotaDto } from "../types/nota";
+import type { NoteRef, UpdateNotaDto } from "../types/nota";
 
 type DetailMode = "view" | "edit";
 
@@ -15,11 +16,51 @@ export function NoteDetailPage() {
   const { id } = useParams<{ id: string }>();
   const [mode, setMode] = useState<DetailMode>("view");
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-  const { note, isLoading, isSaving, isDeleting, isRemovingTag, error, notFound, updateNote, deleteNote, removeTag } =
-    useNote(id);
+  const [noteOptions, setNoteOptions] = useState<NoteRef[]>([]);
+  const {
+    note,
+    salientes,
+    entrantes,
+    isLoading,
+    isSaving,
+    isDeleting,
+    isRemovingTag,
+    error,
+    notFound,
+    updateNote,
+    addBacklink,
+    deleteNote,
+    removeTag,
+  } = useNote(id);
 
-  async function handleSave(dto: UpdateNotaDto): Promise<void> {
+  useEffect(() => {
+    if (mode !== "edit" || !id) {
+      return;
+    }
+
+    let cancelled = false;
+
+    async function loadNoteOptions(): Promise<void> {
+      const notes = await listNotas();
+      if (!cancelled) {
+        setNoteOptions(notes.map((item) => ({ id: item.id, title: item.title })));
+      }
+    }
+
+    void loadNoteOptions();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [id, mode]);
+
+  async function handleSave(dto: UpdateNotaDto, backlinkDestinoId?: string): Promise<void> {
     await updateNote(dto);
+
+    if (backlinkDestinoId) {
+      await addBacklink(backlinkDestinoId);
+    }
+
     setMode("view");
   }
 
@@ -59,6 +100,8 @@ export function NoteDetailPage() {
       {!isLoading && !notFound && note && mode === "view" ? (
         <NoteDetail
           note={note}
+          salientes={salientes}
+          entrantes={entrantes}
           onEdit={() => setMode("edit")}
           onDelete={() => setShowDeleteDialog(true)}
           onRemoveTag={(etiquetaId) => {
@@ -77,6 +120,8 @@ export function NoteDetailPage() {
             links: note.links,
             tags: note.tags.map((tag) => tag.name),
           }}
+          currentNoteId={note.id}
+          noteOptions={noteOptions}
           onSubmit={handleSave}
           onCancel={() => setMode("view")}
           isSaving={isSaving}

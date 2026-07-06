@@ -26,7 +26,7 @@ export function ConfirmDialog({
   return (
     <div className="confirm-dialog__backdrop" onClick={onCancel}>
       <div
-        className="confirm-dialog"
+        className="confirm-dialog glass-panel"
         role="dialog"
         aria-modal="true"
         aria-labelledby="confirm-dialog-title"

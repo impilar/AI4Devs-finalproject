@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CreateNotaDtoSchema, UpdateNotaDtoSchema } from "./nota.schema.js";
+import { CreateNotaDtoSchema, ListNotasQuerySchema, UpdateNotaDtoSchema } from "./nota.schema.js";
 
 describe("CreateNotaDtoSchema", () => {
   it("accepts valid title and content", () => {
@@ -125,5 +125,35 @@ describe("UpdateNotaDtoSchema", () => {
     if (!result.success) {
       expect(result.error.issues[0]?.message).toBe("El contenido es obligatorio");
     }
+  });
+});
+
+describe("ListNotasQuerySchema", () => {
+  it("defaults sort to created_at and order to desc", () => {
+    const result = ListNotasQuerySchema.safeParse({});
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data).toEqual({
+        sort: "created_at",
+        order: "desc",
+      });
+    }
+  });
+
+  it("accepts title ascending sort", () => {
+    const result = ListNotasQuerySchema.safeParse({ sort: "title", order: "asc" });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.sort).toBe("title");
+      expect(result.data.order).toBe("asc");
+    }
+  });
+
+  it("rejects invalid sort values", () => {
+    const result = ListNotasQuerySchema.safeParse({ sort: "invalid" });
+
+    expect(result.success).toBe(false);
   });
 });

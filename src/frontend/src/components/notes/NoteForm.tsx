@@ -2,9 +2,10 @@ import { type FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../common/ErrorMessage";
 import { TagInput } from "../tags/TagInput";
+import { NoteLinkPicker } from "./NoteLinkPicker";
 import { ApiError, ValidationApiError } from "../../services/apiClient";
 import { createNota } from "../../services/notesApi";
-import type { NotaDetail, UpdateNotaDto } from "../../types/nota";
+import type { NotaDetail, NoteRef, UpdateNotaDto } from "../../types/nota";
 
 type NoteFormBaseProps = {
   tagSuggestions?: string[];
@@ -17,7 +18,9 @@ type NoteFormCreateProps = NoteFormBaseProps & {
 type NoteFormEditProps = NoteFormBaseProps & {
   mode: "edit";
   initialValues: Pick<NotaDetail, "title" | "content" | "links"> & { tags: string[] };
-  onSubmit: (dto: UpdateNotaDto) => Promise<void>;
+  currentNoteId: string;
+  noteOptions: NoteRef[];
+  onSubmit: (dto: UpdateNotaDto, backlinkDestinoId?: string) => Promise<void>;
   onCancel: () => void;
   isSaving?: boolean;
 };
@@ -59,6 +62,7 @@ export function NoteForm(props: NoteFormProps) {
   const [content, setContent] = useState(initialValues?.content ?? "");
   const [tags, setTags] = useState<string[]>(initialValues?.tags ?? []);
   const [links, setLinks] = useState<string[]>(initialValues?.links ?? []);
+  const [backlinkDestinoId, setBacklinkDestinoId] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSavingCreate, setIsSavingCreate] = useState(false);
@@ -144,7 +148,7 @@ export function NoteForm(props: NoteFormProps) {
 
     if (props.mode === "edit") {
       try {
-        await props.onSubmit(payload);
+        await props.onSubmit(payload, backlinkDestinoId || undefined);
       } catch (error) {
         if (error instanceof ValidationApiError) {
           setFieldErrors(error.fieldErrors);
@@ -234,8 +238,18 @@ export function NoteForm(props: NoteFormProps) {
         suggestions={props.tagSuggestions ?? []}
       />
 
+      {props.mode === "edit" ? (
+        <NoteLinkPicker
+          notes={props.noteOptions}
+          currentNoteId={props.currentNoteId}
+          value={backlinkDestinoId}
+          onChange={setBacklinkDestinoId}
+          disabled={isSaving}
+        />
+      ) : null}
+
       <fieldset className="note-form__links">
-        <legend className="note-form__links-legend">Enlaces (opcional)</legend>
+        <legend className="note-form__links-legend">Enlaces externos (opcional)</legend>
 
         {links.map((link, index) => (
           <div key={`link-${index}`} className="note-form__link-row">

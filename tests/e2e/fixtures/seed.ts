@@ -83,6 +83,26 @@ export function seedSearchOrderNotes(): void {
   runDbSetup("search-order");
 }
 
+export const E2E_SORT_TITLES = ["Alpha", "Beta", "Zebra"] as const;
+export const E2E_SORT_NOTA_BETA_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa43";
+
+export function seedSortNotes(): void {
+  runDbSetup("sort");
+}
+
+export function seedCatalogNotes(): void {
+  runDbSetup("catalog");
+}
+
+export const E2E_BACKLINK_IDEAS_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa81";
+export const E2E_BACKLINK_MERCADO_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa82";
+export const E2E_BACKLINK_PLAN_Q3_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa83";
+export const E2E_BACKLINK_OBJETIVOS_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa84";
+
+export function seedBacklinksNotes(): void {
+  runDbSetup("backlinks");
+}
+
 export function seedBenchNotes(): void {
   runDbSetup("bench");
 }

@@ -29,6 +29,32 @@ describe.skipIf(!hasDatabase)("nota repository findAll (TASK-003)", () => {
     expect(rows[0]?.indexname).toBe("idx_notas_created_at");
   });
 
+  it("has idx_notas_title index in PostgreSQL", async () => {
+    const rows = await prisma.$queryRaw<{ indexname: string }[]>`
+      SELECT indexname
+      FROM pg_indexes
+      WHERE tablename = 'notas'
+        AND indexname = 'idx_notas_title'
+    `;
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0]?.indexname).toBe("idx_notas_title");
+  });
+
+  it("returns notes ordered by title ascending when requested", async () => {
+    await prisma.nota.createMany({
+      data: [
+        { title: "Zebra", content: "z" },
+        { title: "Alpha", content: "a" },
+        { title: "Beta", content: "b" },
+      ],
+    });
+
+    const notes = await notaRepository.findAll({ sort: "title", order: "asc" });
+
+    expect(notes.map((note) => note.title)).toEqual(["Alpha", "Beta", "Zebra"]);
+  });
+
   it("returns notes ordered by createdAt descending by default", async () => {
     const baseTime = new Date("2026-01-01T10:00:00.000Z");
     const oldest = await prisma.nota.create({

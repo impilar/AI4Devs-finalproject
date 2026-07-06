@@ -92,6 +92,7 @@ const E2E_SHARED_TAG_NOTAS = [
 ] as const;
 
 async function clearDatabase(): Promise<void> {
+  await prisma.notaBacklink.deleteMany();
   await prisma.enlace.deleteMany();
   await prisma.notaEtiqueta.deleteMany();
   await prisma.etiqueta.deleteMany();
@@ -192,6 +193,62 @@ const E2E_SEARCH_ORDER_NOTAS = [
   },
 ] as const;
 
+const E2E_SORT_NOTAS = [
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa41",
+    title: "Zebra",
+    content: "Nota Zebra E2E",
+    createdAt: new Date("2026-01-01T10:00:00.000Z"),
+    updatedAt: new Date("2026-01-01T10:00:00.000Z"),
+  },
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa42",
+    title: "Alpha",
+    content: "Nota Alpha E2E",
+    createdAt: new Date("2026-01-02T10:00:00.000Z"),
+    updatedAt: new Date("2026-01-02T10:00:00.000Z"),
+  },
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa43",
+    title: "Beta",
+    content: "Nota Beta E2E",
+    createdAt: new Date("2026-01-03T10:00:00.000Z"),
+    updatedAt: new Date("2026-01-03T10:00:00.000Z"),
+  },
+] as const;
+
+async function seedSortDatabase(): Promise<void> {
+  await clearDatabase();
+
+  for (const nota of E2E_SORT_NOTAS) {
+    await prisma.nota.create({ data: nota });
+  }
+}
+
+async function seedCatalogDatabase(): Promise<void> {
+  await clearDatabase();
+
+  const ideas = await prisma.etiqueta.create({ data: { name: "ideas" } });
+  await prisma.etiqueta.create({ data: { name: "archivo" } });
+
+  const notes = await Promise.all(
+    Array.from({ length: 5 }, (_, index) =>
+      prisma.nota.create({
+        data: {
+          title: `Idea ${index + 1}`,
+          content: `Contenido idea ${index + 1}`,
+        },
+      }),
+    ),
+  );
+
+  for (const note of notes) {
+    await prisma.notaEtiqueta.create({
+      data: { notaId: note.id, etiquetaId: ideas.id },
+    });
+  }
+}
+
 async function seedSearchDatabase(): Promise<void> {
   await clearDatabase();
 
@@ -284,6 +341,51 @@ async function seedRemoveTagDatabase(): Promise<void> {
   }
 }
 
+async function seedBacklinksDatabase(): Promise<void> {
+  await clearDatabase();
+
+  const ideas = await prisma.nota.create({
+    data: {
+      id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa81",
+      title: "Ideas de proyecto",
+      content: "Contenido ideas de proyecto",
+      createdAt: new Date("2026-06-12T10:00:00.000Z"),
+      updatedAt: new Date("2026-06-12T10:00:00.000Z"),
+    },
+  });
+  const mercado = await prisma.nota.create({
+    data: {
+      id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa82",
+      title: "Investigación de mercado",
+      content: "Contenido investigación",
+      createdAt: new Date("2026-06-11T10:00:00.000Z"),
+      updatedAt: new Date("2026-06-11T10:00:00.000Z"),
+    },
+  });
+  const planQ3 = await prisma.nota.create({
+    data: {
+      id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa83",
+      title: "Plan Q3",
+      content: "Contenido plan Q3",
+      createdAt: new Date("2026-06-10T10:00:00.000Z"),
+      updatedAt: new Date("2026-06-10T10:00:00.000Z"),
+    },
+  });
+  const objetivos = await prisma.nota.create({
+    data: {
+      id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa84",
+      title: "Objetivos anuales",
+      content: "Contenido objetivos",
+      createdAt: new Date("2026-06-09T10:00:00.000Z"),
+      updatedAt: new Date("2026-06-09T10:00:00.000Z"),
+    },
+  });
+
+  await prisma.notaBacklink.create({
+    data: { origenId: planQ3.id, destinoId: objetivos.id },
+  });
+}
+
 async function main(): Promise<void> {
   const mode = process.argv[2];
 
@@ -299,6 +401,16 @@ async function main(): Promise<void> {
 
   if (mode === "filter") {
     await seedFilterDatabase();
+    return;
+  }
+
+  if (mode === "sort") {
+    await seedSortDatabase();
+    return;
+  }
+
+  if (mode === "catalog") {
+    await seedCatalogDatabase();
     return;
   }
 
@@ -322,8 +434,13 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (mode === "backlinks") {
+    await seedBacklinksDatabase();
+    return;
+  }
+
   throw new Error(
-    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "bench", "remove-tag", or "clear".`,
+    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "sort", "catalog", "bench", "remove-tag", "backlinks", or "clear".`,
   );
 }
 

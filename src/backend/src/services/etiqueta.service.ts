@@ -19,6 +19,10 @@ export function normalizeTagNames(tags: string[]): string[] {
 }
 
 export const etiquetaService = {
+  async listCatalog() {
+    return etiquetaRepository.findAllWithCount();
+  },
+
   async listNames(): Promise<string[]> {
     return etiquetaRepository.findAllNames();
   },

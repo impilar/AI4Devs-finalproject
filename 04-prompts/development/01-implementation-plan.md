@@ -23,6 +23,7 @@ Ejecuta el agente `.cursor/agents/implementation-planner.md` (Implementation Pla
 |---------|------|------|
 | MVP | `02-docs/02_3-engineering/implementation-plan-mvp.md` | `implementation-queue-mvp.json` |
 | V1 | `02-docs/02_3-engineering/implementation-plan-v1.md` | `implementation-queue-v1.json` |
+| V2+ | `02-docs/02_3-engineering/implementation-plan-v2.md` | `implementation-queue-v2.json` |
 
 **Prerrequisitos:** LLD-v1; historias del release con `enriched: true` (verificado por `check-stories-enriched.mjs`).
 

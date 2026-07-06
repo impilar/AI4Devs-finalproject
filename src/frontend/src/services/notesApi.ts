@@ -1,26 +1,45 @@
 import { apiDelete, apiGet, apiPost, apiPut } from "./apiClient";
 import { registerTags } from "../utils/tagSuggestions.js";
 import type {
+  CreateBacklinkDto,
+  CreateBacklinkResponse,
   CreateNotaDto,
   CreateNotaResponse,
+  EtiquetaCatalogItem,
+  ListBacklinksResponse,
   ListEtiquetasResponse,
   ListNotasResponse,
   NotaDetail,
   NotaDetailResponse,
   NotaResumen,
+  NoteRef,
   UpdateNotaDto,
   UpdateNotaResponse,
 } from "../types/nota";
 
-export async function listNotas(options?: { etiqueta?: string }): Promise<NotaResumen[]> {
-  const query = options?.etiqueta
-    ? `?etiqueta=${encodeURIComponent(options.etiqueta)}`
-    : "";
+import type { NoteListOrder, NoteListSort } from "../types/nota";
+
+export async function listNotas(options?: {
+  etiqueta?: string;
+  sort?: NoteListSort;
+  order?: NoteListOrder;
+}): Promise<NotaResumen[]> {
+  const params = new URLSearchParams();
+  if (options?.etiqueta) {
+    params.set("etiqueta", options.etiqueta);
+  }
+  if (options?.sort) {
+    params.set("sort", options.sort);
+  }
+  if (options?.order) {
+    params.set("order", options.order);
+  }
+  const query = params.toString() ? `?${params.toString()}` : "";
   const response = await apiGet<ListNotasResponse>(`/notas${query}`);
   return response.data;
 }
 
-export async function listEtiquetas(): Promise<string[]> {
+export async function listEtiquetas(): Promise<EtiquetaCatalogItem[]> {
   const response = await apiGet<ListEtiquetasResponse>("/etiquetas");
   return response.data;
 }
@@ -49,4 +68,19 @@ export async function deleteNota(id: string): Promise<void> {
 
 export async function removeTagFromNota(notaId: string, etiquetaId: string): Promise<void> {
   await apiDelete(`/notas/${notaId}/etiquetas/${etiquetaId}`);
+}
+
+export async function createBacklink(notaId: string, dto: CreateBacklinkDto): Promise<NoteRef> {
+  const response = await apiPost<CreateBacklinkResponse>(`/notas/${notaId}/backlinks`, dto);
+  return response.data.destino;
+}
+
+export async function listBacklinksSalientes(notaId: string): Promise<NoteRef[]> {
+  const response = await apiGet<ListBacklinksResponse>(`/notas/${notaId}/backlinks/salientes`);
+  return response.data;
+}
+
+export async function listBacklinksEntrantes(notaId: string): Promise<NoteRef[]> {
+  const response = await apiGet<ListBacklinksResponse>(`/notas/${notaId}/backlinks/entrantes`);
+  return response.data;
 }

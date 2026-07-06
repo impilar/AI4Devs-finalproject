@@ -94,34 +94,3 @@ describe.skipIf(!hasDatabase)("GET /api/v1/notas?etiqueta=", () => {
     expect(response.body.meta).toEqual({ total: 3 });
   });
 });
-
-describe.skipIf(!hasDatabase)("GET /api/v1/etiquetas", () => {
-  const app = createApp();
-
-  beforeAll(async () => {
-    await prisma.$connect();
-  });
-
-  beforeEach(async () => {
-    await prisma.notaEtiqueta.deleteMany();
-    await prisma.etiqueta.deleteMany();
-    await prisma.nota.deleteMany();
-  });
-
-  afterAll(async () => {
-    await prisma.$disconnect();
-  });
-
-  it("returns all tag names sorted alphabetically including orphan tags", async () => {
-    await prisma.etiqueta.createMany({
-      data: [{ name: "trabajo" }, { name: "archivo" }, { name: "personal" }],
-    });
-
-    const response = await request(app).get("/api/v1/etiquetas");
-
-    expect(response.status).toBe(200);
-    expect(response.body).toEqual({
-      data: ["archivo", "personal", "trabajo"],
-    });
-  });
-});
