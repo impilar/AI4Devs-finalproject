@@ -66,4 +66,14 @@ export const notaService = {
 
     return toDetail(nota);
   },
+
+  async delete(id: string): Promise<void> {
+    const nota = await notaRepository.findById(id);
+
+    if (!nota) {
+      throw new NotFoundError();
+    }
+
+    await notaRepository.delete(id);
+  },
 };

@@ -4,11 +4,25 @@ import { ErrorMessage } from "../common/ErrorMessage";
 import { TagInput } from "../tags/TagInput";
 import { ApiError, ValidationApiError } from "../../services/apiClient";
 import { createNota } from "../../services/notesApi";
+import type { NotaDetail, UpdateNotaDto } from "../../types/nota";
 
-type NoteFormProps = {
-  mode: "create";
+type NoteFormBaseProps = {
   tagSuggestions?: string[];
 };
+
+type NoteFormCreateProps = NoteFormBaseProps & {
+  mode: "create";
+};
+
+type NoteFormEditProps = NoteFormBaseProps & {
+  mode: "edit";
+  initialValues: Pick<NotaDetail, "title" | "content" | "links" | "tags">;
+  onSubmit: (dto: UpdateNotaDto) => Promise<void>;
+  onCancel: () => void;
+  isSaving?: boolean;
+};
+
+type NoteFormProps = NoteFormCreateProps | NoteFormEditProps;
 
 function isValidUrl(value: string): boolean {
   try {
@@ -38,15 +52,18 @@ function sanitizeTags(values: string[]): string[] {
     });
 }
 
-export function NoteForm({ mode, tagSuggestions = [] }: NoteFormProps) {
+export function NoteForm(props: NoteFormProps) {
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [tags, setTags] = useState<string[]>([]);
-  const [links, setLinks] = useState<string[]>([]);
+  const initialValues = props.mode === "edit" ? props.initialValues : undefined;
+  const [title, setTitle] = useState(initialValues?.title ?? "");
+  const [content, setContent] = useState(initialValues?.content ?? "");
+  const [tags, setTags] = useState<string[]>(initialValues?.tags ?? []);
+  const [links, setLinks] = useState<string[]>(initialValues?.links ?? []);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [isSaving, setIsSaving] = useState(false);
+  const [isSavingCreate, setIsSavingCreate] = useState(false);
+  const isSaving =
+    props.mode === "edit" ? (props.isSaving ?? false) : isSavingCreate;
 
   function clearLinkFieldError(index: number): void {
     const key = `links.${index}`;
@@ -118,19 +135,34 @@ export function NoteForm({ mode, tagSuggestions = [] }: NoteFormProps) {
       return;
     }
 
-    setIsSaving(true);
+    const payload = {
+      title: title.trim(),
+      content: content.trim(),
+      links: sanitizeLinks(links),
+      tags: sanitizeTags(tags),
+    };
+
+    if (props.mode === "edit") {
+      try {
+        await props.onSubmit(payload);
+      } catch (error) {
+        if (error instanceof ValidationApiError) {
+          setFieldErrors(error.fieldErrors);
+        } else if (error instanceof ApiError) {
+          setSubmitError(error.message);
+        } else {
+          setSubmitError("No se pudo guardar la nota");
+        }
+      }
+
+      return;
+    }
+
+    setIsSavingCreate(true);
 
     try {
-      await createNota({
-        title: title.trim(),
-        content: content.trim(),
-        links: sanitizeLinks(links),
-        tags: sanitizeTags(tags),
-      });
-
-      if (mode === "create") {
-        navigate("/");
-      }
+      await createNota(payload);
+      navigate("/");
     } catch (error) {
       if (error instanceof ValidationApiError) {
         setFieldErrors(error.fieldErrors);
@@ -140,7 +172,7 @@ export function NoteForm({ mode, tagSuggestions = [] }: NoteFormProps) {
         setSubmitError("No se pudo guardar la nota");
       }
     } finally {
-      setIsSaving(false);
+      setIsSavingCreate(false);
     }
   }
 
@@ -184,7 +216,11 @@ export function NoteForm({ mode, tagSuggestions = [] }: NoteFormProps) {
         ) : null}
       </div>
 
-      <TagInput value={tags} onChange={setTags} suggestions={tagSuggestions} />
+      <TagInput
+        value={tags}
+        onChange={setTags}
+        suggestions={props.tagSuggestions ?? []}
+      />
 
       <fieldset className="note-form__links">
         <legend className="note-form__links-legend">Enlaces (opcional)</legend>
@@ -239,9 +275,20 @@ export function NoteForm({ mode, tagSuggestions = [] }: NoteFormProps) {
         <button type="submit" className="note-form__submit" disabled={isSaving}>
           {isSaving ? "Guardando…" : "Guardar"}
         </button>
-        <Link to="/" className="note-form__cancel">
-          Cancelar
-        </Link>
+        {props.mode === "edit" ? (
+          <button
+            type="button"
+            className="note-form__cancel"
+            onClick={props.onCancel}
+            disabled={isSaving}
+          >
+            Cancelar
+          </button>
+        ) : (
+          <Link to="/" className="note-form__cancel">
+            Cancelar
+          </Link>
+        )}
       </div>
     </form>
   );

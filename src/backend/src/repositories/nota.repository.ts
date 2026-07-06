@@ -212,4 +212,8 @@ export const notaRepository = {
       });
     });
   },
+
+  async delete(id: string): Promise<void> {
+    await prisma.nota.delete({ where: { id } });
+  },
 };

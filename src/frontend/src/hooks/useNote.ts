@@ -1,18 +1,24 @@
-import { useEffect, useState } from "react";
-import { ApiError } from "../services/apiClient";
-import { getNota } from "../services/notesApi";
-import type { NotaDetail } from "../types/nota";
+import { useCallback, useEffect, useState } from "react";
+import { ApiError, ValidationApiError } from "../services/apiClient";
+import { deleteNota, getNota, updateNota } from "../services/notesApi";
+import type { NotaDetail, UpdateNotaDto } from "../types/nota";
 
 type UseNoteResult = {
   note: NotaDetail | null;
   isLoading: boolean;
+  isSaving: boolean;
+  isDeleting: boolean;
   error: string | null;
   notFound: boolean;
+  updateNote: (dto: UpdateNotaDto) => Promise<NotaDetail>;
+  deleteNote: () => Promise<void>;
 };
 
 export function useNote(id: string | undefined): UseNoteResult {
   const [note, setNote] = useState<NotaDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
 
@@ -61,5 +67,61 @@ export function useNote(id: string | undefined): UseNoteResult {
     };
   }, [id]);
 
-  return { note, isLoading, error, notFound };
+  const saveNote = useCallback(
+    async (dto: UpdateNotaDto): Promise<NotaDetail> => {
+      if (!id) {
+        throw new Error("Identificador de nota inválido");
+      }
+
+      setIsSaving(true);
+      setError(null);
+
+      try {
+        const data = await updateNota(id, dto);
+        setNote(data);
+        return data;
+      } catch (err) {
+        if (!(err instanceof ValidationApiError)) {
+          const message = err instanceof Error ? err.message : "Error al guardar la nota";
+          setError(message);
+        }
+
+        throw err;
+      } finally {
+        setIsSaving(false);
+      }
+    },
+    [id],
+  );
+
+  const removeNote = useCallback(async (): Promise<void> => {
+    if (!id) {
+      throw new Error("Identificador de nota inválido");
+    }
+
+    setIsDeleting(true);
+    setError(null);
+
+    try {
+      await deleteNota(id);
+      setNote(null);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Error al eliminar la nota";
+      setError(message);
+      throw err;
+    } finally {
+      setIsDeleting(false);
+    }
+  }, [id]);
+
+  return {
+    note,
+    isLoading,
+    isSaving,
+    isDeleting,
+    error,
+    notFound,
+    updateNote: saveNote,
+    deleteNote: removeNote,
+  };
 }

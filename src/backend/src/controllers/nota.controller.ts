@@ -52,3 +52,16 @@ export async function updateNota(
     next(error);
   }
 }
+
+export async function deleteNota(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    await notaService.delete(routeParam(req.params.id));
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+}

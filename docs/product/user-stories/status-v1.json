@@ -224,12 +224,12 @@
       "title": "Editar nota existente",
       "epic": "EPIC-005",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-057": "backlog",
-        "TASK-058": "backlog",
-        "TASK-059": "backlog",
-        "TASK-060": "backlog"
+        "TASK-057": "done",
+        "TASK-058": "done",
+        "TASK-059": "done",
+        "TASK-060": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -238,12 +238,12 @@
       "title": "Eliminar nota permanentemente",
       "epic": "EPIC-005",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-061": "backlog",
-        "TASK-062": "backlog",
-        "TASK-063": "backlog",
-        "TASK-064": "backlog"
+        "TASK-061": "done",
+        "TASK-062": "done",
+        "TASK-063": "done",
+        "TASK-064": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"

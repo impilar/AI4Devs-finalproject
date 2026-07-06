@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from "./apiClient";
+import { apiDelete, apiGet, apiPost, apiPut } from "./apiClient";
 import { registerTags } from "../utils/tagSuggestions.js";
 import type {
   CreateNotaDto,
@@ -8,6 +8,8 @@ import type {
   NotaDetail,
   NotaDetailResponse,
   NotaResumen,
+  UpdateNotaDto,
+  UpdateNotaResponse,
 } from "../types/nota";
 
 export async function listNotas(options?: { etiqueta?: string }): Promise<NotaResumen[]> {
@@ -33,4 +35,14 @@ export async function createNota(dto: CreateNotaDto): Promise<NotaDetail> {
   const response = await apiPost<CreateNotaResponse>("/notas", dto);
   registerTags(response.data.tags);
   return response.data;
+}
+
+export async function updateNota(id: string, dto: UpdateNotaDto): Promise<NotaDetail> {
+  const response = await apiPut<UpdateNotaResponse>(`/notas/${id}`, dto);
+  registerTags(response.data.tags);
+  return response.data;
+}
+
+export async function deleteNota(id: string): Promise<void> {
+  await apiDelete(`/notas/${id}`);
 }

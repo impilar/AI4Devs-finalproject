@@ -103,26 +103,21 @@ describe.skipIf(!hasDatabase)("GET /api/v1/buscar order param", () => {
   });
 
   it("breaks relevance ties by updatedAt descending", async () => {
-    const older = await prisma.nota.create({
+    await prisma.nota.create({
       data: {
         title: "Proyecto alpha",
         content: "contenido alpha",
+        createdAt: new Date("2026-01-01T00:00:00.000Z"),
+        updatedAt: new Date("2026-01-01T00:00:00.000Z"),
       },
     });
-    const newer = await prisma.nota.create({
+    await prisma.nota.create({
       data: {
         title: "Proyecto beta",
         content: "contenido beta",
+        createdAt: new Date("2026-06-01T00:00:00.000Z"),
+        updatedAt: new Date("2026-06-01T00:00:00.000Z"),
       },
-    });
-
-    await prisma.nota.update({
-      where: { id: older.id },
-      data: { updatedAt: new Date("2026-01-01T00:00:00.000Z") },
-    });
-    await prisma.nota.update({
-      where: { id: newer.id },
-      data: { updatedAt: new Date("2026-06-01T00:00:00.000Z") },
     });
 
     const response = await request(app).get("/api/v1/buscar?q=proyecto&order=relevance");

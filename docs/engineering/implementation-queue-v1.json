@@ -159,7 +159,10 @@
         "TASK-061",
         "TASK-062",
         "TASK-064"
-      ]
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_archive": "openspec/changes/archive/2026-07-06-us-015-016-editar-eliminar"
     }
   ],
   "queue": [
@@ -625,7 +628,8 @@
       "depends_on": [
         "TASK-019"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 34,
@@ -639,7 +643,8 @@
         "TASK-023",
         "TASK-031"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 35,
@@ -655,7 +660,8 @@
         "TASK-029",
         "TASK-059"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 36,
@@ -668,7 +674,8 @@
       "depends_on": [
         "TASK-057"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 37,
@@ -681,7 +688,8 @@
       "depends_on": [
         "TASK-058"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 38,
@@ -695,7 +703,8 @@
         "TASK-057",
         "TASK-063"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 39,
@@ -708,7 +717,8 @@
       "depends_on": [
         "TASK-061"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 40,
@@ -721,7 +731,8 @@
       "depends_on": [
         "TASK-062"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     }
   ],
   "stories_summary": [

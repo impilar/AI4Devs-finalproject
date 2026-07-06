@@ -2,13 +2,39 @@ import type { NotaDetail } from "../../types/nota";
 
 type NoteDetailProps = {
   note: NotaDetail;
+  onEdit: () => void;
+  onDelete: () => void;
 };
 
-export function NoteDetail({ note }: NoteDetailProps) {
+function formatUpdatedAt(isoDate: string): string {
+  return new Date(isoDate).toLocaleString("es-ES", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+export function NoteDetail({ note, onEdit, onDelete }: NoteDetailProps) {
   return (
     <article className="note-detail">
       <header className="note-detail__header">
-        <h1 className="note-detail__title">{note.title}</h1>
+        <div className="note-detail__heading">
+          <h1 className="note-detail__title">{note.title}</h1>
+          <p className="note-detail__meta">
+            Última actualización:{" "}
+            <time dateTime={note.updatedAt}>{formatUpdatedAt(note.updatedAt)}</time>
+          </p>
+        </div>
+        <div className="note-detail__actions">
+          <button type="button" className="note-detail__edit" onClick={onEdit}>
+            Editar
+          </button>
+          <button type="button" className="note-detail__delete" onClick={onDelete}>
+            Eliminar
+          </button>
+        </div>
       </header>
 
       <div className="note-detail__content">{note.content}</div>

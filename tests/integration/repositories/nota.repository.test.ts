@@ -9,6 +9,9 @@ describe.skipIf(!hasDatabase)("nota repository (database)", () => {
   });
 
   beforeEach(async () => {
+    await prisma.enlace.deleteMany();
+    await prisma.notaEtiqueta.deleteMany();
+    await prisma.etiqueta.deleteMany();
     await prisma.nota.deleteMany();
   });
 
@@ -53,5 +56,52 @@ describe.skipIf(!hasDatabase)("nota repository (database)", () => {
         },
       }),
     ).rejects.toThrow();
+  });
+
+  it("refreshes updatedAt on update without passing it explicitly", async () => {
+    const created = await prisma.nota.create({
+      data: {
+        title: "Original title",
+        content: "Original content",
+      },
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 15));
+
+    const updated = await prisma.nota.update({
+      where: { id: created.id },
+      data: { title: "Updated title" },
+    });
+
+    expect(updated.updatedAt.getTime()).toBeGreaterThan(created.updatedAt.getTime());
+  });
+
+  it("cascades delete to enlaces and nota_etiqueta while keeping etiquetas", async () => {
+    const etiqueta = await prisma.etiqueta.create({
+      data: { name: "cascade-test" },
+    });
+
+    const nota = await prisma.nota.create({
+      data: {
+        title: "Note with relations",
+        content: "Content",
+        enlaces: {
+          create: { url: "https://example.com/link" },
+        },
+        etiquetas: {
+          create: { etiquetaId: etiqueta.id },
+        },
+      },
+    });
+
+    await prisma.nota.delete({ where: { id: nota.id } });
+
+    const enlaces = await prisma.enlace.findMany({ where: { notaId: nota.id } });
+    const associations = await prisma.notaEtiqueta.findMany({ where: { notaId: nota.id } });
+    const persistedTag = await prisma.etiqueta.findUnique({ where: { id: etiqueta.id } });
+
+    expect(enlaces).toHaveLength(0);
+    expect(associations).toHaveLength(0);
+    expect(persistedTag).not.toBeNull();
   });
 });

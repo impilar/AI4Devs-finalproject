@@ -41,4 +41,27 @@ describe("NoteForm", () => {
     expect(screen.getByText("El título es obligatorio")).toBeInTheDocument();
     expect(createNota).not.toHaveBeenCalled();
   });
+
+  it("prefills fields in edit mode from initialValues", () => {
+    render(
+      <MemoryRouter>
+        <NoteForm
+          mode="edit"
+          initialValues={{
+            title: "Título existente",
+            content: "Contenido existente",
+            links: ["https://example.com"],
+            tags: ["ideas"],
+          }}
+          onSubmit={vi.fn()}
+          onCancel={vi.fn()}
+        />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByLabelText("Título")).toHaveValue("Título existente");
+    expect(screen.getByLabelText("Contenido")).toHaveValue("Contenido existente");
+    expect(screen.getByLabelText("Enlace 1")).toHaveValue("https://example.com");
+    expect(screen.getByText("ideas")).toBeInTheDocument();
+  });
 });

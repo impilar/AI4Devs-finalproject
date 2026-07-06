@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { NoteDetail } from "./NoteDetail";
 import type { NotaDetail } from "../../types/nota";
 
@@ -14,11 +14,12 @@ const mockNote: NotaDetail = {
 };
 
 describe("NoteDetail", () => {
-  it("renders title, content, links and tags", () => {
-    render(<NoteDetail note={mockNote} />);
+  it("renders title, content, links, tags and updatedAt", () => {
+    render(<NoteDetail note={mockNote} onEdit={() => undefined} onDelete={() => undefined} />);
 
     expect(screen.getByRole("heading", { level: 1, name: "Ideas de proyecto" })).toBeInTheDocument();
     expect(screen.getByText("Texto de la nota")).toBeInTheDocument();
+    expect(screen.getByText(/Última actualización:/)).toBeInTheDocument();
 
     const link = screen.getByRole("link", { name: "https://docs.example.com/mvp" });
     expect(link).toHaveAttribute("href", "https://docs.example.com/mvp");
@@ -29,6 +30,24 @@ describe("NoteDetail", () => {
     expect(screen.getByText("trabajo")).toBeInTheDocument();
   });
 
+  it("calls onEdit when edit button is clicked", () => {
+    const onEdit = vi.fn();
+    render(<NoteDetail note={mockNote} onEdit={onEdit} onDelete={() => undefined} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Editar" }));
+
+    expect(onEdit).toHaveBeenCalledTimes(1);
+  });
+
+  it("calls onDelete when delete button is clicked", () => {
+    const onDelete = vi.fn();
+    render(<NoteDetail note={mockNote} onEdit={() => undefined} onDelete={onDelete} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "Eliminar" }));
+
+    expect(onDelete).toHaveBeenCalledTimes(1);
+  });
+
   it("hides links and tags sections when arrays are empty", () => {
     render(
       <NoteDetail
@@ -37,6 +56,8 @@ describe("NoteDetail", () => {
           links: [],
           tags: [],
         }}
+        onEdit={() => undefined}
+        onDelete={() => undefined}
       />,
     );
 

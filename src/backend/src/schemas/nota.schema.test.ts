@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CreateNotaDtoSchema } from "./nota.schema.js";
+import { CreateNotaDtoSchema, UpdateNotaDtoSchema } from "./nota.schema.js";
 
 describe("CreateNotaDtoSchema", () => {
   it("accepts valid title and content", () => {
@@ -84,6 +84,28 @@ describe("CreateNotaDtoSchema", () => {
     if (!result.success) {
       expect(result.error.issues[0]?.path).toEqual(["links", 0]);
       expect(result.error.issues[0]?.message).toBe("URL con formato inválido");
+    }
+  });
+});
+
+describe("UpdateNotaDtoSchema", () => {
+  it("accepts partial update with at least one field", () => {
+    const result = UpdateNotaDtoSchema.safeParse({ title: "Solo título" });
+
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data).toEqual({ title: "Solo título" });
+    }
+  });
+
+  it("rejects empty body", () => {
+    const result = UpdateNotaDtoSchema.safeParse({});
+
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0]?.message).toBe(
+        "Debe enviar al menos un campo para actualizar",
+      );
     }
   });
 });
