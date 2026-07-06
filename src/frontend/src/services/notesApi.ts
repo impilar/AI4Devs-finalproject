@@ -1,14 +1,18 @@
 import { apiDelete, apiGet, apiPost, apiPut } from "./apiClient";
 import { registerTags } from "../utils/tagSuggestions.js";
 import type {
+  CreateBacklinkDto,
+  CreateBacklinkResponse,
   CreateNotaDto,
   CreateNotaResponse,
   EtiquetaCatalogItem,
+  ListBacklinksResponse,
   ListEtiquetasResponse,
   ListNotasResponse,
   NotaDetail,
   NotaDetailResponse,
   NotaResumen,
+  NoteRef,
   UpdateNotaDto,
   UpdateNotaResponse,
 } from "../types/nota";
@@ -64,4 +68,19 @@ export async function deleteNota(id: string): Promise<void> {
 
 export async function removeTagFromNota(notaId: string, etiquetaId: string): Promise<void> {
   await apiDelete(`/notas/${notaId}/etiquetas/${etiquetaId}`);
+}
+
+export async function createBacklink(notaId: string, dto: CreateBacklinkDto): Promise<NoteRef> {
+  const response = await apiPost<CreateBacklinkResponse>(`/notas/${notaId}/backlinks`, dto);
+  return response.data.destino;
+}
+
+export async function listBacklinksSalientes(notaId: string): Promise<NoteRef[]> {
+  const response = await apiGet<ListBacklinksResponse>(`/notas/${notaId}/backlinks/salientes`);
+  return response.data;
+}
+
+export async function listBacklinksEntrantes(notaId: string): Promise<NoteRef[]> {
+  const response = await apiGet<ListBacklinksResponse>(`/notas/${notaId}/backlinks/entrantes`);
+  return response.data;
 }

@@ -267,12 +267,13 @@
       "title": "Enlazar nota con otra (backlink)",
       "epic": "EPIC-005",
       "release": "V2+",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "tasks": {
-        "TASK-065": "backlog",
-        "TASK-066": "backlog",
-        "TASK-067": "backlog",
-        "TASK-068": "backlog"
+        "TASK-065": "done",
+        "TASK-066": "done",
+        "TASK-067": "done",
+        "TASK-068": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-06"

@@ -17,6 +17,11 @@ export type TagRef = {
   name: string;
 };
 
+export type NoteRef = {
+  id: string;
+  title: string;
+};
+
 export type NotaResumen = {
   id: string;
   title: string;
@@ -54,6 +59,22 @@ export type NotaDetailResponse = {
 export type CreateNotaResponse = NotaDetailResponse;
 
 export type UpdateNotaResponse = NotaDetailResponse;
+
+export type CreateBacklinkDto = {
+  destinoId: string;
+};
+
+export type CreateBacklinkResponse = {
+  data: {
+    origenId: string;
+    destinoId: string;
+    destino: NoteRef;
+  };
+};
+
+export type ListBacklinksResponse = {
+  data: NoteRef[];
+};
 
 export type SearchOrder = "relevance" | "date";
 

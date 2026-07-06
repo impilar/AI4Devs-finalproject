@@ -22,9 +22,8 @@ Plan de implementación del **release V2+** en **3 fases verticales**, con **12 
 
 **Cola ejecutable:** [`implementation-queue-v2.json`](implementation-queue-v2.json)
 
-**Change OpenSpec activo:** [`us-017-backlinks`](../../openspec/changes/us-017-backlinks/) — PHASE-003 pendiente.  
-**Siguiente ítem en cola:** `sequence: 9` → **TASK-067** (tabla `nota_backlink`, US-017).  
-**PHASE-002:** US-011 ✅ completada (2026-07-06).
+**Change OpenSpec:** V2+ completado — último slice archivado `us-017-backlinks` (2026-07-06).  
+**Cola V2+:** 12/12 tasks `done` — listo para `/release:close V2+`.
 
 ---
 

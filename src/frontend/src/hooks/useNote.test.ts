@@ -1,13 +1,16 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { act, renderHook, waitFor } from "@testing-library/react";
 import { useNote } from "./useNote";
-import { getNota, updateNota, deleteNota } from "../services/notesApi";
+import { getNota, updateNota, deleteNota, listBacklinksEntrantes, listBacklinksSalientes } from "../services/notesApi";
 
 vi.mock("../services/notesApi.js", () => ({
   getNota: vi.fn(),
   updateNota: vi.fn(),
   deleteNota: vi.fn(),
   removeTagFromNota: vi.fn(),
+  createBacklink: vi.fn(),
+  listBacklinksSalientes: vi.fn(),
+  listBacklinksEntrantes: vi.fn(),
 }));
 
 const mockedGetNota = vi.mocked(getNota);
@@ -29,6 +32,8 @@ describe("useNote", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockedGetNota.mockResolvedValue(note);
+    vi.mocked(listBacklinksSalientes).mockResolvedValue([]);
+    vi.mocked(listBacklinksEntrantes).mockResolvedValue([]);
   });
 
   it("loads note by id", async () => {

@@ -1,9 +1,13 @@
-import type { NotaDetail } from "../../types/nota";
+import type { NotaDetail, NoteRef } from "../../types/nota";
 import { formatRelativeDate } from "../../utils/formatDate";
+import { Link } from "react-router-dom";
 import { RemovableTagChip } from "../tags/RemovableTagChip";
+import { BacklinksPanel } from "./BacklinksPanel";
 
 type NoteDetailProps = {
   note: NotaDetail;
+  salientes: NoteRef[];
+  entrantes: NoteRef[];
   onEdit: () => void;
   onDelete: () => void;
   onRemoveTag: (etiquetaId: string) => void;
@@ -22,12 +26,18 @@ function formatUpdatedAt(isoDate: string): string {
 
 export function NoteDetail({
   note,
+  salientes,
+  entrantes,
   onEdit,
   onDelete,
   onRemoveTag,
   isRemovingTag = false,
 }: NoteDetailProps) {
-  const hasMetadata = note.links.length > 0 || note.tags.length > 0;
+  const hasMetadata =
+    note.links.length > 0 ||
+    note.tags.length > 0 ||
+    salientes.length > 0 ||
+    entrantes.length > 0;
 
   return (
     <article className="note-detail">
@@ -58,8 +68,8 @@ export function NoteDetail({
         {hasMetadata ? (
           <footer className="note-detail__meta-footer">
             {note.links.length > 0 ? (
-              <section className="note-detail__section" aria-label="Enlaces">
-                <h2 className="note-detail__section-title">Enlaces</h2>
+              <section className="note-detail__section" aria-label="Enlaces externos">
+                <h2 className="note-detail__section-title">Enlaces externos</h2>
                 <ul className="note-detail__links">
                   {note.links.map((url) => (
                     <li key={url} className="note-detail__link-item">
@@ -79,6 +89,23 @@ export function NoteDetail({
                 </ul>
               </section>
             ) : null}
+
+            {salientes.length > 0 ? (
+              <section className="note-detail__section" aria-label="Notas enlazadas">
+                <h2 className="note-detail__section-title">Notas enlazadas</h2>
+                <ul className="note-detail__note-links">
+                  {salientes.map((linkedNote) => (
+                    <li key={linkedNote.id}>
+                      <Link to={`/notas/${linkedNote.id}`} className="note-detail__note-link">
+                        {linkedNote.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ) : null}
+
+            <BacklinksPanel items={entrantes} />
 
             {note.tags.length > 0 ? (
               <section className="note-detail__section" aria-label="Etiquetas">

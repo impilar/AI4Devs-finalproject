@@ -14,8 +14,10 @@ model Nota {
   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz
   updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz
 
-  etiquetas NotaEtiqueta[]
-  enlaces   Enlace[]
+  etiquetas          NotaEtiqueta[]
+  enlaces            Enlace[]
+  backlinksSalientes NotaBacklink[] @relation("BacklinksSalientes")
+  backlinksEntrantes NotaBacklink[] @relation("BacklinksEntrantes")
 
   @@index([createdAt(sort: Desc)], map: "idx_notas_created_at")
   @@index([updatedAt(sort: Desc)], map: "idx_notas_updated_at")
@@ -58,4 +60,17 @@ model Enlace {
 
   @@index([notaId], map: "idx_enlaces_nota_id")
   @@map("enlaces")
+}
+
+model NotaBacklink {
+  origenId  String @map("origen_id") @db.Uuid
+  destinoId String @map("destino_id") @db.Uuid
+
+  origen  Nota @relation("BacklinksSalientes", fields: [origenId], references: [id], onDelete: Cascade)
+  destino Nota @relation("BacklinksEntrantes", fields: [destinoId], references: [id], onDelete: Cascade)
+
+  @@id([origenId, destinoId])
+  @@index([origenId], map: "idx_nota_backlink_origen")
+  @@index([destinoId], map: "idx_nota_backlink_destino")
+  @@map("nota_backlink")
 }

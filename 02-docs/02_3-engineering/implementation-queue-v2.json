@@ -48,8 +48,9 @@
       "name": "Backlinks entre notas (US-017)",
       "stories": ["US-017"],
       "task_ids": ["TASK-067", "TASK-065", "TASK-066", "TASK-068"],
-      "status": "backlog",
-      "openspec_change": "openspec/changes/us-017-backlinks"
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_change": "openspec/changes/archive/2026-07-06-us-017-backlinks"
     }
   ],
   "queue": [
@@ -158,7 +159,8 @@
       "layer": "database",
       "agent": "backend-engineer",
       "depends_on": ["TASK-044"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 10,
@@ -169,7 +171,8 @@
       "layer": "backend",
       "agent": "backend-engineer",
       "depends_on": ["TASK-067"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 11,
@@ -180,7 +183,8 @@
       "layer": "frontend",
       "agent": "frontend-engineer",
       "depends_on": ["TASK-065"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 12,
@@ -191,7 +195,8 @@
       "layer": "qa",
       "agent": "qa-engineer",
       "depends_on": ["TASK-066"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     }
   ],
   "stories_summary": [

@@ -1,10 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
 import { ApiError, ValidationApiError } from "../services/apiClient";
-import { deleteNota, getNota, removeTagFromNota, updateNota } from "../services/notesApi";
-import type { NotaDetail, UpdateNotaDto } from "../types/nota";
+import {
+  createBacklink,
+  deleteNota,
+  getNota,
+  listBacklinksEntrantes,
+  listBacklinksSalientes,
+  removeTagFromNota,
+  updateNota,
+} from "../services/notesApi";
+import type { NotaDetail, NoteRef, UpdateNotaDto } from "../types/nota";
 
 type UseNoteResult = {
   note: NotaDetail | null;
+  salientes: NoteRef[];
+  entrantes: NoteRef[];
   isLoading: boolean;
   isSaving: boolean;
   isDeleting: boolean;
@@ -12,12 +22,16 @@ type UseNoteResult = {
   error: string | null;
   notFound: boolean;
   updateNote: (dto: UpdateNotaDto) => Promise<NotaDetail>;
+  addBacklink: (destinoId: string) => Promise<void>;
   deleteNote: () => Promise<void>;
   removeTag: (etiquetaId: string) => Promise<void>;
+  reloadBacklinks: () => Promise<void>;
 };
 
 export function useNote(id: string | undefined): UseNoteResult {
   const [note, setNote] = useState<NotaDetail | null>(null);
+  const [salientes, setSalientes] = useState<NoteRef[]>([]);
+  const [entrantes, setEntrantes] = useState<NoteRef[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -25,9 +39,20 @@ export function useNote(id: string | undefined): UseNoteResult {
   const [error, setError] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
 
+  const loadBacklinks = useCallback(async (noteId: string): Promise<void> => {
+    const [outgoing, incoming] = await Promise.all([
+      listBacklinksSalientes(noteId),
+      listBacklinksEntrantes(noteId),
+    ]);
+    setSalientes(outgoing);
+    setEntrantes(incoming);
+  }, []);
+
   useEffect(() => {
     if (!id) {
       setNote(null);
+      setSalientes([]);
+      setEntrantes([]);
       setIsLoading(false);
       setError("Identificador de nota inválido");
       setNotFound(false);
@@ -43,14 +68,23 @@ export function useNote(id: string | undefined): UseNoteResult {
 
       try {
         const data = await getNota(id);
+        const [outgoing, incoming] = await Promise.all([
+          listBacklinksSalientes(id),
+          listBacklinksEntrantes(id),
+        ]);
+
         if (!cancelled) {
           setNote(data);
+          setSalientes(outgoing);
+          setEntrantes(incoming);
         }
       } catch (err) {
         if (!cancelled) {
           if (err instanceof ApiError && err.status === 404) {
             setNotFound(true);
             setNote(null);
+            setSalientes([]);
+            setEntrantes([]);
           } else {
             const message = err instanceof Error ? err.message : "Error al cargar la nota";
             setError(message);
@@ -69,6 +103,14 @@ export function useNote(id: string | undefined): UseNoteResult {
       cancelled = true;
     };
   }, [id]);
+
+  const reloadBacklinks = useCallback(async (): Promise<void> => {
+    if (!id) {
+      return;
+    }
+
+    await loadBacklinks(id);
+  }, [id, loadBacklinks]);
 
   const saveNote = useCallback(
     async (dto: UpdateNotaDto): Promise<NotaDetail> => {
@@ -97,6 +139,26 @@ export function useNote(id: string | undefined): UseNoteResult {
     [id],
   );
 
+  const addBacklinkToNote = useCallback(
+    async (destinoId: string): Promise<void> => {
+      if (!id) {
+        throw new Error("Identificador de nota inválido");
+      }
+
+      setError(null);
+
+      try {
+        await createBacklink(id, { destinoId });
+        await loadBacklinks(id);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Error al crear el enlace";
+        setError(message);
+        throw err;
+      }
+    },
+    [id, loadBacklinks],
+  );
+
   const removeNote = useCallback(async (): Promise<void> => {
     if (!id) {
       throw new Error("Identificador de nota inválido");
@@ -108,6 +170,8 @@ export function useNote(id: string | undefined): UseNoteResult {
     try {
       await deleteNota(id);
       setNote(null);
+      setSalientes([]);
+      setEntrantes([]);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Error al eliminar la nota";
       setError(message);
@@ -145,6 +209,8 @@ export function useNote(id: string | undefined): UseNoteResult {
 
   return {
     note,
+    salientes,
+    entrantes,
     isLoading,
     isSaving,
     isDeleting,
@@ -152,7 +218,9 @@ export function useNote(id: string | undefined): UseNoteResult {
     error,
     notFound,
     updateNote: saveNote,
+    addBacklink: addBacklinkToNote,
     deleteNote: removeNote,
     removeTag,
+    reloadBacklinks,
   };
 }

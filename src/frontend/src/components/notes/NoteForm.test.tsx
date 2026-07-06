@@ -53,6 +53,8 @@ describe("NoteForm", () => {
             links: ["https://example.com"],
             tags: ["ideas"],
           }}
+          currentNoteId="11111111-1111-1111-1111-111111111101"
+          noteOptions={[{ id: "22222222-2222-2222-2222-222222222202", title: "Otra nota" }]}
           onSubmit={vi.fn()}
           onCancel={vi.fn()}
         />
@@ -76,6 +78,8 @@ describe("NoteForm", () => {
             links: [],
             tags: [],
           }}
+          currentNoteId="11111111-1111-1111-1111-111111111101"
+          noteOptions={[{ id: "22222222-2222-2222-2222-222222222202", title: "Otra nota" }]}
           onSubmit={vi.fn()}
           onCancel={vi.fn()}
         />
@@ -98,6 +102,8 @@ describe("NoteForm", () => {
             links: [],
             tags: [],
           }}
+          currentNoteId="11111111-1111-1111-1111-111111111101"
+          noteOptions={[{ id: "22222222-2222-2222-2222-222222222202", title: "Otra nota" }]}
           onSubmit={vi.fn()}
           onCancel={vi.fn()}
         />

@@ -94,6 +94,15 @@ export function seedCatalogNotes(): void {
   runDbSetup("catalog");
 }
 
+export const E2E_BACKLINK_IDEAS_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa81";
+export const E2E_BACKLINK_MERCADO_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa82";
+export const E2E_BACKLINK_PLAN_Q3_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa83";
+export const E2E_BACKLINK_OBJETIVOS_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa84";
+
+export function seedBacklinksNotes(): void {
+  runDbSetup("backlinks");
+}
+
 export function seedBenchNotes(): void {
   runDbSetup("bench");
 }

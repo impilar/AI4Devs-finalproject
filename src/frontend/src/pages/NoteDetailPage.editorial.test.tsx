@@ -16,14 +16,24 @@ const note = {
 vi.mock("../hooks/useNote", () => ({
   useNote: () => ({
     note,
+    salientes: [],
+    entrantes: [],
     isLoading: false,
     isSaving: false,
     isDeleting: false,
+    isRemovingTag: false,
     error: null,
     notFound: false,
     updateNote: vi.fn(),
+    addBacklink: vi.fn(),
     deleteNote: vi.fn(),
+    removeTag: vi.fn(),
+    reloadBacklinks: vi.fn(),
   }),
+}));
+
+vi.mock("../services/notesApi", () => ({
+  listNotas: vi.fn().mockResolvedValue([]),
 }));
 
 describe("NoteDetailPage editorial edit", () => {
