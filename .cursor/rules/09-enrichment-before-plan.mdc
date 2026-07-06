@@ -1,0 +1,26 @@
+# Enriquecimiento antes de plan y cola
+
+## Orden obligatorio
+
+1. **LLD** + modelo de datos disponibles
+2. **Enriquecer** user stories del release (`user-story-enricher` + `enrich-user-story.md`)
+3. **Verificar** con `node 05-scripts/check-stories-enriched.mjs --release <RELEASE>`
+4. **Generar** plan y cola (`implementation-planner` + `create-implementation-plan.md`)
+5. **Implementar** con OpenSpec + cola JSON
+
+## Gate
+
+No generar ni regenerar `implementation-plan-*.md` ni `implementation-queue-*.json` si `check-stories-enriched.mjs` devuelve exit code 1.
+
+Criterio de enriquecido (cualquiera válida):
+
+- `status-v1.json` → `"enriched": true` para la historia, **y**
+- `US-NNN.md` contiene `## Detalle de implementación (historia)` y `## Detalle por task` con subsección por cada `TASK-XXX`
+
+## Releases
+
+| Release | Historias |
+|---------|-----------|
+| MVP | US-001…US-016 (scope MVP en roadmap) |
+| V1 | US-003, US-007, US-010, US-014 |
+| V2+ | US-004, US-011, US-017 |

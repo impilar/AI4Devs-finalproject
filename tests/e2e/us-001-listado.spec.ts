@@ -48,7 +48,7 @@ test.describe("US-001 — Listado vacío", () => {
   test("BD vacía muestra mensaje sin error de servidor", async ({ page }) => {
     await page.goto("/");
 
-    await expect(page.getByText("No hay notas todavía.")).toBeVisible();
+    await expect(page.getByText("Aún no hay notas.")).toBeVisible();
     await expect(page.getByRole("alert")).not.toBeVisible();
   });
 });

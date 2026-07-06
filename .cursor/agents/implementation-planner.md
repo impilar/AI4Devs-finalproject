@@ -57,6 +57,30 @@ Every MVP task (TASK-001…TASK-064 for in-scope stories) must appear **exactly 
 
 ## INSTRUCTIONS
 
+### 0. Enrichment gate (mandatory)
+
+**Do not generate** `implementation-plan-*.md` or `implementation-queue-*.json` until enrichment passes.
+
+1. Resolve scope from argument: `MVP` → release MVP; `V1` → release V1; `MVP+V1` → both; `US-NNN` → single story.
+2. Run:
+
+```bash
+node 05-scripts/check-stories-enriched.mjs --release <SCOPE>
+# or for one story:
+node 05-scripts/check-stories-enriched.mjs --story US-NNN
+```
+
+3. **If exit code ≠ 0:** STOP. Report failing stories and instruct user to run `.cursor/agents/user-story-enricher.md` (skill `enrich-user-story.md`). Do not write plan or queue files.
+4. **If exit code 0:** proceed to step 1 below.
+
+Output file naming by scope:
+
+| Argument | Plan | Queue |
+|----------|------|-------|
+| `MVP` | `implementation-plan-mvp.md` | `implementation-queue-mvp.json` |
+| `V1` | `implementation-plan-v1.md` | `implementation-queue-v1.json` |
+| `MVP+V1` | regenerate both files above | |
+
 ### 1. Inventory MVP work
 
 - List all stories with `release: MVP` in `status-v1.json`.
@@ -175,7 +199,7 @@ Generate the implementation plan using argument: **$ARGUMENTS** (default: `MVP`)
 
 ## OUTPUT
 
-1. Save `02-docs/02_3-engineering/implementation-plan-mvp.md`  
-2. Save `02-docs/02_3-engineering/implementation-queue-mvp.json`  
+1. Save plan and queue for the requested scope (see §0 table).  
+2. Never save plan/queue if enrichment gate failed.
 
-Report: phase count, queue length, first 5 items to implement, any blocked/enrichment gaps found.
+Report: enrichment gate result, phase count, queue length, first 5 items to implement, any LLD gaps found.

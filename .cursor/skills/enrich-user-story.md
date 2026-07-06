@@ -16,9 +16,17 @@ Identificador de la historia a enriquecer:
 
 - `US-001` … `US-017`
 - Ruta: `02-docs/02_1-product/user-stories/US-NNN.md`
-- Criterio: `MVP`, `todas las MVP`, `pendientes de enriquecer`
+- Criterio: `MVP`, `V1`, `V2+`, `todas las MVP`, `pendientes de enriquecer`
 
-Si no se indica argumento, enriquecer solo historias MVP (`release: MVP` en `status-v1.json`) que aún no tengan sección `## Detalle de implementación`.
+Si no se indica argumento, enriquecer historias del release activo que aún no tengan sección `## Detalle de implementación` (por defecto: MVP; si el usuario pide V1, usar `release: V1`).
+
+Tras enriquecer un release completo, verificar con:
+
+```bash
+node 05-scripts/check-stories-enriched.mjs --release V1
+```
+
+Solo entonces ejecutar `create-implementation-plan` / Implementation Planner.
 
 ## Inputs
 

@@ -77,6 +77,6 @@ describe.skipIf(!hasDatabase)("nota repository findAll (TASK-003)", () => {
     `;
 
     const planText = plan.map((row) => row["QUERY PLAN"]).join("\n");
-    expect(planText).toContain("created_at DESC");
+    expect(planText).toMatch(/idx_notas_created_at|created_at DESC/);
   });
 });

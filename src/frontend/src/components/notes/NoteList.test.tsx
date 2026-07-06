@@ -68,10 +68,18 @@ describe("NoteList", () => {
     expect(screen.getByLabelText("Listado de notas").querySelector('time[datetime="2026-06-12T10:00:00.000Z"]')).toBeTruthy();
   });
 
-  it("shows empty message when there are no notes", () => {
+  it("shows library empty state when there are no notes", () => {
     renderNoteList({ notes: [] });
 
-    expect(screen.getByText(/No hay notas todavía/)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Crear primera nota" })).toBeInTheDocument();
+    expect(screen.getByText("Aún no hay notas.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Crear nota" })).toHaveAttribute("href", "/notas/nueva");
+  });
+
+
+  it("shows tag filter empty state when activeTag is set", () => {
+    renderNoteList({ notes: [], activeTag: "archivo" });
+
+    expect(screen.getByText(/No hay notas con la etiqueta «archivo»/)).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Crear nota" })).not.toBeInTheDocument();
   });
 });

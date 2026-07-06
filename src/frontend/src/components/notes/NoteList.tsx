@@ -42,8 +42,8 @@ export function NoteList({
 
     return (
       <EmptyState
-        message="No hay notas todavía. Empieza capturando una idea."
-        ctaLabel="Crear primera nota"
+        message="Aún no hay notas."
+        ctaLabel="Crear nota"
         ctaTo="/notas/nueva"
       />
     );

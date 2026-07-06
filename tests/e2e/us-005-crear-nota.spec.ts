@@ -44,7 +44,7 @@ test.describe("US-005 — Crear nota", () => {
     await expect(page).toHaveURL("/notas/nueva");
 
     await page.goto("/");
-    await expect(page.getByText("No hay notas todavía.")).toBeVisible();
+    await expect(page.getByText("Aún no hay notas.")).toBeVisible();
   });
 
   test("Contenido vacío impide guardar", async ({ page }) => {
@@ -57,7 +57,7 @@ test.describe("US-005 — Crear nota", () => {
     await expect(page).toHaveURL("/notas/nueva");
 
     await page.goto("/");
-    await expect(page.getByText("No hay notas todavía.")).toBeVisible();
+    await expect(page.getByText("Aún no hay notas.")).toBeVisible();
   });
 
   test("POST con body inválido devuelve 400", async ({ request }) => {
