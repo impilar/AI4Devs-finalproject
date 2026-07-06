@@ -16,7 +16,7 @@ type NoteFormCreateProps = NoteFormBaseProps & {
 
 type NoteFormEditProps = NoteFormBaseProps & {
   mode: "edit";
-  initialValues: Pick<NotaDetail, "title" | "content" | "links" | "tags">;
+  initialValues: Pick<NotaDetail, "title" | "content" | "links"> & { tags: string[] };
   onSubmit: (dto: UpdateNotaDto) => Promise<void>;
   onCancel: () => void;
   isSaving?: boolean;
@@ -177,16 +177,9 @@ export function NoteForm(props: NoteFormProps) {
   }
 
   return (
-    <form
-      className={`note-form${props.mode === "create" ? " note-form--editorial" : ""}`}
-      onSubmit={handleSubmit}
-      noValidate
-    >
+    <form className="note-form note-form--editorial" onSubmit={handleSubmit} noValidate>
       <div className="note-form__field note-form__field--title">
-        <label
-          htmlFor="note-title"
-          className={props.mode === "create" ? "note-form__label--visually-hidden" : undefined}
-        >
+        <label htmlFor="note-title" className="note-form__label--visually-hidden">
           Título
         </label>
         <input
@@ -208,10 +201,7 @@ export function NoteForm(props: NoteFormProps) {
       </div>
 
       <div className="note-form__field note-form__field--content">
-        <label
-          htmlFor="note-content"
-          className={props.mode === "create" ? "note-form__label--visually-hidden" : undefined}
-        >
+        <label htmlFor="note-content" className="note-form__label--visually-hidden">
           Contenido
         </label>
         <div className="note-form__editor-surface">
@@ -293,7 +283,7 @@ export function NoteForm(props: NoteFormProps) {
 
       {submitError ? <ErrorMessage message={submitError} /> : null}
 
-      <div className="note-form__actions">
+      <div className="note-form__actions note-form__actions--editorial">
         <button type="submit" className="note-form__submit" disabled={isSaving}>
           {isSaving ? "Guardando…" : "Guardar"}
         </button>

@@ -123,15 +123,16 @@
       "title": "Feedback de validación sin perder datos del formulario",
       "epic": "EPIC-002",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
       "enriched": true,
       "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-025": "backlog",
-        "TASK-026": "backlog",
-        "TASK-027": "backlog",
-        "TASK-028": "backlog"
-      }
+        "TASK-025": "done",
+        "TASK-026": "done",
+        "TASK-027": "done",
+        "TASK-028": "done"
+      },
+      "completed_at": "2026-07-06"
     },
     "US-008": {
       "title": "Asignar etiquetas a una nota",

@@ -1,4 +1,5 @@
 import { type KeyboardEvent, useState } from "react";
+import { getTagColor } from "../../utils/getTagColor";
 
 type TagInputProps = {
   id?: string;
@@ -59,19 +60,31 @@ export function TagInput({
       <label htmlFor={`${id}-input`}>{label}</label>
 
       <div className="tag-input__control">
-        {value.map((tag) => (
-          <span key={tag} className="tag-input__chip">
-            {tag}
-            <button
-              type="button"
-              className="tag-input__chip-remove"
-              onClick={() => removeTag(tag)}
-              aria-label={`Eliminar etiqueta ${tag}`}
+        {value.map((tag) => {
+          const color = getTagColor(tag);
+
+          return (
+            <span
+              key={tag}
+              className="tag-input__chip"
+              style={{
+                background: `${color}18`,
+                color,
+                borderColor: `${color}28`,
+              }}
             >
-              ×
-            </button>
-          </span>
-        ))}
+              {tag}
+              <button
+                type="button"
+                className="tag-input__chip-remove"
+                onClick={() => removeTag(tag)}
+                aria-label={`Eliminar etiqueta ${tag}`}
+              >
+                ×
+              </button>
+            </span>
+          );
+        })}
 
         <input
           id={`${id}-input`}

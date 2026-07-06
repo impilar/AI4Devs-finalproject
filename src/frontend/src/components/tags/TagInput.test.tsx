@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { TagInput } from "./TagInput";
+import { getTagColor } from "../../utils/getTagColor";
 
 describe("TagInput", () => {
   it("adds a tag on Enter and clears the input", () => {
@@ -54,5 +55,18 @@ describe("TagInput", () => {
     fireEvent.mouseDown(screen.getByRole("button", { name: "ideas" }));
 
     expect(onChange).toHaveBeenCalledWith(["ideas"]);
+  });
+
+  it("renders MindVault-colored tag chips", () => {
+    render(<TagInput value={["ideas"]} onChange={vi.fn()} suggestions={[]} />);
+
+    const chip = screen.getByText("ideas").closest(".tag-input__chip");
+    const color = getTagColor("ideas");
+
+    expect(chip).toHaveStyle({
+      background: `${color}18`,
+      color,
+      borderColor: `${color}28`,
+    });
   });
 });
