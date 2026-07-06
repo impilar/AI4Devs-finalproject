@@ -64,8 +64,14 @@ describe.skipIf(!hasDatabase)("GET /api/v1/notas/:id", () => {
       title: "Ideas de proyecto",
       content: "Texto de la nota",
       links: ["https://docs.example.com/mvp", "https://www.prisma.io/docs"],
-      tags: ["ideas", "trabajo"],
     });
+    expect(response.body.data.tags).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: ideas.id, name: "ideas" }),
+        expect.objectContaining({ id: trabajo.id, name: "trabajo" }),
+      ]),
+    );
+    expect(response.body.data.tags).toHaveLength(2);
     expect(response.body.data.createdAt).toBe(nota.createdAt.toISOString());
     expect(response.body.data.updatedAt).toBe(nota.updatedAt.toISOString());
   });

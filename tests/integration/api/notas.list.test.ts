@@ -20,6 +20,7 @@ describe.skipIf(!hasDatabase)("GET /api/v1/notas", () => {
     await prisma.$disconnect();
   });
 
+  // US-003: empty library contract for EmptyState on home (TASK-009)
   it("returns 200 with empty list when no notes exist", async () => {
     const response = await request(app).get("/api/v1/notas");
 
@@ -65,6 +66,8 @@ describe.skipIf(!hasDatabase)("GET /api/v1/notas", () => {
     expect(response.body.data[0]).toMatchObject({
       id: newest.id,
       title: "Newest",
+      excerpt: "Third",
+      tags: [],
       createdAt: newest.createdAt.toISOString(),
       updatedAt: newest.updatedAt.toISOString(),
     });

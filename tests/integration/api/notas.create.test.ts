@@ -59,9 +59,12 @@ describe.skipIf(!hasDatabase)("POST /api/v1/notas", () => {
     expect(response.body.error.code).toBe("VALIDATION_ERROR");
     expect(response.body.error.details).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ field: "title" }),
+        { field: "title", message: "El título es obligatorio" },
       ]),
     );
+
+    const count = await prisma.nota.count();
+    expect(count).toBe(0);
   });
 
   it("returns 400 when content is empty", async () => {
@@ -74,9 +77,12 @@ describe.skipIf(!hasDatabase)("POST /api/v1/notas", () => {
     expect(response.body.error.code).toBe("VALIDATION_ERROR");
     expect(response.body.error.details).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ field: "content" }),
+        { field: "content", message: "El contenido es obligatorio" },
       ]),
     );
+
+    const count = await prisma.nota.count();
+    expect(count).toBe(0);
   });
 
   it("returns 400 when title exceeds 500 characters", async () => {

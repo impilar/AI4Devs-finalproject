@@ -76,4 +76,18 @@ export const notaService = {
 
     await notaRepository.delete(id);
   },
+
+  async removeTag(notaId: string, etiquetaId: string): Promise<void> {
+    const nota = await notaRepository.findById(notaId);
+
+    if (!nota) {
+      throw new NotFoundError();
+    }
+
+    const removed = await notaRepository.deleteNotaEtiqueta(notaId, etiquetaId);
+
+    if (!removed) {
+      throw new NotFoundError();
+    }
+  },
 };

@@ -68,12 +68,14 @@
       "title": "Estado vacío cuando no hay notas",
       "epic": "EPIC-001",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
+      "enriched": true,
+      "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-009": "backlog",
-        "TASK-010": "backlog",
-        "TASK-011": "backlog",
-        "TASK-012": "backlog"
+        "TASK-009": "done",
+        "TASK-010": "done",
+        "TASK-011": "done",
+        "TASK-012": "done"
       }
     },
     "US-004": {
@@ -120,12 +122,14 @@
       "title": "Feedback de validación sin perder datos del formulario",
       "epic": "EPIC-002",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
+      "enriched": true,
+      "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-025": "backlog",
-        "TASK-026": "backlog",
-        "TASK-027": "backlog",
-        "TASK-028": "backlog"
+        "TASK-025": "done",
+        "TASK-026": "done",
+        "TASK-027": "done",
+        "TASK-028": "done"
       }
     },
     "US-008": {
@@ -160,12 +164,15 @@
       "title": "Quitar etiqueta de una nota sin borrar la nota",
       "epic": "EPIC-003",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "enriched": true,
+      "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-037": "backlog",
-        "TASK-038": "backlog",
-        "TASK-039": "backlog",
-        "TASK-040": "backlog"
+        "TASK-037": "done",
+        "TASK-038": "done",
+        "TASK-039": "done",
+        "TASK-040": "done"
       }
     },
     "US-011": {
@@ -212,12 +219,15 @@
       "title": "Mensaje cuando búsqueda sin resultados",
       "epic": "EPIC-004",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "enriched": true,
+      "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-053": "backlog",
-        "TASK-054": "backlog",
-        "TASK-055": "backlog",
-        "TASK-056": "backlog"
+        "TASK-053": "done",
+        "TASK-054": "done",
+        "TASK-055": "done",
+        "TASK-056": "done"
       }
     },
     "US-015": {

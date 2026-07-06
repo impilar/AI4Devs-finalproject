@@ -5,6 +5,7 @@ import {
   seedDeletableNote,
 } from "./fixtures/seed";
 import { API_URL } from "./helpers/api";
+import { expectNoteInList } from "./helpers/notes";
 
 test.describe("US-016 — Eliminación de nota", () => {
   test.beforeEach(() => {
@@ -20,7 +21,7 @@ test.describe("US-016 — Eliminación de nota", () => {
     await page.getByRole("dialog").getByRole("button", { name: "Eliminar" }).click();
 
     await expect(page).toHaveURL("/");
-    await expect(page.getByRole("link", { name: E2E_DELETE_NOTA_TITLE })).not.toBeVisible();
+    await expectNoteInList(page, E2E_DELETE_NOTA_TITLE, { visible: false });
 
     const detailResponse = await request.get(`${API_URL}/notas/${E2E_DELETE_NOTA_ID}`);
     expect(detailResponse.status()).toBe(404);
@@ -43,6 +44,6 @@ test.describe("US-016 — Eliminación de nota", () => {
     expect(detailResponse.ok()).toBeTruthy();
 
     await page.goto("/");
-    await expect(page.getByRole("link", { name: E2E_DELETE_NOTA_TITLE })).toBeVisible();
+    await expectNoteInList(page, E2E_DELETE_NOTA_TITLE);
   });
 });

@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { seedFilterNotes } from "./fixtures/seed";
+import { expectNoteInList } from "./helpers/notes";
 
 test.describe("US-009 — Filtro por etiqueta", () => {
   test.beforeEach(() => {
@@ -16,9 +17,9 @@ test.describe("US-009 — Filtro por etiqueta", () => {
     await page.getByRole("button", { name: "trabajo" }).click();
 
     await expect(noteList.getByRole("listitem")).toHaveCount(2);
-    await expect(page.getByRole("link", { name: "Reunión equipo" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Informe mensual" })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Plan fin de semana" })).not.toBeVisible();
+    await expectNoteInList(page, "Reunión equipo");
+    await expectNoteInList(page, "Informe mensual");
+    await expectNoteInList(page, "Plan fin de semana", { visible: false });
   });
 
   test("Etiqueta sin notas asociadas muestra mensaje vacío", async ({ page }) => {

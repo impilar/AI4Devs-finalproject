@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { clearAllNotes } from "./fixtures/seed";
 import { createInteractionCounter } from "./helpers/interactionCounter";
 import { API_URL } from "./helpers/api";
+import { expectNoteInList, noteList } from "./helpers/notes";
 
 test.describe("US-005 — Crear nota", () => {
   test.beforeEach(() => {
@@ -27,14 +28,10 @@ test.describe("US-005 — Crear nota", () => {
     expect(interactions.getCount()).toBeLessThanOrEqual(2);
 
     await expect(page).toHaveURL("/");
-    await expect(page.getByRole("link", { name: noteTitle })).toBeVisible();
+    await expectNoteInList(page, noteTitle);
 
-    const today = new Date().toLocaleDateString("es-ES", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-    await expect(page.getByText(today)).toBeVisible();
+    const createdNote = noteList(page).getByRole("link").filter({ hasText: noteTitle });
+    await expect(createdNote.locator("time[datetime]")).toBeVisible();
   });
 
   test("Título vacío impide guardar", async ({ page }) => {
@@ -47,7 +44,7 @@ test.describe("US-005 — Crear nota", () => {
     await expect(page).toHaveURL("/notas/nueva");
 
     await page.goto("/");
-    await expect(page.getByText("No hay notas todavía.")).toBeVisible();
+    await expect(page.getByText("Aún no hay notas.")).toBeVisible();
   });
 
   test("Contenido vacío impide guardar", async ({ page }) => {
@@ -60,7 +57,7 @@ test.describe("US-005 — Crear nota", () => {
     await expect(page).toHaveURL("/notas/nueva");
 
     await page.goto("/");
-    await expect(page.getByText("No hay notas todavía.")).toBeVisible();
+    await expect(page.getByText("Aún no hay notas.")).toBeVisible();
   });
 
   test("POST con body inválido devuelve 400", async ({ request }) => {

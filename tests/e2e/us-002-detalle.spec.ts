@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { clickNoteInList } from "./helpers/notes";
 import {
   E2E_DETAIL_LINK,
   E2E_DETAIL_NOTA_CONTENT,
@@ -17,7 +18,7 @@ test.describe("US-002 — Detalle de nota", () => {
   test("Abrir detalle desde el listado", async ({ page }) => {
     await page.goto("/");
 
-    await page.getByRole("link", { name: E2E_DETAIL_NOTA_TITLE }).click();
+    await clickNoteInList(page, E2E_DETAIL_NOTA_TITLE);
 
     await expect(page).toHaveURL(`/notas/${E2E_DETAIL_NOTA_ID}`);
     await expect(page.getByRole("heading", { level: 1, name: E2E_DETAIL_NOTA_TITLE })).toBeVisible();
@@ -27,8 +28,10 @@ test.describe("US-002 — Detalle de nota", () => {
     await expect(externalLink).toBeVisible();
     await expect(externalLink).toHaveAttribute("href", E2E_DETAIL_LINK);
 
+    const tagsSection = page.getByRole("region", { name: "Etiquetas" });
     for (const tag of E2E_DETAIL_TAGS) {
-      await expect(page.getByText(tag, { exact: true })).toBeVisible();
+      await expect(tagsSection).toContainText(tag);
+      await expect(page.getByRole("button", { name: `Quitar etiqueta ${tag}` })).toBeVisible();
     }
   });
 

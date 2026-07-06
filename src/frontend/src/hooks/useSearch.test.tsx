@@ -68,6 +68,8 @@ describe("useSearch", () => {
       {
         id: "11111111-1111-1111-1111-111111111111",
         title: "Lista de la compra",
+        excerpt: "Compra semanal",
+        tags: [],
         createdAt: "2026-06-12T10:00:00.000Z",
         updatedAt: "2026-06-12T11:00:00.000Z",
       },

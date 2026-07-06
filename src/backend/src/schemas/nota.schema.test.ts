@@ -108,4 +108,22 @@ describe("UpdateNotaDtoSchema", () => {
       );
     }
   });
+
+  it("rejects empty title with Spanish message", () => {
+    const result = UpdateNotaDtoSchema.safeParse({ title: "   " });
+
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0]?.message).toBe("El título es obligatorio");
+    }
+  });
+
+  it("rejects empty content with Spanish message", () => {
+    const result = UpdateNotaDtoSchema.safeParse({ content: "" });
+
+    expect(result.success).toBe(false);
+    if (!result.success) {
+      expect(result.error.issues[0]?.message).toBe("El contenido es obligatorio");
+    }
+  });
 });

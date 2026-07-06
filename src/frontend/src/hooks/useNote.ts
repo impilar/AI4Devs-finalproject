@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { ApiError, ValidationApiError } from "../services/apiClient";
-import { deleteNota, getNota, updateNota } from "../services/notesApi";
+import { deleteNota, getNota, removeTagFromNota, updateNota } from "../services/notesApi";
 import type { NotaDetail, UpdateNotaDto } from "../types/nota";
 
 type UseNoteResult = {
@@ -8,10 +8,12 @@ type UseNoteResult = {
   isLoading: boolean;
   isSaving: boolean;
   isDeleting: boolean;
+  isRemovingTag: boolean;
   error: string | null;
   notFound: boolean;
   updateNote: (dto: UpdateNotaDto) => Promise<NotaDetail>;
   deleteNote: () => Promise<void>;
+  removeTag: (etiquetaId: string) => Promise<void>;
 };
 
 export function useNote(id: string | undefined): UseNoteResult {
@@ -19,6 +21,7 @@ export function useNote(id: string | undefined): UseNoteResult {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isRemovingTag, setIsRemovingTag] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
 
@@ -114,14 +117,42 @@ export function useNote(id: string | undefined): UseNoteResult {
     }
   }, [id]);
 
+  const removeTag = useCallback(
+    async (etiquetaId: string): Promise<void> => {
+      if (!id || !note) {
+        throw new Error("Identificador de nota inválido");
+      }
+
+      setIsRemovingTag(true);
+      setError(null);
+
+      try {
+        await removeTagFromNota(id, etiquetaId);
+        setNote({
+          ...note,
+          tags: note.tags.filter((tag) => tag.id !== etiquetaId),
+        });
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Error al quitar la etiqueta";
+        setError(message);
+        throw err;
+      } finally {
+        setIsRemovingTag(false);
+      }
+    },
+    [id, note],
+  );
+
   return {
     note,
     isLoading,
     isSaving,
     isDeleting,
+    isRemovingTag,
     error,
     notFound,
     updateNote: saveNote,
     deleteNote: removeNote,
+    removeTag,
   };
 }

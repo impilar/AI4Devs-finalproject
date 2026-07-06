@@ -7,6 +7,8 @@ type SearchBarProps = {
   order?: SearchOrder;
   onOrderChange?: (order: SearchOrder) => void;
   showOrderSelect?: boolean;
+  compact?: boolean;
+  variant?: "default" | "spotlight";
 };
 
 export function SearchBar({
@@ -15,10 +17,17 @@ export function SearchBar({
   order,
   onOrderChange,
   showOrderSelect = false,
+  compact = false,
+  variant = "default",
 }: SearchBarProps) {
+  const variantClass = variant === "spotlight" ? " search-bar--spotlight" : "";
+
   return (
-    <div className="search-bar">
-      <label htmlFor="search-notes" className="search-bar__label">
+    <div className={`search-bar${compact ? " search-bar--compact" : ""}${variantClass}`}>
+      <label
+        htmlFor="search-notes"
+        className={`search-bar__label${compact ? " search-bar__label--visually-hidden" : ""}`}
+      >
         Buscar
       </label>
       <div className="search-bar__controls">

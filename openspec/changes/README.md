@@ -2,7 +2,13 @@
 
 One folder per implementation slice. Naming: `us-NNN-short-name` or `phase-000-bootstrap`.
 
-## Suggested order (MVP)
+## Active (V1)
+
+| Change | Phase | Stories | Queue tasks |
+|--------|-------|---------|-------------|
+| [`us-003-empty-state`](us-003-empty-state/) | PHASE-001 V1 | US-003 | TASK-009, 011, 010, 012 |
+
+## Suggested order (MVP — archived)
 
 | Change | Phase | Stories | Queue tasks |
 |--------|-------|---------|-------------|

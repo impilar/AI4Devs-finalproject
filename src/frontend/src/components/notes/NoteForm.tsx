@@ -16,7 +16,7 @@ type NoteFormCreateProps = NoteFormBaseProps & {
 
 type NoteFormEditProps = NoteFormBaseProps & {
   mode: "edit";
-  initialValues: Pick<NotaDetail, "title" | "content" | "links" | "tags">;
+  initialValues: Pick<NotaDetail, "title" | "content" | "links"> & { tags: string[] };
   onSubmit: (dto: UpdateNotaDto) => Promise<void>;
   onCancel: () => void;
   isSaving?: boolean;
@@ -177,9 +177,11 @@ export function NoteForm(props: NoteFormProps) {
   }
 
   return (
-    <form className="note-form" onSubmit={handleSubmit} noValidate>
-      <div className="note-form__field">
-        <label htmlFor="note-title">Título</label>
+    <form className="note-form note-form--editorial" onSubmit={handleSubmit} noValidate>
+      <div className="note-form__field note-form__field--title">
+        <label htmlFor="note-title" className="note-form__label--visually-hidden">
+          Título
+        </label>
         <input
           id="note-title"
           name="title"
@@ -187,6 +189,7 @@ export function NoteForm(props: NoteFormProps) {
           value={title}
           onChange={(event) => setTitle(event.target.value)}
           required
+          placeholder={props.mode === "create" ? "¿Qué quieres recordar?" : undefined}
           aria-invalid={Boolean(fieldErrors.title)}
           aria-describedby={fieldErrors.title ? "note-title-error" : undefined}
         />
@@ -197,18 +200,27 @@ export function NoteForm(props: NoteFormProps) {
         ) : null}
       </div>
 
-      <div className="note-form__field">
-        <label htmlFor="note-content">Contenido</label>
-        <textarea
-          id="note-content"
-          name="content"
-          value={content}
-          onChange={(event) => setContent(event.target.value)}
-          rows={8}
-          required
-          aria-invalid={Boolean(fieldErrors.content)}
-          aria-describedby={fieldErrors.content ? "note-content-error" : undefined}
-        />
+      <div className="note-form__field note-form__field--content">
+        <label htmlFor="note-content" className="note-form__label--visually-hidden">
+          Contenido
+        </label>
+        <div className="note-form__editor-surface">
+          <textarea
+            id="note-content"
+            name="content"
+            value={content}
+            onChange={(event) => setContent(event.target.value)}
+            rows={props.mode === "create" ? 12 : 8}
+            required
+            placeholder={
+              props.mode === "create"
+                ? "Empieza a escribir… Añade ideas, referencias o simplemente piensa en voz alta."
+                : undefined
+            }
+            aria-invalid={Boolean(fieldErrors.content)}
+            aria-describedby={fieldErrors.content ? "note-content-error" : undefined}
+          />
+        </div>
         {fieldErrors.content ? (
           <p id="note-content-error" className="note-form__field-error" role="alert">
             {fieldErrors.content}
@@ -271,7 +283,7 @@ export function NoteForm(props: NoteFormProps) {
 
       {submitError ? <ErrorMessage message={submitError} /> : null}
 
-      <div className="note-form__actions">
+      <div className="note-form__actions note-form__actions--editorial">
         <button type="submit" className="note-form__submit" disabled={isSaving}>
           {isSaving ? "Guardando…" : "Guardar"}
         </button>

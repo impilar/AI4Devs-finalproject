@@ -4,8 +4,10 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 
 | Artefacto | Descripción |
 |-----------|-------------|
-| [implementation-plan-mvp.md](implementation-plan-mvp.md) | Plan humano: fases, dependencias, reglas (MVP, 8 fases, 40 tasks) |
-| [implementation-queue-mvp.json](implementation-queue-mvp.json) | Cola priorizada de tasks para agentes desarrollador |
+| [implementation-plan-mvp.md](implementation-plan-mvp.md) | Plan humano: fases, dependencias, reglas (MVP) |
+| [implementation-queue-mvp.json](implementation-queue-mvp.json) | Cola priorizada MVP |
+| [implementation-plan-v1.md](implementation-plan-v1.md) | Plan release V1 (pulido UX) |
+| [implementation-queue-v1.json](implementation-queue-v1.json) | Cola priorizada V1 |
 | [standards/](standards/) | Estándares de codificación (base, backend, frontend, docs) |
 | [openspec-setup.md](openspec-setup.md) | Bootstrap OpenSpec CLI (`openspec init`, `openspec update`) |
 | [getting-started.md](getting-started.md) | Bootstrap local: Docker, backend, frontend, tests |
@@ -14,9 +16,16 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 
 ## Generación del plan
 
-1. Skill: `.cursor/skills/create-implementation-plan.md`
-2. Agente: `.cursor/agents/implementation-planner.md`
-3. Prompt: [`04-prompts/development/01-implementation-plan.md`](../../04-prompts/development/01-implementation-plan.md)
+**Orden:** enriquecer historias → verificar gate → generar plan/cola.
+
+```bash
+npm run check:stories-enriched:v1   # o :mvp
+```
+
+1. Enriquecer: `.cursor/skills/enrich-user-story.md` — prompt [`04-prompts/discovery/03-enriquecer-user-story.md`](../../04-prompts/discovery/03-enriquecer-user-story.md)
+2. Gate: `05-scripts/check-stories-enriched.mjs` (regla `.cursor/rules/09-enrichment-before-plan.mdc`)
+3. Plan: `.cursor/skills/create-implementation-plan.md` + `.cursor/agents/implementation-planner.md`
+4. Prompt: [`04-prompts/development/01-implementation-plan.md`](../../04-prompts/development/01-implementation-plan.md)
 
 ## Ejecución (OpenSpec)
 

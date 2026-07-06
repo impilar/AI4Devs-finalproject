@@ -64,4 +64,53 @@ describe("NoteForm", () => {
     expect(screen.getByLabelText("Enlace 1")).toHaveValue("https://example.com");
     expect(screen.getByText("ideas")).toBeInTheDocument();
   });
+
+  it("applies MindVault editorial classes in edit mode", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <NoteForm
+          mode="edit"
+          initialValues={{
+            title: "Título",
+            content: "Contenido",
+            links: [],
+            tags: [],
+          }}
+          onSubmit={vi.fn()}
+          onCancel={vi.fn()}
+        />
+      </MemoryRouter>,
+    );
+
+    const form = container.querySelector("form");
+    expect(form).toHaveClass("note-form--editorial");
+    expect(container.querySelector(".note-form__actions--editorial")).toBeInTheDocument();
+  });
+
+  it("keeps spaced Guardar and Cancelar actions in edit mode", () => {
+    render(
+      <MemoryRouter>
+        <NoteForm
+          mode="edit"
+          initialValues={{
+            title: "Título",
+            content: "Contenido",
+            links: [],
+            tags: [],
+          }}
+          onSubmit={vi.fn()}
+          onCancel={vi.fn()}
+        />
+      </MemoryRouter>,
+    );
+
+    const saveButton = screen.getByRole("button", { name: "Guardar" });
+    const cancelButton = screen.getByRole("button", { name: "Cancelar" });
+
+    expect(saveButton.parentElement).toHaveClass("note-form__actions--editorial");
+    expect(cancelButton).toHaveClass("note-form__cancel");
+    expect(saveButton.compareDocumentPosition(cancelButton)).toBe(
+      Node.DOCUMENT_POSITION_FOLLOWING,
+    );
+  });
 });

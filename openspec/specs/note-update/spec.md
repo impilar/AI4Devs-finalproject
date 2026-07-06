@@ -30,6 +30,18 @@ The backend SHALL expose `PUT /api/v1/notas/:id` accepting `UpdateNotaDto` with 
 - **WHEN** client sends `PUT` with no updatable fields
 - **THEN** response status is 400 with `VALIDATION_ERROR`
 
+#### Scenario: Empty title rejected on update
+
+- **WHEN** client sends `PUT` with `title` empty or whitespace only
+- **THEN** response status is 400 with `VALIDATION_ERROR`
+- **AND** `error.details` contains `{ field: "title", message: "El título es obligatorio" }`
+
+#### Scenario: Empty content rejected on update
+
+- **WHEN** client sends `PUT` with `content` empty or whitespace only
+- **THEN** response status is 400 with `VALIDATION_ERROR`
+- **AND** `error.details` contains `{ field: "content", message: "El contenido es obligatorio" }`
+
 #### Scenario: Note not found
 
 - **WHEN** client sends `PUT` for a non-existent UUID
@@ -46,7 +58,7 @@ Update operations SHALL respond in under 2 seconds under normal conditions (RNF-
 
 ### Requirement: Edit mode in note detail (US-015)
 
-The note detail page SHALL provide an edit action that shows `NoteForm` pre-filled with current title, content, links, and tags. On successful save, the UI SHALL return to read-only detail view showing updated content and `updatedAt`.
+The note detail page SHALL provide an edit action that shows `NoteForm` pre-filled with current title, content, links, and tags. On successful save, the UI SHALL return to read-only detail view showing updated content and `updatedAt`. Edit mode SHALL use the same MindVault editorial form styling as note create: large title input, card content surface, MindVault-colored tag chips in `TagInput`, and visibly spaced Guardar/Cancelar actions.
 
 #### Scenario: Edit all fields and refresh timestamp
 
@@ -59,6 +71,25 @@ The note detail page SHALL provide an edit action that shows `NoteForm` pre-fill
 
 - **WHEN** the user enters edit mode and cancels without saving
 - **THEN** the read-only detail shows the original values unchanged
+
+#### Scenario: Validation preserves edit form data
+
+- **GIVEN** the user is editing a note with content entered
+- **WHEN** the user clears the title and attempts to save
+- **THEN** «El título es obligatorio» is visible next to the title field
+- **AND** the content field still shows the entered text
+- **AND** the user remains in edit mode
+
+### Requirement: E2E coverage for US-007 (edit form)
+
+Automated tests SHALL validate that edit mode exhibits the same validation behavior as create for US-007.
+
+#### Scenario: E2E edit title required with content preserved
+
+- **GIVEN** a seeded note exists
+- **WHEN** the user opens edit, clears the title, keeps content, and clicks Guardar
+- **THEN** «El título es obligatorio» is visible
+- **AND** the content remains in the textarea
 
 ### Requirement: E2E coverage for US-015
 

@@ -69,8 +69,8 @@ describe.skipIf(!hasDatabase)("PUT /api/v1/notas/:id (TASK-057, TASK-060)", () =
       title: "Updated title",
       content: "Updated content",
       links: ["https://example.com/new"],
-      tags: ["urgente"],
     });
+    expect(response.body.data.tags.map((tag: { name: string }) => tag.name)).toEqual(["urgente"]);
     expect(new Date(response.body.data.updatedAt).getTime()).toBeGreaterThan(
       previousUpdatedAt.getTime(),
     );
@@ -88,8 +88,11 @@ describe.skipIf(!hasDatabase)("PUT /api/v1/notas/:id (TASK-057, TASK-060)", () =
       title: "Title only",
       content: "Original content",
       links: ["https://example.com/original"],
-      tags: ["ideas", "trabajo"],
     });
+    expect(response.body.data.tags.map((tag: { name: string }) => tag.name)).toEqual([
+      "ideas",
+      "trabajo",
+    ]);
   });
 
   it("clears all links when links is an empty array", async () => {
@@ -113,6 +116,44 @@ describe.skipIf(!hasDatabase)("PUT /api/v1/notas/:id (TASK-057, TASK-060)", () =
 
     expect(response.status).toBe(400);
     expect(response.body.error.code).toBe("VALIDATION_ERROR");
+  });
+
+  it("returns 400 when title is empty on update (US-007)", async () => {
+    const nota = await seedEditableNote();
+
+    const response = await request(app)
+      .put(`/api/v1/notas/${nota.id}`)
+      .send({ title: "   " });
+
+    expect(response.status).toBe(400);
+    expect(response.body.error.code).toBe("VALIDATION_ERROR");
+    expect(response.body.error.details).toEqual(
+      expect.arrayContaining([
+        { field: "title", message: "El título es obligatorio" },
+      ]),
+    );
+
+    const stored = await prisma.nota.findUnique({ where: { id: nota.id } });
+    expect(stored?.title).toBe("Original title");
+  });
+
+  it("returns 400 when content is empty on update (US-007)", async () => {
+    const nota = await seedEditableNote();
+
+    const response = await request(app)
+      .put(`/api/v1/notas/${nota.id}`)
+      .send({ content: "" });
+
+    expect(response.status).toBe(400);
+    expect(response.body.error.code).toBe("VALIDATION_ERROR");
+    expect(response.body.error.details).toEqual(
+      expect.arrayContaining([
+        { field: "content", message: "El contenido es obligatorio" },
+      ]),
+    );
+
+    const stored = await prisma.nota.findUnique({ where: { id: nota.id } });
+    expect(stored?.content).toBe("Original content");
   });
 
   it("returns 404 when note does not exist", async () => {

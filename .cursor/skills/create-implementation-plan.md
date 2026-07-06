@@ -4,8 +4,17 @@ Genera el **plan de implementación** priorizado (historias y tasks) con depende
 
 ## Cuándo usar
 
-- Tras **LLD-v1** y **user stories MVP enriquecidas** (`enriched: true`).
+- Tras **LLD-v1** y **user stories del release enriquecidas** (`enriched: true` en `status-v1.json` + secciones en `US-NNN.md`).
 - **Antes** de escribir código en `src/` o invocar `backend-engineer` / `frontend-engineer`.
+
+## Prerrequisito obligatorio (enrichment gate)
+
+```bash
+node 05-scripts/check-stories-enriched.mjs --release MVP   # o V1, V2+
+```
+
+- **Exit 0** — continuar con este skill.
+- **Exit 1** — **no** generar plan ni cola; enriquecer historias con `.cursor/skills/enrich-user-story.md` y agente `user-story-enricher.md`.
 
 ## Inputs
 
@@ -23,10 +32,11 @@ Genera el **plan de implementación** priorizado (historias y tasks) con depende
 
 ## Outputs
 
-| Artefacto | Ruta |
-|-----------|------|
-| Plan (Markdown) | `02-docs/02_3-engineering/implementation-plan-mvp.md` |
-| Cola priorizada (JSON) | `02-docs/02_3-engineering/implementation-queue-mvp.json` |
+| Alcance | Plan | Cola |
+|---------|------|------|
+| MVP | `02-docs/02_3-engineering/implementation-plan-mvp.md` | `implementation-queue-mvp.json` |
+| V1 | `02-docs/02_3-engineering/implementation-plan-v1.md` | `implementation-queue-v1.json` |
+| V2+ | `implementation-plan-v2.md` (cuando exista) | `implementation-queue-v2.json` |
 
 Al regenerar, incrementar versión (`v2`) y conservar la anterior.
 
@@ -42,7 +52,7 @@ Al regenerar, incrementar versión (`v2`) y conservar la anterior.
 
 - Por defecto: historias **MVP** (US-001…US-016 según roadmap; excluir V1/V2+ salvo argumento).
 - Solo tasks presentes en la tabla `## Tasks` de cada historia.
-- Preferir historias con `enriched: true`; si no, usar LLD §9 y roadmap.
+- **Solo** historias con `enriched: true` (verificado por `check-stories-enriched.mjs`). No improvisar detalle si falta enriquecimiento.
 
 ### 2. Dependencias entre historias
 

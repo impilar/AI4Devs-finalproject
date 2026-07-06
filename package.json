@@ -3,11 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:stories-enriched": "node 05-scripts/check-stories-enriched.mjs",
+    "check:stories-enriched:mvp": "node 05-scripts/check-stories-enriched.mjs --release MVP",
+    "check:stories-enriched:v1": "node 05-scripts/check-stories-enriched.mjs --release V1",
     "test:e2e": "node 05-scripts/free-e2e-ports.mjs && playwright test",
     "test:e2e:ui": "node 05-scripts/free-e2e-ports.mjs && playwright test --ui",
     "test:e2e:headed": "node 05-scripts/free-e2e-ports.mjs && playwright test --headed"
   },
   "devDependencies": {
-    "@playwright/test": "^1.51.1"
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.10"
   }
 }

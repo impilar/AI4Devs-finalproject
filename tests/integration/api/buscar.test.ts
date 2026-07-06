@@ -75,6 +75,18 @@ describe.skipIf(!hasDatabase)("GET /api/v1/buscar", () => {
     expect(response.body.data[0].title).toBe("Lista semanal");
   });
 
+  it("returns empty results when there are no matches (US-014)", async () => {
+    await seedSearchNotes();
+
+    const response = await request(app).get("/api/v1/buscar?q=xyzabc");
+
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({
+      data: [],
+      meta: { q: "xyzabc", total: 0 },
+    });
+  });
+
   it("returns empty results when there are no matches", async () => {
     await seedSearchNotes();
 

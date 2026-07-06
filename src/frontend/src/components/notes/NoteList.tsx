@@ -1,6 +1,8 @@
 import { ErrorMessage } from "../common/ErrorMessage";
+import { SearchEmptyState } from "../search/SearchEmptyState";
 import { EmptyState } from "./EmptyState";
 import { NoteListItem } from "./NoteListItem";
+import { SkeletonNoteList } from "./SkeletonNoteList";
 import type { NotaResumen } from "../../types/nota";
 
 type NoteListProps = {
@@ -19,7 +21,7 @@ export function NoteList({
   searchQuery = null,
 }: NoteListProps) {
   if (isLoading) {
-    return <p className="note-list__status">Cargando notas…</p>;
+    return <SkeletonNoteList />;
   }
 
   if (error) {
@@ -28,9 +30,7 @@ export function NoteList({
 
   if (notes.length === 0) {
     if (searchQuery) {
-      return (
-        <EmptyState message={`No se encontraron notas para «${searchQuery}».`} />
-      );
+      return <SearchEmptyState searchTerm={searchQuery} />;
     }
 
     if (activeTag) {
@@ -39,13 +39,19 @@ export function NoteList({
       );
     }
 
-    return <p className="note-list__status">No hay notas todavía.</p>;
+    return (
+      <EmptyState
+        message="Aún no hay notas."
+        ctaLabel="Crear nota"
+        ctaTo="/notas/nueva"
+      />
+    );
   }
 
   return (
     <ul className="note-list" aria-label="Listado de notas">
       {notes.map((note) => (
-        <NoteListItem key={note.id} note={note} />
+        <NoteListItem key={note.id} note={note} searchQuery={searchQuery} />
       ))}
     </ul>
   );

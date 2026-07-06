@@ -10,6 +10,20 @@ vi.mock("../repositories/nota.repository.js", () => ({
 
 const mockedSearch = vi.mocked(notaRepository.search);
 
+function mockListRow(overrides: {
+  id: string;
+  title: string;
+  createdAt: Date;
+  updatedAt: Date;
+  content?: string;
+}) {
+  return {
+    content: overrides.content ?? overrides.title,
+    etiquetas: [],
+    ...overrides,
+  };
+}
+
 describe("searchService.search", () => {
   beforeEach(() => {
     mockedSearch.mockReset();
@@ -20,18 +34,18 @@ describe("searchService.search", () => {
     const updatedAt = new Date("2026-06-01T11:00:00.000Z");
 
     mockedSearch.mockResolvedValue([
-      {
+      mockListRow({
         id: "22222222-2222-2222-2222-222222222222",
         title: "Ideas varias",
         createdAt,
         updatedAt,
-      },
-      {
+      }),
+      mockListRow({
         id: "11111111-1111-1111-1111-111111111111",
         title: "Proyecto compra",
         createdAt,
         updatedAt,
-      },
+      }),
     ]);
 
     const result = await searchService.search({ q: "compra", order: "relevance" });
@@ -44,12 +58,14 @@ describe("searchService.search", () => {
     const timestamp = new Date("2026-06-01T10:00:00.000Z");
 
     mockedSearch.mockResolvedValue(
-      Array.from({ length: 50 }, (_, index) => ({
-        id: `00000000-0000-0000-0000-${String(index).padStart(12, "0")}`,
-        title: `Nota ${index}`,
-        createdAt: timestamp,
-        updatedAt: timestamp,
-      })),
+      Array.from({ length: 50 }, (_, index) =>
+        mockListRow({
+          id: `00000000-0000-0000-0000-${String(index).padStart(12, "0")}`,
+          title: `Nota ${index}`,
+          createdAt: timestamp,
+          updatedAt: timestamp,
+        }),
+      ),
     );
 
     const result = await searchService.search({ q: "nota", order: "relevance" });
@@ -63,18 +79,18 @@ describe("searchService.search", () => {
     const newer = new Date("2026-06-02T10:00:00.000Z");
 
     mockedSearch.mockResolvedValue([
-      {
+      mockListRow({
         id: "11111111-1111-1111-1111-111111111111",
         title: "Nota reciente",
         createdAt: newer,
         updatedAt: newer,
-      },
-      {
+      }),
+      mockListRow({
         id: "22222222-2222-2222-2222-222222222222",
         title: "Nota antigua",
         createdAt: older,
         updatedAt: older,
-      },
+      }),
     ]);
 
     const result = await searchService.search({ q: "nota", order: "date" });
@@ -83,23 +99,35 @@ describe("searchService.search", () => {
     expect(result.data.map((note) => note.title)).toEqual(["Nota reciente", "Nota antigua"]);
   });
 
+  it("returns empty data with meta.q when repository finds no rows", async () => {
+    mockedSearch.mockResolvedValue([]);
+
+    const result = await searchService.search({ q: "xyzabc", order: "relevance" });
+
+    expect(mockedSearch).toHaveBeenCalledWith("xyzabc", "relevance");
+    expect(result).toEqual({
+      data: [],
+      meta: { q: "xyzabc", total: 0 },
+    });
+  });
+
   it("breaks relevance ties by updatedAt descending", async () => {
     const older = new Date("2026-06-01T10:00:00.000Z");
     const newer = new Date("2026-06-02T10:00:00.000Z");
 
     mockedSearch.mockResolvedValue([
-      {
+      mockListRow({
         id: "22222222-2222-2222-2222-222222222222",
         title: "Proyecto alpha",
         createdAt: older,
         updatedAt: older,
-      },
-      {
+      }),
+      mockListRow({
         id: "11111111-1111-1111-1111-111111111111",
         title: "Proyecto beta",
         createdAt: newer,
         updatedAt: newer,
-      },
+      }),
     ]);
 
     const result = await searchService.search({ q: "proyecto", order: "relevance" });

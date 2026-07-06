@@ -1,4 +1,5 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
+import { notaRepository } from "../../../src/backend/src/repositories/nota.repository.js";
 import { prisma } from "../../../src/backend/src/lib/prisma.js";
 
 const hasDatabase = Boolean(process.env.DATABASE_URL);
@@ -17,6 +18,11 @@ describe.skipIf(!hasDatabase)("nota repository (database)", () => {
 
   afterAll(async () => {
     await prisma.$disconnect();
+  });
+
+  it("returns empty array from findAll when no notes exist (US-003)", async () => {
+    const rows = await notaRepository.findAll();
+    expect(rows).toEqual([]);
   });
 
   it("inserts a note with generated id and timestamps", async () => {

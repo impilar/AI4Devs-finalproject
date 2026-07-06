@@ -25,18 +25,26 @@ export const ListNotasQuerySchema = z.object({
 export const NotaResumenSchema = z.object({
   id: z.string().uuid(),
   title: z.string(),
+  excerpt: z.string(),
+  tags: z.array(z.string()),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
 });
 
-export const NotaDetailSchema = NotaResumenSchema.extend({
+export const TagRefSchema = z.object({
+  id: z.string().uuid(),
+  name: z.string(),
+});
+
+export const NotaDetailSchema = NotaResumenSchema.omit({ tags: true }).extend({
   content: z.string(),
   links: z.array(z.string().url()),
-  tags: z.array(z.string()),
+  tags: z.array(TagRefSchema),
 });
 
 export type CreateNotaDto = z.infer<typeof CreateNotaDtoSchema>;
 export type UpdateNotaDto = z.infer<typeof UpdateNotaDtoSchema>;
 export type ListNotasQuery = z.infer<typeof ListNotasQuerySchema>;
 export type NotaResumen = z.infer<typeof NotaResumenSchema>;
+export type TagRef = z.infer<typeof TagRefSchema>;
 export type NotaDetail = z.infer<typeof NotaDetailSchema>;
