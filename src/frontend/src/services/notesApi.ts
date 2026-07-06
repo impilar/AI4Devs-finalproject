@@ -27,22 +27,26 @@ export async function listEtiquetas(): Promise<string[]> {
 
 export async function getNota(id: string): Promise<NotaDetail> {
   const response = await apiGet<NotaDetailResponse>(`/notas/${id}`);
-  registerTags(response.data.tags);
+  registerTags(response.data.tags.map((tag) => tag.name));
   return response.data;
 }
 
 export async function createNota(dto: CreateNotaDto): Promise<NotaDetail> {
   const response = await apiPost<CreateNotaResponse>("/notas", dto);
-  registerTags(response.data.tags);
+  registerTags(response.data.tags.map((tag) => tag.name));
   return response.data;
 }
 
 export async function updateNota(id: string, dto: UpdateNotaDto): Promise<NotaDetail> {
   const response = await apiPut<UpdateNotaResponse>(`/notas/${id}`, dto);
-  registerTags(response.data.tags);
+  registerTags(response.data.tags.map((tag) => tag.name));
   return response.data;
 }
 
 export async function deleteNota(id: string): Promise<void> {
   await apiDelete(`/notas/${id}`);
+}
+
+export async function removeTagFromNota(notaId: string, etiquetaId: string): Promise<void> {
+  await apiDelete(`/notas/${notaId}/etiquetas/${etiquetaId}`);
 }

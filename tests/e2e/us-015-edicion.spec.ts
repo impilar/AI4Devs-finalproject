@@ -63,7 +63,7 @@ test.describe("US-015 — Edición de nota", () => {
     expect(finalBody.data.title).toBe(newTitle);
     expect(finalBody.data.content).toBe(newContent);
     expect(finalBody.data.links).toEqual([newLink]);
-    expect(finalBody.data.tags).toEqual([newTag]);
+    expect(finalBody.data.tags.map((tag: { name: string }) => tag.name)).toEqual([newTag]);
     expect(new Date(finalBody.data.updatedAt).getTime()).toBeGreaterThan(
       new Date(initialUpdatedAt).getTime(),
     );

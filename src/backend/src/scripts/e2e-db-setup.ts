@@ -50,6 +50,47 @@ const E2E_NOTA_ETIQUETA = [
   },
 ] as const;
 
+const E2E_REMOVE_TAG_NOTA = {
+  id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa21",
+  title: "Reunión",
+  content: "Contenido de reunión E2E",
+  createdAt: new Date("2026-06-12T10:00:00.000Z"),
+  updatedAt: new Date("2026-06-12T10:00:00.000Z"),
+} as const;
+
+const E2E_REMOVE_TAG_ETIQUETAS = [
+  { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb11", name: "trabajo" },
+  { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb12", name: "urgente" },
+] as const;
+
+const E2E_REMOVE_TAG_ASSOCIATIONS = [
+  {
+    notaId: E2E_REMOVE_TAG_NOTA.id,
+    etiquetaId: E2E_REMOVE_TAG_ETIQUETAS[0].id,
+  },
+  {
+    notaId: E2E_REMOVE_TAG_NOTA.id,
+    etiquetaId: E2E_REMOVE_TAG_ETIQUETAS[1].id,
+  },
+] as const;
+
+const E2E_SHARED_TAG_NOTAS = [
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa31",
+    title: "A",
+    content: "Nota A E2E",
+    createdAt: new Date("2026-06-12T10:00:00.000Z"),
+    updatedAt: new Date("2026-06-12T10:00:00.000Z"),
+  },
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa32",
+    title: "B",
+    content: "Nota B E2E",
+    createdAt: new Date("2026-06-11T10:00:00.000Z"),
+    updatedAt: new Date("2026-06-11T10:00:00.000Z"),
+  },
+] as const;
+
 async function clearDatabase(): Promise<void> {
   await prisma.enlace.deleteMany();
   await prisma.notaEtiqueta.deleteMany();
@@ -214,6 +255,35 @@ async function seedDatabase(): Promise<void> {
   }
 }
 
+async function seedRemoveTagDatabase(): Promise<void> {
+  await clearDatabase();
+
+  await prisma.nota.create({ data: E2E_REMOVE_TAG_NOTA });
+
+  for (const etiqueta of E2E_REMOVE_TAG_ETIQUETAS) {
+    await prisma.etiqueta.create({ data: etiqueta });
+  }
+
+  for (const association of E2E_REMOVE_TAG_ASSOCIATIONS) {
+    await prisma.notaEtiqueta.create({ data: association });
+  }
+
+  for (const nota of E2E_SHARED_TAG_NOTAS) {
+    await prisma.nota.create({ data: nota });
+  }
+
+  const sharedTrabajoTag = E2E_REMOVE_TAG_ETIQUETAS[0];
+
+  for (const nota of E2E_SHARED_TAG_NOTAS) {
+    await prisma.notaEtiqueta.create({
+      data: {
+        notaId: nota.id,
+        etiquetaId: sharedTrabajoTag.id,
+      },
+    });
+  }
+}
+
 async function main(): Promise<void> {
   const mode = process.argv[2];
 
@@ -247,7 +317,14 @@ async function main(): Promise<void> {
     return;
   }
 
-  throw new Error(`Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "bench", or "clear".`);
+  if (mode === "remove-tag") {
+    await seedRemoveTagDatabase();
+    return;
+  }
+
+  throw new Error(
+    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "bench", "remove-tag", or "clear".`,
+  );
 }
 
 main()

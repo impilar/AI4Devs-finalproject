@@ -109,6 +109,6 @@ test.describe("US-008 — Etiquetas en notas", () => {
     expect(response.status()).toBe(201);
 
     const body = (await response.json()) as { data: { tags: string[] } };
-    expect(body.data.tags).toEqual(["a"]);
+    expect(body.data.tags.map((tag: { name: string }) => tag.name)).toEqual(["a"]);
   });
 });

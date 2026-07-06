@@ -166,14 +166,15 @@
       "title": "Quitar etiqueta de una nota sin borrar la nota",
       "epic": "EPIC-003",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "enriched": true,
       "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-037": "backlog",
-        "TASK-038": "backlog",
-        "TASK-039": "backlog",
-        "TASK-040": "backlog"
+        "TASK-037": "done",
+        "TASK-038": "done",
+        "TASK-039": "done",
+        "TASK-040": "done"
       }
     },
     "US-011": {

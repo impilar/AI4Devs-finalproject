@@ -65,3 +65,16 @@ export async function deleteNota(
     next(error);
   }
 }
+
+export async function removeTagFromNota(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    await notaService.removeTag(routeParam(req.params.id), routeParam(req.params.etiquetaId));
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+}

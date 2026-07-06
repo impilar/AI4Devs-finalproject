@@ -845,9 +845,45 @@ body {
   font-weight: 500;
 }
 
+.note-detail__tag--removable {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.375rem;
+}
+
+.note-detail__tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.note-detail__tag-remove:hover:not(:disabled) {
+  opacity: 1;
+  background: rgb(255 255 255 / 12%);
+}
+
+.note-detail__tag-remove:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 /* ——— Create / form ——— */
 
-.note-create-page--editorial .note-form--editorial .note-form__field--title input {
+.note-create-page--editorial .note-form--editorial .note-form__field--title input,
+.note-detail-page--editorial .note-form--editorial .note-form__field--title input {
   width: 100%;
   padding: 0;
   border: none;
@@ -858,11 +894,13 @@ body {
   line-height: 1.2;
 }
 
-.note-create-page--editorial .note-form--editorial .note-form__field--title input:focus {
+.note-create-page--editorial .note-form--editorial .note-form__field--title input:focus,
+.note-detail-page--editorial .note-form--editorial .note-form__field--title input:focus {
   outline: none;
 }
 
-.note-create-page--editorial .note-form--editorial .note-form__field--title input::placeholder {
+.note-create-page--editorial .note-form--editorial .note-form__field--title input::placeholder,
+.note-detail-page--editorial .note-form--editorial .note-form__field--title input::placeholder {
   color: rgb(255 255 255 / 15%);
 }
 
@@ -929,6 +967,20 @@ body {
   align-items: center;
   gap: 1.25rem;
   margin-top: 0.5rem;
+}
+
+.note-form__actions--editorial {
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.note-form--editorial .note-form__cancel {
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-card);
+  text-decoration: none;
 }
 
 .note-form__submit {
@@ -1140,10 +1192,10 @@ body {
   align-items: center;
   gap: 0.25rem;
   padding: 0.25rem 0.625rem;
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
   font-size: 0.8125rem;
+  font-weight: 500;
 }
 
 .tag-input__chip-remove {
@@ -1210,6 +1262,25 @@ body {
 .tag-input__suggestion:focus {
   background: var(--color-accent-soft);
   color: var(--color-accent);
+}
+
+/* ——— Search empty state ——— */
+
+.search-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-card);
+}
+
+.search-empty-state__message {
+  margin: 0;
+  max-width: 24rem;
+  color: var(--color-muted);
 }
 
 /* ——— Empty state ——— */

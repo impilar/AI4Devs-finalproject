@@ -13,8 +13,8 @@ describe("toResumen", () => {
       createdAt,
       updatedAt,
       etiquetas: [
-        { etiqueta: { name: "trabajo" } },
-        { etiqueta: { name: "ideas" } },
+        { etiqueta: { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb01", name: "trabajo" } },
+        { etiqueta: { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb02", name: "ideas" } },
       ],
     });
 
@@ -67,8 +67,8 @@ describe("toDetail", () => {
         },
       ],
       etiquetas: [
-        { etiqueta: { name: "trabajo" } },
-        { etiqueta: { name: "ideas" } },
+        { etiqueta: { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb01", name: "trabajo" } },
+        { etiqueta: { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb02", name: "ideas" } },
       ],
     });
 
@@ -76,7 +76,10 @@ describe("toDetail", () => {
       id: "550e8400-e29b-41d4-a716-446655440000",
       title: "Ideas de proyecto",
       excerpt: "Texto de la nota",
-      tags: ["ideas", "trabajo"],
+      tags: [
+        { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb02", name: "ideas" },
+        { id: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbb01", name: "trabajo" },
+      ],
       content: "Texto de la nota",
       createdAt: "2026-06-12T10:00:00.000Z",
       updatedAt: "2026-06-12T11:30:00.000Z",

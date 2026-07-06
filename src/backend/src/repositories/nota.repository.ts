@@ -14,7 +14,7 @@ export type NotaListRow = {
   content: string;
   createdAt: Date;
   updatedAt: Date;
-  etiquetas: { etiqueta: { name: string } }[];
+  etiquetas: { etiqueta: { id: string; name: string } }[];
 };
 
 export type NotaDetailRow = {
@@ -24,7 +24,7 @@ export type NotaDetailRow = {
   createdAt: Date;
   updatedAt: Date;
   enlaces: { url: string; createdAt: Date }[];
-  etiquetas: { etiqueta: { name: string } }[];
+  etiquetas: { etiqueta: { id: string; name: string } }[];
 };
 
 function resolveOrderBy(filters: ListNotasParams): {
@@ -229,5 +229,13 @@ export const notaRepository = {
 
   async delete(id: string): Promise<void> {
     await prisma.nota.delete({ where: { id } });
+  },
+
+  async deleteNotaEtiqueta(notaId: string, etiquetaId: string): Promise<boolean> {
+    const result = await prisma.notaEtiqueta.deleteMany({
+      where: { notaId, etiquetaId },
+    });
+
+    return result.count === 1;
   },
 };

@@ -1,11 +1,13 @@
 import type { NotaDetail } from "../../types/nota";
 import { formatRelativeDate } from "../../utils/formatDate";
-import { getTagColor } from "../../utils/getTagColor";
+import { RemovableTagChip } from "../tags/RemovableTagChip";
 
 type NoteDetailProps = {
   note: NotaDetail;
   onEdit: () => void;
   onDelete: () => void;
+  onRemoveTag: (etiquetaId: string) => void;
+  isRemovingTag?: boolean;
 };
 
 function formatUpdatedAt(isoDate: string): string {
@@ -18,7 +20,13 @@ function formatUpdatedAt(isoDate: string): string {
   });
 }
 
-export function NoteDetail({ note, onEdit, onDelete }: NoteDetailProps) {
+export function NoteDetail({
+  note,
+  onEdit,
+  onDelete,
+  onRemoveTag,
+  isRemovingTag = false,
+}: NoteDetailProps) {
   const hasMetadata = note.links.length > 0 || note.tags.length > 0;
 
   return (
@@ -76,23 +84,15 @@ export function NoteDetail({ note, onEdit, onDelete }: NoteDetailProps) {
               <section className="note-detail__section" aria-label="Etiquetas">
                 <h2 className="note-detail__section-title">Etiquetas</h2>
                 <ul className="note-detail__tags">
-                  {note.tags.map((tag) => {
-                    const color = getTagColor(tag);
-
-                    return (
-                      <li
-                        key={tag}
-                        className="note-detail__tag"
-                        style={{
-                          background: `${color}18`,
-                          color,
-                          borderColor: `${color}28`,
-                        }}
-                      >
-                        {tag}
-                      </li>
-                    );
-                  })}
+                  {note.tags.map((tag) => (
+                    <li key={tag.id}>
+                      <RemovableTagChip
+                        tag={tag}
+                        onRemove={onRemoveTag}
+                        disabled={isRemovingTag}
+                      />
+                    </li>
+                  ))}
                 </ul>
               </section>
             ) : null}

@@ -12,6 +12,11 @@ export type UpdateNotaDto = {
   tags?: string[];
 };
 
+export type TagRef = {
+  id: string;
+  name: string;
+};
+
 export type NotaResumen = {
   id: string;
   title: string;
@@ -21,10 +26,10 @@ export type NotaResumen = {
   updatedAt: string;
 };
 
-export type NotaDetail = NotaResumen & {
+export type NotaDetail = Omit<NotaResumen, "tags"> & {
   content: string;
   links: string[];
-  tags: string[];
+  tags: TagRef[];
 };
 
 export type ListNotasResponse = {

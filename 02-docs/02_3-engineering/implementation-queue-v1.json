@@ -69,7 +69,8 @@
         "TASK-038",
         "TASK-040"
       ],
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "openspec_change": "openspec/changes/us-010-remove-tag"
     },
     {
@@ -211,7 +212,8 @@
       "depends_on": [
         "TASK-028"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 10,
@@ -224,7 +226,8 @@
       "depends_on": [
         "TASK-039"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 11,
@@ -237,7 +240,8 @@
       "depends_on": [
         "TASK-037"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 12,
@@ -250,7 +254,8 @@
       "depends_on": [
         "TASK-038"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 13,

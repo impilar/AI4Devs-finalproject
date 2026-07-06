@@ -28,8 +28,10 @@ test.describe("US-002 — Detalle de nota", () => {
     await expect(externalLink).toBeVisible();
     await expect(externalLink).toHaveAttribute("href", E2E_DETAIL_LINK);
 
+    const tagsSection = page.getByRole("region", { name: "Etiquetas" });
     for (const tag of E2E_DETAIL_TAGS) {
-      await expect(page.getByText(tag, { exact: true })).toBeVisible();
+      await expect(tagsSection).toContainText(tag);
+      await expect(page.getByRole("button", { name: `Quitar etiqueta ${tag}` })).toBeVisible();
     }
   });
 

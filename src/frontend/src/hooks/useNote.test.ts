@@ -7,6 +7,7 @@ vi.mock("../services/notesApi.js", () => ({
   getNota: vi.fn(),
   updateNota: vi.fn(),
   deleteNota: vi.fn(),
+  removeTagFromNota: vi.fn(),
 }));
 
 const mockedGetNota = vi.mocked(getNota);
@@ -16,11 +17,12 @@ const mockedDeleteNota = vi.mocked(deleteNota);
 const note = {
   id: "11111111-1111-1111-1111-111111111101",
   title: "Original",
+  excerpt: "Contenido",
   content: "Contenido",
   createdAt: "2026-06-12T10:00:00.000Z",
   updatedAt: "2026-06-12T10:00:00.000Z",
   links: [],
-  tags: [],
+  tags: [] as { id: string; name: string }[],
 };
 
 describe("useNote", () => {

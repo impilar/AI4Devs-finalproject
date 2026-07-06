@@ -90,3 +90,12 @@ export function seedBenchNotes(): void {
 export function clearAllNotes(): void {
   runDbSetup("clear");
 }
+
+export const E2E_REMOVE_TAG_NOTA_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa21";
+export const E2E_REMOVE_TAG_NOTA_TITLE = "Reunión";
+export const E2E_SHARED_NOTA_A_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa31";
+export const E2E_SHARED_NOTA_B_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa32";
+
+export function seedRemoveTagNotes(): void {
+  runDbSetup("remove-tag");
+}

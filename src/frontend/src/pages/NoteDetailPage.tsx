@@ -15,7 +15,7 @@ export function NoteDetailPage() {
   const { id } = useParams<{ id: string }>();
   const [mode, setMode] = useState<DetailMode>("view");
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-  const { note, isLoading, isSaving, isDeleting, error, notFound, updateNote, deleteNote } =
+  const { note, isLoading, isSaving, isDeleting, isRemovingTag, error, notFound, updateNote, deleteNote, removeTag } =
     useNote(id);
 
   async function handleSave(dto: UpdateNotaDto): Promise<void> {
@@ -34,7 +34,9 @@ export function NoteDetailPage() {
   }
 
   return (
-    <section className="note-detail-page">
+    <section
+      className={`note-detail-page${mode === "edit" ? " note-detail-page--editorial" : ""}`}
+    >
       <nav className="note-detail-page__nav">
         <Link to="/" className="note-detail-page__back">
           ← Volver al listado
@@ -59,13 +61,22 @@ export function NoteDetailPage() {
           note={note}
           onEdit={() => setMode("edit")}
           onDelete={() => setShowDeleteDialog(true)}
+          onRemoveTag={(etiquetaId) => {
+            void removeTag(etiquetaId);
+          }}
+          isRemovingTag={isRemovingTag}
         />
       ) : null}
 
       {!isLoading && !notFound && note && mode === "edit" ? (
         <NoteForm
           mode="edit"
-          initialValues={note}
+          initialValues={{
+            title: note.title,
+            content: note.content,
+            links: note.links,
+            tags: note.tags.map((tag) => tag.name),
+          }}
           onSubmit={handleSave}
           onCancel={() => setMode("view")}
           isSaving={isSaving}

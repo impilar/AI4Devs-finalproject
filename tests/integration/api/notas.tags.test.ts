@@ -31,7 +31,9 @@ describe.skipIf(!hasDatabase)("POST/PUT /api/v1/notas tags (TASK-029)", () => {
     });
 
     expect(response.status).toBe(201);
-    expect(response.body.data.tags).toEqual(["productividad"]);
+    expect(response.body.data.tags.map((tag: { name: string }) => tag.name)).toEqual([
+      "productividad",
+    ]);
 
     const etiqueta = await prisma.etiqueta.findUnique({
       where: { name: "productividad" },
@@ -76,7 +78,7 @@ describe.skipIf(!hasDatabase)("POST/PUT /api/v1/notas tags (TASK-029)", () => {
     });
 
     expect(response.status).toBe(201);
-    expect(response.body.data.tags).toEqual(["a"]);
+    expect(response.body.data.tags.map((tag: { name: string }) => tag.name)).toEqual(["a"]);
 
     const associations = await prisma.notaEtiqueta.findMany({
       where: { notaId: response.body.data.id },
@@ -92,7 +94,11 @@ describe.skipIf(!hasDatabase)("POST/PUT /api/v1/notas tags (TASK-029)", () => {
     });
 
     expect(response.status).toBe(201);
-    expect(response.body.data.tags).toEqual(["ideas", "productividad", "urgente"]);
+    expect(response.body.data.tags.map((tag: { name: string }) => tag.name)).toEqual([
+      "ideas",
+      "productividad",
+      "urgente",
+    ]);
   });
 
   it("replaces tag associations on PUT", async () => {
@@ -107,7 +113,7 @@ describe.skipIf(!hasDatabase)("POST/PUT /api/v1/notas tags (TASK-029)", () => {
       .send({ tags: ["urgente"] });
 
     expect(updated.status).toBe(200);
-    expect(updated.body.data.tags).toEqual(["urgente"]);
+    expect(updated.body.data.tags.map((tag: { name: string }) => tag.name)).toEqual(["urgente"]);
 
     const associations = await prisma.notaEtiqueta.findMany({
       where: { notaId: created.body.data.id },
