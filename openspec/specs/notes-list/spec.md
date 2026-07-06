@@ -5,7 +5,7 @@ TBD - created by archiving change us-001-listado-notas. Update Purpose after arc
 ## Requirements
 ### Requirement: List notes API endpoint
 
-The backend API SHALL expose `GET /api/v1/notas` returning HTTP 200 with JSON envelope `{ data: NotaResumen[], meta: { total: number } }` where each `NotaResumen` includes `id`, `title`, `createdAt`, and `updatedAt` in camelCase.
+The backend API SHALL expose `GET /api/v1/notas` returning HTTP 200 with JSON envelope `{ data: NotaResumen[], meta: { total: number } }` where each `NotaResumen` includes `id`, `title`, `createdAt`, and `updatedAt` in camelCase. When query param `etiqueta` is provided, only notes with that tag SHALL be returned.
 
 #### Scenario: List with existing notes
 
@@ -26,9 +26,15 @@ The backend API SHALL expose `GET /api/v1/notas` returning HTTP 200 with JSON en
 - **AND** `data` is an empty array
 - **AND** `meta.total` is 0
 
+#### Scenario: Filter by etiqueta query param
+
+- **WHEN** a client sends `GET /api/v1/notas?etiqueta=trabajo`
+- **THEN** only notes tagged "trabajo" are in `data`
+- **AND** `meta.total` equals the filtered count
+
 ### Requirement: Home page note list (US-001)
 
-The frontend application SHALL display a note list on the home route `/` without requiring additional navigation. Each list item SHALL link to `/notas/:id` for note detail (US-002).
+The frontend application SHALL display a note list on the home route `/` without requiring additional navigation. Each list item SHALL link to `/notas/:id` for note detail (US-002). A tag filter panel SHALL allow filtering the list by tag (US-009).
 
 #### Scenario: User with existing notes sees the list on app open
 
