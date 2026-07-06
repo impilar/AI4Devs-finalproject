@@ -16,6 +16,12 @@ export const E2E_NOTA_TITLES = [
 
 export const E2E_NOTA_DATES = ["12 jun 2026", "11 jun 2026", "10 jun 2026"] as const;
 
+export const E2E_NOTA_ISO_DATES = [
+  "2026-06-12T10:00:00.000Z",
+  "2026-06-11T10:00:00.000Z",
+  "2026-06-10T10:00:00.000Z",
+] as const;
+
 export const E2E_DETAIL_NOTA_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa01";
 export const E2E_DETAIL_NOTA_TITLE = "Ideas de proyecto";
 export const E2E_DETAIL_NOTA_CONTENT = "Texto de la nota";

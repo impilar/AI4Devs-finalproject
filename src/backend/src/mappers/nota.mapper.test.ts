@@ -2,23 +2,46 @@ import { describe, expect, it } from "vitest";
 import { toDetail, toResumen } from "./nota.mapper.js";
 
 describe("toResumen", () => {
-  it("maps note fields to ISO date strings", () => {
+  it("maps note fields to ISO date strings with excerpt and tags", () => {
     const createdAt = new Date("2026-06-12T10:00:00.000Z");
     const updatedAt = new Date("2026-06-12T11:30:00.000Z");
 
     const result = toResumen({
       id: "550e8400-e29b-41d4-a716-446655440000",
       title: "Ideas de proyecto",
+      content: "Texto de la nota con suficiente contenido para el resumen.",
       createdAt,
       updatedAt,
+      etiquetas: [
+        { etiqueta: { name: "trabajo" } },
+        { etiqueta: { name: "ideas" } },
+      ],
     });
 
     expect(result).toEqual({
       id: "550e8400-e29b-41d4-a716-446655440000",
       title: "Ideas de proyecto",
+      excerpt: "Texto de la nota con suficiente contenido para el resumen.",
+      tags: ["ideas", "trabajo"],
       createdAt: "2026-06-12T10:00:00.000Z",
       updatedAt: "2026-06-12T11:30:00.000Z",
     });
+  });
+
+  it("truncates long content in excerpt", () => {
+    const longContent = "a".repeat(150);
+
+    const result = toResumen({
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      title: "Long note",
+      content: longContent,
+      createdAt: new Date("2026-06-12T10:00:00.000Z"),
+      updatedAt: new Date("2026-06-12T10:00:00.000Z"),
+      etiquetas: [],
+    });
+
+    expect(result.excerpt).toHaveLength(121);
+    expect(result.excerpt.endsWith("…")).toBe(true);
   });
 });
 
@@ -52,11 +75,12 @@ describe("toDetail", () => {
     expect(result).toEqual({
       id: "550e8400-e29b-41d4-a716-446655440000",
       title: "Ideas de proyecto",
+      excerpt: "Texto de la nota",
+      tags: ["ideas", "trabajo"],
       content: "Texto de la nota",
       createdAt: "2026-06-12T10:00:00.000Z",
       updatedAt: "2026-06-12T11:30:00.000Z",
       links: ["https://first.example.com", "https://second.example.com"],
-      tags: ["ideas", "trabajo"],
     });
   });
 });

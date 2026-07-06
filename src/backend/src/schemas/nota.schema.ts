@@ -25,6 +25,8 @@ export const ListNotasQuerySchema = z.object({
 export const NotaResumenSchema = z.object({
   id: z.string().uuid(),
   title: z.string(),
+  excerpt: z.string(),
+  tags: z.array(z.string()),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
 });
@@ -32,7 +34,6 @@ export const NotaResumenSchema = z.object({
 export const NotaDetailSchema = NotaResumenSchema.extend({
   content: z.string(),
   links: z.array(z.string().url()),
-  tags: z.array(z.string()),
 });
 
 export type CreateNotaDto = z.infer<typeof CreateNotaDtoSchema>;

@@ -6,11 +6,12 @@ import type { NotaDetail } from "../../types/nota";
 const mockNote: NotaDetail = {
   id: "11111111-1111-1111-1111-111111111101",
   title: "Ideas de proyecto",
+  excerpt: "Texto de la nota",
+  tags: ["ideas", "trabajo"],
   content: "Texto de la nota",
   createdAt: "2026-06-12T10:00:00.000Z",
   updatedAt: "2026-06-12T10:00:00.000Z",
   links: ["https://docs.example.com/mvp"],
-  tags: ["ideas", "trabajo"],
 };
 
 describe("NoteDetail", () => {
@@ -19,7 +20,7 @@ describe("NoteDetail", () => {
 
     expect(screen.getByRole("heading", { level: 1, name: "Ideas de proyecto" })).toBeInTheDocument();
     expect(screen.getByText("Texto de la nota")).toBeInTheDocument();
-    expect(screen.getByText(/Última actualización:/)).toBeInTheDocument();
+    expect(screen.getByText(/Hace|Ayer|jun/i)).toBeInTheDocument();
 
     const link = screen.getByRole("link", { name: "https://docs.example.com/mvp" });
     expect(link).toHaveAttribute("href", "https://docs.example.com/mvp");

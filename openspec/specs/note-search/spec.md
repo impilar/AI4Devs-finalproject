@@ -95,3 +95,27 @@ E2E tests SHALL validate text search and sort order per Gherkin scenarios in US-
 - **WHEN** E2E searches and selects date order
 - **THEN** results appear newest first
 
+### Requirement: Spotlight-style search presentation
+
+On the home route, the search input SHALL use a prominent “Spotlight” visual treatment: rounded 16px container, card background token, and refined focus ring using the primary accent color. The input SHALL retain `role="searchbox"` and accessible name “Buscar notas”.
+
+#### Scenario: Search styling on home
+
+- **WHEN** the user is on `/`
+- **THEN** the search input is visually prominent in the main content area
+- **AND** the accessible name remains “Buscar notas”
+
+#### Scenario: Focus ring on search
+
+- **WHEN** the user focuses the search input
+- **THEN** a visible accent focus ring appears
+
+### Requirement: Search term highlight on cards
+
+When search is active on the home page, matching substrings in card titles and excerpts SHALL be visually highlighted.
+
+#### Scenario: Highlight in search results
+
+- **WHEN** the user searches for a term that appears in a note title
+- **THEN** the matching portion of the title is highlighted in the result card
+

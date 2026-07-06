@@ -53,7 +53,7 @@ test.describe("US-015 — Edición de nota", () => {
     await expect(page.getByText(newContent)).toBeVisible();
     await expect(page.getByRole("link", { name: newLink })).toBeVisible();
     await expect(page.getByRole("region", { name: "Etiquetas" })).toContainText(newTag);
-    await expect(page.getByText(/Última actualización:/)).toBeVisible();
+    await expect(page.locator(".note-detail__meta time[datetime]")).toBeVisible();
 
     const finalResponse = await request.get(`${API_URL}/notas/${E2E_EDIT_NOTA_ID}`);
     const finalBody = (await finalResponse.json()) as {

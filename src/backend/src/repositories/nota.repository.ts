@@ -11,8 +11,10 @@ export type SearchOrder = "relevance" | "date";
 export type NotaListRow = {
   id: string;
   title: string;
+  content: string;
   createdAt: Date;
   updatedAt: Date;
+  etiquetas: { etiqueta: { name: string } }[];
 };
 
 export type NotaDetailRow = {
@@ -61,8 +63,14 @@ export const notaRepository = {
       select: {
         id: true,
         title: true,
+        content: true,
         createdAt: true,
         updatedAt: true,
+        etiquetas: {
+          include: {
+            etiqueta: true,
+          },
+        },
       },
     });
   },
@@ -80,8 +88,14 @@ export const notaRepository = {
       select: {
         id: true,
         title: true,
+        content: true,
         createdAt: true,
         updatedAt: true,
+        etiquetas: {
+          include: {
+            etiqueta: true,
+          },
+        },
       },
     });
   },

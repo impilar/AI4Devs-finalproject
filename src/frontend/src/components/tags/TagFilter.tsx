@@ -3,15 +3,25 @@ type TagFilterProps = {
   activeTag: string | null;
   onSelect: (tag: string) => void;
   onClear: () => void;
+  layout?: "inline" | "sidebar";
 };
 
-export function TagFilter({ tags, activeTag, onSelect, onClear }: TagFilterProps) {
+export function TagFilter({
+  tags,
+  activeTag,
+  onSelect,
+  onClear,
+  layout = "inline",
+}: TagFilterProps) {
   if (tags.length === 0) {
     return null;
   }
 
   return (
-    <nav className="tag-filter" aria-label="Filtro por etiqueta">
+    <nav
+      className={`tag-filter${layout === "sidebar" ? " tag-filter--sidebar" : ""}`}
+      aria-label="Filtro por etiqueta"
+    >
       <div className="tag-filter__header">
         <h2 className="tag-filter__title">Etiquetas</h2>
         {activeTag ? (

@@ -65,6 +65,8 @@ describe.skipIf(!hasDatabase)("GET /api/v1/notas", () => {
     expect(response.body.data[0]).toMatchObject({
       id: newest.id,
       title: "Newest",
+      excerpt: "Third",
+      tags: [],
       createdAt: newest.createdAt.toISOString(),
       updatedAt: newest.updatedAt.toISOString(),
     });

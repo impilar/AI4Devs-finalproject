@@ -15,6 +15,8 @@ export type UpdateNotaDto = {
 export type NotaResumen = {
   id: string;
   title: string;
+  excerpt: string;
+  tags: string[];
   createdAt: string;
   updatedAt: string;
 };

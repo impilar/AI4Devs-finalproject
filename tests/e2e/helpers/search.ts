@@ -1,4 +1,5 @@
 import { expect, type Page } from "@playwright/test";
+import { expectNoteInList } from "./notes";
 
 export async function searchNotes(page: Page, term: string): Promise<void> {
   const encodedTerm = encodeURIComponent(term);
@@ -12,7 +13,5 @@ export async function searchNotes(page: Page, term: string): Promise<void> {
 }
 
 export async function expectNoteLinkVisible(page: Page, title: string): Promise<void> {
-  await expect(
-    page.getByRole("list", { name: "Listado de notas" }).getByRole("link").filter({ hasText: title }),
-  ).toBeVisible();
+  await expectNoteInList(page, title);
 }

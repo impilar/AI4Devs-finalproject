@@ -1,6 +1,7 @@
 import { ErrorMessage } from "../common/ErrorMessage";
 import { EmptyState } from "./EmptyState";
 import { NoteListItem } from "./NoteListItem";
+import { SkeletonNoteList } from "./SkeletonNoteList";
 import type { NotaResumen } from "../../types/nota";
 
 type NoteListProps = {
@@ -19,7 +20,7 @@ export function NoteList({
   searchQuery = null,
 }: NoteListProps) {
   if (isLoading) {
-    return <p className="note-list__status">Cargando notas…</p>;
+    return <SkeletonNoteList />;
   }
 
   if (error) {
@@ -39,13 +40,19 @@ export function NoteList({
       );
     }
 
-    return <p className="note-list__status">No hay notas todavía.</p>;
+    return (
+      <EmptyState
+        message="No hay notas todavía. Empieza capturando una idea."
+        ctaLabel="Crear primera nota"
+        ctaTo="/notas/nueva"
+      />
+    );
   }
 
   return (
     <ul className="note-list" aria-label="Listado de notas">
       {notes.map((note) => (
-        <NoteListItem key={note.id} note={note} />
+        <NoteListItem key={note.id} note={note} searchQuery={searchQuery} />
       ))}
     </ul>
   );

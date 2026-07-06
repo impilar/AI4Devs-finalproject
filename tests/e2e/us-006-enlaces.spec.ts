@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { clearAllNotes } from "./fixtures/seed";
+import { clickNoteInList, expectNoteInList } from "./helpers/notes";
 
 test.describe("US-006 — Enlaces en notas", () => {
   test.beforeEach(() => {
@@ -25,7 +26,7 @@ test.describe("US-006 — Enlaces en notas", () => {
     await page.getByRole("button", { name: "Guardar" }).click();
 
     await expect(page).toHaveURL("/");
-    await page.getByRole("link", { name: noteTitle }).click();
+    await clickNoteInList(page, noteTitle);
 
     const firstExternalLink = page.getByRole("link", { name: firstLink });
     const secondExternalLink = page.getByRole("link", { name: secondLink });
@@ -57,7 +58,7 @@ test.describe("US-006 — Enlaces en notas", () => {
     await page.getByRole("button", { name: "Guardar" }).click();
 
     await expect(page).toHaveURL("/");
-    await expect(page.getByRole("link", { name: "Nota enlace inválido" })).toBeVisible();
+    await expectNoteInList(page, "Nota enlace inválido");
   });
 
   test("Crear nota sin enlaces sigue funcionando", async ({ page }) => {
@@ -70,6 +71,6 @@ test.describe("US-006 — Enlaces en notas", () => {
     await page.getByRole("button", { name: "Guardar" }).click();
 
     await expect(page).toHaveURL("/");
-    await expect(page.getByRole("link", { name: noteTitle })).toBeVisible();
+    await expectNoteInList(page, noteTitle);
   });
 });

@@ -1,6 +1,7 @@
 import { test, expect, type Page } from "@playwright/test";
 import { clearAllNotes } from "./fixtures/seed";
 import { API_URL } from "./helpers/api";
+import { clickNoteInList } from "./helpers/notes";
 
 async function addTagViaInput(page: Page, tagName: string): Promise<void> {
   const tagInput = page.locator("#note-tags-input");
@@ -37,7 +38,7 @@ test.describe("US-008 — Etiquetas en notas", () => {
 
     await createNoteWithTags(page, firstTitle, "Contenido con clasificación", ["productividad"]);
 
-    await page.getByRole("link", { name: firstTitle }).click();
+    await clickNoteInList(page, firstTitle);
     await expect(page.getByRole("region", { name: "Etiquetas" })).toContainText("productividad");
 
     await page.getByRole("link", { name: "← Volver al listado" }).click();
@@ -55,7 +56,7 @@ test.describe("US-008 — Etiquetas en notas", () => {
     await page.getByRole("button", { name: "Guardar" }).click();
     await expect(page).toHaveURL("/");
 
-    await page.getByRole("link", { name: secondTitle }).click();
+    await clickNoteInList(page, secondTitle);
     await expect(page.getByRole("region", { name: "Etiquetas" })).toContainText("productividad");
   });
 
@@ -75,7 +76,7 @@ test.describe("US-008 — Etiquetas en notas", () => {
     await page.getByRole("button", { name: "Guardar" }).click();
     await expect(page).toHaveURL("/");
 
-    await page.getByRole("link", { name: noteTitle }).click();
+    await clickNoteInList(page, noteTitle);
 
     const tagsSection = page.getByRole("region", { name: "Etiquetas" });
     await expect(tagsSection).toContainText("ideas");
@@ -91,7 +92,7 @@ test.describe("US-008 — Etiquetas en notas", () => {
     await page.getByRole("button", { name: "Guardar" }).click();
 
     await expect(page).toHaveURL("/");
-    await page.getByRole("link", { name: noteTitle }).click();
+    await clickNoteInList(page, noteTitle);
 
     await expect(page.getByRole("region", { name: "Etiquetas" })).not.toBeVisible();
   });
