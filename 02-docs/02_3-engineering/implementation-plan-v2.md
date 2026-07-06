@@ -22,8 +22,9 @@ Plan de implementación del **release V2+** en **3 fases verticales**, con **12 
 
 **Cola ejecutable:** [`implementation-queue-v2.json`](implementation-queue-v2.json)
 
-**Change OpenSpec activo:** [`us-004-list-sort`](../../openspec/changes/us-004-list-sort/) — PHASE-001 ✅ completada (2026-07-06).  
-**Siguiente ítem en cola:** `sequence: 5` → **TASK-043** (query COUNT etiquetas, US-011).
+**Change OpenSpec activo:** [`us-017-backlinks`](../../openspec/changes/us-017-backlinks/) — PHASE-003 pendiente.  
+**Siguiente ítem en cola:** `sequence: 9` → **TASK-067** (tabla `nota_backlink`, US-017).  
+**PHASE-002:** US-011 ✅ completada (2026-07-06).
 
 ---
 

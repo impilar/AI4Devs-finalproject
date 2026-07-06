@@ -224,6 +224,30 @@ async function seedSortDatabase(): Promise<void> {
   }
 }
 
+async function seedCatalogDatabase(): Promise<void> {
+  await clearDatabase();
+
+  const ideas = await prisma.etiqueta.create({ data: { name: "ideas" } });
+  await prisma.etiqueta.create({ data: { name: "archivo" } });
+
+  const notes = await Promise.all(
+    Array.from({ length: 5 }, (_, index) =>
+      prisma.nota.create({
+        data: {
+          title: `Idea ${index + 1}`,
+          content: `Contenido idea ${index + 1}`,
+        },
+      }),
+    ),
+  );
+
+  for (const note of notes) {
+    await prisma.notaEtiqueta.create({
+      data: { notaId: note.id, etiquetaId: ideas.id },
+    });
+  }
+}
+
 async function seedSearchDatabase(): Promise<void> {
   await clearDatabase();
 
@@ -339,6 +363,11 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (mode === "catalog") {
+    await seedCatalogDatabase();
+    return;
+  }
+
   if (mode === "search") {
     await seedSearchDatabase();
     return;
@@ -360,7 +389,7 @@ async function main(): Promise<void> {
   }
 
   throw new Error(
-    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "sort", "bench", "remove-tag", or "clear".`,
+    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "sort", "catalog", "bench", "remove-tag", or "clear".`,
   );
 }
 

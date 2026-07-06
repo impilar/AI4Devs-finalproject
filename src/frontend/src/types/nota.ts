@@ -38,7 +38,13 @@ export type ListNotasResponse = {
 };
 
 export type ListEtiquetasResponse = {
-  data: string[];
+  data: EtiquetaCatalogItem[];
+};
+
+export type EtiquetaCatalogItem = {
+  id: string;
+  name: string;
+  count: number;
 };
 
 export type NotaDetailResponse = {

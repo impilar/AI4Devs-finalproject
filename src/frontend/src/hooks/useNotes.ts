@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { listEtiquetas, listNotas } from "../services/notesApi";
-import type { NoteListOrder, NoteListSort, NotaResumen } from "../types/nota";
+import type { EtiquetaCatalogItem, NoteListOrder, NoteListSort, NotaResumen } from "../types/nota";
 
 type UseNotesOptions = {
   etiqueta?: string | null;
@@ -10,7 +10,7 @@ type UseNotesOptions = {
 
 type UseNotesResult = {
   notes: NotaResumen[];
-  tags: string[];
+  tags: EtiquetaCatalogItem[];
   isLoading: boolean;
   error: string | null;
 };
@@ -21,7 +21,7 @@ export function useNotes({
   order = "desc",
 }: UseNotesOptions = {}): UseNotesResult {
   const [notes, setNotes] = useState<NotaResumen[]>([]);
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<EtiquetaCatalogItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

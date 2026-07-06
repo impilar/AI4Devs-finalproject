@@ -38,8 +38,9 @@
       "name": "Catálogo de etiquetas con conteo (US-011)",
       "stories": ["US-011"],
       "task_ids": ["TASK-043", "TASK-041", "TASK-042", "TASK-044"],
-      "status": "backlog",
-      "openspec_change": "openspec/changes/us-011-tag-catalog"
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_change": "openspec/changes/archive/2026-07-06-us-011-tag-catalog"
     },
     {
       "id": "PHASE-003",
@@ -109,7 +110,8 @@
       "layer": "database",
       "agent": "backend-engineer",
       "depends_on": ["TASK-016"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 6,
@@ -120,7 +122,8 @@
       "layer": "backend",
       "agent": "backend-engineer",
       "depends_on": ["TASK-043"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 7,
@@ -131,7 +134,8 @@
       "layer": "frontend",
       "agent": "frontend-engineer",
       "depends_on": ["TASK-041"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 8,
@@ -142,7 +146,8 @@
       "layer": "qa",
       "agent": "qa-engineer",
       "depends_on": ["TASK-042"],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 9,

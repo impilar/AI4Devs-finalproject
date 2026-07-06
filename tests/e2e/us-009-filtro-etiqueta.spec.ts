@@ -14,7 +14,7 @@ test.describe("US-009 — Filtro por etiqueta", () => {
     await expect(noteList).toBeVisible();
     await expect(noteList.getByRole("listitem")).toHaveCount(3);
 
-    await page.getByRole("button", { name: "trabajo" }).click();
+    await page.getByRole("button", { name: "trabajo (2)" }).click();
 
     await expect(noteList.getByRole("listitem")).toHaveCount(2);
     await expectNoteInList(page, "Reunión equipo");
@@ -25,7 +25,7 @@ test.describe("US-009 — Filtro por etiqueta", () => {
   test("Etiqueta sin notas asociadas muestra mensaje vacío", async ({ page }) => {
     await page.goto("/");
 
-    await page.getByRole("button", { name: "archivo" }).click();
+    await page.getByRole("button", { name: "archivo (0)" }).click();
 
     await expect(
       page.getByText("No hay notas con la etiqueta «archivo»."),
@@ -38,7 +38,7 @@ test.describe("US-009 — Filtro por etiqueta", () => {
 
     const noteList = page.getByRole("list", { name: "Listado de notas" });
 
-    await page.getByRole("button", { name: "personal" }).click();
+    await page.getByRole("button", { name: "personal (1)" }).click();
     await expect(noteList.getByRole("listitem")).toHaveCount(1);
 
     await page.getByRole("button", { name: "Ver todas" }).click();

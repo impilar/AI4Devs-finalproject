@@ -3,6 +3,7 @@ import { registerTags } from "../utils/tagSuggestions.js";
 import type {
   CreateNotaDto,
   CreateNotaResponse,
+  EtiquetaCatalogItem,
   ListEtiquetasResponse,
   ListNotasResponse,
   NotaDetail,
@@ -34,7 +35,7 @@ export async function listNotas(options?: {
   return response.data;
 }
 
-export async function listEtiquetas(): Promise<string[]> {
+export async function listEtiquetas(): Promise<EtiquetaCatalogItem[]> {
   const response = await apiGet<ListEtiquetasResponse>("/etiquetas");
   return response.data;
 }

@@ -90,6 +90,10 @@ export function seedSortNotes(): void {
   runDbSetup("sort");
 }
 
+export function seedCatalogNotes(): void {
+  runDbSetup("catalog");
+}
+
 export function seedBenchNotes(): void {
   runDbSetup("bench");
 }

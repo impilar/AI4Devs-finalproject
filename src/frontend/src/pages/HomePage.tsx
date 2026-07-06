@@ -5,7 +5,7 @@ import { useHomeShell } from "../context/HomeShellContext";
 import { NoteList } from "../components/notes/NoteList";
 import { NoteSortSelect } from "../components/notes/NoteSortSelect";
 import { SearchBar } from "../components/search/SearchBar";
-import { TagFilter } from "../components/tags/TagFilter";
+import { TagCatalog } from "../components/tags/TagCatalog";
 import { formatGreeting, formatLongDate } from "../utils/formatGreeting";
 import { formatRelativeDate } from "../utils/formatDate";
 import {
@@ -86,17 +86,16 @@ export function HomePage() {
     setSlots({
       search: null,
       sidebar: (
-        <TagFilter
-          tags={tags}
+        <TagCatalog
+          items={tags}
           activeTag={activeTag}
           onSelect={handleTagSelect}
           onClear={handleTagClear}
-          layout="sidebar"
         />
       ),
       noteCount: totalNotes,
       notes: isSearchActive ? results : notes,
-      tags,
+      tags: tags.map((item) => item.name),
     });
   }, [
     activeTag,

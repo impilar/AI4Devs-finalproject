@@ -5,6 +5,10 @@ export type EtiquetaRow = {
   name: string;
 };
 
+export type EtiquetaCatalogRow = EtiquetaRow & {
+  count: number;
+};
+
 export const etiquetaRepository = {
   async findAllNames(): Promise<string[]> {
     const rows = await prisma.etiqueta.findMany({
@@ -13,6 +17,25 @@ export const etiquetaRepository = {
     });
 
     return rows.map((row) => row.name);
+  },
+
+  async findAllWithCount(): Promise<EtiquetaCatalogRow[]> {
+    const rows = await prisma.etiqueta.findMany({
+      select: {
+        id: true,
+        name: true,
+        _count: {
+          select: { notas: true },
+        },
+      },
+      orderBy: { name: "asc" },
+    });
+
+    return rows.map((row) => ({
+      id: row.id,
+      name: row.name,
+      count: row._count.notas,
+    }));
   },
 
   async upsertByName(name: string): Promise<EtiquetaRow> {

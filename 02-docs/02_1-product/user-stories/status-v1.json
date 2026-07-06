@@ -181,12 +181,13 @@
       "title": "Listado de etiquetas con conteo de notas",
       "epic": "EPIC-003",
       "release": "V2+",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "tasks": {
-        "TASK-041": "backlog",
-        "TASK-042": "backlog",
-        "TASK-043": "backlog",
-        "TASK-044": "backlog"
+        "TASK-041": "done",
+        "TASK-042": "done",
+        "TASK-043": "done",
+        "TASK-044": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-06"
