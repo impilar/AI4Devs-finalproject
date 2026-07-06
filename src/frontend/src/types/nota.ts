@@ -20,6 +20,7 @@ export type TagRef = {
 export type NoteRef = {
   id: string;
   title: string;
+  updatedAt: string;
 };
 
 export type NotaResumen = {

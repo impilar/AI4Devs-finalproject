@@ -3,6 +3,7 @@ import { prisma } from "../lib/prisma.js";
 export type NoteRefRow = {
   id: string;
   title: string;
+  updatedAt: string;
 };
 
 export type BacklinkCreateRow = {
@@ -11,13 +12,21 @@ export type BacklinkCreateRow = {
   destino: NoteRefRow;
 };
 
+function mapNoteRef(nota: { id: string; title: string; updatedAt: Date }): NoteRefRow {
+  return {
+    id: nota.id,
+    title: nota.title,
+    updatedAt: nota.updatedAt.toISOString(),
+  };
+}
+
 export const backlinkRepository = {
   async create(origenId: string, destinoId: string): Promise<BacklinkCreateRow> {
     const row = await prisma.notaBacklink.create({
       data: { origenId, destinoId },
       include: {
         destino: {
-          select: { id: true, title: true },
+          select: { id: true, title: true, updatedAt: true },
         },
       },
     });
@@ -25,7 +34,7 @@ export const backlinkRepository = {
     return {
       origenId: row.origenId,
       destinoId: row.destinoId,
-      destino: row.destino,
+      destino: mapNoteRef(row.destino),
     };
   },
 
@@ -45,13 +54,13 @@ export const backlinkRepository = {
       where: { origenId },
       select: {
         destino: {
-          select: { id: true, title: true },
+          select: { id: true, title: true, updatedAt: true },
         },
       },
       orderBy: { destino: { title: "asc" } },
     });
 
-    return rows.map((row) => row.destino);
+    return rows.map((row) => mapNoteRef(row.destino));
   },
 
   async findEntrantes(destinoId: string): Promise<NoteRefRow[]> {
@@ -59,12 +68,12 @@ export const backlinkRepository = {
       where: { destinoId },
       select: {
         origen: {
-          select: { id: true, title: true },
+          select: { id: true, title: true, updatedAt: true },
         },
       },
       orderBy: { origen: { title: "asc" } },
     });
 
-    return rows.map((row) => row.origen);
+    return rows.map((row) => mapNoteRef(row.origen));
   },
 };

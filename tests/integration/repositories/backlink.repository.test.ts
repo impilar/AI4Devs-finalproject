@@ -34,7 +34,11 @@ describe.skipIf(!hasDatabase)("backlink repository (US-017)", () => {
     expect(created).toEqual({
       origenId: origen.id,
       destinoId: destino.id,
-      destino: { id: destino.id, title: "Investigación de mercado" },
+      destino: {
+        id: destino.id,
+        title: "Investigación de mercado",
+        updatedAt: destino.updatedAt.toISOString(),
+      },
     });
   });
 

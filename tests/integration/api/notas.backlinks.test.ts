@@ -47,7 +47,11 @@ describe.skipIf(!hasDatabase)("Note backlinks API (US-017)", () => {
       data: {
         origenId: origen.id,
         destinoId: destino.id,
-        destino: { id: destino.id, title: "Investigación de mercado" },
+        destino: {
+          id: destino.id,
+          title: "Investigación de mercado",
+          updatedAt: destino.updatedAt.toISOString(),
+        },
       },
     });
   });
@@ -63,7 +67,11 @@ describe.skipIf(!hasDatabase)("Note backlinks API (US-017)", () => {
 
     expect(response.status).toBe(200);
     expect(response.body.data).toEqual([
-      { id: destino.id, title: "Investigación de mercado" },
+      expect.objectContaining({
+        id: destino.id,
+        title: "Investigación de mercado",
+        updatedAt: destino.updatedAt.toISOString(),
+      }),
     ]);
   });
 
@@ -84,7 +92,13 @@ describe.skipIf(!hasDatabase)("Note backlinks API (US-017)", () => {
     );
 
     expect(response.status).toBe(200);
-    expect(response.body.data).toEqual([{ id: plan.id, title: "Plan Q3" }]);
+    expect(response.body.data).toEqual([
+      expect.objectContaining({
+        id: plan.id,
+        title: "Plan Q3",
+        updatedAt: plan.updatedAt.toISOString(),
+      }),
+    ]);
   });
 
   it("rejects self-link with 400", async () => {

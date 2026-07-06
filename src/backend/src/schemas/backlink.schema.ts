@@ -3,6 +3,7 @@ import { z } from "zod";
 export const NoteRefSchema = z.object({
   id: z.string().uuid(),
   title: z.string(),
+  updatedAt: z.string().datetime(),
 });
 
 export const CreateBacklinkDtoSchema = z.object({

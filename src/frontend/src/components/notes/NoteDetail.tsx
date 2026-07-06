@@ -1,8 +1,8 @@
 import type { NotaDetail, NoteRef } from "../../types/nota";
 import { formatRelativeDate } from "../../utils/formatDate";
-import { Link } from "react-router-dom";
 import { RemovableTagChip } from "../tags/RemovableTagChip";
 import { BacklinksPanel } from "./BacklinksPanel";
+import { RelatedNoteList } from "./RelatedNoteList";
 
 type NoteDetailProps = {
   note: NotaDetail;
@@ -91,18 +91,11 @@ export function NoteDetail({
             ) : null}
 
             {salientes.length > 0 ? (
-              <section className="note-detail__section" aria-label="Notas enlazadas">
-                <h2 className="note-detail__section-title">Notas enlazadas</h2>
-                <ul className="note-detail__note-links">
-                  {salientes.map((linkedNote) => (
-                    <li key={linkedNote.id}>
-                      <Link to={`/notas/${linkedNote.id}`} className="note-detail__note-link">
-                        {linkedNote.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
+              <RelatedNoteList
+                title="Notas relacionadas"
+                ariaLabel="Notas enlazadas"
+                items={salientes}
+              />
             ) : null}
 
             <BacklinksPanel items={entrantes} />
