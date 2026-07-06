@@ -9,7 +9,7 @@ import { prisma } from "../../src/backend/src/lib/prisma.js";
 const hasDatabase = Boolean(process.env.DATABASE_URL);
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const backendRoot = path.join(repoRoot, "src/backend");
-const dbSetupScript = path.join(backendRoot, "src/05-scripts/e2e-db-setup.ts");
+const dbSetupScript = path.join(backendRoot, "src/scripts/e2e-db-setup.ts");
 
 function seedBenchNotes(): void {
   const databaseUrl = process.env.DATABASE_URL ?? "postgresql://okc:okc@localhost:5432/okc";
