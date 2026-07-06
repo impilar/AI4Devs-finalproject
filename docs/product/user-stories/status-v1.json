@@ -146,12 +146,12 @@
       "title": "Filtrar notas por etiqueta",
       "epic": "EPIC-003",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-033": "backlog",
-        "TASK-034": "backlog",
-        "TASK-035": "backlog",
-        "TASK-036": "backlog"
+        "TASK-033": "done",
+        "TASK-034": "done",
+        "TASK-035": "done",
+        "TASK-036": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"

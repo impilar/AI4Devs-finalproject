@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNotes } from "../hooks/useNotes";
 import { NoteList } from "../components/notes/NoteList";
+import { TagFilter } from "../components/tags/TagFilter";
 
 export function HomePage() {
-  const { notes, isLoading, error } = useNotes();
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const { notes, tags, isLoading, error } = useNotes({ etiqueta: activeTag });
 
   return (
     <section className="home-page">
@@ -18,7 +21,18 @@ export function HomePage() {
           </Link>
         </div>
       </header>
-      <NoteList notes={notes} isLoading={isLoading} error={error} />
+      <TagFilter
+        tags={tags}
+        activeTag={activeTag}
+        onSelect={setActiveTag}
+        onClear={() => setActiveTag(null)}
+      />
+      <NoteList
+        notes={notes}
+        isLoading={isLoading}
+        error={error}
+        activeTag={activeTag}
+      />
     </section>
   );
 }

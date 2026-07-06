@@ -6,6 +6,15 @@ export type EtiquetaRow = {
 };
 
 export const etiquetaRepository = {
+  async findAllNames(): Promise<string[]> {
+    const rows = await prisma.etiqueta.findMany({
+      select: { name: true },
+      orderBy: { name: "asc" },
+    });
+
+    return rows.map((row) => row.name);
+  },
+
   async upsertByName(name: string): Promise<EtiquetaRow> {
     return prisma.etiqueta.upsert({
       where: { name },

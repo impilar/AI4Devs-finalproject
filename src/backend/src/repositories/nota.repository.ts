@@ -37,9 +37,24 @@ function resolveOrderBy(filters: ListNotasParams): {
   return { createdAt: order };
 }
 
+function resolveWhere(filters: ListNotasParams): { etiquetas?: { some: { etiqueta: { name: string } } } } | undefined {
+  if (!filters.etiqueta) {
+    return undefined;
+  }
+
+  return {
+    etiquetas: {
+      some: {
+        etiqueta: { name: filters.etiqueta },
+      },
+    },
+  };
+}
+
 export const notaRepository = {
   async findAll(filters: ListNotasParams = {}): Promise<NotaListRow[]> {
     return prisma.nota.findMany({
+      where: resolveWhere(filters),
       orderBy: resolveOrderBy(filters),
       select: {
         id: true,

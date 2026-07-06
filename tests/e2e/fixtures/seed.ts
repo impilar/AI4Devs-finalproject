@@ -43,6 +43,10 @@ export function seedThreeNotes(): void {
   runDbSetup("seed");
 }
 
+export function seedFilterNotes(): void {
+  runDbSetup("filter");
+}
+
 export function clearAllNotes(): void {
   runDbSetup("clear");
 }

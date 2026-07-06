@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
-import { listNotas } from "../services/notesApi";
+import { listEtiquetas, listNotas } from "../services/notesApi";
 import type { NotaResumen } from "../types/nota";
+
+type UseNotesOptions = {
+  etiqueta?: string | null;
+};
 
 type UseNotesResult = {
   notes: NotaResumen[];
+  tags: string[];
   isLoading: boolean;
   error: string | null;
 };
 
-export function useNotes(): UseNotesResult {
+export function useNotes({ etiqueta = null }: UseNotesOptions = {}): UseNotesResult {
   const [notes, setNotes] = useState<NotaResumen[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,9 +27,14 @@ export function useNotes(): UseNotesResult {
       setError(null);
 
       try {
-        const data = await listNotas();
+        const [notesData, tagsData] = await Promise.all([
+          listNotas(etiqueta ? { etiqueta } : undefined),
+          listEtiquetas(),
+        ]);
+
         if (!cancelled) {
-          setNotes(data);
+          setNotes(notesData);
+          setTags(tagsData);
         }
       } catch (err) {
         if (!cancelled) {
@@ -42,7 +53,7 @@ export function useNotes(): UseNotesResult {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [etiqueta]);
 
-  return { notes, isLoading, error };
+  return { notes, tags, isLoading, error };
 }

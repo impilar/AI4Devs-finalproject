@@ -3,14 +3,23 @@ import { registerTags } from "../utils/tagSuggestions.js";
 import type {
   CreateNotaDto,
   CreateNotaResponse,
+  ListEtiquetasResponse,
   ListNotasResponse,
   NotaDetail,
   NotaDetailResponse,
   NotaResumen,
 } from "../types/nota";
 
-export async function listNotas(): Promise<NotaResumen[]> {
-  const response = await apiGet<ListNotasResponse>("/notas");
+export async function listNotas(options?: { etiqueta?: string }): Promise<NotaResumen[]> {
+  const query = options?.etiqueta
+    ? `?etiqueta=${encodeURIComponent(options.etiqueta)}`
+    : "";
+  const response = await apiGet<ListNotasResponse>(`/notas${query}`);
+  return response.data;
+}
+
+export async function listEtiquetas(): Promise<string[]> {
+  const response = await apiGet<ListEtiquetasResponse>("/etiquetas");
   return response.data;
 }
 

@@ -2,7 +2,7 @@
   "version": "1.0",
   "scope": "MVP",
   "generated_at": "2026-07-04",
-  "last_updated": "2026-07-04",
+  "last_updated": "2026-07-06",
   "plan_doc": "docs/engineering/implementation-plan-v1.md",
   "sources": [
     "docs/architecture/lld/LLD-v1.md",
@@ -98,7 +98,10 @@
         "TASK-029",
         "TASK-030",
         "TASK-032"
-      ]
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-008-etiquetas"
     },
     {
       "id": "PHASE-005",
@@ -112,7 +115,10 @@
         "TASK-033",
         "TASK-034",
         "TASK-036"
-      ]
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_archive": "openspec/changes/us-009-filtro-etiqueta"
     },
     {
       "id": "PHASE-006",
@@ -446,7 +452,8 @@
       "depends_on": [
         "TASK-031"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 22,
@@ -460,7 +467,8 @@
         "TASK-035",
         "TASK-029"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 23,
@@ -473,7 +481,8 @@
       "depends_on": [
         "TASK-033"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 24,
@@ -486,7 +495,8 @@
       "depends_on": [
         "TASK-034"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 25,

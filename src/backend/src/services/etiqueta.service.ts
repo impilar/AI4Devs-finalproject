@@ -19,6 +19,10 @@ export function normalizeTagNames(tags: string[]): string[] {
 }
 
 export const etiquetaService = {
+  async listNames(): Promise<string[]> {
+    return etiquetaRepository.findAllNames();
+  },
+
   async upsertByNames(names: string[]): Promise<Map<string, string>> {
     const normalized = normalizeTagNames(names);
     const nameToId = new Map<string, string>();

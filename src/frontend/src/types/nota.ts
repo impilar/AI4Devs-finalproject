@@ -23,6 +23,10 @@ export type ListNotasResponse = {
   meta: { total: number };
 };
 
+export type ListEtiquetasResponse = {
+  data: string[];
+};
+
 export type NotaDetailResponse = {
   data: NotaDetail;
 };
