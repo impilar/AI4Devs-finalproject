@@ -25,11 +25,13 @@ Organizador de Conocimiento (Notion Simplificado)
 
 ### **0.3. Descripción breve del proyecto:**
 
-Aplicación web minimalista para capturar, organizar y recuperar información personal —notas, enlaces e ideas— mediante CRUD de notas, etiquetas y búsqueda simple. Arquitectura modular frontend/backend con API REST y PostgreSQL, preparada para evolucionar con backlinks y grafo de conocimiento.
+Aplicación web minimalista para capturar, organizar y recuperar información personal —notas, enlaces e ideas— mediante CRUD de notas, etiquetas, búsqueda y backlinks entre notas. Arquitectura modular frontend/backend con API REST y PostgreSQL (interfaz MindVault).
 
 ### **0.4. URL del proyecto:**
 
-*(Pendiente — despliegue previsto con Docker Compose o PaaS tras fase de implementación)*
+**Entorno local (Docker Compose):** http://localhost:5173
+
+Instrucciones en [§1.4](#14-instrucciones-de-instalación) y [`getting-started.md`](02-docs/02_3-engineering/getting-started.md). Despliegue en PaaS no incluido en el alcance académico.
 
 ### 0.5. URL o archivo comprimido del repositorio
 
@@ -51,16 +53,20 @@ El Organizador de Conocimiento resuelve la dispersión de información personal 
 
 ### **1.2. Características y funcionalidades principales:**
 
-**MVP (implementación planificada):**
+**Estado:** 17 historias implementadas en tres releases (MVP, V1, V2+). Detalle en [`roadmap-v1.md`](02-docs/02_1-product/roadmap/roadmap-v1.md).
 
-| Área | Funcionalidad |
-|------|---------------|
-| Notas | CRUD con título, contenido, fechas automáticas y enlaces URL opcionales |
-| Etiquetas | Creación automática al asignar, relación many-to-many, filtro por etiqueta |
-| Búsqueda | Por término en título y contenido; ordenación por relevancia o fecha |
-| Navegación | Listado de notas, vista de detalle, filtro por etiqueta |
+| Release | Área | Funcionalidad |
+|---------|------|---------------|
+| **MVP** | Notas | CRUD con título, contenido, fechas automáticas y enlaces URL opcionales |
+| **MVP** | Etiquetas | Creación automática al asignar, relación many-to-many, filtro por etiqueta |
+| **MVP** | Búsqueda | Por término en título y contenido; ordenación por relevancia o fecha |
+| **MVP** | Navegación | Listado de notas, vista de detalle |
+| **V1** | UX | Estados vacíos (listado y búsqueda), validación de formularios, quitar etiqueta |
+| **V2+** | Listado | Ordenación por fecha o título con persistencia en sesión |
+| **V2+** | Etiquetas | Catálogo global con conteo de notas |
+| **V2+** | Relaciones | Backlinks bidireccionales entre notas (salientes y entrantes) |
 
-**Fuera del MVP (roadmap V2+):** backlinks, grafo de conocimiento, plugins, autenticación multi-usuario.
+**Fuera del alcance actual (PRD §Futuro):** grafo visual, sintaxis wiki `[[nota]]`, plugins, autenticación multi-usuario.
 
 **Métricas de éxito (PRD):**
 
@@ -81,13 +87,13 @@ flowchart LR
     D --> E["Detalle de nota"]
 ```
 
-**Pantallas principales (diseño):**
+**Pantallas principales (MindVault UI):**
 
-1. **Home** — listado de notas con título y fecha; botón "Nueva nota"; barra de búsqueda; filtro por etiquetas.
-2. **Detalle** — título, contenido, enlaces clicables y chips de etiquetas; acciones editar y eliminar.
-3. **Formulario** — creación/edición con validación inline de título, contenido y URLs.
+1. **Home** — listado de notas con excerpt y fecha; ordenación; barra de búsqueda; filtro y catálogo de etiquetas; botón «Nueva nota».
+2. **Detalle** — título, contenido, enlaces externos, etiquetas removibles, notas relacionadas (backlinks) y panel de notas entrantes.
+3. **Formulario** — creación/edición con validación inline; selector de notas enlazadas.
 
-> *Capturas de pantalla y videotutorial: pendientes de la fase de implementación del frontend.*
+> Capturas y videotutorial: añadir en local en [`03-delivery/evidence/`](03-delivery/evidence/) (no versionado) y enlazar aquí si se requiere para la entrega.
 
 ### **1.4. Instrucciones de instalación:**
 
@@ -225,14 +231,20 @@ flowchart TB
 
 ### **2.6. Tests**
 
-Estrategia definida en arquitectura (pendiente de implementación):
+Estrategia implementada (ver [`02-docs/02_4-qa/`](02-docs/02_4-qa/) si existe) y releases en [`03-delivery/releases/`](03-delivery/releases/):
 
-| Tipo | Herramienta | Alcance |
-|------|-------------|---------|
-| Unitarios | Vitest | Services, validadores Zod |
-| Integración | Vitest + Supertest | API + PostgreSQL |
-| E2E | Playwright | Flujos Gherkin del roadmap (US-001 a US-016) |
-| Rendimiento | k6 / script | Búsqueda < 300 ms con 500 notas |
+| Tipo | Herramienta | Alcance | Evidencia (v0.3.0) |
+|------|-------------|---------|-------------------|
+| Unitarios | Vitest | Services, validadores, componentes | 32 backend + 68 frontend |
+| Integración | Vitest + Supertest | API + PostgreSQL | 96 tests |
+| E2E | Playwright | Flujos Gherkin US-001 a US-017 | 46 tests |
+
+```bash
+cd src/backend && npm run test
+cd src/backend && DATABASE_URL=postgresql://okc:okc@localhost:5432/okc npm run test:integration
+cd src/frontend && npm run test
+npm run test:e2e   # desde raíz; requiere Docker + Postgres
+```
 
 ---
 
@@ -466,25 +478,18 @@ Response 200:
 
 ## 7. Pull Requests
 
-> *Pendientes de la fase de implementación. Estructura sugerida según roadmap MVP:*
+> PRs mergeados en [`main`](https://github.com/impilar/AI4Devs-finalproject). Rama de entrega: `feature/entrega2-PCG`.
 
-**Pull Request 1 — `feat/db-schema-mvp`**
-
-- Migraciones Prisma: `notas`, `enlaces`, `etiquetas`, `nota_etiqueta`.
-- Seeds de desarrollo.
-- Documentación en `02-docs/02_2-architecture/data-model/logical-model-v1.md`.
-
-**Pull Request 2 — `feat/api-notas-crud`**
-
-- Endpoints `GET/POST/PUT/DELETE /api/v1/notas`.
-- Validación Zod, services y repositories.
-- Tests de integración Supertest.
-
-**Pull Request 3 — `feat/frontend-notas-mvp`**
-
-- Componentes `NoteList`, `NoteDetail`, `NoteForm`.
-- Integración con API; flujos US-001, US-002, US-005.
-- Tests E2E Playwright del slice MVP.
+| # | Título | Alcance |
+|---|--------|---------|
+| [1](https://github.com/impilar/AI4Devs-finalproject/pull/1) | Primera entrega del proyecto final | Documentación inicial |
+| [2](https://github.com/impilar/AI4Devs-finalproject/pull/2) | Reorganización del repositorio y gobernanza IA | Estructura por capas, `.cursor/` |
+| [3](https://github.com/impilar/AI4Devs-finalproject/pull/3) | LLD-v1, user stories y enriquecimiento MVP | Arquitectura detallada, historias |
+| [4](https://github.com/impilar/AI4Devs-finalproject/pull/4) | MVP completo — CRUD, etiquetas y búsqueda | Implementación funcional MVP |
+| [5](https://github.com/impilar/AI4Devs-finalproject/pull/5) | release(MVP): v0.1.0 | Cierre release MVP |
+| [6](https://github.com/impilar/AI4Devs-finalproject/pull/6) | Reorganizar estructura del repo | Carpetas numeradas `01-`…`05-` |
+| [7](https://github.com/impilar/AI4Devs-finalproject/pull/7) | release(V1): Pulido de experiencia | US-003, US-007, US-010, US-014 |
+| [8](https://github.com/impilar/AI4Devs-finalproject/pull/8) | release(V2+): Evolución avanzada | US-004, US-011, US-017 |
 
 ---
 
