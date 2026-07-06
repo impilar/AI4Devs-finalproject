@@ -22,4 +22,4 @@ Planifica una release a partir del roadmap.
 
 ## Workflow
 
-`.cursor/workflows/release.md`
+`.cursor/workflows/release.md` — notas de release y cierre con `close-release/SKILL.md` (`/release:close`).

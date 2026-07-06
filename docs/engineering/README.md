@@ -28,6 +28,8 @@ Artefactos para secuenciar y ejecutar el desarrollo en `src/` con OpenSpec + Spe
 
 **Cerrar slice:** `/opsx:verify <change>` → `/opsx:archive <change>` (verify obligatorio).
 
+**Cerrar release:** `/release:close MVP` — agente `release-manager.md`, skill `close-release/SKILL.md`.
+
 ## Uso de la cola
 
 ```bash

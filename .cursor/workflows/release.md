@@ -1,11 +1,23 @@
 # Workflow — Release
 
-Preparación y documentación de releases.
+Preparación, verificación y cierre de releases.
 
-| Paso | Skill | Output |
-|------|-------|--------|
+| Paso | Skill / comando | Output |
+|------|-----------------|--------|
 | 1 | `release-planning.md` | `delivery/releases/vX.Y.Z/` |
 | 2 | `release-planning.md` | `delivery/changelogs/CHANGELOG.md` |
+| 3 | `close-release/SKILL.md` o `/release:close` | Informe PASS/FAIL + PR |
+
+**Agente:** `.cursor/agents/release-manager.md`
+
+## Cierre de release (post-implementación)
+
+Tras archivar todos los OpenSpec changes del release:
+
+```text
+/release:close MVP     →  verifica cola, status-v1.json, OpenSpec, tests, git
+                       →  genera informe y abre PR (con confirmación)
+```
 
 ## DoD release MVP
 

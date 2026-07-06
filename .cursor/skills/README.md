@@ -40,3 +40,4 @@ Instrucciones para generar artefactos. Cada skill define inputs, outputs y agent
 | [architecture-review.md](architecture-review.md) | — |
 | [security-review.md](security-review.md) | — |
 | [release-planning.md](release-planning.md) | `delivery/releases/` |
+| [close-release/SKILL.md](close-release/SKILL.md) | Verificación cierre release + PR |

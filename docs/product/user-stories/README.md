@@ -37,7 +37,7 @@ El fichero [`status-v1.json`](status-v1.json) sustituye al tablero Jira para con
 ```
 
 - **`stories`**: estado de cada historia y de sus tasks hijas.
-- **`epics`**: estado agregado opcional por épica (puedes marcarla `done` cuando todas sus historias estén completas).
+- **`epics`**: estado agregado opcional por épica (puedes marcarla `done` cuando todas sus historias estén completas). Al cerrar un release, usar `/release:close` o el agente `release-manager` para sincronizar épicas (`in_progress` si quedan historias V1/V2+).
 
 ### Cómo actualizar
 
