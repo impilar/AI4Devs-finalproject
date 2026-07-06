@@ -1,6 +1,6 @@
 ---
 description: Reglas arquitectónicas del sistema
-globs: docs/architecture/**,src/**
+globs: 02-docs/02_2-architecture/**,src/**
 alwaysApply: false
 ---
 
@@ -9,8 +9,8 @@ alwaysApply: false
 - Monolito modular en capas; no microservicios en MVP.
 - Stack: React + Vite, Express + Zod, PostgreSQL 16 + Prisma 5.
 - API REST JSON bajo `/api/v1`.
-- HLD en `docs/architecture/hld/HLD-vN.md`.
-- Modelo de datos en `docs/architecture/data-model/`.
-- LLD en `docs/architecture/lld/LLD-vN.md`.
-- ADRs en `docs/architecture/adr/` — nunca en raíz.
+- HLD en `02-docs/02_2-architecture/hld/HLD-vN.md`.
+- Modelo de datos en `02-docs/02_2-architecture/data-model/`.
+- LLD en `02-docs/02_2-architecture/lld/LLD-vN.md`.
+- ADRs en `02-docs/02_2-architecture/adr/` — nunca en raíz.
 - Código en `src/frontend`, `src/backend`, `src/infra`.

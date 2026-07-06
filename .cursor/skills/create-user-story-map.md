@@ -6,12 +6,12 @@ Genera un User Story Map (método Jeff Patton).
 
 | Rol | Ruta |
 |-----|------|
-| PRD | `docs/product/prd/PRD-v1.md` |
-| Plantilla | `knowledge/templates/product/user_story_mapping_template.md` |
+| PRD | `02-docs/02_1-product/prd/PRD-v1.md` |
+| Plantilla | `01-knowledge/templates/product/user_story_mapping_template.md` |
 
 ## Output
 
-`docs/product/user-story-map/user-story-map-v1.md`
+`02-docs/02_1-product/user-story-map/user-story-map-v1.md`
 
 ## Instrucciones
 

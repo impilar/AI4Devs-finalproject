@@ -4,7 +4,7 @@ Estrategia y ejecución de pruebas.
 
 | Paso | Skill / Agente | Output |
 |------|----------------|--------|
-| 1 | `create-test-strategy.md` | `docs/qa/test-strategy.md` |
+| 1 | `create-test-strategy.md` | `02-docs/02_4-qa/test-strategy.md` |
 | 2 | `qa-engineer.md` | `tests/` |
 
 ## Reglas

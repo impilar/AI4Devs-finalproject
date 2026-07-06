@@ -1,6 +1,6 @@
 # Tasks: PHASE-005 — Filter by tag (US-009)
 
-> Queue sequences 21–24. Detail: [US-009](docs/product/user-stories/US-009.md).
+> Queue sequences 21–24. Detail: [US-009](02-docs/02_1-product/user-stories/US-009.md).
 
 ## 1. TASK-035 — [DB] Index nota_etiqueta (backend-engineer)
 

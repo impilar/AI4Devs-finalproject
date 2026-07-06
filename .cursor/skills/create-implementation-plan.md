@@ -11,22 +11,22 @@ Genera el **plan de implementación** priorizado (historias y tasks) con depende
 
 | Rol | Ruta |
 |-----|------|
-| LLD | `docs/architecture/lld/LLD-v1.md` |
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| PRD / negocio | `docs/product/prd/PRD-v1.md` |
-| User stories | `docs/product/user-stories/US-*.md` |
-| Estado backlog | `docs/product/user-stories/status-v1.json` |
-| Roadmap (opcional) | `docs/product/roadmap/roadmap-v1.md` |
+| LLD | `02-docs/02_2-architecture/lld/LLD-v1.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| PRD / negocio | `02-docs/02_1-product/prd/PRD-v1.md` |
+| User stories | `02-docs/02_1-product/user-stories/US-*.md` |
+| Estado backlog | `02-docs/02_1-product/user-stories/status-v1.json` |
+| Roadmap (opcional) | `02-docs/02_1-product/roadmap/roadmap-v1.md` |
 | DoD | `.cursor/rules/08-definition-of-done.mdc` |
-| Plantilla plan | `knowledge/templates/engineering/implementation-plan-template.md` |
-| Esquema cola JSON | `knowledge/templates/engineering/implementation-queue.schema.json` |
+| Plantilla plan | `01-knowledge/templates/engineering/implementation-plan-template.md` |
+| Esquema cola JSON | `01-knowledge/templates/engineering/implementation-queue.schema.json` |
 
 ## Outputs
 
 | Artefacto | Ruta |
 |-----------|------|
-| Plan (Markdown) | `docs/engineering/implementation-plan-mvp.md` |
-| Cola priorizada (JSON) | `docs/engineering/implementation-queue-mvp.json` |
+| Plan (Markdown) | `02-docs/02_3-engineering/implementation-plan-mvp.md` |
+| Cola priorizada (JSON) | `02-docs/02_3-engineering/implementation-queue-mvp.json` |
 
 Al regenerar, incrementar versión (`v2`) y conservar la anterior.
 

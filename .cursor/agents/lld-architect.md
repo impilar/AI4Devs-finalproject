@@ -196,7 +196,7 @@ Generate the LLD using:
 
 {{hld_v1.md}}
 
-Path: `docs/architecture/hld/HLD-v1.md`
+Path: `02-docs/02_2-architecture/hld/HLD-v1.md`
 
 ---
 
@@ -204,7 +204,7 @@ Path: `docs/architecture/hld/HLD-v1.md`
 
 {{logical_model_v1.md}}
 
-Path: `docs/architecture/data-model/logical-model-v1.md`
+Path: `02-docs/02_2-architecture/data-model/logical-model-v1.md`
 
 ---
 
@@ -212,13 +212,13 @@ Path: `docs/architecture/data-model/logical-model-v1.md`
 
 {{roadmap_v1.md}}
 
-Path: `docs/product/roadmap/roadmap-v1.md`
+Path: `02-docs/02_1-product/roadmap/roadmap-v1.md`
 
 ---
 
 ### INPUT (User stories — opcional):
 
-Path: `docs/product/user-stories/`
+Path: `02-docs/02_1-product/user-stories/`
 
 ---
 
@@ -226,10 +226,10 @@ Path: `docs/product/user-stories/`
 
 {{lld_template.md}}
 
-Path: `knowledge/templates/architecture/lld-template.md`
+Path: `01-knowledge/templates/architecture/lld-template.md`
 
 ---
 
 ## OUTPUT:
 
-Genera el resultado ahora y guarda el resultado en `docs/architecture/lld/LLD-v1.md`
+Genera el resultado ahora y guarda el resultado en `02-docs/02_2-architecture/lld/LLD-v1.md`

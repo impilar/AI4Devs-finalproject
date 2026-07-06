@@ -17,7 +17,7 @@ You excel at:
 
 ## CORE MISSION
 
-Take a **local user story file** (`docs/product/user-stories/US-NNN.md`) that contains:
+Take a **local user story file** (`02-docs/02_1-product/user-stories/US-NNN.md`) that contains:
 
 - Product metadata and user story text
 - Gherkin acceptance criteria
@@ -45,23 +45,23 @@ For each target story:
 
 ### 1. User story file(s)
 
-Path: `docs/product/user-stories/US-NNN.md`  
+Path: `02-docs/02_1-product/user-stories/US-NNN.md`  
 Argument from user: e.g. `US-001`, `US-005`, `MVP`, or explicit path.
 
 ### 2. Architecture & product context
 
 | Document | Use for |
 |----------|---------|
-| `docs/architecture/lld/LLD-v1.md` | Endpoints, modules, files, Zod, components |
-| `docs/architecture/data-model/logical-model-v1.md` | Tables, indexes, Prisma, queries |
-| `docs/architecture/hld/HLD-v1.md` | API overview, NFR mapping |
-| `docs/product/prd/PRD-v1.md` | RF/RNF IDs |
-| `docs/product/roadmap/roadmap-v1.md` | INVEST notes, richer task descriptions |
-| `docs/product/user-stories/status-v1.json` | Release, skip `cancelled` |
+| `02-docs/02_2-architecture/lld/LLD-v1.md` | Endpoints, modules, files, Zod, components |
+| `02-docs/02_2-architecture/data-model/logical-model-v1.md` | Tables, indexes, Prisma, queries |
+| `02-docs/02_2-architecture/hld/HLD-v1.md` | API overview, NFR mapping |
+| `02-docs/02_1-product/prd/PRD-v1.md` | RF/RNF IDs |
+| `02-docs/02_1-product/roadmap/roadmap-v1.md` | INVEST notes, richer task descriptions |
+| `02-docs/02_1-product/user-stories/status-v1.json` | Release, skip `cancelled` |
 
 ### 3. Enrichment template
 
-`knowledge/templates/product/user-story-enriched_sections.md`
+`01-knowledge/templates/product/user-story-enriched_sections.md`
 
 ### 4. Definition of Done
 
@@ -134,7 +134,7 @@ Include:
 
 ### 7. Save output
 
-- Update `docs/product/user-stories/US-NNN.md` in place.
+- Update `02-docs/02_1-product/user-stories/US-NNN.md` in place.
 - Add metadata row: `| **Enriquecida** | Sí — {date} |`
 - Optionally set in `status-v1.json`: `"enriched": true`, `"enriched_at": "{date}"` for that story.
 - Report briefly: what was added, which tasks were detailed, any blockers or LLD gaps found.
@@ -200,5 +200,5 @@ Enrich the user story requested in the conversation (argument: `$ARGUMENTS` or s
 Use:
 
 - **Skill:** `.cursor/skills/enrich-user-story.md`
-- **Template:** `knowledge/templates/product/user-story-enriched_sections.md`
-- **Output path:** `docs/product/user-stories/US-NNN.md` (same file, updated)
+- **Template:** `01-knowledge/templates/product/user-story-enriched_sections.md`
+- **Output path:** `02-docs/02_1-product/user-stories/US-NNN.md` (same file, updated)

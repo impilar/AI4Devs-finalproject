@@ -40,4 +40,4 @@ PHASE-001 delivered the notes list (US-001) but users cannot read full note cont
 | Queue | TASK-031, TASK-023, TASK-005, TASK-007, TASK-006, TASK-008 (sequences 6–11) |
 | Agents | `backend-engineer`, `frontend-engineer`, `qa-engineer` |
 
-**References:** [US-002](docs/product/user-stories/US-002.md), [implementation-plan-mvp.md §PHASE-002](docs/engineering/implementation-plan-mvp.md), PRD RF-004/RF-016, LLD-v1 §4.2, §5, §7.1, §8.1, §9.2.
+**References:** [US-002](02-docs/02_1-product/user-stories/US-002.md), [implementation-plan-mvp.md §PHASE-002](02-docs/02_3-engineering/implementation-plan-mvp.md), PRD RF-004/RF-016, LLD-v1 §4.2, §5, §7.1, §8.1, §9.2.

@@ -188,7 +188,7 @@ Generate the Data Model using:
 
 {{architecture_v1.md}}
 
-Path: `docs/architecture/hld/HLD-v1.md`
+Path: `02-docs/02_2-architecture/hld/HLD-v1.md`
 
 ---
 
@@ -196,7 +196,7 @@ Path: `docs/architecture/hld/HLD-v1.md`
 
 {{prd_v1.md}}
 
-Path: `docs/product/prd/PRD-v1.md`
+Path: `02-docs/02_1-product/prd/PRD-v1.md`
 
 ---
 
@@ -204,10 +204,10 @@ Path: `docs/product/prd/PRD-v1.md`
 
 {{data_model_template.md}}
 
-Path: `knowledge/templates/architecture/data-model-template.md`
+Path: `01-knowledge/templates/architecture/data-model-template.md`
 
 ---
 
 ## OUTPUT:
 
-Genera el resultado ahora y guarda el resultado en `docs/architecture/data-model/logical-model-v1.md`
+Genera el resultado ahora y guarda el resultado en `02-docs/02_2-architecture/data-model/logical-model-v1.md`

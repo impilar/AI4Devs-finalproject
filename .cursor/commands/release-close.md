@@ -25,7 +25,7 @@ Close a product release and prepare the pull request.
 4. `openspec/specs/` — merged capabilities present
 5. Full test suite (backend unit, integration, frontend unit, e2e)
 6. DoD per `.cursor/rules/08-definition-of-done.mdc`
-7. `delivery/releases/` notes (warn if missing)
+7. `03-delivery/releases/` notes (warn if missing)
 8. Git clean, committed, pushed
 9. `gh pr create` on PASS (with user confirmation)
 

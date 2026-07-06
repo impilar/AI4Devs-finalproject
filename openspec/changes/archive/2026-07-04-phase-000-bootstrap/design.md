@@ -50,7 +50,7 @@
 
 ### D5: Node 20 + TypeScript strict
 
-Per `docs/engineering/standards/backend-standards.md` and ADR-002.
+Per `02-docs/02_3-engineering/standards/backend-standards.md` and ADR-002.
 
 ### D6: Ports
 

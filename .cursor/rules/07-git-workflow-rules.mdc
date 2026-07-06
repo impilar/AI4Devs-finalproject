@@ -12,7 +12,7 @@ Formato por capa:
 - `docs: actualizar PRD v2`
 - `feat(backend): implementar POST /notas`
 - `fix(frontend): validación de formulario`
-- `chore: reorganizar docs/product`
+- `chore: reorganizar 02-docs/02_1-product`
 
 ## Versionado documental
 

@@ -1,6 +1,6 @@
 # OpenSpec — Organizador de Conocimiento
 
-Spec-driven execution layer for MVP implementation. Complements existing product/architecture docs in `docs/` — does not replace them.
+Spec-driven execution layer for MVP implementation. Complements existing product/architecture docs in `02-docs/` — does not replace them.
 
 ## Structure
 
@@ -23,7 +23,7 @@ openspec update        # refresh /opsx:* commands in Cursor
 
 This repo already includes `config.yaml` and folder layout. Running `openspec init` is safe — it adds agent instructions without overwriting `config.yaml` if customized.
 
-Full setup guide: [docs/engineering/openspec-setup.md](../docs/engineering/openspec-setup.md)
+Full setup guide: [02-docs/02_3-engineering/openspec-setup.md](../02-docs/02_3-engineering/openspec-setup.md)
 
 ## Workflow (per MVP user story)
 

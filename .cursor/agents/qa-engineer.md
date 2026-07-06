@@ -15,8 +15,8 @@ Define and execute test plans aligned with roadmap acceptance criteria.
 
 ## REFERENCES
 
-- Strategy: `docs/qa/test-strategy.md`
-- Roadmap Gherkin: `docs/product/roadmap/roadmap-v1.md`
+- Strategy: `02-docs/02_4-qa/test-strategy.md`
+- Roadmap Gherkin: `02-docs/02_1-product/roadmap/roadmap-v1.md`
 - Tests: `tests/`
 
 ## STATUS

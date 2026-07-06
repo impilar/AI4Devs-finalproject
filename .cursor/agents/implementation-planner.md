@@ -22,7 +22,7 @@ Produce an **implementation plan** and a **machine-readable priority queue** so 
 - Business priorities (PRD, MVP scope)
 - User story dependencies (US-002 needs US-001, etc.)
 - Technical dependencies (migrations before endpoints, API before UI)
-- Enriched task detail in `docs/product/user-stories/US-NNN.md`
+- Enriched task detail in `02-docs/02_1-product/user-stories/US-NNN.md`
 
 **You do not write production code.** You plan and sequence.
 
@@ -32,8 +32,8 @@ Produce an **implementation plan** and a **machine-readable priority queue** so 
 
 Generate:
 
-1. **`docs/engineering/implementation-plan-mvp.md`** — human-readable plan with phases, dependency diagram, rules.
-2. **`docs/engineering/implementation-queue-mvp.json`** — ordered `queue[]` for agent invocation.
+1. **`02-docs/02_3-engineering/implementation-plan-mvp.md`** — human-readable plan with phases, dependency diagram, rules.
+2. **`02-docs/02_3-engineering/implementation-queue-mvp.json`** — ordered `queue[]` for agent invocation.
 
 Every MVP task (TASK-001…TASK-064 for in-scope stories) must appear **exactly once** in `queue[]` with valid `depends_on`.
 
@@ -43,13 +43,13 @@ Every MVP task (TASK-001…TASK-064 for in-scope stories) must appear **exactly 
 
 | Source | Purpose |
 |--------|---------|
-| `docs/product/prd/PRD-v1.md` | Business goals, RF/RNF, MVP scope |
-| `docs/architecture/hld/HLD-v1.md` | NFR, API overview |
-| `docs/architecture/lld/LLD-v1.md` | §9 slices, modules, task mapping |
-| `docs/product/user-stories/US-*.md` | Gherkin, tasks, enriched detail |
-| `docs/product/user-stories/status-v1.json` | Release, enriched flags |
-| `knowledge/templates/engineering/implementation-plan-template.md` | Output structure |
-| `knowledge/templates/engineering/implementation-queue.schema.json` | JSON shape |
+| `02-docs/02_1-product/prd/PRD-v1.md` | Business goals, RF/RNF, MVP scope |
+| `02-docs/02_2-architecture/hld/HLD-v1.md` | NFR, API overview |
+| `02-docs/02_2-architecture/lld/LLD-v1.md` | §9 slices, modules, task mapping |
+| `02-docs/02_1-product/user-stories/US-*.md` | Gherkin, tasks, enriched detail |
+| `02-docs/02_1-product/user-stories/status-v1.json` | Release, enriched flags |
+| `01-knowledge/templates/engineering/implementation-plan-template.md` | Output structure |
+| `01-knowledge/templates/engineering/implementation-queue.schema.json` | JSON shape |
 
 **Argument:** `MVP` (default), `MVP+V1`, or specific `US-NNN`.
 
@@ -165,17 +165,17 @@ Generate the implementation plan using argument: **$ARGUMENTS** (default: `MVP`)
 
 ### TEMPLATE (plan):
 
-`knowledge/templates/engineering/implementation-plan-template.md`
+`01-knowledge/templates/engineering/implementation-plan-template.md`
 
 ### SCHEMA (queue):
 
-`knowledge/templates/engineering/implementation-queue.schema.json`
+`01-knowledge/templates/engineering/implementation-queue.schema.json`
 
 ---
 
 ## OUTPUT
 
-1. Save `docs/engineering/implementation-plan-mvp.md`  
-2. Save `docs/engineering/implementation-queue-mvp.json`  
+1. Save `02-docs/02_3-engineering/implementation-plan-mvp.md`  
+2. Save `02-docs/02_3-engineering/implementation-queue-mvp.json`  
 
 Report: phase count, queue length, first 5 items to implement, any blocked/enrichment gaps found.

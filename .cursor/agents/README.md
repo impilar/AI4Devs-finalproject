@@ -6,19 +6,19 @@ Roles especializados del proyecto. **Convención:** todos los agentes usan exten
 
 | Agente | Skill | Output |
 |--------|-------|--------|
-| [product-manager.md](product-manager.md) | `create-prd.md` | `docs/product/prd/` |
-| [user-story-mapper.md](user-story-mapper.md) | `create-user-story-map.md` | `docs/product/user-story-map/` |
-| [roadmap-planner.md](roadmap-planner.md) | `create-roadmap.md` | `docs/product/roadmap/` |
-| [user-story-enricher.md](user-story-enricher.md) | `enrich-user-story.md` | `docs/product/user-stories/` |
-| [implementation-planner.md](implementation-planner.md) | `create-implementation-plan.md` | `docs/engineering/` |
+| [product-manager.md](product-manager.md) | `create-prd.md` | `02-docs/02_1-product/prd/` |
+| [user-story-mapper.md](user-story-mapper.md) | `create-user-story-map.md` | `02-docs/02_1-product/user-story-map/` |
+| [roadmap-planner.md](roadmap-planner.md) | `create-roadmap.md` | `02-docs/02_1-product/roadmap/` |
+| [user-story-enricher.md](user-story-enricher.md) | `enrich-user-story.md` | `02-docs/02_1-product/user-stories/` |
+| [implementation-planner.md](implementation-planner.md) | `create-implementation-plan.md` | `02-docs/02_3-engineering/` |
 
 ## Arquitectura
 
 | Agente | Skill | Output |
 |--------|-------|--------|
-| [solution-architect.md](solution-architect.md) | `create-hld.md` | `docs/architecture/hld/` |
-| [data-model-architect.md](data-model-architect.md) | `create-data-model.md` | `docs/architecture/data-model/` |
-| [lld-architect.md](lld-architect.md) | `create-lld.md` | `docs/architecture/lld/` |
+| [solution-architect.md](solution-architect.md) | `create-hld.md` | `02-docs/02_2-architecture/hld/` |
+| [data-model-architect.md](data-model-architect.md) | `create-data-model.md` | `02-docs/02_2-architecture/data-model/` |
+| [lld-architect.md](lld-architect.md) | `create-lld.md` | `02-docs/02_2-architecture/lld/` |
 
 ## Implementación *(stubs)*
 

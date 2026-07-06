@@ -18,4 +18,4 @@ alwaysApply: false
 
 - Flujos E2E alineados con Gherkin del roadmap (US-001 a US-016).
 - Búsqueda < 300 ms con 500 notas (RNF-002).
-- Estrategia completa en `docs/qa/test-strategy.md`.
+- Estrategia completa en `02-docs/02_4-qa/test-strategy.md`.

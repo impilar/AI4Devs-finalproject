@@ -4,8 +4,8 @@ Preparación, verificación y cierre de releases.
 
 | Paso | Skill / comando | Output |
 |------|-----------------|--------|
-| 1 | `release-planning.md` | `delivery/releases/vX.Y.Z/` |
-| 2 | `release-planning.md` | `delivery/changelogs/CHANGELOG.md` |
+| 1 | `release-planning.md` | `03-delivery/releases/vX.Y.Z/` |
+| 2 | `release-planning.md` | `03-delivery/changelogs/CHANGELOG.md` |
 | 3 | `close-release/SKILL.md` o `/release:close` | Informe PASS/FAIL + PR |
 
 **Agente:** `.cursor/agents/release-manager.md`
@@ -25,4 +25,4 @@ Ver `.cursor/rules/08-definition-of-done.mdc` — sección MVP release.
 
 ## Evidencias
 
-Capturas y demos en `delivery/evidence/` (no versionadas).
+Capturas y demos en `03-delivery/evidence/` (no versionadas).

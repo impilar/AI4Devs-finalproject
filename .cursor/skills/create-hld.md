@@ -6,12 +6,12 @@ Genera el High Level Design (arquitectura de sistema).
 
 | Rol | Ruta |
 |-----|------|
-| PRD | `docs/product/prd/PRD-v1.md` |
-| Plantilla | `knowledge/templates/architecture/hld-template.md` |
+| PRD | `02-docs/02_1-product/prd/PRD-v1.md` |
+| Plantilla | `01-knowledge/templates/architecture/hld-template.md` |
 
 ## Output
 
-`docs/architecture/hld/HLD-v1.md`
+`02-docs/02_2-architecture/hld/HLD-v1.md`
 
 ## Instrucciones
 

@@ -1,6 +1,6 @@
 # Tasks: PHASE-007 — Edit and delete (US-015, US-016)
 
-> Queue sequences 33–40. Detail: [US-015](docs/product/user-stories/US-015.md), [US-016](docs/product/user-stories/US-016.md).
+> Queue sequences 33–40. Detail: [US-015](02-docs/02_1-product/user-stories/US-015.md), [US-016](02-docs/02_1-product/user-stories/US-016.md).
 
 ## 1. TASK-059 — [DB] updated_at on UPDATE (backend-engineer)
 

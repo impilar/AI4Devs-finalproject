@@ -13,7 +13,7 @@ The MVP implementation queue (TASK-019 onward) requires a runnable local environ
 - Scaffold minimal `src/frontend/` (Vite + React shell)
 - Initialize Prisma with empty schema placeholder (full models in TASK-019)
 - Expose `GET /api/v1/health` returning `{ "status": "ok" }` with HTTP 200
-- Document local bootstrap steps in `docs/engineering/getting-started.md` (update if exists)
+- Document local bootstrap steps in `02-docs/02_3-engineering/getting-started.md` (update if exists)
 
 No user-facing features (notes CRUD) in this change — infrastructure only.
 
@@ -35,9 +35,9 @@ No user-facing features (notes CRUD) in this change — infrastructure only.
 | `src/infra/` | New Docker Compose and Dockerfiles |
 | `src/backend/` | New package scaffold, Express entry, health route, Prisma init |
 | `src/frontend/` | New Vite/React scaffold |
-| `docs/engineering/` | Bootstrap instructions |
+| `02-docs/02_3-engineering/` | Bootstrap instructions |
 | APIs | New `GET /api/v1/health` only |
 | Queue | Prerequisite before `sequence: 1` (TASK-019); no TASK id in JSON |
 | Agents | `devops-engineer` (infra), `backend-engineer` (health + backend shell) |
 
-**References:** `docs/engineering/implementation-plan-mvp.md` §PHASE-000, LLD-v1 §2.3, §11, HLD-v1 §10.
+**References:** `02-docs/02_3-engineering/implementation-plan-mvp.md` §PHASE-000, LLD-v1 §2.3, §11, HLD-v1 §10.

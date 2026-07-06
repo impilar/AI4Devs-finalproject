@@ -6,13 +6,13 @@
 
 | Documento | Ubicación |
 |-----------|-----------|
-| HLD v1 | [docs/architecture/hld/HLD-v1.md](docs/architecture/hld/HLD-v1.md) |
-| Modelo de datos v1 | [docs/architecture/data-model/logical-model-v1.md](docs/architecture/data-model/logical-model-v1.md) |
-| LLD v1 | [docs/architecture/lld/LLD-v1.md](docs/architecture/lld/LLD-v1.md) |
-| API spec v1 | [docs/architecture/apis/](docs/architecture/apis/) *(pending)* |
-| ADRs | [docs/architecture/adr/](docs/architecture/adr/) |
+| HLD v1 | [02-docs/02_2-architecture/hld/HLD-v1.md](02-docs/02_2-architecture/hld/HLD-v1.md) |
+| Modelo de datos v1 | [02-docs/02_2-architecture/data-model/logical-model-v1.md](02-docs/02_2-architecture/data-model/logical-model-v1.md) |
+| LLD v1 | [02-docs/02_2-architecture/lld/LLD-v1.md](02-docs/02_2-architecture/lld/LLD-v1.md) |
+| API spec v1 | [02-docs/02_2-architecture/apis/](02-docs/02_2-architecture/apis/) *(pending)* |
+| ADRs | [02-docs/02_2-architecture/adr/](02-docs/02_2-architecture/adr/) |
 | OpenSpec (runtime behavior) | [openspec/](openspec/) |
-| Coding standards | [docs/engineering/standards/](docs/engineering/standards/) |
+| Coding standards | [02-docs/02_3-engineering/standards/](02-docs/02_3-engineering/standards/) |
 
 ## Resumen
 
@@ -23,12 +23,12 @@
 
 ## Contexto estático
 
-Stack y restricciones de partida: [knowledge/technical-context.md](knowledge/technical-context.md).
+Stack y restricciones de partida: [01-knowledge/technical-context.md](01-knowledge/technical-context.md).
 
 ## Decisiones
 
 | ADR | Título |
 |-----|--------|
-| [ADR-001](docs/architecture/adr/ADR-001-monolito-modular-en-capas.md) | Monolito modular en capas |
-| [ADR-002](docs/architecture/adr/ADR-002-postgresql-prisma.md) | PostgreSQL + Prisma |
-| [ADR-003](docs/architecture/adr/ADR-003-sin-autenticacion-mvp.md) | Sin autenticación en MVP |
+| [ADR-001](02-docs/02_2-architecture/adr/ADR-001-monolito-modular-en-capas.md) | Monolito modular en capas |
+| [ADR-002](02-docs/02_2-architecture/adr/ADR-002-postgresql-prisma.md) | PostgreSQL + Prisma |
+| [ADR-003](02-docs/02_2-architecture/adr/ADR-003-sin-autenticacion-mvp.md) | Sin autenticación en MVP |

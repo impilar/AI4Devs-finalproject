@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Reglas de documentación
 
-## Documentación estática (`knowledge/`)
+## Documentación estática (`01-knowledge/`)
 
 Contexto de referencia que cambia rara vez. Inputs para humanos y agentes.
 
@@ -15,31 +15,31 @@ Contexto de referencia que cambia rara vez. Inputs para humanos y agentes.
 - `glossary.md` — términos del dominio
 - `templates/` — plantillas vacías (formularios)
 
-## Documentación viva (`docs/`)
+## Documentación viva (`02-docs/`)
 
 Artefactos publicados que evolucionan y se versionan.
 
-- `docs/product/` — PRD, User Story Map, roadmap, historias
-- `docs/architecture/hld/` — HLD-vN.md
-- `docs/architecture/data-model/` — logical-model-vN.md
-- `docs/architecture/lld/` — LLD-vN.md
-- `docs/architecture/adr/` — ADR-NNN-titulo.md
-- `docs/architecture/apis/` — api-spec-vN.yaml
-- `docs/engineering/` — plan de implementación, estándares de código (`standards/`), OpenSpec setup
-- `docs/qa/`, `docs/security/` — guías y estrategias
+- `02-docs/02_1-product/` — PRD, User Story Map, roadmap, historias
+- `02-docs/02_2-architecture/hld/` — HLD-vN.md
+- `02-docs/02_2-architecture/data-model/` — logical-model-vN.md
+- `02-docs/02_2-architecture/lld/` — LLD-vN.md
+- `02-docs/02_2-architecture/adr/` — ADR-NNN-titulo.md
+- `02-docs/02_2-architecture/apis/` — api-spec-vN.yaml
+- `02-docs/02_3-engineering/` — plan de implementación, estándares de código (`standards/`), OpenSpec setup
+- `02-docs/02_4-qa/`, `02-docs/02_5-security/`, `02-docs/02_6-operations/` — guías y estrategias
 - `openspec/` — specs de comportamiento y changes activos (OpenSpec)
 
 ## Convenciones de nombres
 
 | Artefacto | Patrón | Ejemplo |
 |-----------|--------|---------|
-| PRD | `PRD-vN.md` | `docs/product/prd/PRD-v1.md` |
-| HLD | `HLD-vN.md` | `docs/architecture/hld/HLD-v1.md` |
-| ADR | `ADR-NNN-titulo.md` | `docs/architecture/adr/ADR-001-monolito-modular.md` |
-| Roadmap | `roadmap-vN.md` | `docs/product/roadmap/roadmap-v1.md` |
-| LLD | `LLD-vN.md` | `docs/architecture/lld/LLD-v1.md` |
-| Plan implementación | `implementation-plan-{scope}.md` | `docs/engineering/implementation-plan-mvp.md` |
-| Estándares código | `base-standards.md` | `docs/engineering/standards/base-standards.md` |
+| PRD | `PRD-vN.md` | `02-docs/02_1-product/prd/PRD-v1.md` |
+| HLD | `HLD-vN.md` | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| ADR | `ADR-NNN-titulo.md` | `02-docs/02_2-architecture/adr/ADR-001-monolito-modular.md` |
+| Roadmap | `roadmap-vN.md` | `02-docs/02_1-product/roadmap/roadmap-v1.md` |
+| LLD | `LLD-vN.md` | `02-docs/02_2-architecture/lld/LLD-v1.md` |
+| Plan implementación | `implementation-plan-{scope}.md` | `02-docs/02_3-engineering/implementation-plan-mvp.md` |
+| Estándares código | `base-standards.md` | `02-docs/02_3-engineering/standards/base-standards.md` |
 | OpenSpec change | `openspec/changes/<name>/` | `openspec/changes/us-001-listado-notas/` |
 
 Al regenerar con skills/agentes, incrementar versión y conservar la anterior.
@@ -52,10 +52,10 @@ Al regenerar con skills/agentes, incrementar versión y conservar la anterior.
 
 ## No duplicar
 
-- No ADRs en raíz ni en `decisions/` — solo en `docs/architecture/adr/`
-- No artefactos de producto en `knowledge/`
+- No ADRs en raíz ni en `decisions/` — solo en `02-docs/02_2-architecture/adr/`
+- No artefactos de producto en `01-knowledge/`
 - No HLD en raíz — usar `ARCHITECTURE.md` como índice breve
 
 ## Trazabilidad IA
 
-Prompts usados → `prompts/{fase}/`. Índice académico → `prompts.md` en raíz.
+Prompts usados → `04-prompts/{fase}/`. Índice académico → `prompts.md` en raíz.

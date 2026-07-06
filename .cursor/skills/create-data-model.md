@@ -6,13 +6,13 @@ Genera modelo de datos lógico y físico.
 
 | Rol | Ruta |
 |-----|------|
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| PRD (opcional) | `docs/product/prd/PRD-v1.md` |
-| Plantilla | `knowledge/templates/architecture/data-model-template.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| PRD (opcional) | `02-docs/02_1-product/prd/PRD-v1.md` |
+| Plantilla | `01-knowledge/templates/architecture/data-model-template.md` |
 
 ## Output
 
-`docs/architecture/data-model/logical-model-v1.md`
+`02-docs/02_2-architecture/data-model/logical-model-v1.md`
 
 ## Instrucciones
 

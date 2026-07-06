@@ -5,9 +5,9 @@ Evolución post-MVP y deuda técnica.
 ## Actividades
 
 - Regenerar documentación viva con versión incrementada
-- Nuevos ADRs en `docs/architecture/adr/`
-- Actualizar `knowledge/` solo tras cambios de dominio significativos
-- Retrospectivas en `delivery/retrospectives/` *(futuro)*
+- Nuevos ADRs en `02-docs/02_2-architecture/adr/`
+- Actualizar `01-knowledge/` solo tras cambios de dominio significativos
+- Retrospectivas en `03-delivery/retrospectives/` *(futuro)*
 
 ## Skills
 

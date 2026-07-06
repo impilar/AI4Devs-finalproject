@@ -31,9 +31,9 @@ Before running close-release:
 
 ## Step 1 — Resolve release scope
 
-1. Read `docs/product/roadmap/roadmap-v1.md` §4 (Vista por release) for expected stories.
-2. Load `docs/product/user-stories/status-v1.json`.
-3. Load `docs/engineering/implementation-queue-mvp.json` when closing release `MVP` (future releases may add their own queue file).
+1. Read `02-docs/02_1-product/roadmap/roadmap-v1.md` §4 (Vista por release) for expected stories.
+2. Load `02-docs/02_1-product/user-stories/status-v1.json`.
+3. Load `02-docs/02_3-engineering/implementation-queue-mvp.json` when closing release `MVP` (future releases may add their own queue file).
 
 Build inventory:
 
@@ -46,16 +46,16 @@ Build inventory:
 
 ## Step 2 — Implementation queue
 
-Read `docs/engineering/implementation-queue-mvp.json`.
+Read `02-docs/02_3-engineering/implementation-queue-mvp.json`.
 
 **Checks:**
 
 ```bash
 # Pending tasks in queue (any status != done)
-jq '[.queue[] | select(.status != "done")] | length' docs/engineering/implementation-queue-mvp.json
+jq '[.queue[] | select(.status != "done")] | length' 02-docs/02_3-engineering/implementation-queue-mvp.json
 
 # Pending phases
-jq '[.phases[] | select(.status != "done")] | length' docs/engineering/implementation-queue-mvp.json
+jq '[.phases[] | select(.status != "done")] | length' 02-docs/02_3-engineering/implementation-queue-mvp.json
 ```
 
 **Fail if:**
@@ -74,13 +74,13 @@ jq '[.phases[] | select(.status != "done")] | length' docs/engineering/implement
 RELEASE="MVP"  # or V1, V2+
 
 # Stories of release not done
-jq --arg r "$RELEASE" '.stories | to_entries[] | select(.value.release == $r and .value.status != "done") | .key' docs/product/user-stories/status-v1.json
+jq --arg r "$RELEASE" '.stories | to_entries[] | select(.value.release == $r and .value.status != "done") | .key' 02-docs/02_1-product/user-stories/status-v1.json
 
 # Tasks of release stories not done
-jq --arg r "$RELEASE" '[.stories | to_entries[] | select(.value.release == $r) | .value.tasks | to_entries[] | select(.value != "done")] | length' docs/product/user-stories/status-v1.json
+jq --arg r "$RELEASE" '[.stories | to_entries[] | select(.value.release == $r) | .value.tasks | to_entries[] | select(.value != "done")] | length' 02-docs/02_1-product/user-stories/status-v1.json
 ```
 
-**Epic status rules** (see `docs/product/user-stories/README.md`):
+**Epic status rules** (see `02-docs/02_1-product/user-stories/README.md`):
 
 - Epic `done` → all its stories (any release) are `done`
 - Epic `in_progress` → at least one story done, release slice may be complete but epic continues in later releases
@@ -154,8 +154,8 @@ Use `.cursor/skills/release-planning.md` when notes do not exist yet.
 
 **Expected outputs:**
 
-- `delivery/releases/<version>-<release-name>/RELEASE.md` — summary, stories delivered, test evidence pointers
-- `delivery/changelogs/CHANGELOG.md` — version entry
+- `03-delivery/releases/<version>-<release-name>/RELEASE.md` — summary, stories delivered, test evidence pointers
+- `03-delivery/changelogs/CHANGELOG.md` — version entry
 
 **Warn (non-blocking)** if release folder missing; offer to generate from roadmap + status-v1.json.
 
@@ -177,7 +177,7 @@ git log main..HEAD --oneline  # or master
 **Fail if:**
 
 - Uncommitted changes that belong to the release (code, docs, openspec, status, queue)
-- Untracked files that should be versioned (exclude `node_modules`, `.env`, `delivery/evidence/`, vitest cache)
+- Untracked files that should be versioned (exclude `node_modules`, `.env`, `03-delivery/evidence/`, vitest cache)
 
 **Warn if:**
 
@@ -216,7 +216,7 @@ gh pr create --title "release(<scope>): <Release name> — <short description>" 
 - [ ] implementation-queue: all tasks done
 - [ ] status-v1.json: all release stories/tasks done
 - [ ] OpenSpec: no active changes; archives present
-- [ ] delivery/releases documented
+- [ ] 03-delivery/releases documented
 
 EOF
 )"
@@ -257,4 +257,4 @@ Return the PR URL to the user.
 - Never commit or push without user confirmation
 - Run tests; do not trust queue/status alone
 - Prefer fixing sync issues (status, queue) before PR
-- English for PR title/body and commits; Spanish OK for release notes in `delivery/`
+- English for PR title/body and commits; Spanish OK for release notes in `03-delivery/`

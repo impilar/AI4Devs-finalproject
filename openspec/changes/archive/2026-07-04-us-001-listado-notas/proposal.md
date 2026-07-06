@@ -38,4 +38,4 @@ PHASE-000 delivered a runnable stack (PostgreSQL, Express health check, React sh
 | Queue | TASK-019, TASK-003, TASK-001, TASK-002, TASK-004 (`sequence` 1–5) |
 | Agents | `backend-engineer` (DB + BE), `frontend-engineer` (FE), `qa-engineer` (E2E) |
 
-**References:** [US-001](docs/product/user-stories/US-001.md), [US-005 §TASK-019](docs/product/user-stories/US-005.md), [implementation-plan-mvp.md §PHASE-001](docs/engineering/implementation-plan-mvp.md), PRD RF-015, RNF-001, LLD-v1 §4.2, §5.4, §6.2, §7.1, §9.1.
+**References:** [US-001](02-docs/02_1-product/user-stories/US-001.md), [US-005 §TASK-019](02-docs/02_1-product/user-stories/US-005.md), [implementation-plan-mvp.md §PHASE-001](02-docs/02_3-engineering/implementation-plan-mvp.md), PRD RF-015, RNF-001, LLD-v1 §4.2, §5.4, §6.2, §7.1, §9.1.

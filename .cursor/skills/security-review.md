@@ -12,7 +12,7 @@ Revisa implicaciones de seguridad.
 
 ## Referencias
 
-- `docs/security/security-requirements.md`
+- `02-docs/02_5-security/security-requirements.md`
 - `.cursor/rules/04-security-rules.mdc`
 - ADR-003
 

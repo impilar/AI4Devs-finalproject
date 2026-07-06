@@ -10,4 +10,4 @@ Behavioral specifications merged here when changes are archived.
 | `etiquetas/` | US-008, US-009 | pending |
 | `busqueda/` | US-012, US-013 | pending |
 
-Seed content comes from Gherkin in `docs/product/user-stories/` during `/opsx:propose` or `/opsx:ff`, not manually duplicated here.
+Seed content comes from Gherkin in `02-docs/02_1-product/user-stories/` during `/opsx:propose` or `/opsx:ff`, not manually duplicated here.
