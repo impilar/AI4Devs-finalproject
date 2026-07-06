@@ -266,4 +266,4 @@ Generate the PRD using:
 
 ---
 
-Produce the final PRD now y guarda el resultado en `docs/product/prd/PRD-v1.md`
+Produce the final PRD now y guarda el resultado en `02-docs/02_1-product/prd/PRD-v1.md`

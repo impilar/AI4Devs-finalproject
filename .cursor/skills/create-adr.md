@@ -5,11 +5,11 @@ Registra una Architecture Decision Record.
 ## Inputs
 
 - Contexto de la decisión
-- Plantilla mental: ver ADRs existentes en `docs/architecture/adr/`
+- Plantilla mental: ver ADRs existentes en `02-docs/02_2-architecture/adr/`
 
 ## Output
 
-`docs/architecture/adr/ADR-NNN-titulo-kebab-case.md`
+`02-docs/02_2-architecture/adr/ADR-NNN-titulo-kebab-case.md`
 
 ## Formato
 

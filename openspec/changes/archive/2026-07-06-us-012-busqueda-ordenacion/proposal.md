@@ -35,4 +35,4 @@ Users can list and filter notes by tag (US-001, US-009) but cannot find content 
 | `tests/` | `buscar.test.ts`, `search.service.test.ts`, `us-012-busqueda.spec.ts`, `us-013-orden-busqueda.spec.ts` |
 | Queue | TASK-047, 051, 045, 049, 046, 050, 048, 052 (sequences 25–32) |
 
-**References:** [US-012](docs/product/user-stories/US-012.md), [US-013](docs/product/user-stories/US-013.md), LLD-v1 §4.2, §5.5, §7.2, logical-model-v1 §3.1, §9.3.
+**References:** [US-012](02-docs/02_1-product/user-stories/US-012.md), [US-013](02-docs/02_1-product/user-stories/US-013.md), LLD-v1 §4.2, §5.5, §7.2, logical-model-v1 §3.1, §9.3.

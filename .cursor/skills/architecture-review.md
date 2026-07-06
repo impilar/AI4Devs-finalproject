@@ -12,8 +12,8 @@ Revisa coherencia arquitectónica.
 
 ## Referencias
 
-- `docs/architecture/hld/HLD-v1.md`
-- `docs/architecture/adr/`
+- `02-docs/02_2-architecture/hld/HLD-v1.md`
+- `02-docs/02_2-architecture/adr/`
 
 ## Agente
 

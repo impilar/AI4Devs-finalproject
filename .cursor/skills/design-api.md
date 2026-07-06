@@ -6,13 +6,13 @@ Diseña o actualiza la especificación OpenAPI.
 
 | Rol | Ruta |
 |-----|------|
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| LLD (recomendado) | `docs/architecture/lld/LLD-v1.md` |
-| Modelo de datos | `docs/architecture/data-model/logical-model-v1.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| LLD (recomendado) | `02-docs/02_2-architecture/lld/LLD-v1.md` |
+| Modelo de datos | `02-docs/02_2-architecture/data-model/logical-model-v1.md` |
 
 ## Output
 
-`docs/architecture/apis/api-spec-v1.yaml`
+`02-docs/02_2-architecture/apis/api-spec-v1.yaml`
 
 ## Endpoints MVP
 

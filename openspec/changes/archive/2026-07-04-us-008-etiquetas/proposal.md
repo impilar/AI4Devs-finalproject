@@ -31,4 +31,4 @@ Users can create notes with title, content, and links (PHASE-003) but cannot cla
 | `tests/` | `notas.tags.test.ts`, `us-008-etiquetas.spec.ts` |
 | Queue | TASK-029, 030, 032 (sequences 18–20) |
 
-**References:** [US-008](docs/product/user-stories/US-008.md), LLD-v1 §5.1–5.2, §5.6, logical-model-v1 §3.3–3.4.
+**References:** [US-008](02-docs/02_1-product/user-stories/US-008.md), LLD-v1 §5.1–5.2, §5.6, logical-model-v1 §3.3–3.4.

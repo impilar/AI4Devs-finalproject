@@ -38,4 +38,4 @@ Users can create, list, filter, and search notes but cannot update or remove the
 | `tests/` | `notas.update.test.ts`, `notas.delete.test.ts`, `us-015-edicion.spec.ts`, `us-016-eliminar.spec.ts` |
 | Queue | TASK-059, 063, 057, 058, 060, 061, 062, 064 (sequences 33–40) |
 
-**References:** [US-015](docs/product/user-stories/US-015.md), [US-016](docs/product/user-stories/US-016.md), [PHASE-007](docs/engineering/implementation-plan-v1.md), LLD-v1 §4.2, §5.2, §5.3, §7.2, logical-model-v1 §4–5.
+**References:** [US-015](02-docs/02_1-product/user-stories/US-015.md), [US-016](02-docs/02_1-product/user-stories/US-016.md), [PHASE-007](02-docs/02_3-engineering/implementation-plan-mvp.md), LLD-v1 §4.2, §5.2, §5.3, §7.2, logical-model-v1 §4–5.

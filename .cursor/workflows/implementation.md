@@ -4,18 +4,18 @@ Implementación del MVP en `src/` con **OpenSpec** + cola priorizada.
 
 ## Prerrequisitos
 
-1. `docs/architecture/lld/LLD-v1.md`
+1. `02-docs/02_2-architecture/lld/LLD-v1.md`
 2. User stories MVP enriquecidas
-3. `docs/engineering/implementation-plan-v1.md` y `implementation-queue-v1.json`
-4. **OpenSpec bootstrap:** `docs/engineering/openspec-setup.md` (`openspec init`, `openspec update`)
-5. **Estándares:** `docs/engineering/standards/base-standards.md`, `AGENTS.md`
+3. `02-docs/02_3-engineering/implementation-plan-mvp.md` y `implementation-queue-mvp.json`
+4. **OpenSpec bootstrap:** `02-docs/02_3-engineering/openspec-setup.md` (`openspec init`, `openspec update`)
+5. **Estándares:** `02-docs/02_3-engineering/standards/base-standards.md`, `AGENTS.md`
 
 ## Fases
 
 | Fase | Acción | Output |
 |------|--------|--------|
-| 0 | Plan ya generado | `implementation-plan-v1.md`, `implementation-queue-v1.json` |
-| 0b | OpenSpec + standards | `openspec/`, `docs/engineering/standards/` |
+| 0 | Plan ya generado | `implementation-plan-mvp.md`, `implementation-queue-mvp.json` |
+| 0b | OpenSpec + standards | `openspec/`, `02-docs/02_3-engineering/standards/` |
 | 1 | PHASE-000 bootstrap | `src/infra/`, health endpoint |
 | 2+ | Por historia MVP | `openspec/changes/us-NNN-*/` → `src/`, `tests/` |
 
@@ -28,11 +28,11 @@ Implementación del MVP en `src/` con **OpenSpec** + cola priorizada.
 /opsx:archive us-NNN-name     →  merge openspec/specs/, archive change (solo si verify PASS)
 ```
 
-Prompt detallado: `prompts/development/02-openspec-slice.md`
+Prompt detallado: `04-prompts/development/02-openspec-slice.md`
 
 ## Orden de ejecución
 
-Seguir `implementation-queue-v1.json` (`sequence` 1 → 40). Un OpenSpec change agrupa las tasks de una fase/historia (ver `implementation-plan-v1.md`).
+Seguir `implementation-queue-mvp.json` (`sequence` 1 → 40). Un OpenSpec change agrupa las tasks de una fase/historia (ver `implementation-plan-mvp.md`).
 
 **Primera task en cola:** TASK-019 (tabla `notas`).  
 **Pre-requisito:** PHASE-000 (`docker-compose`, `GET /api/v1/health`).
@@ -69,8 +69,8 @@ Cuando todas las fases del release están `done` y archivadas en OpenSpec:
 
 | Artefacto | Ruta |
 |-----------|------|
-| Cola | `docs/engineering/implementation-queue-v1.json` |
+| Cola | `02-docs/02_3-engineering/implementation-queue-mvp.json` |
 | OpenSpec | `openspec/config.yaml`, `openspec/changes/` |
-| Standards | `docs/engineering/standards/` |
-| User stories | `docs/product/user-stories/` |
+| Standards | `02-docs/02_3-engineering/standards/` |
+| User stories | `02-docs/02_1-product/user-stories/` |
 | DoD | `.cursor/rules/08-definition-of-done.mdc` |

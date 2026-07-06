@@ -39,8 +39,8 @@ Read `openspec/changes/<name>/tasks.md` (or `changeRoot` from status JSON).
 
 **Fail verify if:**
 - Any checkbox remains `- [ ]`
-- Related tasks in `docs/engineering/implementation-queue-v1.json` are not `done`
-- Related tasks in `docs/product/user-stories/status-v1.json` are not `done`
+- Related tasks in `02-docs/02_3-engineering/implementation-queue-mvp.json` are not `done`
+- Related tasks in `02-docs/02_1-product/user-stories/status-v1.json` are not `done`
 
 ### 4. Spec vs implementation review
 

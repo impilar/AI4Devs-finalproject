@@ -2,7 +2,7 @@
 
 Analiza y enriquece una historia de usuario local con detalle técnico listo para implementación autónoma por el desarrollador.
 
-Adaptado del skill `enrich-us` (LIDR.co / AI4Devs-LTI-extended) al flujo **sin Jira**: ficheros en `docs/product/user-stories/` con tabla de **tasks** hijas.
+Adaptado del skill `enrich-us` (LIDR.co / AI4Devs-LTI-extended) al flujo **sin Jira**: ficheros en `02-docs/02_1-product/user-stories/` con tabla de **tasks** hijas.
 
 ## Cuándo usar
 
@@ -15,7 +15,7 @@ Adaptado del skill `enrich-us` (LIDR.co / AI4Devs-LTI-extended) al flujo **sin J
 Identificador de la historia a enriquecer:
 
 - `US-001` … `US-017`
-- Ruta: `docs/product/user-stories/US-NNN.md`
+- Ruta: `02-docs/02_1-product/user-stories/US-NNN.md`
 - Criterio: `MVP`, `todas las MVP`, `pendientes de enriquecer`
 
 Si no se indica argumento, enriquecer solo historias MVP (`release: MVP` en `status-v1.json`) que aún no tengan sección `## Detalle de implementación`.
@@ -24,19 +24,19 @@ Si no se indica argumento, enriquecer solo historias MVP (`release: MVP` en `sta
 
 | Rol | Ruta |
 |-----|------|
-| Historia(s) | `docs/product/user-stories/US-NNN.md` |
-| Estado (opcional) | `docs/product/user-stories/status-v1.json` |
-| PRD | `docs/product/prd/PRD-v1.md` |
-| Roadmap (opcional) | `docs/product/roadmap/roadmap-v1.md` |
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| LLD | `docs/architecture/lld/LLD-v1.md` |
-| Modelo de datos | `docs/architecture/data-model/logical-model-v1.md` |
+| Historia(s) | `02-docs/02_1-product/user-stories/US-NNN.md` |
+| Estado (opcional) | `02-docs/02_1-product/user-stories/status-v1.json` |
+| PRD | `02-docs/02_1-product/prd/PRD-v1.md` |
+| Roadmap (opcional) | `02-docs/02_1-product/roadmap/roadmap-v1.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| LLD | `02-docs/02_2-architecture/lld/LLD-v1.md` |
+| Modelo de datos | `02-docs/02_2-architecture/data-model/logical-model-v1.md` |
 | DoD | `.cursor/rules/08-definition-of-done.mdc` |
-| Plantilla secciones | `knowledge/templates/product/user-story-enriched_sections.md` |
+| Plantilla secciones | `01-knowledge/templates/product/user-story-enriched_sections.md` |
 
 ## Output
 
-Actualizar **in place** el fichero `docs/product/user-stories/US-NNN.md`:
+Actualizar **in place** el fichero `02-docs/02_1-product/user-stories/US-NNN.md`:
 
 1. **Conservar** sin cambios: metadatos, `## Historia de usuario`, `## Criterios de aceptación`, tabla `## Tasks`.
 2. **Añadir o completar** (si faltan): `## INVEST`, `## Trazabilidad`.
@@ -68,7 +68,7 @@ Si falta detalle, el agente **debe** generarlo cruzando LLD §4–§9, modelo de
 
 ### 1. Localizar la historia
 
-- Leer `docs/product/user-stories/US-NNN.md` y sus tasks de la tabla `## Tasks`.
+- Leer `02-docs/02_1-product/user-stories/US-NNN.md` y sus tasks de la tabla `## Tasks`.
 - Consultar `status-v1.json` para release y estado (no enriquecer `cancelled`).
 
 ### 2. Entender el problema
@@ -112,7 +112,7 @@ Por cada `TASK-XXX` de la tabla:
 
 ## Formato de salida
 
-Seguir estructura en `knowledge/templates/product/user-story-enriched_sections.md`.
+Seguir estructura en `01-knowledge/templates/product/user-story-enriched_sections.md`.
 
 Orden final del fichero:
 

@@ -2,7 +2,7 @@
 
 ## Context
 
-`src/` currently contains only `.gitkeep` placeholders. The implementation queue (`implementation-queue-v1.json`) starts at TASK-019 (notes table) but requires PostgreSQL, Express scaffold, and Docker tooling first. LLD-v1 §2.3 and §11 define the target layout; HLD-v1 §10 defines deployment flow.
+`src/` currently contains only `.gitkeep` placeholders. The implementation queue (`implementation-queue-mvp.json`) starts at TASK-019 (notes table) but requires PostgreSQL, Express scaffold, and Docker tooling first. LLD-v1 §2.3 and §11 define the target layout; HLD-v1 §10 defines deployment flow.
 
 **Current state:** No runnable code.  
 **Target state:** `docker compose up` + `GET /api/v1/health` → 200.
@@ -50,7 +50,7 @@
 
 ### D5: Node 20 + TypeScript strict
 
-Per `docs/engineering/standards/backend-standards.md` and ADR-002.
+Per `02-docs/02_3-engineering/standards/backend-standards.md` and ADR-002.
 
 ### D6: Ports
 

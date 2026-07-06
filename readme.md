@@ -9,7 +9,7 @@
 6. [Tickets de trabajo](#6-tickets-de-trabajo)
 7. [Pull requests](#7-pull-requests)
 
-> Documentación viva en [`docs/`](docs/). Contexto estático en [`knowledge/`](knowledge/). Índice de arquitectura: [`ARCHITECTURE.md`](ARCHITECTURE.md).
+> Documentación viva en [`02-docs/`](02-docs/). Contexto estático en [`01-knowledge/`](01-knowledge/). Índice de arquitectura: [`ARCHITECTURE.md`](ARCHITECTURE.md).
 
 ---
 
@@ -39,7 +39,7 @@ Aplicación web minimalista para capturar, organizar y recuperar información pe
 
 ## 1. Descripción general del producto
 
-> Fuente: [`docs/product/prd/PRD-v1.md`](docs/product/prd/PRD-v1.md)
+> Fuente: [`02-docs/02_1-product/prd/PRD-v1.md`](02-docs/02_1-product/prd/PRD-v1.md)
 
 ### **1.1. Objetivo:**
 
@@ -91,7 +91,7 @@ flowchart LR
 
 ### **1.4. Instrucciones de instalación:**
 
-Stack: React + Vite, Node.js 20+ + Express, PostgreSQL 16, Prisma, Docker Compose. Guía actualizada en [`docs/engineering/getting-started.md`](docs/engineering/getting-started.md).
+Stack: React + Vite, Node.js 20+ + Express, PostgreSQL 16, Prisma, Docker Compose. Guía actualizada en [`02-docs/02_3-engineering/getting-started.md`](02-docs/02_3-engineering/getting-started.md).
 
 **Requisitos:** Git, Node.js 20+, Docker Desktop (recomendado).
 
@@ -112,13 +112,13 @@ curl http://localhost:3000/api/v1/health   # {"status":"ok"}
 
 **Reinicio habitual:** abrir Docker Desktop → `cd src/infra && docker compose up -d`.
 
-Variables de entorno: ver `src/infra/.env.example`. Desarrollo sin Docker y troubleshooting: [getting-started](docs/engineering/getting-started.md).
+Variables de entorno: ver `src/infra/.env.example`. Desarrollo sin Docker y troubleshooting: [getting-started](02-docs/02_3-engineering/getting-started.md).
 
 ---
 
 ## 2. Arquitectura del Sistema
 
-> Fuente: [`docs/architecture/hld/HLD-v1.md`](docs/architecture/hld/HLD-v1.md)
+> Fuente: [`02-docs/02_2-architecture/hld/HLD-v1.md`](02-docs/02_2-architecture/hld/HLD-v1.md)
 
 ### **2.1. Diagrama de arquitectura:**
 
@@ -171,14 +171,14 @@ AI4Devs-finalproject/
 │   ├── agents/               # Roles (product-manager, solution-architect…)
 │   ├── skills/               # Instrucciones de generación
 │   └── workflows/            # discovery, architecture, release…
-├── knowledge/                # ESTÁTICA — contexto, plantillas
-├── docs/                     # VIVA — producto, arquitectura, QA
+├── 01-knowledge/                # ESTÁTICA — contexto, plantillas
+├── 02-docs/                     # VIVA — producto, arquitectura, QA
 │   ├── product/              # PRD, USM, roadmap
 │   └── architecture/         # HLD, data-model, adr
-├── prompts/                  # Trazabilidad IA por fase
+├── 04-prompts/                  # Trazabilidad IA por fase
 ├── src/                      # Software (frontend, backend, infra)
 ├── tests/                    # Tests transversales
-├── delivery/                 # Releases, evidencias
+├── 03-delivery/                 # Releases, evidencias
 ├── ARCHITECTURE.md           # Índice de arquitectura
 ├── CONTRIBUTING.md           # Convenciones del repo
 ├── prompts.md                # Índice académico de prompts
@@ -238,7 +238,7 @@ Estrategia definida en arquitectura (pendiente de implementación):
 
 ## 3. Modelo de Datos
 
-> Fuente: [`docs/architecture/data-model/logical-model-v1.md`](docs/architecture/data-model/logical-model-v1.md)
+> Fuente: [`02-docs/02_2-architecture/data-model/logical-model-v1.md`](02-docs/02_2-architecture/data-model/logical-model-v1.md)
 
 ### **3.1. Diagrama del modelo de datos:**
 
@@ -320,7 +320,7 @@ erDiagram
 
 ## 4. Especificación de la API
 
-> Fuente: [`docs/architecture/hld/HLD-v1.md` §4](docs/architecture/hld/HLD-v1.md). Base URL: `/api/v1`
+> Fuente: [`02-docs/02_2-architecture/hld/HLD-v1.md` §4](02-docs/02_2-architecture/hld/HLD-v1.md). Base URL: `/api/v1`
 
 ### Endpoint 1 — Listar notas
 
@@ -376,7 +376,7 @@ Response 200:
 
 ## 5. Historias de Usuario
 
-> Fuente: [`docs/product/user-story-map/user-story-map-v1.md`](docs/product/user-story-map/user-story-map-v1.md)
+> Fuente: [`02-docs/02_1-product/user-story-map/user-story-map-v1.md`](02-docs/02_1-product/user-story-map/user-story-map-v1.md)
 
 **Historia de Usuario 1 — US-005 (Capturar contenido, MVP)**
 
@@ -417,7 +417,7 @@ Response 200:
 
 ## 6. Tickets de Trabajo
 
-> Fuente: [`docs/product/roadmap/roadmap-v1.md`](docs/product/roadmap/roadmap-v1.md)
+> Fuente: [`02-docs/02_1-product/roadmap/roadmap-v1.md`](02-docs/02_1-product/roadmap/roadmap-v1.md)
 
 **Ticket 1 — Backend (TASK-017)**
 
@@ -472,7 +472,7 @@ Response 200:
 
 - Migraciones Prisma: `notas`, `enlaces`, `etiquetas`, `nota_etiqueta`.
 - Seeds de desarrollo.
-- Documentación en `docs/architecture/data-model/logical-model-v1.md`.
+- Documentación en `02-docs/02_2-architecture/data-model/logical-model-v1.md`.
 
 **Pull Request 2 — `feat/api-notas-crud`**
 
@@ -492,9 +492,9 @@ Response 200:
 
 | Documento | Descripción |
 |-----------|-------------|
-| [`PRD-v1.md`](docs/product/prd/PRD-v1.md) | Product Requirements Document |
-| [`user-story-map-v1.md`](docs/product/user-story-map/user-story-map-v1.md) | User Story Map (Jeff Patton) |
-| [`roadmap-v1.md`](docs/product/roadmap/roadmap-v1.md) | Roadmap épicas / historias / tasks |
-| [`roadmap-jira-import-v1.csv`](docs/product/roadmap/exports/roadmap-jira-import-v1.csv) | Importación Jira |
-| [`HLD-v1.md`](docs/architecture/hld/HLD-v1.md) | Arquitectura técnica |
-| [`logical-model-v1.md`](docs/architecture/data-model/logical-model-v1.md) | Modelo de datos detallado |
+| [`PRD-v1.md`](02-docs/02_1-product/prd/PRD-v1.md) | Product Requirements Document |
+| [`user-story-map-v1.md`](02-docs/02_1-product/user-story-map/user-story-map-v1.md) | User Story Map (Jeff Patton) |
+| [`roadmap-v1.md`](02-docs/02_1-product/roadmap/roadmap-v1.md) | Roadmap épicas / historias / tasks |
+| [`roadmap-jira-import-v1.csv`](02-docs/02_1-product/roadmap/exports/roadmap-jira-import-v1.csv) | Importación Jira |
+| [`HLD-v1.md`](02-docs/02_2-architecture/hld/HLD-v1.md) | Arquitectura técnica |
+| [`logical-model-v1.md`](02-docs/02_2-architecture/data-model/logical-model-v1.md) | Modelo de datos detallado |

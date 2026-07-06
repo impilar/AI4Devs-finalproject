@@ -1,8 +1,8 @@
 # Tasks: PHASE-003 — Create note and links (US-005, US-006)
 
-> Queue: `implementation-queue-v1.json` sequences 12–17.  
-> After each TASK-XXX section: mark `done` in `implementation-queue-v1.json` and `docs/product/user-stories/status-v1.json`.  
-> Detail: [US-005](docs/product/user-stories/US-005.md), [US-006](docs/product/user-stories/US-006.md).
+> Queue: `implementation-queue-mvp.json` sequences 12–17.  
+> After each TASK-XXX section: mark `done` in `implementation-queue-mvp.json` and `02-docs/02_1-product/user-stories/status-v1.json`.  
+> Detail: [US-005](02-docs/02_1-product/user-stories/US-005.md), [US-006](02-docs/02_1-product/user-stories/US-006.md).
 
 ## 1. TASK-017 — [BE] POST /api/v1/notas (backend-engineer)
 

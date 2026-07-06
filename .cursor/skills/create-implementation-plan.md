@@ -11,22 +11,22 @@ Genera el **plan de implementación** priorizado (historias y tasks) con depende
 
 | Rol | Ruta |
 |-----|------|
-| LLD | `docs/architecture/lld/LLD-v1.md` |
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| PRD / negocio | `docs/product/prd/PRD-v1.md` |
-| User stories | `docs/product/user-stories/US-*.md` |
-| Estado backlog | `docs/product/user-stories/status-v1.json` |
-| Roadmap (opcional) | `docs/product/roadmap/roadmap-v1.md` |
+| LLD | `02-docs/02_2-architecture/lld/LLD-v1.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| PRD / negocio | `02-docs/02_1-product/prd/PRD-v1.md` |
+| User stories | `02-docs/02_1-product/user-stories/US-*.md` |
+| Estado backlog | `02-docs/02_1-product/user-stories/status-v1.json` |
+| Roadmap (opcional) | `02-docs/02_1-product/roadmap/roadmap-v1.md` |
 | DoD | `.cursor/rules/08-definition-of-done.mdc` |
-| Plantilla plan | `knowledge/templates/engineering/implementation-plan-template.md` |
-| Esquema cola JSON | `knowledge/templates/engineering/implementation-queue.schema.json` |
+| Plantilla plan | `01-knowledge/templates/engineering/implementation-plan-template.md` |
+| Esquema cola JSON | `01-knowledge/templates/engineering/implementation-queue.schema.json` |
 
 ## Outputs
 
 | Artefacto | Ruta |
 |-----------|------|
-| Plan (Markdown) | `docs/engineering/implementation-plan-v1.md` |
-| Cola priorizada (JSON) | `docs/engineering/implementation-queue-v1.json` |
+| Plan (Markdown) | `02-docs/02_3-engineering/implementation-plan-mvp.md` |
+| Cola priorizada (JSON) | `02-docs/02_3-engineering/implementation-queue-mvp.json` |
 
 Al regenerar, incrementar versión (`v2`) y conservar la anterior.
 
@@ -83,7 +83,7 @@ Alinear con LLD §9.2:
 7. US-012 + US-013 — búsqueda  
 8. US-015 + US-016 — editar y eliminar  
 
-### 5. Cola JSON (`implementation-queue-v1.json`)
+### 5. Cola JSON (`implementation-queue-mvp.json`)
 
 - `queue[]`: un elemento por task, `sequence` único 1…N global.
 - Campos obligatorios por ítem: `sequence`, `id`, `type`, `story_id`, `title`, `layer`, `agent`, `depends_on[]`, `status` (`backlog`).
@@ -107,4 +107,4 @@ Seguir plantilla: resumen, dependencias (mermaid), fases con tablas, cola top-N,
 
 ## Uso posterior
 
-El agente desarrollador toma el ítem con menor `sequence` y `status != done` de `implementation-queue-v1.json`.
+El agente desarrollador toma el ítem con menor `sequence` y `status != done` de `implementation-queue-mvp.json`.

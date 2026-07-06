@@ -52,9 +52,9 @@ docker-compose.override.yml
 *.db
 
 # --- Evidencias de entrega (capturas, vídeos — añadir localmente) ---
-delivery/evidence/*
-!delivery/evidence/README.md
+03-delivery/evidence/*
+!03-delivery/evidence/README.md
 
 # --- Exports de conversaciones IA (pueden contener datos sensibles) ---
-prompts/conversations/*
-!prompts/conversations/README.md
+04-prompts/conversations/*
+!04-prompts/conversations/README.md

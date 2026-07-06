@@ -10,15 +10,15 @@ Después de tener **HLD** y **modelo de datos** aprobados, y **antes** de escrib
 
 | Rol | Ruta |
 |-----|------|
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| Modelo de datos | `docs/architecture/data-model/logical-model-v1.md` |
-| Roadmap (opcional) | `docs/product/roadmap/roadmap-v1.md` |
-| User stories (opcional) | `docs/product/user-stories/` |
-| Plantilla | `knowledge/templates/architecture/lld-template.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| Modelo de datos | `02-docs/02_2-architecture/data-model/logical-model-v1.md` |
+| Roadmap (opcional) | `02-docs/02_1-product/roadmap/roadmap-v1.md` |
+| User stories (opcional) | `02-docs/02_1-product/user-stories/` |
+| Plantilla | `01-knowledge/templates/architecture/lld-template.md` |
 
 ## Output
 
-`docs/architecture/lld/LLD-v1.md`
+`02-docs/02_2-architecture/lld/LLD-v1.md`
 
 Al regenerar, incrementar versión (`LLD-v2.md`) y conservar la anterior.
 

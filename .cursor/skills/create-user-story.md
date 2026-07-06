@@ -6,12 +6,12 @@ Genera una historia de usuario individual.
 
 | Rol | Ruta |
 |-----|------|
-| User Story Map | `docs/product/user-story-map/user-story-map-v1.md` |
-| Plantilla | `knowledge/templates/product/user-story_template.md` |
+| User Story Map | `02-docs/02_1-product/user-story-map/user-story-map-v1.md` |
+| Plantilla | `01-knowledge/templates/product/user-story_template.md` |
 
 ## Output
 
-`docs/product/user-stories/US-NNN-titulo-corto.md`
+`02-docs/02_1-product/user-stories/US-NNN-titulo-corto.md`
 
 ## Formato
 

@@ -1,6 +1,6 @@
 # Tasks: PHASE-004 — Tags (US-008)
 
-> Queue sequences 18–20. Detail: [US-008](docs/product/user-stories/US-008.md).
+> Queue sequences 18–20. Detail: [US-008](02-docs/02_1-product/user-stories/US-008.md).
 
 ## 1. TASK-029 — [BE] API etiquetas (backend-engineer)
 

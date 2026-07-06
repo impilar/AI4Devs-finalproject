@@ -4,7 +4,7 @@ Define la estrategia de pruebas del proyecto.
 
 ## Output
 
-`docs/qa/test-strategy.md`
+`02-docs/02_4-qa/test-strategy.md`
 
 ## Contenido mínimo
 

@@ -13,7 +13,7 @@ Tests transversales en [tests/](../tests/).
 
 ## Arrancar el entorno
 
-Guía completa: [docs/engineering/getting-started.md](../docs/engineering/getting-started.md)
+Guía completa: [02-docs/02_3-engineering/getting-started.md](../02-docs/02_3-engineering/getting-started.md)
 
 ```bash
 cp src/infra/.env.example src/infra/.env

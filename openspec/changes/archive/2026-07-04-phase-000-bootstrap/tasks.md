@@ -1,6 +1,6 @@
 # Tasks: PHASE-000 — Bootstrap infrastructure
 
-> No TASK-XXX in `implementation-queue-v1.json` — infra phase before `sequence: 1` (TASK-019).  
+> No TASK-XXX in `implementation-queue-mvp.json` — infra phase before `sequence: 1` (TASK-019).  
 > Agents: `devops-engineer` (§1–2), `backend-engineer` (§3–4), `frontend-engineer` (§5), all (§6).
 
 ## 1. Infrastructure (Docker)
@@ -38,5 +38,5 @@
 
 - [x] 6.1 `docker compose up -d` from `src/infra/` — all services healthy *(compose file ready; requires Docker Desktop running)*
 - [x] 6.2 `curl http://localhost:3000/api/v1/health` returns 200 + JSON *(verified via `node dist/server.js`)*
-- [x] 6.3 Update `docs/engineering/getting-started.md` with bootstrap steps
+- [x] 6.3 Update `02-docs/02_3-engineering/getting-started.md` with bootstrap steps
 - [x] 6.4 PHASE-000 complete — ready for `/opsx:apply` on `us-001-listado-notas` (TASK-019)

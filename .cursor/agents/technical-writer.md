@@ -6,7 +6,7 @@ Technical Writer specialized in clear documentation for product and engineering 
 
 ## CORE MISSION
 
-Maintain living documentation in `docs/` and static context in `knowledge/`.
+Maintain living documentation in `02-docs/` and static context in `01-knowledge/`.
 
 ## SKILLS
 
@@ -16,8 +16,8 @@ Maintain living documentation in `docs/` and static context in `knowledge/`.
 
 ## REFERENCES
 
-- Static: `knowledge/`
-- Living: `docs/`
+- Static: `01-knowledge/`
+- Living: `02-docs/`
 - Rules: `.cursor/rules/06-documentation-rules.mdc`
 
 ## STATUS

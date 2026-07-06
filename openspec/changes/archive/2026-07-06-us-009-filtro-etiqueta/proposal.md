@@ -34,4 +34,4 @@ Users can assign tags to notes (US-008) but cannot narrow the home list to a sin
 | `tests/` | `notas.filter-etiqueta.test.ts`, `us-009-filtro-etiqueta.spec.ts` |
 | Queue | TASK-035, 033, 034, 036 (sequences 21–24) |
 
-**References:** [US-009](docs/product/user-stories/US-009.md), LLD-v1 §4.2, §5.4, §7.2, logical-model-v1 §3.4, §9.4.
+**References:** [US-009](02-docs/02_1-product/user-stories/US-009.md), LLD-v1 §4.2, §5.4, §7.2, logical-model-v1 §3.4, §9.4.

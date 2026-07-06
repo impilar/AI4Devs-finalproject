@@ -8,24 +8,24 @@ Entry point for coding agents (Cursor and compatible tools). Adapted from [LIDR 
 
 ## Before any implementation
 
-1. Read **`docs/engineering/standards/base-standards.md`** (single source of truth for coding).
+1. Read **`02-docs/02_3-engineering/standards/base-standards.md`** (single source of truth for coding).
 2. Read layer-specific standards:
-   - Backend / DB: `docs/engineering/standards/backend-standards.md`
-   - Frontend: `docs/engineering/standards/frontend-standards.md`
-3. Check **`docs/engineering/implementation-queue-v1.json`** for the next `backlog` task (`sequence`).
+   - Backend / DB: `02-docs/02_3-engineering/standards/backend-standards.md`
+   - Frontend: `02-docs/02_3-engineering/standards/frontend-standards.md`
+3. Check **`02-docs/02_3-engineering/implementation-queue-mvp.json`** for the next `backlog` task (`sequence`).
 4. Open the active OpenSpec change in **`openspec/changes/`** (or create via `/opsx:propose`).
-5. Read task detail in **`docs/product/user-stories/US-NNN.md`** (§Detalle por task).
+5. Read task detail in **`02-docs/02_1-product/user-stories/US-NNN.md`** (§Detalle por task).
 
 ## Sources of truth (do not regenerate)
 
 | Artefact | Path |
 |----------|------|
-| PRD | `docs/product/prd/PRD-v1.md` |
-| User stories | `docs/product/user-stories/US-NNN.md` |
-| HLD | `docs/architecture/hld/HLD-v1.md` |
-| LLD | `docs/architecture/lld/LLD-v1.md` |
-| Data model | `docs/architecture/data-model/logical-model-v1.md` |
-| Implementation queue | `docs/engineering/implementation-queue-v1.json` |
+| PRD | `02-docs/02_1-product/prd/PRD-v1.md` |
+| User stories | `02-docs/02_1-product/user-stories/US-NNN.md` |
+| HLD | `02-docs/02_2-architecture/hld/HLD-v1.md` |
+| LLD | `02-docs/02_2-architecture/lld/LLD-v1.md` |
+| Data model | `02-docs/02_2-architecture/data-model/logical-model-v1.md` |
+| Implementation queue | `02-docs/02_3-engineering/implementation-queue-mvp.json` |
 | OpenSpec config | `openspec/config.yaml` |
 
 ## Agents (roles)
@@ -54,7 +54,7 @@ Index: `.cursor/skills/README.md`
 
 ## OpenSpec commands (Cursor chat)
 
-Requires `openspec init` + `openspec update` once (see `docs/engineering/openspec-setup.md`).
+Requires `openspec init` + `openspec update` once (see `02-docs/02_3-engineering/openspec-setup.md`).
 
 | Command | Purpose |
 |---------|---------|
@@ -78,4 +78,4 @@ Expanded profile (optional): `/opsx:ff`, `/opsx:continue` — run `openspec conf
 ## Language
 
 - **English:** code, comments, commits, OpenSpec artifacts.
-- **Spanish:** product documentation in `docs/product/`.
+- **Spanish:** product documentation in `02-docs/02_1-product/`.

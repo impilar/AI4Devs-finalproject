@@ -15,7 +15,7 @@ Define and maintain infrastructure, pipelines and runbooks.
 ## REFERENCES
 
 - Infra: `src/infra/`
-- Operations: `docs/operations/`
+- Operations: `02-docs/02_6-operations/`
 - CI: `.github/workflows/` *(futuro)*
 
 ## STATUS

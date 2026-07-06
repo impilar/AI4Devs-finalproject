@@ -1,6 +1,6 @@
 # Tasks: PHASE-006 — Search and sort (US-012, US-013)
 
-> Queue sequences 25–32. Detail: [US-012](docs/product/user-stories/US-012.md), [US-013](docs/product/user-stories/US-013.md).
+> Queue sequences 25–32. Detail: [US-012](02-docs/02_1-product/user-stories/US-012.md), [US-013](02-docs/02_1-product/user-stories/US-013.md).
 
 ## 1. TASK-047 — [DB] Search indexes (backend-engineer)
 

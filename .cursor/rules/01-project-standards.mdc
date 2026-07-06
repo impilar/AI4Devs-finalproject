@@ -9,11 +9,13 @@ alwaysApply: true
 
 | Capa | Carpeta | Naturaleza |
 |------|---------|------------|
-| Conocimiento estático | `knowledge/` | Contexto, plantillas |
-| Documentación viva | `docs/` | PRD, HLD, ADR, roadmap |
+| Conocimiento estático | `01-knowledge/` | Contexto, plantillas |
+| Documentación viva | `02-docs/` | PRD, HLD, ADR, roadmap |
 | Gobernanza IA | `.cursor/` | Rules, agents, skills, workflows |
 | Software | `src/`, `tests/` | Código y pruebas |
-| Entrega | `delivery/` | Releases, evidencias |
+| Entrega | `03-delivery/` | Releases, evidencias |
+| Prompts IA | `04-prompts/` | Trazabilidad por fase |
+| Scripts utilidad | `05-scripts/` | Automatización local (E2E, etc.) |
 
 ## Producto MVP
 

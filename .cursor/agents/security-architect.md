@@ -15,7 +15,7 @@ Review designs and code for security risks within single-user MVP constraints.
 
 ## REFERENCES
 
-- Requirements: `docs/security/security-requirements.md`
+- Requirements: `02-docs/02_5-security/security-requirements.md`
 - ADR-003: sin autenticación MVP
 - Rules: `.cursor/rules/04-security-rules.mdc`
 
