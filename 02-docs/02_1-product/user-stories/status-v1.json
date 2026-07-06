@@ -76,8 +76,7 @@
         "TASK-010": "done",
         "TASK-011": "done",
         "TASK-012": "done"
-      },
-      "completed_at": "2026-07-06"
+      }
     },
     "US-004": {
       "title": "Ordenar listado por fecha o título",
@@ -131,8 +130,7 @@
         "TASK-026": "done",
         "TASK-027": "done",
         "TASK-028": "done"
-      },
-      "completed_at": "2026-07-06"
+      }
     },
     "US-008": {
       "title": "Asignar etiquetas a una nota",
@@ -221,14 +219,15 @@
       "title": "Mensaje cuando búsqueda sin resultados",
       "epic": "EPIC-004",
       "release": "V1",
-      "status": "backlog",
+      "status": "done",
+      "completed_at": "2026-07-06",
       "enriched": true,
       "enriched_at": "2026-07-06",
       "tasks": {
-        "TASK-053": "backlog",
-        "TASK-054": "backlog",
-        "TASK-055": "backlog",
-        "TASK-056": "backlog"
+        "TASK-053": "done",
+        "TASK-054": "done",
+        "TASK-055": "done",
+        "TASK-056": "done"
       }
     },
     "US-015": {

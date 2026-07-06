@@ -1,4 +1,5 @@
 import { ErrorMessage } from "../common/ErrorMessage";
+import { SearchEmptyState } from "../search/SearchEmptyState";
 import { EmptyState } from "./EmptyState";
 import { NoteListItem } from "./NoteListItem";
 import { SkeletonNoteList } from "./SkeletonNoteList";
@@ -29,9 +30,7 @@ export function NoteList({
 
   if (notes.length === 0) {
     if (searchQuery) {
-      return (
-        <EmptyState message={`No se encontraron notas para «${searchQuery}».`} />
-      );
+      return <SearchEmptyState searchTerm={searchQuery} />;
     }
 
     if (activeTag) {

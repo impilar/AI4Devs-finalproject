@@ -99,6 +99,18 @@ describe("searchService.search", () => {
     expect(result.data.map((note) => note.title)).toEqual(["Nota reciente", "Nota antigua"]);
   });
 
+  it("returns empty data with meta.q when repository finds no rows", async () => {
+    mockedSearch.mockResolvedValue([]);
+
+    const result = await searchService.search({ q: "xyzabc", order: "relevance" });
+
+    expect(mockedSearch).toHaveBeenCalledWith("xyzabc", "relevance");
+    expect(result).toEqual({
+      data: [],
+      meta: { q: "xyzabc", total: 0 },
+    });
+  });
+
   it("breaks relevance ties by updatedAt descending", async () => {
     const older = new Date("2026-06-01T10:00:00.000Z");
     const newer = new Date("2026-06-02T10:00:00.000Z");

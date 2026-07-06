@@ -26,15 +26,8 @@
       "id": "PHASE-001",
       "order": 1,
       "name": "Estado vacío del listado (US-003)",
-      "stories": [
-        "US-003"
-      ],
-      "task_ids": [
-        "TASK-009",
-        "TASK-011",
-        "TASK-010",
-        "TASK-012"
-      ],
+      "stories": ["US-003"],
+      "task_ids": ["TASK-009", "TASK-011", "TASK-010", "TASK-012"],
       "status": "done",
       "completed_at": "2026-07-06",
       "openspec_change": "openspec/changes/us-003-empty-state"
@@ -43,15 +36,8 @@
       "id": "PHASE-002",
       "order": 2,
       "name": "Validación de formulario (US-007)",
-      "stories": [
-        "US-007"
-      ],
-      "task_ids": [
-        "TASK-025",
-        "TASK-027",
-        "TASK-026",
-        "TASK-028"
-      ],
+      "stories": ["US-007"],
+      "task_ids": ["TASK-025", "TASK-027", "TASK-026", "TASK-028"],
       "status": "done",
       "completed_at": "2026-07-06",
       "openspec_change": "openspec/changes/us-007-form-validation"
@@ -60,15 +46,8 @@
       "id": "PHASE-003",
       "order": 3,
       "name": "Quitar etiqueta de nota (US-010)",
-      "stories": [
-        "US-010"
-      ],
-      "task_ids": [
-        "TASK-039",
-        "TASK-037",
-        "TASK-038",
-        "TASK-040"
-      ],
+      "stories": ["US-010"],
+      "task_ids": ["TASK-039", "TASK-037", "TASK-038", "TASK-040"],
       "status": "done",
       "completed_at": "2026-07-06",
       "openspec_change": "openspec/changes/us-010-remove-tag"
@@ -77,16 +56,10 @@
       "id": "PHASE-004",
       "order": 4,
       "name": "Búsqueda sin resultados (US-014)",
-      "stories": [
-        "US-014"
-      ],
-      "task_ids": [
-        "TASK-055",
-        "TASK-053",
-        "TASK-054",
-        "TASK-056"
-      ],
-      "status": "backlog",
+      "stories": ["US-014"],
+      "task_ids": ["TASK-055", "TASK-053", "TASK-054", "TASK-056"],
+      "status": "done",
+      "completed_at": "2026-07-06",
       "openspec_change": "openspec/changes/us-014-search-empty-state"
     }
   ],
@@ -111,9 +84,7 @@
       "title": "[DB] Sin cambios de esquema",
       "layer": "database",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-009"
-      ],
+      "depends_on": ["TASK-009"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -125,9 +96,7 @@
       "title": "[FE] Componente EmptyState con CTA \"Crear nota\"",
       "layer": "frontend",
       "agent": "frontend-engineer",
-      "depends_on": [
-        "TASK-009"
-      ],
+      "depends_on": ["TASK-009"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -139,9 +108,7 @@
       "title": "[QA] Test visual y funcional del empty state",
       "layer": "qa",
       "agent": "qa-engineer",
-      "depends_on": [
-        "TASK-010"
-      ],
+      "depends_on": ["TASK-010"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -153,9 +120,7 @@
       "title": "[BE] Respuestas 400 con detalle por campo",
       "layer": "backend",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-012"
-      ],
+      "depends_on": ["TASK-012"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -167,9 +132,7 @@
       "title": "[DB] Sin cambios de esquema",
       "layer": "database",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-025"
-      ],
+      "depends_on": ["TASK-025"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -181,9 +144,7 @@
       "title": "[FE] Validación inline y preservación de estado del formulario",
       "layer": "frontend",
       "agent": "frontend-engineer",
-      "depends_on": [
-        "TASK-025"
-      ],
+      "depends_on": ["TASK-025"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -195,9 +156,7 @@
       "title": "[QA] Tests validación por campo y no pérdida de datos",
       "layer": "qa",
       "agent": "qa-engineer",
-      "depends_on": [
-        "TASK-026"
-      ],
+      "depends_on": ["TASK-026"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -209,9 +168,7 @@
       "title": "[DB] DELETE en nota_etiqueta sin cascade a entidades",
       "layer": "database",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-028"
-      ],
+      "depends_on": ["TASK-028"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -223,9 +180,7 @@
       "title": "[BE] DELETE asociación nota-etiqueta",
       "layer": "backend",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-039"
-      ],
+      "depends_on": ["TASK-039"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -237,9 +192,7 @@
       "title": "[FE] Acción \"quitar\" en chip de etiqueta en detalle/edición",
       "layer": "frontend",
       "agent": "frontend-engineer",
-      "depends_on": [
-        "TASK-037"
-      ],
+      "depends_on": ["TASK-037"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -251,9 +204,7 @@
       "title": "[QA] Tests desasociación y persistencia de etiqueta global",
       "layer": "qa",
       "agent": "qa-engineer",
-      "depends_on": [
-        "TASK-038"
-      ],
+      "depends_on": ["TASK-038"],
       "status": "done",
       "completed_at": "2026-07-06"
     },
@@ -265,10 +216,9 @@
       "title": "[DB] Sin cambios de esquema",
       "layer": "database",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-040"
-      ],
-      "status": "backlog"
+      "depends_on": ["TASK-040"],
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 14,
@@ -278,10 +228,9 @@
       "title": "[BE] Respuesta 200 con array vacío y metadata searchTerm",
       "layer": "backend",
       "agent": "backend-engineer",
-      "depends_on": [
-        "TASK-055"
-      ],
-      "status": "backlog"
+      "depends_on": ["TASK-055"],
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 15,
@@ -291,10 +240,9 @@
       "title": "[FE] Componente SearchEmptyState con término dinámico",
       "layer": "frontend",
       "agent": "frontend-engineer",
-      "depends_on": [
-        "TASK-053"
-      ],
-      "status": "backlog"
+      "depends_on": ["TASK-053"],
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 16,
@@ -304,10 +252,9 @@
       "title": "[QA] Test mensaje sin resultados y campo editable",
       "layer": "qa",
       "agent": "qa-engineer",
-      "depends_on": [
-        "TASK-054"
-      ],
-      "status": "backlog"
+      "depends_on": ["TASK-054"],
+      "status": "done",
+      "completed_at": "2026-07-06"
     }
   ],
   "stories_summary": [
@@ -315,61 +262,33 @@
       "id": "US-003",
       "release": "V1",
       "phase_id": "PHASE-001",
-      "depends_on_stories": [
-        "US-001"
-      ],
+      "depends_on_stories": ["US-001"],
       "prerequisite_status": "done",
-      "task_ids": [
-        "TASK-009",
-        "TASK-010",
-        "TASK-011",
-        "TASK-012"
-      ]
+      "task_ids": ["TASK-009", "TASK-010", "TASK-011", "TASK-012"]
     },
     {
       "id": "US-007",
       "release": "V1",
       "phase_id": "PHASE-002",
-      "depends_on_stories": [
-        "US-005"
-      ],
+      "depends_on_stories": ["US-005"],
       "prerequisite_status": "done",
-      "task_ids": [
-        "TASK-025",
-        "TASK-026",
-        "TASK-027",
-        "TASK-028"
-      ]
+      "task_ids": ["TASK-025", "TASK-026", "TASK-027", "TASK-028"]
     },
     {
       "id": "US-010",
       "release": "V1",
       "phase_id": "PHASE-003",
-      "depends_on_stories": [
-        "US-008"
-      ],
+      "depends_on_stories": ["US-008"],
       "prerequisite_status": "done",
-      "task_ids": [
-        "TASK-037",
-        "TASK-038",
-        "TASK-039",
-        "TASK-040"
-      ]
+      "task_ids": ["TASK-037", "TASK-038", "TASK-039", "TASK-040"]
     },
     {
       "id": "US-014",
       "release": "V1",
       "phase_id": "PHASE-004",
-      "depends_on_stories": [
-        "US-012"
-      ],
+      "depends_on_stories": ["US-012"],
       "prerequisite_status": "done",
-      "task_ids": [
-        "TASK-053",
-        "TASK-054",
-        "TASK-055",
-        "TASK-056"
-      ]
+      "task_ids": ["TASK-053", "TASK-054", "TASK-055", "TASK-056"]
     }
   ]
 }

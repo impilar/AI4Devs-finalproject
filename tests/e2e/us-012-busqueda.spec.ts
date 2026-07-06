@@ -51,9 +51,7 @@ test.describe("US-012 — Búsqueda de notas", () => {
 
     await searchNotes(page, "xyznonexistent");
 
-    await expect(
-      page.getByText("No se encontraron notas para «xyznonexistent»."),
-    ).toBeVisible();
+    await expect(page.getByText("Sin resultados para xyznonexistent")).toBeVisible();
     await expect(page.getByRole("alert")).not.toBeVisible();
   });
 });

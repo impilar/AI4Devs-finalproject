@@ -75,6 +75,12 @@ describe("NoteList", () => {
     expect(screen.getByRole("link", { name: "Crear nota" })).toHaveAttribute("href", "/notas/nueva");
   });
 
+  it("shows search empty state when searchQuery is set", () => {
+    renderNoteList({ notes: [], searchQuery: "xyzabc" });
+
+    expect(screen.getByText("Sin resultados para xyzabc")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Crear nota" })).not.toBeInTheDocument();
+  });
 
   it("shows tag filter empty state when activeTag is set", () => {
     renderNoteList({ notes: [], activeTag: "archivo" });
