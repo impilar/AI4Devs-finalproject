@@ -1,8 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { clearAllNotes } from "./fixtures/seed";
 import { createInteractionCounter } from "./helpers/interactionCounter";
-
-const API_URL = process.env.PLAYWRIGHT_API_URL ?? "http://localhost:3000/api/v1";
+import { API_URL } from "./helpers/api";
 
 test.describe("US-005 — Crear nota", () => {
   test.beforeEach(() => {

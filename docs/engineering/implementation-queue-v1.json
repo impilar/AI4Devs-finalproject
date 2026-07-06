@@ -137,7 +137,10 @@
         "TASK-050",
         "TASK-048",
         "TASK-052"
-      ]
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_archive": "openspec/changes/archive/2026-07-06-us-012-busqueda-ordenacion"
     },
     {
       "id": "PHASE-007",
@@ -509,7 +512,8 @@
       "depends_on": [
         "TASK-019"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 26,
@@ -522,7 +526,8 @@
       "depends_on": [
         "TASK-019"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 27,
@@ -535,7 +540,8 @@
       "depends_on": [
         "TASK-047"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 28,
@@ -548,7 +554,8 @@
       "depends_on": [
         "TASK-045"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 29,
@@ -561,7 +568,8 @@
       "depends_on": [
         "TASK-045"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 30,
@@ -575,7 +583,8 @@
         "TASK-049",
         "TASK-046"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 31,
@@ -588,7 +597,8 @@
       "depends_on": [
         "TASK-046"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 32,
@@ -601,7 +611,8 @@
       "depends_on": [
         "TASK-050"
       ],
-      "status": "backlog"
+      "status": "done",
+      "completed_at": "2026-07-06"
     },
     {
       "sequence": 33,

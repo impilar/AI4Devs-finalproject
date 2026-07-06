@@ -6,6 +6,8 @@ export type ListNotasParams = {
   order?: "asc" | "desc";
 };
 
+export type SearchOrder = "relevance" | "date";
+
 export type NotaListRow = {
   id: string;
   title: string;
@@ -56,6 +58,25 @@ export const notaRepository = {
     return prisma.nota.findMany({
       where: resolveWhere(filters),
       orderBy: resolveOrderBy(filters),
+      select: {
+        id: true,
+        title: true,
+        createdAt: true,
+        updatedAt: true,
+      },
+    });
+  },
+
+  async search(term: string, order: SearchOrder = "relevance"): Promise<NotaListRow[]> {
+    return prisma.nota.findMany({
+      where: {
+        OR: [
+          { title: { contains: term, mode: "insensitive" } },
+          { content: { contains: term, mode: "insensitive" } },
+        ],
+      },
+      take: 50,
+      ...(order === "date" ? { orderBy: { updatedAt: "desc" as const } } : {}),
       select: {
         id: true,
         title: true,

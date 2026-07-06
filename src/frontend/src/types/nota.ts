@@ -32,3 +32,10 @@ export type NotaDetailResponse = {
 };
 
 export type CreateNotaResponse = NotaDetailResponse;
+
+export type SearchOrder = "relevance" | "date";
+
+export type SearchResponse = {
+  data: NotaResumen[];
+  meta: { q: string; total: number };
+};

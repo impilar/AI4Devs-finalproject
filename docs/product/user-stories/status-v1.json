@@ -184,12 +184,12 @@
       "title": "Buscar notas por término de texto",
       "epic": "EPIC-004",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-045": "backlog",
-        "TASK-046": "backlog",
-        "TASK-047": "backlog",
-        "TASK-048": "backlog"
+        "TASK-045": "done",
+        "TASK-046": "done",
+        "TASK-047": "done",
+        "TASK-048": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -198,12 +198,12 @@
       "title": "Ordenar resultados de búsqueda",
       "epic": "EPIC-004",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-049": "backlog",
-        "TASK-050": "backlog",
-        "TASK-051": "backlog",
-        "TASK-052": "backlog"
+        "TASK-049": "done",
+        "TASK-050": "done",
+        "TASK-051": "done",
+        "TASK-052": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"

@@ -1,7 +1,18 @@
 import { defineConfig, devices } from "@playwright/test";
+import {
+  E2E_PORTS,
+  e2eApiUrl,
+  e2eBackendUrl,
+  e2eFrontendUrl,
+} from "./tests/e2e/config/ports";
 
 const databaseUrl =
-  process.env.DATABASE_URL ?? "postgresql://okc:okc@localhost:5432/okc";
+  process.env.DATABASE_URL ??
+  `postgresql://okc:okc@localhost:${E2E_PORTS.postgres}/okc`;
+
+// Expose E2E API URL to specs that read process.env at module load time.
+process.env.PLAYWRIGHT_API_URL ??= e2eApiUrl;
+process.env.PLAYWRIGHT_BASE_URL ??= e2eFrontendUrl;
 
 export default defineConfig({
   testDir: "./tests/e2e",
@@ -11,7 +22,7 @@ export default defineConfig({
   workers: 1,
   reporter: [["list"]],
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:5173",
+    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? e2eFrontendUrl,
     trace: "on-first-retry",
   },
   projects: [
@@ -24,21 +35,26 @@ export default defineConfig({
     {
       command: "npm run dev",
       cwd: "./src/backend",
-      url: "http://localhost:3000/api/v1/health",
-      reuseExistingServer: !process.env.CI,
+      url: `${e2eBackendUrl}/api/v1/health`,
+      reuseExistingServer: false,
       timeout: 120_000,
       env: {
         DATABASE_URL: databaseUrl,
-        CORS_ORIGIN: "http://localhost:5173",
-        PORT: "3000",
+        CORS_ORIGIN: e2eFrontendUrl,
+        PORT: String(E2E_PORTS.backend),
+        NODE_ENV: "development",
       },
     },
     {
-      command: "npm run dev",
+      command: `npm run dev -- --port ${E2E_PORTS.frontend} --strictPort`,
       cwd: "./src/frontend",
-      url: "http://localhost:5173",
-      reuseExistingServer: !process.env.CI,
+      url: e2eFrontendUrl,
+      reuseExistingServer: false,
       timeout: 120_000,
+      env: {
+        VITE_API_URL: e2eApiUrl,
+        VITE_API_PROXY_TARGET: e2eBackendUrl,
+      },
     },
   ],
 });

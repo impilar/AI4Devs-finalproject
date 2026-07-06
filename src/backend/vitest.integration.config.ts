@@ -16,7 +16,7 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["tests/integration/**/*.test.ts"],
+    include: ["tests/integration/**/*.test.ts", "tests/perf/**/*.bench.ts"],
     environment: "node",
     fileParallelism: false,
   },

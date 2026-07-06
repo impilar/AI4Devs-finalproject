@@ -8,9 +8,16 @@ type NoteListProps = {
   isLoading: boolean;
   error: string | null;
   activeTag?: string | null;
+  searchQuery?: string | null;
 };
 
-export function NoteList({ notes, isLoading, error, activeTag = null }: NoteListProps) {
+export function NoteList({
+  notes,
+  isLoading,
+  error,
+  activeTag = null,
+  searchQuery = null,
+}: NoteListProps) {
   if (isLoading) {
     return <p className="note-list__status">Cargando notas…</p>;
   }
@@ -20,6 +27,12 @@ export function NoteList({ notes, isLoading, error, activeTag = null }: NoteList
   }
 
   if (notes.length === 0) {
+    if (searchQuery) {
+      return (
+        <EmptyState message={`No se encontraron notas para «${searchQuery}».`} />
+      );
+    }
+
     if (activeTag) {
       return (
         <EmptyState message={`No hay notas con la etiqueta «${activeTag}».`} />

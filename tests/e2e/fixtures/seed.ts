@@ -23,6 +23,9 @@ export const E2E_DETAIL_LINK = "https://docs.example.com/mvp";
 export const E2E_DETAIL_TAGS = ["ideas", "trabajo"] as const;
 export const E2E_MISSING_NOTA_ID = "550e8400-e29b-41d4-a716-446655440000";
 
+export const E2E_SEARCH_CONTENT_MATCH_TITLE = "Lista semanal";
+export const E2E_SEARCH_TITLE_MATCH_TITLE = "Recetas";
+
 function runDbSetup(mode: "seed" | "clear"): void {
   const databaseUrl = process.env.DATABASE_URL ?? defaultDatabaseUrl;
 
@@ -45,6 +48,18 @@ export function seedThreeNotes(): void {
 
 export function seedFilterNotes(): void {
   runDbSetup("filter");
+}
+
+export function seedSearchNotes(): void {
+  runDbSetup("search");
+}
+
+export function seedSearchOrderNotes(): void {
+  runDbSetup("search-order");
+}
+
+export function seedBenchNotes(): void {
+  runDbSetup("bench");
 }
 
 export function clearAllNotes(): void {

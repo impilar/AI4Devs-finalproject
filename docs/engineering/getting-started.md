@@ -184,7 +184,9 @@ Tests en `tests/integration/` (API, repositorio, health).
 
 ### E2E (Playwright — US-001+)
 
-Requisitos: **PostgreSQL en marcha** (`docker compose up -d postgres` en `src/infra/`). Si usas Docker para el backend (`okc-backend`), deténlo para no bloquear el puerto 3000: `docker stop okc-backend`.
+Requisitos: **PostgreSQL en marcha** (`docker compose up -d postgres` en `src/infra/`).
+
+Los E2E usan **puertos dedicados** (backend `3100`, frontend `5174`) distintos del dev (`3000`, `5173`). Puedes tener el stack de desarrollo o Docker Compose corriendo a la vez; Playwright arranca su propio backend y frontend en los puertos E2E con código actualizado (`reuseExistingServer: false`).
 
 ```bash
 # Desde la raíz del repositorio
@@ -193,14 +195,27 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Playwright arranca backend y frontend en dev si no están ya corriendo (`reuseExistingServer` en local). Variables opcionales:
+Asignación de puertos (fuente: `tests/e2e/config/ports.ts`):
 
-| Variable | Default |
-|----------|---------|
+| Servicio | Dev manual / Docker | E2E Playwright |
+|----------|---------------------|----------------|
+| Backend | 3000 | 3100 |
+| Frontend | 5173 | 5174 |
+| PostgreSQL | 5432 | 5432 (compartido) |
+
+Variables opcionales:
+
+| Variable | Default E2E |
+|----------|-------------|
 | `DATABASE_URL` | `postgresql://okc:okc@localhost:5432/okc` |
-| `PLAYWRIGHT_BASE_URL` | `http://localhost:5173` |
+| `PLAYWRIGHT_BASE_URL` | `http://localhost:5174` |
+| `PLAYWRIGHT_API_URL` | `http://localhost:3100/api/v1` |
+| `E2E_BACKEND_PORT` | `3100` |
+| `E2E_FRONTEND_PORT` | `5174` |
 
-Spec US-001: `tests/e2e/us-001-listado.spec.ts`.
+Si un E2E anterior falló y dejó procesos en `3100`/`5174`, `npm run test:e2e` libera esos puertos automáticamente antes de ejecutar (no toca `3000`/`5173`).
+
+Specs: `tests/e2e/us-001-listado.spec.ts`, `us-012-busqueda.spec.ts`, etc.
 
 ---
 
@@ -223,7 +238,8 @@ Siguiente slice de desarrollo: `/opsx:propose us-001-listado-notas`.
 |-------|--------|----------|
 | `npm: command not found` | Node no instalado | `brew install node` |
 | `docker.sock: no such file` | Docker Desktop apagado | Abrir Docker Desktop |
-| Puerto 3000/5173/5432 en uso | Conflicto local | Cambiar puertos en `.env` y `docker-compose.yml` |
+| Puerto 3000/5173/5432 en uso | Conflicto dev local | Cambiar `PORT` / `VITE_DEV_PORT` en `.env` |
+| Puerto 3100/5174 en uso | E2E anterior colgado | `npm run test:e2e` libera esos puertos; o `lsof -ti:3100,5174 \| xargs kill` |
 | `prisma migrate` sin modelos | Normal en PHASE-000 | Esperar a TASK-019 |
 
 ---

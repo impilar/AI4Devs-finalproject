@@ -1,7 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
 import { clearAllNotes } from "./fixtures/seed";
-
-const API_URL = process.env.PLAYWRIGHT_API_URL ?? "http://localhost:3000/api/v1";
+import { API_URL } from "./helpers/api";
 
 async function addTagViaInput(page: Page, tagName: string): Promise<void> {
   const tagInput = page.locator("#note-tags-input");
