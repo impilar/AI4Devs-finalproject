@@ -1,0 +1,218 @@
+{
+  "version": "1.0",
+  "scope": "V2+",
+  "generated_at": "2026-07-06",
+  "last_updated": "2026-07-06",
+  "plan_doc": "02-docs/02_3-engineering/implementation-plan-v2.md",
+  "prerequisite_release": "V1",
+  "prerequisite_queue": "02-docs/02_3-engineering/implementation-queue-v1.json",
+  "sources": [
+    "02-docs/02_2-architecture/lld/LLD-v1.md",
+    "02-docs/02_2-architecture/hld/HLD-v1.md",
+    "02-docs/02_1-product/prd/PRD-v1.md",
+    "02-docs/02_1-product/roadmap/roadmap-v1.md",
+    "02-docs/02_1-product/user-stories/",
+    "02-docs/02_1-product/user-stories/status-v1.json"
+  ],
+  "agents": {
+    "database": "backend-engineer",
+    "backend": "backend-engineer",
+    "frontend": "frontend-engineer",
+    "infra": "devops-engineer",
+    "qa": "qa-engineer"
+  },
+  "phases": [
+    {
+      "id": "PHASE-001",
+      "order": 1,
+      "name": "Ordenación del listado (US-004)",
+      "stories": ["US-004"],
+      "task_ids": ["TASK-015", "TASK-013", "TASK-014", "TASK-016"],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_change": "openspec/changes/us-004-list-sort"
+    },
+    {
+      "id": "PHASE-002",
+      "order": 2,
+      "name": "Catálogo de etiquetas con conteo (US-011)",
+      "stories": ["US-011"],
+      "task_ids": ["TASK-043", "TASK-041", "TASK-042", "TASK-044"],
+      "status": "backlog",
+      "openspec_change": "openspec/changes/us-011-tag-catalog"
+    },
+    {
+      "id": "PHASE-003",
+      "order": 3,
+      "name": "Backlinks entre notas (US-017)",
+      "stories": ["US-017"],
+      "task_ids": ["TASK-067", "TASK-065", "TASK-066", "TASK-068"],
+      "status": "backlog",
+      "openspec_change": "openspec/changes/us-017-backlinks"
+    }
+  ],
+  "queue": [
+    {
+      "sequence": 1,
+      "id": "TASK-015",
+      "type": "task",
+      "story_id": "US-004",
+      "title": "[DB] Índice compuesto para ordenación por título",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 2,
+      "id": "TASK-013",
+      "type": "task",
+      "story_id": "US-004",
+      "title": "[BE] Parámetro sort en GET /notas (fecha, título)",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": ["TASK-015"],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 3,
+      "id": "TASK-014",
+      "type": "task",
+      "story_id": "US-004",
+      "title": "[FE] Selector de ordenación en barra del listado",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": ["TASK-013"],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 4,
+      "id": "TASK-016",
+      "type": "task",
+      "story_id": "US-004",
+      "title": "[QA] Tests de ordenación y persistencia en sesión",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": ["TASK-014"],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 5,
+      "id": "TASK-043",
+      "type": "task",
+      "story_id": "US-011",
+      "title": "[DB] Query agregada COUNT por etiqueta optimizada",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": ["TASK-016"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 6,
+      "id": "TASK-041",
+      "type": "task",
+      "story_id": "US-011",
+      "title": "[BE] GET /etiquetas con conteo de notas asociadas",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": ["TASK-043"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 7,
+      "id": "TASK-042",
+      "type": "task",
+      "story_id": "US-011",
+      "title": "[FE] Panel TagCatalog con nombre y conteo",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": ["TASK-041"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 8,
+      "id": "TASK-044",
+      "type": "task",
+      "story_id": "US-011",
+      "title": "[QA] Tests conteos correctos y navegación a filtro",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": ["TASK-042"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 9,
+      "id": "TASK-067",
+      "type": "task",
+      "story_id": "US-017",
+      "title": "[DB] Tabla nota_backlink (origen_id, destino_id)",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": ["TASK-044"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 10,
+      "id": "TASK-065",
+      "type": "task",
+      "story_id": "US-017",
+      "title": "[BE] API backlinks: crear referencia y listar entrantes",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": ["TASK-067"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 11,
+      "id": "TASK-066",
+      "type": "task",
+      "story_id": "US-017",
+      "title": "[FE] UI de enlace a nota y panel de backlinks entrantes",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": ["TASK-065"],
+      "status": "backlog"
+    },
+    {
+      "sequence": 12,
+      "id": "TASK-068",
+      "type": "task",
+      "story_id": "US-017",
+      "title": "[QA] Tests creación enlace y visualización backlinks",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": ["TASK-066"],
+      "status": "backlog"
+    }
+  ],
+  "stories_summary": [
+    {
+      "id": "US-004",
+      "release": "V2+",
+      "phase_id": "PHASE-001",
+      "depends_on_stories": ["US-001"],
+      "prerequisite_status": "done",
+      "task_ids": ["TASK-013", "TASK-014", "TASK-015", "TASK-016"]
+    },
+    {
+      "id": "US-011",
+      "release": "V2+",
+      "phase_id": "PHASE-002",
+      "depends_on_stories": ["US-008", "US-009"],
+      "prerequisite_status": "done",
+      "task_ids": ["TASK-041", "TASK-042", "TASK-043", "TASK-044"]
+    },
+    {
+      "id": "US-017",
+      "release": "V2+",
+      "phase_id": "PHASE-003",
+      "depends_on_stories": ["US-002", "US-015"],
+      "prerequisite_status": "done",
+      "task_ids": ["TASK-065", "TASK-066", "TASK-067", "TASK-068"]
+    }
+  ]
+}

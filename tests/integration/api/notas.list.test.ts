@@ -81,4 +81,48 @@ describe.skipIf(!hasDatabase)("GET /api/v1/notas", () => {
     expect(response.status).toBe(400);
     expect(response.body.error.code).toBe("VALIDATION_ERROR");
   });
+
+  it("returns notes ordered by title ascending", async () => {
+    await prisma.nota.createMany({
+      data: [
+        { title: "Zebra", content: "z" },
+        { title: "Alpha", content: "a" },
+        { title: "Beta", content: "b" },
+      ],
+    });
+
+    const response = await request(app).get("/api/v1/notas?sort=title&order=asc");
+
+    expect(response.status).toBe(200);
+    expect(response.body.data.map((note: { title: string }) => note.title)).toEqual([
+      "Alpha",
+      "Beta",
+      "Zebra",
+    ]);
+  });
+
+  it("returns notes ordered by createdAt ascending when requested", async () => {
+    const oldest = await prisma.nota.create({
+      data: {
+        title: "Oldest",
+        content: "First",
+        createdAt: new Date("2026-01-01T10:00:00.000Z"),
+        updatedAt: new Date("2026-01-01T10:00:00.000Z"),
+      },
+    });
+    const newest = await prisma.nota.create({
+      data: {
+        title: "Newest",
+        content: "Third",
+        createdAt: new Date("2026-01-03T10:00:00.000Z"),
+        updatedAt: new Date("2026-01-03T10:00:00.000Z"),
+      },
+    });
+
+    const response = await request(app).get("/api/v1/notas?sort=created_at&order=asc");
+
+    expect(response.status).toBe(200);
+    expect(response.body.data[0].id).toBe(oldest.id);
+    expect(response.body.data[1].id).toBe(newest.id);
+  });
 });

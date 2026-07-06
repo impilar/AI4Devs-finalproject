@@ -403,6 +403,30 @@ body {
   font-size: 0.875rem;
 }
 
+.home-page__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.note-sort-select {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font: inherit;
+  background: var(--color-card);
+  color: var(--color-ink);
+}
+
+.note-sort-select:focus {
+  outline: none;
+  border-color: rgb(79 124 255 / 45%);
+  box-shadow: 0 0 0 3px rgb(79 124 255 / 10%);
+}
+
 /* ——— Search ——— */
 
 .search-bar {

@@ -192,6 +192,38 @@ const E2E_SEARCH_ORDER_NOTAS = [
   },
 ] as const;
 
+const E2E_SORT_NOTAS = [
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa41",
+    title: "Zebra",
+    content: "Nota Zebra E2E",
+    createdAt: new Date("2026-01-01T10:00:00.000Z"),
+    updatedAt: new Date("2026-01-01T10:00:00.000Z"),
+  },
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa42",
+    title: "Alpha",
+    content: "Nota Alpha E2E",
+    createdAt: new Date("2026-01-02T10:00:00.000Z"),
+    updatedAt: new Date("2026-01-02T10:00:00.000Z"),
+  },
+  {
+    id: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa43",
+    title: "Beta",
+    content: "Nota Beta E2E",
+    createdAt: new Date("2026-01-03T10:00:00.000Z"),
+    updatedAt: new Date("2026-01-03T10:00:00.000Z"),
+  },
+] as const;
+
+async function seedSortDatabase(): Promise<void> {
+  await clearDatabase();
+
+  for (const nota of E2E_SORT_NOTAS) {
+    await prisma.nota.create({ data: nota });
+  }
+}
+
 async function seedSearchDatabase(): Promise<void> {
   await clearDatabase();
 
@@ -302,6 +334,11 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (mode === "sort") {
+    await seedSortDatabase();
+    return;
+  }
+
   if (mode === "search") {
     await seedSearchDatabase();
     return;
@@ -323,7 +360,7 @@ async function main(): Promise<void> {
   }
 
   throw new Error(
-    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "bench", "remove-tag", or "clear".`,
+    `Unknown mode: ${mode}. Use "seed", "filter", "search", "search-order", "sort", "bench", "remove-tag", or "clear".`,
   );
 }
 

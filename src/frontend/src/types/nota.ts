@@ -51,6 +51,9 @@ export type UpdateNotaResponse = NotaDetailResponse;
 
 export type SearchOrder = "relevance" | "date";
 
+export type NoteListSort = "created_at" | "title";
+export type NoteListOrder = "asc" | "desc";
+
 export type SearchResponse = {
   data: NotaResumen[];
   meta: { q: string; total: number };

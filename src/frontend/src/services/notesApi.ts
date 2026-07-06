@@ -12,10 +12,24 @@ import type {
   UpdateNotaResponse,
 } from "../types/nota";
 
-export async function listNotas(options?: { etiqueta?: string }): Promise<NotaResumen[]> {
-  const query = options?.etiqueta
-    ? `?etiqueta=${encodeURIComponent(options.etiqueta)}`
-    : "";
+import type { NoteListOrder, NoteListSort } from "../types/nota";
+
+export async function listNotas(options?: {
+  etiqueta?: string;
+  sort?: NoteListSort;
+  order?: NoteListOrder;
+}): Promise<NotaResumen[]> {
+  const params = new URLSearchParams();
+  if (options?.etiqueta) {
+    params.set("etiqueta", options.etiqueta);
+  }
+  if (options?.sort) {
+    params.set("sort", options.sort);
+  }
+  if (options?.order) {
+    params.set("order", options.order);
+  }
+  const query = params.toString() ? `?${params.toString()}` : "";
   const response = await apiGet<ListNotasResponse>(`/notas${query}`);
   return response.data;
 }

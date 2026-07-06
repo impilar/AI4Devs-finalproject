@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { listEtiquetas, listNotas } from "../services/notesApi";
-import type { NotaResumen } from "../types/nota";
+import type { NoteListOrder, NoteListSort, NotaResumen } from "../types/nota";
 
 type UseNotesOptions = {
   etiqueta?: string | null;
+  sort?: NoteListSort;
+  order?: NoteListOrder;
 };
 
 type UseNotesResult = {
@@ -13,7 +15,11 @@ type UseNotesResult = {
   error: string | null;
 };
 
-export function useNotes({ etiqueta = null }: UseNotesOptions = {}): UseNotesResult {
+export function useNotes({
+  etiqueta = null,
+  sort = "created_at",
+  order = "desc",
+}: UseNotesOptions = {}): UseNotesResult {
   const [notes, setNotes] = useState<NotaResumen[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +34,11 @@ export function useNotes({ etiqueta = null }: UseNotesOptions = {}): UseNotesRes
 
       try {
         const [notesData, tagsData] = await Promise.all([
-          listNotas(etiqueta ? { etiqueta } : undefined),
+          listNotas({
+            etiqueta: etiqueta ?? undefined,
+            sort,
+            order,
+          }),
           listEtiquetas(),
         ]);
 
@@ -53,7 +63,7 @@ export function useNotes({ etiqueta = null }: UseNotesOptions = {}): UseNotesRes
     return () => {
       cancelled = true;
     };
-  }, [etiqueta]);
+  }, [etiqueta, sort, order]);
 
   return { notes, tags, isLoading, error };
 }

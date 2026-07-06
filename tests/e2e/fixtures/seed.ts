@@ -83,6 +83,13 @@ export function seedSearchOrderNotes(): void {
   runDbSetup("search-order");
 }
 
+export const E2E_SORT_TITLES = ["Alpha", "Beta", "Zebra"] as const;
+export const E2E_SORT_NOTA_BETA_ID = "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa43";
+
+export function seedSortNotes(): void {
+  runDbSetup("sort");
+}
+
 export function seedBenchNotes(): void {
   runDbSetup("bench");
 }
