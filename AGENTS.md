@@ -37,6 +37,7 @@ Entry point for coding agents (Cursor and compatible tools). Adapted from [LIDR 
 | QA | `.cursor/agents/qa-engineer.md` |
 | DevOps / infra | `.cursor/agents/devops-engineer.md` |
 | Implementation planning | `.cursor/agents/implementation-planner.md` |
+| Release close + PR | `.cursor/agents/release-manager.md` |
 
 ## Skills (workflows)
 
@@ -45,6 +46,7 @@ Entry point for coding agents (Cursor and compatible tools). Adapted from [LIDR 
 | `openspec-apply-change/SKILL.md` | Implement next task; sync queue + status JSON |
 | `openspec-verify-change/SKILL.md` | **Required before archive** — validate vs specs + tests |
 | `openspec-archive-change/SKILL.md` | Merge specs and archive change (after verify PASS) |
+| `close-release/SKILL.md` | **End of release** — verify queue, status, OpenSpec, tests, git; open PR |
 | `enrich-user-story.md` | Enrich user story before planning (already done for MVP) |
 | `create-implementation-plan.md` | Regenerate implementation queue |
 
@@ -60,6 +62,7 @@ Requires `openspec init` + `openspec update` once (see `docs/engineering/openspe
 | `/opsx:apply` | Implement tasks in active change |
 | `/opsx:verify <name>` | **Required before archive** — validate implementation vs specs + tests |
 | `/opsx:archive <name>` | Merge specs and archive change (only after verify PASS) |
+| `/release:close [MVP\|V1\|V2+]` | Verify release readiness and prepare PR (see `release-manager`) |
 
 Expanded profile (optional): `/opsx:ff`, `/opsx:continue` — run `openspec config profile` then `openspec update`.
 
@@ -69,7 +72,8 @@ Expanded profile (optional): `/opsx:ff`, `/opsx:continue` — run `openspec conf
 
 ## Workflows
 
-`.cursor/workflows/implementation.md` — full implementation phase.
+`.cursor/workflows/implementation.md` — full implementation phase.  
+`.cursor/workflows/release.md` — release notes and close (`/release:close`).
 
 ## Language
 

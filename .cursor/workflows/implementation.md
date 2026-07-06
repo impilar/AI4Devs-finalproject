@@ -55,6 +55,16 @@ Seguir `implementation-queue-v1.json` (`sequence` 1 → 40). Un OpenSpec change 
 | `enrich-user-story.md` | Enriquecer historias |
 | `code-review.md` | Revisión |
 
+## Cierre de release
+
+Cuando todas las fases del release están `done` y archivadas en OpenSpec:
+
+| Skill / comando | Uso |
+|-----------------|-----|
+| `close-release/SKILL.md` | Verificación integral + PR |
+| `/release:close MVP` | Invocación en chat |
+| `release-manager.md` | Agente responsable |
+
 ## Referencias
 
 | Artefacto | Ruta |

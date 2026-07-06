@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "source": "docs/product/roadmap/exports/roadmap-jira-import-v1.csv",
-  "last_updated": "2026-07-04",
+  "last_updated": "2026-07-06",
   "status_values": [
     "backlog",
     "in_progress",
@@ -12,27 +12,27 @@
     "EPIC-001": {
       "title": "Acceder y navegar",
       "release": "MVP",
-      "status": "backlog"
+      "status": "in_progress"
     },
     "EPIC-002": {
       "title": "Capturar contenido",
       "release": "MVP",
-      "status": "backlog"
+      "status": "in_progress"
     },
     "EPIC-003": {
       "title": "Organizar con etiquetas",
       "release": "MVP",
-      "status": "backlog"
+      "status": "in_progress"
     },
     "EPIC-004": {
       "title": "Recuperar información",
       "release": "MVP",
-      "status": "backlog"
+      "status": "in_progress"
     },
     "EPIC-005": {
       "title": "Mantener el conocimiento",
       "release": "MVP",
-      "status": "backlog"
+      "status": "in_progress"
     }
   },
   "stories": {

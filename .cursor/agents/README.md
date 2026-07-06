@@ -29,6 +29,7 @@ Roles especializados del proyecto. **Convención:** todos los agentes usan exten
 | [frontend-engineer.md](frontend-engineer.md) | `src/frontend/` |
 | [qa-engineer.md](qa-engineer.md) | `tests/` |
 | [devops-engineer.md](devops-engineer.md) | `src/infra/` |
+| [release-manager.md](release-manager.md) | `close-release/SKILL.md` → cierre release + PR |
 | [security-architect.md](security-architect.md) | Revisión de seguridad |
 | [technical-writer.md](technical-writer.md) | Documentación |
 
