@@ -23,4 +23,6 @@ Artefactos versionados de producto e ingeniería. Contexto estático en [`knowle
 
 ## Guías del repositorio
 
-Ver [getting-started.md](getting-started.md) y [ai-workflow.md](ai-workflow.md).
+- [Getting started — infra y desarrollo](engineering/getting-started.md)
+- [Getting started — índice](getting-started.md)
+- [ai-workflow.md](ai-workflow.md)

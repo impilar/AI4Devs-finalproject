@@ -14,4 +14,9 @@
 2. [Modelo de datos](prompts/architecture/02-data-model.md)
 3. [LLD](prompts/architecture/03-lld.md)
 
-Secciones pendientes (development, testing, documentation): se documentarán al avanzar la implementación.
+### Development
+
+1. [Plan de implementación](prompts/development/01-implementation-plan.md)
+2. [OpenSpec slice MVP](prompts/development/02-openspec-slice.md)
+
+Secciones pendientes (testing, documentation): se documentarán al avanzar la implementación.

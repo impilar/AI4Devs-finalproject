@@ -7,7 +7,7 @@
 | Discovery | `.cursor/workflows/discovery.md` |
 | Product Planning | `.cursor/workflows/product-planning.md` |
 | Architecture | `.cursor/workflows/architecture.md` |
-| Implementation | `.cursor/workflows/implementation.md` |
+| Implementation | `.cursor/workflows/implementation.md` (OpenSpec + cola) |
 | Testing | `.cursor/workflows/testing.md` |
 | Release | `.cursor/workflows/release.md` |
 | Maintenance | `.cursor/workflows/maintenance.md` |
@@ -23,6 +23,7 @@
 | `data-model-architect.md` | Modelo de datos |
 | `lld-architect.md` | LLD (diseño de bajo nivel) |
 | `roadmap-planner.md` | Roadmap |
+| `implementation-planner.md` | Plan de implementación priorizado |
 | `backend-engineer.md` | Backend *(stub)* |
 | `frontend-engineer.md` | Frontend *(stub)* |
 | `qa-engineer.md` | QA *(stub)* |
@@ -37,6 +38,15 @@ Instrucciones de generación en `.cursor/skills/` — ver índice en `.cursor/sk
 ## Reglas
 
 `.cursor/rules/01-project-standards.mdc` … `08-definition-of-done.mdc`
+
+## OpenSpec + estándares
+
+| Recurso | Ruta |
+|---------|------|
+| Config | `openspec/config.yaml` |
+| Setup CLI | `docs/engineering/openspec-setup.md` |
+| Estándares código | `docs/engineering/standards/` |
+| Entrada agentes | `AGENTS.md` |
 
 ## Prompts
 

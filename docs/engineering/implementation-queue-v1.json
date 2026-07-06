@@ -1,0 +1,882 @@
+{
+  "version": "1.0",
+  "scope": "MVP",
+  "generated_at": "2026-07-04",
+  "last_updated": "2026-07-06",
+  "plan_doc": "docs/engineering/implementation-plan-v1.md",
+  "sources": [
+    "docs/architecture/lld/LLD-v1.md",
+    "docs/architecture/hld/HLD-v1.md",
+    "docs/product/prd/PRD-v1.md",
+    "docs/product/user-stories/",
+    "docs/product/user-stories/status-v1.json"
+  ],
+  "agents": {
+    "database": "backend-engineer",
+    "backend": "backend-engineer",
+    "frontend": "frontend-engineer",
+    "infra": "devops-engineer",
+    "qa": "qa-engineer"
+  },
+  "phases": [
+    {
+      "id": "PHASE-000",
+      "order": 0,
+      "name": "Bootstrap infraestructura",
+      "stories": [],
+      "task_ids": [],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-phase-000-bootstrap",
+      "notes": "docker-compose, .env, GET /api/v1/health — verificado con Docker Compose"
+    },
+    {
+      "id": "PHASE-001",
+      "order": 1,
+      "name": "Esquema base y listado (US-001)",
+      "stories": [
+        "US-001"
+      ],
+      "task_ids": [
+        "TASK-019",
+        "TASK-003",
+        "TASK-001",
+        "TASK-002",
+        "TASK-004"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-001-listado-notas"
+    },
+    {
+      "id": "PHASE-002",
+      "order": 2,
+      "name": "Detalle de nota (US-002)",
+      "stories": [
+        "US-002"
+      ],
+      "task_ids": [
+        "TASK-031",
+        "TASK-023",
+        "TASK-005",
+        "TASK-007",
+        "TASK-006",
+        "TASK-008"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-002-detalle-nota"
+    },
+    {
+      "id": "PHASE-003",
+      "order": 3,
+      "name": "Crear nota y enlaces (US-005, US-006)",
+      "stories": [
+        "US-005",
+        "US-006"
+      ],
+      "task_ids": [
+        "TASK-017",
+        "TASK-018",
+        "TASK-021",
+        "TASK-022",
+        "TASK-020",
+        "TASK-024"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-005-crear-nota"
+    },
+    {
+      "id": "PHASE-004",
+      "order": 4,
+      "name": "Etiquetas (US-008)",
+      "stories": [
+        "US-008"
+      ],
+      "task_ids": [
+        "TASK-029",
+        "TASK-030",
+        "TASK-032"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04",
+      "openspec_archive": "openspec/changes/archive/2026-07-04-us-008-etiquetas"
+    },
+    {
+      "id": "PHASE-005",
+      "order": 5,
+      "name": "Filtro por etiqueta (US-009)",
+      "stories": [
+        "US-009"
+      ],
+      "task_ids": [
+        "TASK-035",
+        "TASK-033",
+        "TASK-034",
+        "TASK-036"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_archive": "openspec/changes/archive/2026-07-06-us-009-filtro-etiqueta"
+    },
+    {
+      "id": "PHASE-006",
+      "order": 6,
+      "name": "Búsqueda y ordenación (US-012, US-013)",
+      "stories": [
+        "US-012",
+        "US-013"
+      ],
+      "task_ids": [
+        "TASK-047",
+        "TASK-051",
+        "TASK-045",
+        "TASK-049",
+        "TASK-046",
+        "TASK-050",
+        "TASK-048",
+        "TASK-052"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_archive": "openspec/changes/archive/2026-07-06-us-012-busqueda-ordenacion"
+    },
+    {
+      "id": "PHASE-007",
+      "order": 7,
+      "name": "Editar y eliminar (US-015, US-016)",
+      "stories": [
+        "US-015",
+        "US-016"
+      ],
+      "task_ids": [
+        "TASK-059",
+        "TASK-063",
+        "TASK-057",
+        "TASK-058",
+        "TASK-060",
+        "TASK-061",
+        "TASK-062",
+        "TASK-064"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06",
+      "openspec_archive": "openspec/changes/archive/2026-07-06-us-015-016-editar-eliminar"
+    }
+  ],
+  "queue": [
+    {
+      "sequence": 1,
+      "id": "TASK-019",
+      "type": "task",
+      "story_id": "US-005",
+      "title": "[DB] Tabla notas con campos id, title, content, timestamps",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 2,
+      "id": "TASK-003",
+      "type": "task",
+      "story_id": "US-001",
+      "title": "[DB] Índice en created_at para ordenación del listado",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 3,
+      "id": "TASK-001",
+      "type": "task",
+      "story_id": "US-001",
+      "title": "[BE] Endpoint GET /notas con paginación básica",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019",
+        "TASK-003"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 4,
+      "id": "TASK-002",
+      "type": "task",
+      "story_id": "US-001",
+      "title": "[FE] Componente NoteList con título y fecha",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-001"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 5,
+      "id": "TASK-004",
+      "type": "task",
+      "story_id": "US-001",
+      "title": "[QA] Tests E2E del listado con datos de prueba",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-002"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 6,
+      "id": "TASK-031",
+      "type": "task",
+      "story_id": "US-008",
+      "title": "[DB] Tablas etiquetas y nota_etiqueta con UNIQUE en nombre",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done"
+    },
+    {
+      "sequence": 7,
+      "id": "TASK-023",
+      "type": "task",
+      "story_id": "US-006",
+      "title": "[DB] Tabla enlaces (nota_id, url) con FK a notas",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done"
+    },
+    {
+      "sequence": 8,
+      "id": "TASK-005",
+      "type": "task",
+      "story_id": "US-002",
+      "title": "[BE] Endpoint GET /notas/:id con enlaces y etiquetas",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019",
+        "TASK-023",
+        "TASK-031"
+      ],
+      "status": "done"
+    },
+    {
+      "sequence": 9,
+      "id": "TASK-007",
+      "type": "task",
+      "story_id": "US-002",
+      "title": "[DB] Consulta JOIN notas-etiquetas-enlaces para detalle",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-005",
+        "TASK-023",
+        "TASK-031"
+      ],
+      "status": "done"
+    },
+    {
+      "sequence": 10,
+      "id": "TASK-006",
+      "type": "task",
+      "story_id": "US-002",
+      "title": "[FE] Vista NoteDetail y navegación desde listado",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-005"
+      ],
+      "status": "done"
+    },
+    {
+      "sequence": 11,
+      "id": "TASK-008",
+      "type": "task",
+      "story_id": "US-002",
+      "title": "[QA] Tests navegación listado-detalle y nota inexistente",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-006"
+      ],
+      "status": "done"
+    },
+    {
+      "sequence": 12,
+      "id": "TASK-017",
+      "type": "task",
+      "story_id": "US-005",
+      "title": "[BE] Endpoint POST /notas con validación título y contenido",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 13,
+      "id": "TASK-018",
+      "type": "task",
+      "story_id": "US-005",
+      "title": "[FE] Formulario NoteForm y botón Nueva nota en pantalla principal",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-017"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 14,
+      "id": "TASK-021",
+      "type": "task",
+      "story_id": "US-006",
+      "title": "[BE] Validación de URLs y persistencia de enlaces",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-023",
+        "TASK-017"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 15,
+      "id": "TASK-022",
+      "type": "task",
+      "story_id": "US-006",
+      "title": "[FE] Campo dinámico de enlaces en NoteForm",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-021",
+        "TASK-018"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 16,
+      "id": "TASK-020",
+      "type": "task",
+      "story_id": "US-005",
+      "title": "[QA] Tests creación, validación y métrica 2 interacciones",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-018"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 17,
+      "id": "TASK-024",
+      "type": "task",
+      "story_id": "US-006",
+      "title": "[QA] Tests URLs válidas, inválidas y múltiples enlaces",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-022",
+        "TASK-020"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 18,
+      "id": "TASK-029",
+      "type": "task",
+      "story_id": "US-008",
+      "title": "[BE] API etiquetas: creación automática y asociación M:N",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-031",
+        "TASK-017"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 19,
+      "id": "TASK-030",
+      "type": "task",
+      "story_id": "US-008",
+      "title": "[FE] Componente TagInput con chips en formulario",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-029"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 20,
+      "id": "TASK-032",
+      "type": "task",
+      "story_id": "US-008",
+      "title": "[QA] Tests asignación, creación automática y unicidad",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-030"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-04"
+    },
+    {
+      "sequence": 21,
+      "id": "TASK-035",
+      "type": "task",
+      "story_id": "US-009",
+      "title": "[DB] Índice en nota_etiqueta para filtrado eficiente",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-031"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 22,
+      "id": "TASK-033",
+      "type": "task",
+      "story_id": "US-009",
+      "title": "[BE] GET /notas?etiqueta=nombre con filtrado",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-035",
+        "TASK-029"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 23,
+      "id": "TASK-034",
+      "type": "task",
+      "story_id": "US-009",
+      "title": "[FE] Panel de filtro por etiqueta en navegación",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-033"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 24,
+      "id": "TASK-036",
+      "type": "task",
+      "story_id": "US-009",
+      "title": "[QA] Tests filtro activo, sin resultados y limpieza de filtro",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-034"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 25,
+      "id": "TASK-047",
+      "type": "task",
+      "story_id": "US-012",
+      "title": "[DB] Índices en title y content para búsqueda",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 26,
+      "id": "TASK-051",
+      "type": "task",
+      "story_id": "US-013",
+      "title": "[DB] Índice en updated_at para ordenación por fecha",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 27,
+      "id": "TASK-045",
+      "type": "task",
+      "story_id": "US-012",
+      "title": "[BE] Endpoint GET /buscar?q= con búsqueda en título y contenido",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-047"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 28,
+      "id": "TASK-049",
+      "type": "task",
+      "story_id": "US-013",
+      "title": "[BE] Parámetro order=relevance|date en GET /buscar",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-045"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 29,
+      "id": "TASK-046",
+      "type": "task",
+      "story_id": "US-012",
+      "title": "[FE] Barra de búsqueda con resultados en tiempo real",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-045"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 30,
+      "id": "TASK-050",
+      "type": "task",
+      "story_id": "US-013",
+      "title": "[FE] Selector relevancia/fecha en vista de resultados",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-049",
+        "TASK-046"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 31,
+      "id": "TASK-048",
+      "type": "task",
+      "story_id": "US-012",
+      "title": "[QA] Tests relevancia, cobertura y benchmark 300 ms",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-046"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 32,
+      "id": "TASK-052",
+      "type": "task",
+      "story_id": "US-013",
+      "title": "[QA] Tests orden relevancia y fecha en búsqueda",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-050"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 33,
+      "id": "TASK-059",
+      "type": "task",
+      "story_id": "US-015",
+      "title": "[DB] Trigger o lógica de updated_at en UPDATE",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-019"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 34,
+      "id": "TASK-063",
+      "type": "task",
+      "story_id": "US-016",
+      "title": "[DB] ON DELETE CASCADE en enlaces y nota_etiqueta",
+      "layer": "database",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-023",
+        "TASK-031"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 35,
+      "id": "TASK-057",
+      "type": "task",
+      "story_id": "US-015",
+      "title": "[BE] Endpoint PUT /notas/:id con actualización de updated_at",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-017",
+        "TASK-021",
+        "TASK-029",
+        "TASK-059"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 36,
+      "id": "TASK-058",
+      "type": "task",
+      "story_id": "US-015",
+      "title": "[FE] Modo edición en NoteDetail reutilizando NoteForm",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-057"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 37,
+      "id": "TASK-060",
+      "type": "task",
+      "story_id": "US-015",
+      "title": "[QA] Tests edición campos, timestamp y tiempo respuesta",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-058"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 38,
+      "id": "TASK-061",
+      "type": "task",
+      "story_id": "US-016",
+      "title": "[BE] Endpoint DELETE /notas/:id irreversible",
+      "layer": "backend",
+      "agent": "backend-engineer",
+      "depends_on": [
+        "TASK-057",
+        "TASK-063"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 39,
+      "id": "TASK-062",
+      "type": "task",
+      "story_id": "US-016",
+      "title": "[FE] Botón eliminar con modal de confirmación",
+      "layer": "frontend",
+      "agent": "frontend-engineer",
+      "depends_on": [
+        "TASK-061"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    },
+    {
+      "sequence": 40,
+      "id": "TASK-064",
+      "type": "task",
+      "story_id": "US-016",
+      "title": "[QA] Tests eliminación, confirmación y cancelación",
+      "layer": "qa",
+      "agent": "qa-engineer",
+      "depends_on": [
+        "TASK-062"
+      ],
+      "status": "done",
+      "completed_at": "2026-07-06"
+    }
+  ],
+  "stories_summary": [
+    {
+      "id": "US-001",
+      "release": "MVP",
+      "phase_id": "PHASE-001",
+      "depends_on_stories": [],
+      "task_ids": [
+        "TASK-003",
+        "TASK-001",
+        "TASK-002",
+        "TASK-004"
+      ]
+    },
+    {
+      "id": "US-002",
+      "release": "MVP",
+      "phase_id": "PHASE-002",
+      "depends_on_stories": [
+        "US-001"
+      ],
+      "task_ids": [
+        "TASK-005",
+        "TASK-007",
+        "TASK-006",
+        "TASK-008"
+      ]
+    },
+    {
+      "id": "US-005",
+      "release": "MVP",
+      "phase_id": "PHASE-003",
+      "depends_on_stories": [
+        "US-001"
+      ],
+      "task_ids": [
+        "TASK-019",
+        "TASK-017",
+        "TASK-018",
+        "TASK-020"
+      ]
+    },
+    {
+      "id": "US-006",
+      "release": "MVP",
+      "phase_id": "PHASE-003",
+      "depends_on_stories": [
+        "US-005"
+      ],
+      "task_ids": [
+        "TASK-023",
+        "TASK-021",
+        "TASK-022",
+        "TASK-024"
+      ]
+    },
+    {
+      "id": "US-008",
+      "release": "MVP",
+      "phase_id": "PHASE-004",
+      "depends_on_stories": [
+        "US-005",
+        "US-006"
+      ],
+      "task_ids": [
+        "TASK-031",
+        "TASK-029",
+        "TASK-030",
+        "TASK-032"
+      ]
+    },
+    {
+      "id": "US-009",
+      "release": "MVP",
+      "phase_id": "PHASE-005",
+      "depends_on_stories": [
+        "US-008"
+      ],
+      "task_ids": [
+        "TASK-035",
+        "TASK-033",
+        "TASK-034",
+        "TASK-036"
+      ]
+    },
+    {
+      "id": "US-012",
+      "release": "MVP",
+      "phase_id": "PHASE-006",
+      "depends_on_stories": [
+        "US-001"
+      ],
+      "task_ids": [
+        "TASK-047",
+        "TASK-045",
+        "TASK-046",
+        "TASK-048"
+      ]
+    },
+    {
+      "id": "US-013",
+      "release": "MVP",
+      "phase_id": "PHASE-006",
+      "depends_on_stories": [
+        "US-012"
+      ],
+      "task_ids": [
+        "TASK-051",
+        "TASK-049",
+        "TASK-050",
+        "TASK-052"
+      ]
+    },
+    {
+      "id": "US-015",
+      "release": "MVP",
+      "phase_id": "PHASE-007",
+      "depends_on_stories": [
+        "US-002",
+        "US-005",
+        "US-006",
+        "US-008"
+      ],
+      "task_ids": [
+        "TASK-059",
+        "TASK-057",
+        "TASK-058",
+        "TASK-060"
+      ]
+    },
+    {
+      "id": "US-016",
+      "release": "MVP",
+      "phase_id": "PHASE-007",
+      "depends_on_stories": [
+        "US-002"
+      ],
+      "task_ids": [
+        "TASK-063",
+        "TASK-061",
+        "TASK-062",
+        "TASK-064"
+      ]
+    }
+  ]
+}

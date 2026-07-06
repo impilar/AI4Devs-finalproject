@@ -40,26 +40,26 @@
       "title": "Ver listado de todas mis notas",
       "epic": "EPIC-001",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "enriched": true,
       "enriched_at": "2026-07-04",
       "tasks": {
-        "TASK-001": "backlog",
-        "TASK-002": "backlog",
-        "TASK-003": "backlog",
-        "TASK-004": "backlog"
+        "TASK-001": "done",
+        "TASK-002": "done",
+        "TASK-003": "done",
+        "TASK-004": "done"
       }
     },
     "US-002": {
       "title": "Abrir detalle de una nota desde el listado",
       "epic": "EPIC-001",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-005": "backlog",
-        "TASK-006": "backlog",
-        "TASK-007": "backlog",
-        "TASK-008": "backlog"
+        "TASK-005": "done",
+        "TASK-006": "done",
+        "TASK-007": "done",
+        "TASK-008": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -92,12 +92,12 @@
       "title": "Crear nota con título y contenido",
       "epic": "EPIC-002",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-017": "backlog",
-        "TASK-018": "backlog",
-        "TASK-019": "backlog",
-        "TASK-020": "backlog"
+        "TASK-017": "done",
+        "TASK-018": "done",
+        "TASK-019": "done",
+        "TASK-020": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -106,12 +106,12 @@
       "title": "Añadir enlaces URL a una nota",
       "epic": "EPIC-002",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-021": "backlog",
-        "TASK-022": "backlog",
-        "TASK-023": "backlog",
-        "TASK-024": "backlog"
+        "TASK-021": "done",
+        "TASK-022": "done",
+        "TASK-023": "done",
+        "TASK-024": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -132,12 +132,12 @@
       "title": "Asignar etiquetas a una nota",
       "epic": "EPIC-003",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-029": "backlog",
-        "TASK-030": "backlog",
-        "TASK-031": "backlog",
-        "TASK-032": "backlog"
+        "TASK-029": "done",
+        "TASK-030": "done",
+        "TASK-031": "done",
+        "TASK-032": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -146,12 +146,12 @@
       "title": "Filtrar notas por etiqueta",
       "epic": "EPIC-003",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-033": "backlog",
-        "TASK-034": "backlog",
-        "TASK-035": "backlog",
-        "TASK-036": "backlog"
+        "TASK-033": "done",
+        "TASK-034": "done",
+        "TASK-035": "done",
+        "TASK-036": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -184,12 +184,12 @@
       "title": "Buscar notas por término de texto",
       "epic": "EPIC-004",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-045": "backlog",
-        "TASK-046": "backlog",
-        "TASK-047": "backlog",
-        "TASK-048": "backlog"
+        "TASK-045": "done",
+        "TASK-046": "done",
+        "TASK-047": "done",
+        "TASK-048": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -198,12 +198,12 @@
       "title": "Ordenar resultados de búsqueda",
       "epic": "EPIC-004",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-049": "backlog",
-        "TASK-050": "backlog",
-        "TASK-051": "backlog",
-        "TASK-052": "backlog"
+        "TASK-049": "done",
+        "TASK-050": "done",
+        "TASK-051": "done",
+        "TASK-052": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -224,12 +224,12 @@
       "title": "Editar nota existente",
       "epic": "EPIC-005",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-057": "backlog",
-        "TASK-058": "backlog",
-        "TASK-059": "backlog",
-        "TASK-060": "backlog"
+        "TASK-057": "done",
+        "TASK-058": "done",
+        "TASK-059": "done",
+        "TASK-060": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"
@@ -238,12 +238,12 @@
       "title": "Eliminar nota permanentemente",
       "epic": "EPIC-005",
       "release": "MVP",
-      "status": "backlog",
+      "status": "done",
       "tasks": {
-        "TASK-061": "backlog",
-        "TASK-062": "backlog",
-        "TASK-063": "backlog",
-        "TASK-064": "backlog"
+        "TASK-061": "done",
+        "TASK-062": "done",
+        "TASK-063": "done",
+        "TASK-064": "done"
       },
       "enriched": true,
       "enriched_at": "2026-07-04"

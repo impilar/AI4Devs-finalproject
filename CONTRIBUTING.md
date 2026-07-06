@@ -29,5 +29,6 @@ Mensajes descriptivos por capa:
 
 ## Guías del repositorio
 
-- [Getting started](docs/getting-started.md)
+- [Getting started (infra y desarrollo)](docs/engineering/getting-started.md)
+- [Getting started (índice docs)](docs/getting-started.md)
 - [Flujo de trabajo con IA](docs/ai-workflow.md)

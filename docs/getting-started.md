@@ -1,5 +1,11 @@
 # Guía de inicio
 
+## Arranque del software (infra + API + frontend)
+
+**Guía operativa completa:** [engineering/getting-started.md](engineering/getting-started.md)
+
+Incluye: requisitos (Node, Docker), primera instalación, `docker compose up`, desarrollo nativo, reinicio día a día, tests y troubleshooting.
+
 ## Capas del repositorio
 
 | Capa | Carpeta | Naturaleza |
@@ -20,7 +26,8 @@
 
 ## Índices en raíz
 
-- [README.md](../readme.md) — ficha académica
+- [readme.md](../readme.md) — ficha académica
 - [ARCHITECTURE.md](../ARCHITECTURE.md) — índice de arquitectura
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — convenciones
 - [prompts.md](../prompts.md) — índice de prompts
+- [AGENTS.md](../AGENTS.md) — guía para agentes de codificación

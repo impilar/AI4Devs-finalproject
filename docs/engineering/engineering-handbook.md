@@ -19,6 +19,15 @@ Guía operativa del repositorio.
 4. Verificar output en `docs/`
 5. Registrar prompt en `prompts/{fase}/`
 
+## Plan de implementación
+
+Antes de codificar en `src/`:
+
+- Cola priorizada: `implementation-plan-v1.md`, `implementation-queue-v1.json`
+- OpenSpec: [openspec-setup.md](openspec-setup.md), `openspec/config.yaml`
+- Estándares: [standards/base-standards.md](standards/base-standards.md)
+- Entrada agentes: [AGENTS.md](../../AGENTS.md)
+
 ## Enlaces
 
 - [Getting started](getting-started.md)

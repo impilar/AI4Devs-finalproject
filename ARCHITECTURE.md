@@ -9,7 +9,10 @@
 | HLD v1 | [docs/architecture/hld/HLD-v1.md](docs/architecture/hld/HLD-v1.md) |
 | Modelo de datos v1 | [docs/architecture/data-model/logical-model-v1.md](docs/architecture/data-model/logical-model-v1.md) |
 | LLD v1 | [docs/architecture/lld/LLD-v1.md](docs/architecture/lld/LLD-v1.md) |
+| API spec v1 | [docs/architecture/apis/](docs/architecture/apis/) *(pending)* |
 | ADRs | [docs/architecture/adr/](docs/architecture/adr/) |
+| OpenSpec (runtime behavior) | [openspec/](openspec/) |
+| Coding standards | [docs/engineering/standards/](docs/engineering/standards/) |
 
 ## Resumen
 
