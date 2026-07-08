@@ -12,27 +12,27 @@
     "EPIC-001": {
       "title": "Acceder y navegar",
       "release": "MVP",
-      "status": "in_progress"
+      "status": "done"
     },
     "EPIC-002": {
       "title": "Capturar contenido",
       "release": "MVP",
-      "status": "in_progress"
+      "status": "done"
     },
     "EPIC-003": {
       "title": "Organizar con etiquetas",
       "release": "MVP",
-      "status": "in_progress"
+      "status": "done"
     },
     "EPIC-004": {
       "title": "Recuperar información",
       "release": "MVP",
-      "status": "in_progress"
+      "status": "done"
     },
     "EPIC-005": {
       "title": "Mantener el conocimiento",
       "release": "MVP",
-      "status": "in_progress"
+      "status": "done"
     }
   },
   "stories": {
